@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { HeartPulse, Menu, X } from "lucide-react";
 import { Button } from "@/app/components/ui/Button";
 
@@ -13,16 +14,16 @@ interface NavLink {
 // TODO: Replace with API data
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Doctors", href: "#doctors" },
-  { label: "Departments", href: "#departments" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Doctors", href: "/doctors" },
+  { label: "Departments", href: "/departments" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
-export function Navbar() {
+function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/");
+  const pathname = usePathname();
 
   useEffect(() => {
     function handleScroll() {
@@ -33,8 +34,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function handleNavClick(href: string) {
-    setActiveLink(href);
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }
+
+  function handleMobileNavClick() {
     setIsMobileMenuOpen(false);
   }
 
@@ -75,13 +80,12 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                onClick={() => handleNavClick(link.href)}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded px-1 py-1 ${
-                  activeLink === link.href
+                  isActive(link.href)
                     ? "text-primary"
                     : "text-text-secondary"
                 }`}
-                aria-current={activeLink === link.href ? "page" : undefined}
+                aria-current={isActive(link.href) ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -94,7 +98,7 @@ export function Navbar() {
           <Button variant="outline" size="sm" href="/login">
             Login
           </Button>
-          <Button variant="primary" size="sm" href="/book-appointment">
+          <Button variant="primary" size="sm" href="/appointment">
             Book Appointment
           </Button>
         </div>
@@ -130,13 +134,13 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={handleMobileNavClick}
                   className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200 hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                    activeLink === link.href
+                    isActive(link.href)
                       ? "text-primary bg-primary/5"
                       : "text-text-secondary"
                   }`}
-                  aria-current={activeLink === link.href ? "page" : undefined}
+                  aria-current={isActive(link.href) ? "page" : undefined}
                 >
                   {link.label}
                 </Link>
@@ -147,7 +151,7 @@ export function Navbar() {
             <Button variant="outline" size="md" href="/login">
               Login
             </Button>
-            <Button variant="primary" size="md" href="/book-appointment">
+            <Button variant="primary" size="md" href="/appointment">
               Book Appointment
             </Button>
           </div>
@@ -165,3 +169,5 @@ export function Navbar() {
     </header>
   );
 }
+
+export { Navbar };

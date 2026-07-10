@@ -1,13 +1,23 @@
 import { Hero } from "@/app/components/home/Hero";
-import { Navbar } from "@/app/components/home/Navbar";
+import { StatsBar } from "@/app/components/home/StatsBar";
+import { Departments } from "@/app/components/home/Departments";
+import { FeaturedDoctors } from "@/app/components/home/FeaturedDoctors";
+import { HowItWorks } from "@/app/components/home/HowItWorks";
+import { Features } from "@/app/components/home/Features";
+import { Testimonials } from "@/app/components/home/Testimonials";
+import { CTA } from "@/app/components/home/CTA";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-      </main>
+      <Hero />
+      <StatsBar />
+      <Departments />
+      <FeaturedDoctors />
+      <HowItWorks />
+      <Features />
+      <Testimonials />
+      <CTA />
     </>
   );
 }

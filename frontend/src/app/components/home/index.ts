@@ -1,2 +1,13 @@
 export { Navbar } from "./Navbar";
 export { Hero } from "./Hero";
+export { StatsBar } from "./StatsBar";
+export { Departments } from "./Departments";
+export { FeaturedDoctors } from "./FeaturedDoctors";
+export { SpecialtyDoctors } from "./SpecialtyDoctors";
+export { HowItWorks } from "./HowItWorks";
+export { Features } from "./Features";
+export { EmergencyBanner } from "./EmergencyBanner";
+export { FAQ } from "./FAQ";
+export { Testimonials } from "./Testimonials";
+export { CTA } from "./CTA";
+export { Footer } from "./Footer";

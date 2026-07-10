@@ -19,10 +19,10 @@ export function Hero() {
               prescriptions, all in one place.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" size="lg" href="/book-appointment">
+              <Button variant="primary" size="lg" href="/appointment">
                 Book Appointment
               </Button>
-              <Button variant="outline" size="lg" href="#doctors">
+              <Button variant="outline" size="lg" href="/doctors">
                 Find a Doctor
               </Button>
             </div>
