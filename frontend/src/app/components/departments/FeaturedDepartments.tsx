@@ -16,7 +16,7 @@ const featuredDepts = departments.filter((d) =>
 
 export function FeaturedDepartments() {
   return (
-    <AnimatedSection className="bg-background py-16 md:py-24">
+    <AnimatedSection className="bg-background py-2 pb-8">
       <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <SectionHeading
           title="Featured Departments"

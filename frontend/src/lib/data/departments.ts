@@ -331,7 +331,7 @@ export const departments: Department[] = [
     emergencyAvailable: false,
     onlineConsultation: true,
     imageUrl:
-      "https://images.unsplash.com/photo-1570125909232-512ae1d0a4cb?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
     conditionsTreated: [
       "Cataracts",
       "Glaucoma",

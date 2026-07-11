@@ -1,21 +1,16 @@
 "use client";
 
 import {
-  ComparisonTable,
   DepartmentGrid,
   DepartmentPreview,
   DepartmentsCTA,
   DepartmentSearch,
   DepartmentsHero,
   DepartmentStats,
-  FAQ,
   FeaturedDepartments,
-  FeaturedSpecialists,
   MedicalTechnology,
   QuickCategories,
-  SuccessStories,
   TreatmentTimeline,
-  WhyChooseDepartments,
 } from "@/app/components/departments";
 import { PageTransition } from "@/app/components/ui/PageTransition";
 import type { Department } from "@/lib/data/departments";
@@ -139,7 +134,7 @@ export default function DepartmentsPage() {
       <FeaturedDepartments />
 
       {/* 5. All Departments Grid */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="bg-surface py-6 md:py-16">
         <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-text-primary md:text-4xl lg:text-5xl">
@@ -155,34 +150,13 @@ export default function DepartmentsPage() {
         </div>
       </section>
 
-      {/* 6. Department Details Preview */}
-      <DepartmentPreview
-        selectedDepartment={selectedDept}
-        onClose={() => setSelectedDept(null)}
-      />
-
-      {/* 7. Medical Services Comparison */}
-      <ComparisonTable />
-
-      {/* 8. Our Medical Technology */}
+      {/* 7. Our Medical Technology */}
       <MedicalTechnology />
 
-      {/* 9. Treatment Process Timeline */}
+      {/* 8. Treatment Process Timeline */}
       <TreatmentTimeline />
 
-      {/* 10. Featured Specialists */}
-      <FeaturedSpecialists />
-
-      {/* 11. Why Choose Our Departments */}
-      <WhyChooseDepartments />
-
-      {/* 12. Patient Success Stories */}
-      <SuccessStories />
-
-      {/* 13. FAQ */}
-      <FAQ />
-
-      {/* 14. Call To Action */}
+      {/* 9. Call To Action */}
       <DepartmentsCTA />
     </PageTransition>
   );

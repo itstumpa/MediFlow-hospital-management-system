@@ -63,7 +63,7 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 
 export function DepartmentStats() {
   return (
-    <AnimatedSection className="bg-gradient-to-br from-primary via-primary-dark to-[#0a5f5e] py-16 md:py-20">
+    <AnimatedSection className="bg-gradient-to-br from-primary via-primary-dark to-[#0a5f5e] md:pb-10">
       <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
           {stats.map((stat) => {

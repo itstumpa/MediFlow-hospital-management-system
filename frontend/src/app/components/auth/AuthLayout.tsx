@@ -2,16 +2,14 @@
 
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { AuthIllustration } from "./AuthIllustration";
 
 interface AuthLayoutProps {
   children: ReactNode;
-  illustration?: ReactNode;
 }
 
-export function AuthLayout({ children, illustration }: AuthLayoutProps) {
+export function AuthLayout({ children }: AuthLayoutProps) {
   return (
-    <div className="relative flex min-h-[calc(100vh-4rem)]">
+    <div className="relative flex min-h-[calc(100vh-4rem)] w-full">
       {/* Background decorations */}
       <div className="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
         {/* Soft medical gradient */}
@@ -34,30 +32,15 @@ export function AuthLayout({ children, illustration }: AuthLayoutProps) {
         />
       </div>
 
-      {/* Main content */}
-      <div className="flex w-full flex-col lg:flex-row">
-        {/* Left — Form */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="flex w-full items-center justify-center px-4 py-12 lg:w-1/2 lg:px-8 xl:px-16"
-        >
-          <div className="w-full max-w-md">{children}</div>
-        </motion.div>
-
-        {/* Right — Illustration */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="hidden lg:flex lg:w-1/2 lg:min-h-[calc(100vh-4rem)]"
-        >
-          <div className="relative w-full rounded-l-3xl bg-gradient-to-br from-primary/5 via-surface to-accent/5 border-l border-border/30 overflow-hidden">
-            {illustration ?? <AuthIllustration />}
-          </div>
-        </motion.div>
-      </div>
+      {/* Centered form content — full width */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="flex w-full items-center justify-center px-4 py-12"
+      >
+        <div className="w-full max-w-md">{children}</div>
+      </motion.div>
     </div>
   );
 }

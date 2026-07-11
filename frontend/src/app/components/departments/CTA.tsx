@@ -101,14 +101,18 @@ export function DepartmentsCTA() {
 
               {/* Floating medical cards */}
               {[
-                { text: "✔ Insurance Accepted", x: -30, y: 20 },
-                { text: "✔ Same-Day Appointments", x: 20, y: -30 },
-                { text: "✔ Online Consultations", x: 25, y: 60 },
+                { text: "✔ Insurance Accepted", top: "10%", left: "50%" },
+                { text: "✔ Same-Day Appointments", top: "50%", left: "50%" },
+                { text: "✔ Online Consultations", top: "88%", left: "50%" },
               ].map((card) => (
                 <motion.div
                   key={card.text}
                   className="absolute rounded-xl border border-white/10 bg-white/90 px-4 py-2.5 shadow-lg backdrop-blur-sm"
-                  style={{ left: `${card.x}%`, top: `${card.y}%` }}
+                  style={{
+                    top: card.top,
+                    left: card.left,
+                    transform: "translateX(-50%)",
+                  }}
                   animate={{
                     y: [-4, 4, -4],
                     transition: {

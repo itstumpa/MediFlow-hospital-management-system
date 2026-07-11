@@ -65,7 +65,7 @@ export function DepartmentsHero() {
         <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-white/[0.02]" />
       </div>
 
-      <div className="relative mx-auto max-w-page px-4 py-12 md:px-6 md:py-16 lg:px-8 lg:py-20">
+      <div className="relative mx-auto max-w-page px-4 py-12 md:px-6 md:py-16 lg:px-8">
         {/* Breadcrumb */}
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
@@ -119,30 +119,7 @@ export function DepartmentsHero() {
               exceptional patient care.
             </motion.p>
 
-            {/* Statistics */}
-            <motion.div
-              variants={staggerItem}
-              className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4"
-            >
-              {stats.map((stat) => {
-                const Icon = stat.icon;
-                return (
-                  <div
-                    key={stat.label}
-                    className="rounded-xl border border-white/10 bg-white/5 p-3 text-center backdrop-blur-sm"
-                  >
-                    <Icon
-                      className="mx-auto mb-1 h-5 w-5 text-accent"
-                      aria-hidden="true"
-                    />
-                    <div className="text-xl font-bold text-white">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-white/70">{stat.label}</div>
-                  </div>
-                );
-              })}
-            </motion.div>
+           
 
             {/* Buttons */}
             <motion.div

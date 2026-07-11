@@ -8,7 +8,7 @@ import { CheckCircle, Monitor, Phone, XCircle } from "lucide-react";
 
 export function ComparisonTable() {
   return (
-    <AnimatedSection className="bg-background py-16 md:py-24" id="comparison">
+    <AnimatedSection className="bg-background py-16 md:py-12" id="comparison">
       <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <SectionHeading
           title="Medical Services Comparison"

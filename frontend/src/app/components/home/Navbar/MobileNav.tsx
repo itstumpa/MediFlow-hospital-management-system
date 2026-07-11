@@ -205,7 +205,7 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                   <Button
                     variant="outline"
                     size="md"
-                    href="/login"
+                    href="/auth/login"
                     className="w-full"
                   >
                     Login

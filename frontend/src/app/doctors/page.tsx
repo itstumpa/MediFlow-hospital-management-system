@@ -6,20 +6,19 @@ import {
   DoctorsHero,
   FeaturedDoctor,
   Pagination,
-  PatientReviewPreview,
   QuickFilters,
   SidebarFilters,
   SortDropdown,
 } from "@/app/components/doctors";
 import { PageTransition } from "@/app/components/ui/PageTransition";
 import { doctorsList } from "@/lib/data/doctors";
-import { getReviewsByDoctorId } from "@/lib/data/reviews";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, Home, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-const DOCTORS_PER_PAGE = 9;
+const DOCTORS_PER_PAGE = 6;
 
 export default function DoctorsPage() {
   // Filter state
@@ -203,18 +202,6 @@ export default function DoctorsPage() {
       ? topRated.slice(0, 3)
       : doctorsList.slice(0, 3);
   }, []);
-
-  const featuredReviews = useMemo(
-    () => getReviewsByDoctorId(featuredDoctors[0]?.id).slice(0, 3),
-    [featuredDoctors],
-  );
-
-  const sidebarReviews = useMemo(() => {
-    const reviewedDoctors = paginatedDoctors.slice(0, 3);
-    return reviewedDoctors.flatMap((d) =>
-      getReviewsByDoctorId(d.id).slice(0, 1),
-    );
-  }, [paginatedDoctors]);
 
   const handleClearFilters = () => {
     setSearchQuery("");
@@ -428,13 +415,6 @@ export default function DoctorsPage() {
 
             <FeaturedDoctor doctors={featuredDoctors} />
 
-            <div className="mt-10">
-              <PatientReviewPreview
-                reviews={
-                  sidebarReviews.length > 0 ? sidebarReviews : featuredReviews
-                }
-              />
-            </div>
           </div>
         </div>
       </div>

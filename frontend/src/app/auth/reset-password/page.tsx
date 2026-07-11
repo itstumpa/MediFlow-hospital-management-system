@@ -1,6 +1,5 @@
 import { AuthLayout } from "@/app/components/auth/AuthLayout";
 import { ResetPasswordForm } from "@/app/components/auth/ResetPasswordForm";
-import { ResetPasswordIllustration } from "@/app/components/auth/ResetPasswordIllustration";
 import { Suspense } from "react";
 
 function ResetPasswordPageContent({
@@ -11,7 +10,7 @@ function ResetPasswordPageContent({
   const token = searchParams.token ?? "";
 
   return (
-    <AuthLayout illustration={<ResetPasswordIllustration />}>
+    <AuthLayout>
       <ResetPasswordForm token={token} />
     </AuthLayout>
   );
