@@ -162,18 +162,7 @@ export function Testimonials() {
           <TestimonialCarousel testimonials={testimonials} />
         </motion.div>
 
-        {/* Review Stats */}
-        <motion.div variants={fadeUpVariants}>
-          <ReviewStats />
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div variants={fadeUpVariants} className="mt-10 text-center">
-          <p className="mb-6 text-xl font-semibold text-text-primary sm:text-2xl">
-            Ready to Experience Better Healthcare?
-          </p>
-          <CTAButtons />
-        </motion.div>
+   
       </motion.div>
     </section>
   );

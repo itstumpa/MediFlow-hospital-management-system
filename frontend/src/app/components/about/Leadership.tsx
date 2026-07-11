@@ -6,6 +6,7 @@ import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const leadership = [
   {
@@ -13,6 +14,8 @@ const leadership = [
     position: "Chief Executive Officer",
     bio: "Visionary healthcare leader with 25+ years of experience in hospital management and patient care innovation. Dr. Ahmed has transformed MediFlow into a trusted healthcare brand.",
     initials: "FA",
+    image:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop&crop=face",
     linkedin: "#",
     gradient: "from-primary/20 to-accent/20",
   },
@@ -21,6 +24,8 @@ const leadership = [
     position: "Medical Director",
     bio: "Board-certified physician with expertise in internal medicine and healthcare quality standards. Dr. Jahan oversees all clinical operations and medical protocols.",
     initials: "NJ",
+    image:
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&h=200&fit=crop&crop=face",
     linkedin: "#",
     gradient: "from-accent/20 to-primary/20",
   },
@@ -29,6 +34,8 @@ const leadership = [
     position: "Head of Surgery",
     bio: "Renowned surgeon with specialized training in minimally invasive procedures. Dr. Karim has performed over 5,000 successful surgeries with a 99% success rate.",
     initials: "TK",
+    image:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&crop=face",
     linkedin: "#",
     gradient: "from-primary-dark/20 to-accent/20",
   },
@@ -37,6 +44,8 @@ const leadership = [
     position: "Operations Manager",
     bio: "Healthcare administration expert ensuring seamless daily operations. Sarah's leadership has improved patient satisfaction scores by 40% through process optimization.",
     initials: "SR",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face",
     linkedin: "#",
     gradient: "from-accent/20 to-primary-dark/20",
   },
@@ -46,7 +55,7 @@ export function Leadership() {
   const reduced = useReducedMotion();
 
   return (
-    <AnimatedSection className="bg-background py-16 md:py-24">
+    <AnimatedSection className="bg-background py-6 md:py-16">
       <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <SectionHeading
           title="Meet Our Leadership"
@@ -77,13 +86,15 @@ export function Leadership() {
                 aria-hidden="true"
               />
 
-              {/* Photo placeholder */}
-              <div
-                className={`mx-auto mb-5 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br ${member.gradient} ring-2 ring-border transition-shadow duration-300 group-hover:ring-primary/30`}
-              >
-                <span className="text-2xl font-bold text-primary">
-                  {member.initials}
-                </span>
+              {/* Photo */}
+              <div className="mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full ring-2 ring-border transition-shadow duration-300 group-hover:ring-primary/30">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={96}
+                  height={96}
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               {/* Name & Position */}

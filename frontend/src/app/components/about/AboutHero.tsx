@@ -99,7 +99,7 @@ export function AboutHero() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0a4a4a] pt-28 pb-20 md:pt-36 md:pb-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0a4a4a] pt-4 pb-20 md:pt-6 md:pb-28">
       {/* Background decorative elements */}
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden"

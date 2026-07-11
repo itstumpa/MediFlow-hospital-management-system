@@ -9,7 +9,7 @@ export function EmergencyBanner() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-danger via-danger/90 to-danger/80 py-14 md:py-20">
+    <section className="relative overflow-hidden bg-gradient-to-r from-danger via-danger/90 to-danger/80 py-14 md:py-10">
       {/* Pulse animation background */}
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden"

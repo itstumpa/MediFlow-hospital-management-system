@@ -5,6 +5,7 @@ import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 import { motion } from "framer-motion";
 import { Building2, Goal, Rocket, Stethoscope } from "lucide-react";
+import Image from "next/image";
 
 const milestones = [
   {
@@ -41,7 +42,7 @@ export function Story() {
   const reduced = useReducedMotion();
 
   return (
-    <AnimatedSection className="bg-surface py-16 md:py-24">
+    <AnimatedSection className="bg-surface py-6 md:py-16">
       <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <SectionHeading
           title="Our Story"
@@ -62,19 +63,13 @@ export function Story() {
             className="relative"
           >
             <div className="relative overflow-hidden rounded-2xl">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10">
-                <div className="flex h-full items-center justify-center">
-                  <div className="text-center">
-                    <div
-                      className="mx-auto mb-4 h-48 w-48 rounded-full bg-gradient-to-br from-primary/20 to-accent/20"
-                      aria-hidden="true"
-                    />
-                    <p className="text-sm text-text-secondary">
-                      MediFlow Hospital — Since 2005
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop"
+                alt="MediFlow Hospital — Modern healthcare facility"
+                width={800}
+                height={600}
+                className="aspect-[4/3] h-full w-full object-cover"
+              />
             </div>
 
             {/* Decorative accent */}

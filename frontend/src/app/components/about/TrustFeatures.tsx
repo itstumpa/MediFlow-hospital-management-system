@@ -71,7 +71,7 @@ export function TrustFeatures() {
   const reduced = useReducedMotion();
 
   return (
-    <AnimatedSection className="bg-surface py-16 md:py-24">
+    <AnimatedSection className="bg-surface py-6 md:py-16">
       <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <SectionHeading
           title="Why Patients Trust Us"

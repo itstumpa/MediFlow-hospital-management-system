@@ -108,7 +108,7 @@ export default function AppointmentPage() {
 
   if (isConfirmed) {
     return (
-      <section className="bg-background py-16 md:py-24">
+      <section className="bg-background py-6 md:py-16">
         <div className="mx-auto max-w-lg px-4 text-center md:px-6 lg:px-8">
           <div className="rounded-xl border border-success/20 bg-success/5 p-8 shadow-sm">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-success/10">
@@ -166,19 +166,19 @@ export default function AppointmentPage() {
   return (
     <PageTransition>
       {/* Hero banner */}
-      <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
+      <section className=" py-4 md:py-6">
         <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-primary md:text-5xl">
             Book an appointment
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/80">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary/80">
             Schedule your visit with our expert doctors. Quick and hassle-free.
           </p>
         </div>
       </section>
 
       {/* Booking form */}
-      <section className="bg-background py-16 md:py-24">
+      <section className="bg-background py-4 md:py-10">
         <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           {/* Steps indicator */}
           <div className="mb-10 flex items-center justify-center gap-2 text-sm font-medium">

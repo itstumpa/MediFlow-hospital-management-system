@@ -88,7 +88,7 @@ export function CommunityImpact() {
   const reduced = useReducedMotion();
 
   return (
-    <AnimatedSection className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0a4a4a] py-16 md:py-24">
+    <AnimatedSection className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-[#0a4a4a] py-6 md:py-16">
       {/* Background decoration */}
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden"
