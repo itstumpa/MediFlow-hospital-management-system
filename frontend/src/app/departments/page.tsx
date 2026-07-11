@@ -1,4 +1,5 @@
 import { Button } from "@/app/components/ui/Button";
+import { PageTransition } from "@/app/components/ui/PageTransition";
 import type { LucideIcon } from "lucide-react";
 import {
   Ambulance,
@@ -107,7 +108,7 @@ const departments: DepartmentDetail[] = [
 
 export default function DepartmentsPage() {
   return (
-    <>
+    <PageTransition>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
         <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
@@ -173,6 +174,6 @@ export default function DepartmentsPage() {
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 }

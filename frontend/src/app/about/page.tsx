@@ -1,5 +1,6 @@
 import { FAQ } from "@/app/components/home/FAQ";
 import { Button } from "@/app/components/ui/Button";
+import { PageTransition } from "@/app/components/ui/PageTransition";
 import { Award, Eye, HeartPulse, Shield, Target, Users } from "lucide-react";
 
 // TODO: Replace with API data
@@ -63,7 +64,7 @@ const team = [
 
 export default function AboutPage() {
   return (
-    <>
+    <PageTransition>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
         <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
@@ -231,6 +232,6 @@ export default function AboutPage() {
 
       {/* FAQ section */}
       <FAQ />
-    </>
+    </PageTransition>
   );
 }

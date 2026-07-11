@@ -31,11 +31,10 @@ const socialLinks = [
 
 export function EmergencyBanner() {
   return (
-    <div className="bg-primary-dark" aria-label="Top bar">
+    <div className="bg-primary-dark">
       <div className="mx-auto flex max-w-page items-center justify-between px-4 py-2 md:px-6 lg:px-8">
-       
         {/* Emergency contact — right side */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20">
             <Phone className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
           </div>
@@ -51,8 +50,8 @@ export function EmergencyBanner() {
           </a>
         </div>
 
-         {/* Social icons — left side */}
-        <div className="flex items-center gap-3">
+        {/* Social icons — left side */}
+        <div className="hidden items-center gap-3 sm:flex">
           {socialLinks.map((social) => (
             <Link
               key={social.label}
@@ -77,7 +76,6 @@ export function EmergencyBanner() {
             </Link>
           ))}
         </div>
-
       </div>
     </div>
   );

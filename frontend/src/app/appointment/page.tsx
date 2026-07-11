@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/app/components/ui/Button";
+import { PageTransition } from "@/app/components/ui/PageTransition";
 import { Calendar, Clock, Stethoscope, User } from "lucide-react";
 import { useState } from "react";
 
@@ -163,7 +164,7 @@ export default function AppointmentPage() {
   }
 
   return (
-    <>
+    <PageTransition>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
         <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
@@ -565,6 +566,6 @@ export default function AppointmentPage() {
           </form>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 }
