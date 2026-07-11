@@ -94,7 +94,10 @@ export const countUp = (
 ): {
   initial: number;
   animate: { count: number };
-  transition: { duration: number; ease: Readonly<[number, number, number, number]> };
+  transition: {
+    duration: number;
+    ease: Readonly<[number, number, number, number]>;
+  };
 } => ({
   initial: 0,
   animate: { count: target },

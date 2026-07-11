@@ -1,13 +1,17 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
-import { staggerContainer, staggerItem, imageZoom } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { GalleryItem } from "@/lib/data/department-detail";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useState } from "react";
+import {
+  imageZoom,
+  staggerContainer,
+  staggerItem,
+} from "./SharedMotionVariants";
 
 interface Props {
   items: GalleryItem[];
@@ -75,8 +79,12 @@ export function FacilitiesGallery({ items }: Props) {
 
               {/* Content */}
               <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-                <p className="mt-0.5 text-xs text-white/80">{item.description}</p>
+                <h3 className="text-sm font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-0.5 text-xs text-white/80">
+                  {item.description}
+                </p>
               </div>
 
               {/* Expand icon */}
@@ -111,7 +119,10 @@ export function FacilitiesGallery({ items }: Props) {
 
               {/* Prev */}
               <button
-                onClick={(e) => { e.stopPropagation(); prevLightbox(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevLightbox();
+                }}
                 className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/20 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-white"
                 aria-label="Previous image"
               >
@@ -148,7 +159,10 @@ export function FacilitiesGallery({ items }: Props) {
 
               {/* Next */}
               <button
-                onClick={(e) => { e.stopPropagation(); nextLightbox(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextLightbox();
+                }}
                 className="absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/20 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-white md:block"
                 aria-label="Next image"
               >
@@ -160,9 +174,14 @@ export function FacilitiesGallery({ items }: Props) {
                 {items.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLightboxIndex(idx);
+                    }}
                     className={`h-1.5 rounded-full transition-all ${
-                      idx === lightboxIndex ? "w-6 bg-white" : "w-1.5 bg-white/50 hover:bg-white/70"
+                      idx === lightboxIndex
+                        ? "w-6 bg-white"
+                        : "w-1.5 bg-white/50 hover:bg-white/70"
                     }`}
                     aria-label={`Go to image ${idx + 1}`}
                   />
