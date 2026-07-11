@@ -1,6 +1,5 @@
 "use client";
 
-import { EmergencyBanner } from "@/app/components/home/EmergencyBanner";
 import { Button } from "@/app/components/ui/Button";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
@@ -56,9 +55,6 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Emergency banner */}
-      <EmergencyBanner />
-
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
         <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">

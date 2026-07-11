@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Button } from "@/app/components/ui/Button";
+import Image from "next/image";
 
 interface Doctor {
   name: string;
@@ -36,7 +36,14 @@ const doctors: Doctor[] = [
     specialty: "Orthopedic Surgeon",
     experience: "18 years",
     imageUrl:
-      "https://images.unsplash.com/photo-1618498082410-b4aa22193b8e?w=300&h=300&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=300&fit=crop&crop=face",
+  },
+  {
+    name: "Dr. Rohit Sharma",
+    specialty: "Dermatologist",
+    experience: "8 years",
+    imageUrl:
+      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300&h=300&fit=crop&crop=face",
   },
 ];
 
@@ -54,7 +61,7 @@ export function FeaturedDoctors() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {doctors.map((doctor) => (
             <div
               key={doctor.name}

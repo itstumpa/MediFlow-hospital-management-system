@@ -28,11 +28,13 @@ const departmentLinks: FooterLink[] = [
   { label: "Pediatrics", href: "/departments" },
   { label: "Orthopedics", href: "/departments" },
   { label: "Ophthalmology", href: "/departments" },
+  { label: "Women's Health", href: "/departments" },
+  { label: "Gynecology", href: "/departments" },
 ];
 
 const contactInfo = [
-  { label: "123 Healthcare Avenue, Dhaka, Bangladesh" },
-  { label: "+880-XXX-XXXXXX" },
+  { label: "123 Healthcare Avenue, Voluptate non doloru, USA" },
+  { label: "+1 (249) 752-5068" },
   { label: "info@mediflow.com" },
 ];
 
