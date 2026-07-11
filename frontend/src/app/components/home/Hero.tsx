@@ -29,7 +29,7 @@ const itemVariants = {
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[80vh] items-center overflow-hidden pt-24 lg:min-h-[90vh] lg:pt-28">
+    <section className="relative flex min-h-[70vh] items-center overflow-hidden pt-20 pb-10 lg:min-h-[60vh]">
       {/* Background image */}
       <Image
         src="https://plus.unsplash.com/premium_photo-1681843126728-04eab730febe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

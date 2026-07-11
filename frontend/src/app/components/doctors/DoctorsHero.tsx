@@ -43,7 +43,7 @@ export function DoctorsHero() {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/60 to-primary/10" />
 
       {/* Bottom fade gradient for smooth section transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-22 bg-gradient-to-t from-background to-transparent" />
 
       {/* Content */}
       <motion.div

@@ -1,0 +1,16 @@
+export { ComparisonTable } from "./ComparisonTable";
+export { DepartmentsCTA } from "./CTA";
+export { DepartmentCard } from "./DepartmentCard";
+export { DepartmentGrid } from "./DepartmentGrid";
+export { DepartmentPreview } from "./DepartmentPreview";
+export { DepartmentSearch } from "./DepartmentSearch";
+export { DepartmentsHero } from "./DepartmentsHero";
+export { DepartmentStats } from "./DepartmentStats";
+export { FAQ } from "./FAQ";
+export { FeaturedDepartments } from "./FeaturedDepartments";
+export { FeaturedSpecialists } from "./FeaturedSpecialists";
+export { MedicalTechnology } from "./MedicalTechnology";
+export { QuickCategories } from "./QuickCategories";
+export { SuccessStories } from "./SuccessStories";
+export { TreatmentTimeline } from "./TreatmentTimeline";
+export { WhyChooseDepartments } from "./WhyChooseDepartments";
