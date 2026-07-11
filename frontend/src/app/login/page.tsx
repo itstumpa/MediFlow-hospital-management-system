@@ -113,7 +113,7 @@ export default function LoginPage() {
                   Remember me
                 </label>
                 <Link
-                  href="#"
+                  href="/auth/forgot-password"
                   className="text-sm font-medium text-primary hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
                 >
                   Forgot password?
@@ -135,12 +135,22 @@ export default function LoginPage() {
             <p className="mt-6 text-center text-sm text-text-secondary">
               Do not have an account?{" "}
               <Link
-                href="#"
+                href="/auth/register"
                 className="font-medium text-primary hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
               >
                 Create one
               </Link>
             </p>
+
+            {/* Resend verification & more links */}
+            <div className="mt-4 flex flex-col items-center gap-2 text-sm text-text-secondary">
+              <Link
+                href="/auth/resend-verification"
+                className="font-medium text-primary hover:text-primary-dark transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+              >
+                Resend email verification
+              </Link>
+            </div>
           </div>
         </div>
       </section>
