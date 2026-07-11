@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Button } from "@/app/components/ui/Button";
+import { HeartPulse, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HeartPulse, Menu, X } from "lucide-react";
-import { Button } from "@/app/components/ui/Button";
+import { useEffect, useState } from "react";
 
 interface NavLink {
   label: string;
@@ -54,14 +54,12 @@ function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-shadow duration-300 ${
-        isScrolled
-          ? "bg-surface shadow-md"
-          : "bg-surface/95 backdrop-blur-sm"
+        isScrolled ? "bg-surface shadow-md" : "bg-surface/95 backdrop-blur-sm"
       }`}
       role="banner"
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6 lg:px-8"
+        className="mx-auto flex max-w-page items-center justify-between px-4 py-3 md:px-6 lg:px-8"
         aria-label="Main navigation"
       >
         {/* Logo */}
@@ -81,9 +79,7 @@ function Navbar() {
               <Link
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded px-1 py-1 ${
-                  isActive(link.href)
-                    ? "text-primary"
-                    : "text-text-secondary"
+                  isActive(link.href) ? "text-primary" : "text-text-secondary"
                 }`}
                 aria-current={isActive(link.href) ? "page" : undefined}
               >
@@ -110,7 +106,9 @@ function Navbar() {
           onClick={toggleMobileMenu}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
-          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
         >
           {isMobileMenuOpen ? (
             <X className="h-6 w-6" aria-hidden="true" />

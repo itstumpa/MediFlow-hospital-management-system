@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Search } from "lucide-react";
-import { Button } from "@/app/components/ui/Button";
 import { SpecialtyDoctors } from "@/app/components/home/SpecialtyDoctors";
-import { SectionHeading } from "@/app/components/ui/SectionHeading";
+import { Button } from "@/app/components/ui/Button";
+import { Search } from "lucide-react";
+import { useState } from "react";
 
 interface Doctor {
   name: string;
@@ -15,18 +14,78 @@ interface Doctor {
 
 // TODO: Replace with API data
 const allDoctors: Doctor[] = [
-  { name: "Dr. Sarah Rahman", specialty: "Cardiologist", experience: "15 years", imageUrl: "" },
-  { name: "Dr. Michael Torres", specialty: "Interventional Cardiologist", experience: "14 years", imageUrl: "" },
-  { name: "Dr. Lisa Park", specialty: "Pediatric Cardiologist", experience: "11 years", imageUrl: "" },
-  { name: "Dr. James Mitchell", specialty: "Neurologist", experience: "12 years", imageUrl: "" },
-  { name: "Dr. Emily Watson", specialty: "Neurosurgeon", experience: "16 years", imageUrl: "" },
-  { name: "Dr. David Kim", specialty: "Clinical Neurologist", experience: "10 years", imageUrl: "" },
-  { name: "Dr. Ayesha Khan", specialty: "Pediatrician", experience: "10 years", imageUrl: "" },
-  { name: "Dr. Rachel Green", specialty: "Neonatologist", experience: "13 years", imageUrl: "" },
-  { name: "Dr. Omar Hassan", specialty: "Pediatric Surgeon", experience: "15 years", imageUrl: "" },
-  { name: "Dr. Robert Chen", specialty: "Orthopedic Surgeon", experience: "18 years", imageUrl: "" },
-  { name: "Dr. Maria Santos", specialty: "Ophthalmologist", experience: "12 years", imageUrl: "" },
-  { name: "Dr. John Baker", specialty: "Pulmonologist", experience: "14 years", imageUrl: "" },
+  {
+    name: "Dr. Sarah Rahman",
+    specialty: "Cardiologist",
+    experience: "15 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Michael Torres",
+    specialty: "Interventional Cardiologist",
+    experience: "14 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Lisa Park",
+    specialty: "Pediatric Cardiologist",
+    experience: "11 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. James Mitchell",
+    specialty: "Neurologist",
+    experience: "12 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Emily Watson",
+    specialty: "Neurosurgeon",
+    experience: "16 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. David Kim",
+    specialty: "Clinical Neurologist",
+    experience: "10 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Ayesha Khan",
+    specialty: "Pediatrician",
+    experience: "10 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Rachel Green",
+    specialty: "Neonatologist",
+    experience: "13 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Omar Hassan",
+    specialty: "Pediatric Surgeon",
+    experience: "15 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Robert Chen",
+    specialty: "Orthopedic Surgeon",
+    experience: "18 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. Maria Santos",
+    specialty: "Ophthalmologist",
+    experience: "12 years",
+    imageUrl: "",
+  },
+  {
+    name: "Dr. John Baker",
+    specialty: "Pulmonologist",
+    experience: "14 years",
+    imageUrl: "",
+  },
 ];
 
 const specialties = [
@@ -50,7 +109,8 @@ export default function DoctorsPage() {
       doctor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doctor.specialty.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesSpecialty =
-      activeSpecialty === "All Specialties" || doctor.specialty.includes(activeSpecialty);
+      activeSpecialty === "All Specialties" ||
+      doctor.specialty.includes(activeSpecialty);
     return matchesSearch && matchesSpecialty;
   });
 
@@ -69,24 +129,27 @@ export default function DoctorsPage() {
     <>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
             Our doctors
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-white/80">
-            Meet our team of experienced specialists committed to your health and
-            well-being.
+            Meet our team of experienced specialists committed to your health
+            and well-being.
           </p>
         </div>
       </section>
 
       {/* Search and filter */}
       <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 py-6 md:px-6 lg:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             {/* Search bar */}
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text-secondary" aria-hidden="true" />
+              <Search
+                className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text-secondary"
+                aria-hidden="true"
+              />
               <input
                 type="search"
                 placeholder="Search doctors by name or specialty..."
@@ -101,7 +164,11 @@ export default function DoctorsPage() {
             </div>
 
             {/* Specialty filter pills */}
-            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by specialty">
+            <div
+              className="flex flex-wrap gap-2"
+              role="tablist"
+              aria-label="Filter by specialty"
+            >
               {specialties.map((specialty) => (
                 <button
                   key={specialty}
@@ -127,7 +194,7 @@ export default function DoctorsPage() {
 
       {/* Doctor listing */}
       <section className="bg-background py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           {paginatedDoctors.length > 0 ? (
             <>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -140,7 +207,10 @@ export default function DoctorsPage() {
                     {/* Avatar placeholder */}
                     <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary/10 to-accent/10 ring-2 ring-border">
                       <span className="text-2xl font-bold text-primary">
-                        {doctor.name.split(" ").map((n) => n[0]).join("")}
+                        {doctor.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
                       </span>
                     </div>
 
@@ -155,7 +225,12 @@ export default function DoctorsPage() {
                     </p>
 
                     <div className="mt-5 w-full">
-                      <Button variant="primary" size="sm" className="w-full" href="/appointment">
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        className="w-full"
+                        href="/appointment"
+                      >
                         Book Appointment
                       </Button>
                     </div>
@@ -165,7 +240,10 @@ export default function DoctorsPage() {
 
               {/* Pagination */}
               {totalPages > 1 && (
-                <nav className="mt-12 flex items-center justify-center gap-2" aria-label="Doctor listing pagination">
+                <nav
+                  className="mt-12 flex items-center justify-center gap-2"
+                  aria-label="Doctor listing pagination"
+                >
                   <button
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
@@ -174,21 +252,23 @@ export default function DoctorsPage() {
                   >
                     Previous
                   </button>
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => handlePageChange(page)}
-                      className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                        currentPage === page
-                          ? "border-primary bg-primary text-white"
-                          : "border-border text-text-secondary hover:bg-background"
-                      }`}
-                      aria-label={`Page ${page}`}
-                      aria-current={currentPage === page ? "page" : undefined}
-                    >
-                      {page}
-                    </button>
-                  ))}
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => (
+                      <button
+                        key={page}
+                        onClick={() => handlePageChange(page)}
+                        className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+                          currentPage === page
+                            ? "border-primary bg-primary text-white"
+                            : "border-border text-text-secondary hover:bg-background"
+                        }`}
+                        aria-label={`Page ${page}`}
+                        aria-current={currentPage === page ? "page" : undefined}
+                      >
+                        {page}
+                      </button>
+                    ),
+                  )}
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
@@ -202,7 +282,9 @@ export default function DoctorsPage() {
             </>
           ) : (
             <div className="py-16 text-center">
-              <p className="text-lg text-text-secondary">No doctors found matching your search.</p>
+              <p className="text-lg text-text-secondary">
+                No doctors found matching your search.
+              </p>
               <button
                 onClick={() => {
                   setSearchQuery("");

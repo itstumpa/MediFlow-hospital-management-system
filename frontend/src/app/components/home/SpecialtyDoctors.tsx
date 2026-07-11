@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/app/components/ui/Button";
+import { useState } from "react";
 
 interface Doctor {
   name: string;
@@ -95,11 +95,12 @@ const specialtyTabs: SpecialtyTab[] = [
 export function SpecialtyDoctors() {
   const [activeTab, setActiveTab] = useState(specialtyTabs[0].id);
 
-  const currentTab = specialtyTabs.find((tab) => tab.id === activeTab) ?? specialtyTabs[0];
+  const currentTab =
+    specialtyTabs.find((tab) => tab.id === activeTab) ?? specialtyTabs[0];
 
   return (
     <section className="bg-surface py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             Top doctors by specialty
@@ -110,7 +111,11 @@ export function SpecialtyDoctors() {
         </div>
 
         {/* Tabs */}
-        <div className="mb-10 flex justify-center" role="tablist" aria-label="Doctor specialties">
+        <div
+          className="mb-10 flex justify-center"
+          role="tablist"
+          aria-label="Doctor specialties"
+        >
           <div className="inline-flex rounded-xl border border-border bg-background p-1">
             {specialtyTabs.map((tab) => (
               <button

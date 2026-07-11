@@ -1,5 +1,5 @@
-import { ClipboardList, CalendarCheck, HeartPulse } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { CalendarCheck, ClipboardList, HeartPulse } from "lucide-react";
 
 interface Step {
   number: number;
@@ -35,8 +35,8 @@ const steps: Step[] = [
 
 export function HowItWorks() {
   return (
-    <section className="bg-background py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+    <section className="bg-background py-10 md:py-14">
+      <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             How it works
@@ -51,7 +51,10 @@ export function HowItWorks() {
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div key={step.number} className="relative flex flex-col items-center text-center">
+              <div
+                key={step.number}
+                className="relative flex flex-col items-center text-center"
+              >
                 {/* Connector line (desktop) */}
                 {index < steps.length - 1 && (
                   <div

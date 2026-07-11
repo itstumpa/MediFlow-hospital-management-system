@@ -30,8 +30,8 @@ const testimonials: Testimonial[] = [
 
 export function Testimonials() {
   return (
-    <section className="bg-surface py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+    <section className="bg-surface py-10 md:py-14">
+      <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             What our patients say
@@ -49,7 +49,10 @@ export function Testimonials() {
               className="flex flex-col rounded-xl border border-border bg-background p-6 shadow-sm transition-shadow duration-200 hover:shadow-md"
             >
               {/* Rating stars */}
-              <div className="mb-4 flex gap-1" aria-label={`${testimonial.rating} out of 5 stars`}>
+              <div
+                className="mb-4 flex gap-1"
+                aria-label={`${testimonial.rating} out of 5 stars`}
+              >
                 {Array.from({ length: 5 }, (_, i) => (
                   <Star
                     key={i}

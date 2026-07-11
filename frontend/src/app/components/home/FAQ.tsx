@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 interface FaqItem {
   question: string;
@@ -45,8 +45,8 @@ export function FAQ() {
   }
 
   return (
-    <section className="bg-background py-16 md:py-24">
-      <div className="mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
+    <section className="bg-background py-10 md:py-14">
+      <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             Frequently asked questions

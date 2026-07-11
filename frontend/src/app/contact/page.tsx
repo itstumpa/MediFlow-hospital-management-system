@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
-import { Button } from "@/app/components/ui/Button";
 import { EmergencyBanner } from "@/app/components/home/EmergencyBanner";
+import { Button } from "@/app/components/ui/Button";
+import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
 
 // TODO: Replace with API data
 const contactInfo = [
@@ -39,7 +39,11 @@ export default function ContactPage() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
@@ -57,7 +61,7 @@ export default function ContactPage() {
 
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
             Contact us
           </h1>
@@ -70,7 +74,7 @@ export default function ContactPage() {
 
       {/* Contact section */}
       <section className="bg-background py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact form */}
             <div>
@@ -91,12 +95,18 @@ export default function ContactPage() {
                     Message sent successfully!
                   </h3>
                   <p className="mt-2 text-sm text-text-secondary">
-                    Thank you for reaching out. Our team will contact you shortly.
+                    Thank you for reaching out. Our team will contact you
+                    shortly.
                   </p>
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
-                      setFormData({ name: "", email: "", subject: "", message: "" });
+                      setFormData({
+                        name: "",
+                        email: "",
+                        subject: "",
+                        message: "",
+                      });
                     }}
                     className="mt-6 text-sm font-medium text-primary hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
                   >
@@ -108,7 +118,10 @@ export default function ContactPage() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     {/* Name */}
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Full name
                       </label>
                       <input
@@ -125,7 +138,10 @@ export default function ContactPage() {
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Email address
                       </label>
                       <input
@@ -143,7 +159,10 @@ export default function ContactPage() {
 
                   {/* Subject */}
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-text-primary">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-text-primary"
+                    >
                       Subject
                     </label>
                     <select
@@ -157,14 +176,19 @@ export default function ContactPage() {
                       <option value="">Select a subject</option>
                       <option value="appointment">Appointment inquiry</option>
                       <option value="feedback">Feedback or complaint</option>
-                      <option value="partnership">Partnership opportunity</option>
+                      <option value="partnership">
+                        Partnership opportunity
+                      </option>
                       <option value="other">Other</option>
                     </select>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-text-primary">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-text-primary"
+                    >
                       Message
                     </label>
                     <textarea
@@ -197,7 +221,10 @@ export default function ContactPage() {
                       className="rounded-xl border border-border bg-surface p-6 shadow-sm"
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/5">
-                        <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                        <Icon
+                          className="h-5 w-5 text-primary"
+                          aria-hidden="true"
+                        />
                       </div>
                       <h3 className="mt-4 text-sm font-semibold text-text-primary">
                         {item.title}
@@ -216,7 +243,10 @@ export default function ContactPage() {
               <div className="overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
                 <div className="flex h-64 items-center justify-center bg-background">
                   <div className="text-center">
-                    <MapPin className="mx-auto h-8 w-8 text-primary" aria-hidden="true" />
+                    <MapPin
+                      className="mx-auto h-8 w-8 text-primary"
+                      aria-hidden="true"
+                    />
                     <p className="mt-2 text-sm font-medium text-text-primary">
                       Map integration
                     </p>

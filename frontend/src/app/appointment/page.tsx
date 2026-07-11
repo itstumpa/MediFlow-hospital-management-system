@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Calendar, Clock, User, Stethoscope } from "lucide-react";
 import { Button } from "@/app/components/ui/Button";
+import { Calendar, Clock, Stethoscope, User } from "lucide-react";
+import { useState } from "react";
 
 // TODO: Replace with API data
 const departments = [
@@ -29,12 +29,26 @@ const doctors = [
 
 // TODO: Replace with API data
 const timeSlots = [
-  "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-  "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM",
+  "9:00 AM",
+  "9:30 AM",
+  "10:00 AM",
+  "10:30 AM",
+  "11:00 AM",
+  "11:30 AM",
+  "2:00 PM",
+  "2:30 PM",
+  "3:00 PM",
+  "3:30 PM",
+  "4:00 PM",
+  "4:30 PM",
 ];
 
 // TODO: Replace with API data
-const appointmentTypes = ["In-person consultation", "Video consultation", "Follow-up visit"];
+const appointmentTypes = [
+  "In-person consultation",
+  "Video consultation",
+  "Follow-up visit",
+];
 
 export default function AppointmentPage() {
   const [step, setStep] = useState(1);
@@ -56,7 +70,11 @@ export default function AppointmentPage() {
     ? doctors.filter((doc) => doc.department === formData.department)
     : doctors;
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Reset doctor when department changes
@@ -75,8 +93,15 @@ export default function AppointmentPage() {
     setStep(1);
     setIsConfirmed(false);
     setFormData({
-      name: "", phone: "", email: "", department: "",
-      doctor: "", date: "", time: "", type: "In-person consultation", notes: "",
+      name: "",
+      phone: "",
+      email: "",
+      department: "",
+      doctor: "",
+      date: "",
+      time: "",
+      type: "In-person consultation",
+      notes: "",
     });
   }
 
@@ -97,14 +122,19 @@ export default function AppointmentPage() {
             </p>
 
             <div className="mt-8 space-y-3 text-left rounded-lg border border-border bg-surface p-6">
-              <h2 className="text-sm font-semibold text-text-primary">Appointment details</h2>
+              <h2 className="text-sm font-semibold text-text-primary">
+                Appointment details
+              </h2>
               <div className="flex items-center gap-3 text-sm text-text-secondary">
                 <User className="h-4 w-4 text-primary" aria-hidden="true" />
                 <span>{formData.name}</span>
               </div>
               {formData.doctor && (
                 <div className="flex items-center gap-3 text-sm text-text-secondary">
-                  <Stethoscope className="h-4 w-4 text-primary" aria-hidden="true" />
+                  <Stethoscope
+                    className="h-4 w-4 text-primary"
+                    aria-hidden="true"
+                  />
                   <span>{formData.doctor}</span>
                 </div>
               )}
@@ -136,7 +166,7 @@ export default function AppointmentPage() {
     <>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
             Book an appointment
           </h1>
@@ -148,7 +178,7 @@ export default function AppointmentPage() {
 
       {/* Booking form */}
       <section className="bg-background py-16 md:py-24">
-        <div className="mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           {/* Steps indicator */}
           <div className="mb-10 flex items-center justify-center gap-2 text-sm font-medium">
             {[1, 2, 3].map((s) => (
@@ -163,10 +193,17 @@ export default function AppointmentPage() {
                 >
                   {s}
                 </div>
-                <span className={`hidden sm:inline ${step >= s ? "text-text-primary" : "text-text-secondary"}`}>
+                <span
+                  className={`hidden sm:inline ${step >= s ? "text-text-primary" : "text-text-secondary"}`}
+                >
                   {s === 1 ? "Details" : s === 2 ? "Schedule" : "Confirm"}
                 </span>
-                {s < 3 && <div className="h-px w-8 bg-border sm:w-12" aria-hidden="true" />}
+                {s < 3 && (
+                  <div
+                    className="h-px w-8 bg-border sm:w-12"
+                    aria-hidden="true"
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -175,7 +212,9 @@ export default function AppointmentPage() {
             {/* Step 1: Personal & Appointment details */}
             {step === 1 && (
               <div className="rounded-xl border border-border bg-surface p-6 shadow-sm md:p-8">
-                <h2 className="text-xl font-bold text-text-primary">Your details</h2>
+                <h2 className="text-xl font-bold text-text-primary">
+                  Your details
+                </h2>
                 <p className="mt-1 text-sm text-text-secondary">
                   Provide your contact information and preferences.
                 </p>
@@ -183,7 +222,10 @@ export default function AppointmentPage() {
                 <div className="mt-6 space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Full name
                       </label>
                       <input
@@ -198,7 +240,10 @@ export default function AppointmentPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Phone number
                       </label>
                       <input
@@ -215,7 +260,10 @@ export default function AppointmentPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-text-primary">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-text-primary"
+                    >
                       Email address
                     </label>
                     <input
@@ -231,7 +279,10 @@ export default function AppointmentPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="type" className="block text-sm font-medium text-text-primary">
+                    <label
+                      htmlFor="type"
+                      className="block text-sm font-medium text-text-primary"
+                    >
                       Appointment type
                     </label>
                     <select
@@ -242,13 +293,20 @@ export default function AppointmentPage() {
                       className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-text-primary focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     >
                       {appointmentTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
                       ))}
                     </select>
                   </div>
 
                   <div className="flex justify-end gap-3 pt-2">
-                    <Button variant="primary" size="md" onClick={() => setStep(2)} type="button">
+                    <Button
+                      variant="primary"
+                      size="md"
+                      onClick={() => setStep(2)}
+                      type="button"
+                    >
                       Next step
                     </Button>
                   </div>
@@ -259,7 +317,9 @@ export default function AppointmentPage() {
             {/* Step 2: Department, Doctor, Date & Time */}
             {step === 2 && (
               <div className="rounded-xl border border-border bg-surface p-6 shadow-sm md:p-8">
-                <h2 className="text-xl font-bold text-text-primary">Schedule your visit</h2>
+                <h2 className="text-xl font-bold text-text-primary">
+                  Schedule your visit
+                </h2>
                 <p className="mt-1 text-sm text-text-secondary">
                   Select a department, doctor, date, and time.
                 </p>
@@ -267,7 +327,10 @@ export default function AppointmentPage() {
                 <div className="mt-6 space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="department" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="department"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Department
                       </label>
                       <select
@@ -279,13 +342,18 @@ export default function AppointmentPage() {
                       >
                         <option value="">Select department</option>
                         {departments.map((dept) => (
-                          <option key={dept} value={dept}>{dept}</option>
+                          <option key={dept} value={dept}>
+                            {dept}
+                          </option>
                         ))}
                       </select>
                     </div>
 
                     <div>
-                      <label htmlFor="doctor" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="doctor"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Doctor
                       </label>
                       <select
@@ -297,7 +365,9 @@ export default function AppointmentPage() {
                       >
                         <option value="">Select doctor</option>
                         {filteredDoctors.map((doc) => (
-                          <option key={doc.name} value={doc.name}>{doc.name}</option>
+                          <option key={doc.name} value={doc.name}>
+                            {doc.name}
+                          </option>
                         ))}
                       </select>
                     </div>
@@ -305,7 +375,10 @@ export default function AppointmentPage() {
 
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="date" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="date"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Preferred date
                       </label>
                       <input
@@ -321,7 +394,10 @@ export default function AppointmentPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="time" className="block text-sm font-medium text-text-primary">
+                      <label
+                        htmlFor="time"
+                        className="block text-sm font-medium text-text-primary"
+                      >
                         Preferred time
                       </label>
                       <select
@@ -334,14 +410,19 @@ export default function AppointmentPage() {
                       >
                         <option value="">Select time</option>
                         {timeSlots.map((slot) => (
-                          <option key={slot} value={slot}>{slot}</option>
+                          <option key={slot} value={slot}>
+                            {slot}
+                          </option>
                         ))}
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="notes" className="block text-sm font-medium text-text-primary">
+                    <label
+                      htmlFor="notes"
+                      className="block text-sm font-medium text-text-primary"
+                    >
                       Additional notes (optional)
                     </label>
                     <textarea
@@ -356,10 +437,20 @@ export default function AppointmentPage() {
                   </div>
 
                   <div className="flex justify-between gap-3 pt-2">
-                    <Button variant="outline" size="md" onClick={() => setStep(1)} type="button">
+                    <Button
+                      variant="outline"
+                      size="md"
+                      onClick={() => setStep(1)}
+                      type="button"
+                    >
                       Previous
                     </Button>
-                    <Button variant="primary" size="md" onClick={() => setStep(3)} type="button">
+                    <Button
+                      variant="primary"
+                      size="md"
+                      onClick={() => setStep(3)}
+                      type="button"
+                    >
                       Review & confirm
                     </Button>
                   </div>
@@ -370,7 +461,9 @@ export default function AppointmentPage() {
             {/* Step 3: Review & Confirm */}
             {step === 3 && (
               <div className="rounded-xl border border-border bg-surface p-6 shadow-sm md:p-8">
-                <h2 className="text-xl font-bold text-text-primary">Review your booking</h2>
+                <h2 className="text-xl font-bold text-text-primary">
+                  Review your booking
+                </h2>
                 <p className="mt-1 text-sm text-text-secondary">
                   Please review your appointment details before confirming.
                 </p>
@@ -378,48 +471,89 @@ export default function AppointmentPage() {
                 <div className="mt-6 space-y-4 rounded-lg border border-border bg-background p-5">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Full name</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.name}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Full name
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.name}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Phone</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.phone}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Phone
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.phone}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Email</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.email}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Email
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.email}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Appointment type</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.type}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Appointment type
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.type}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Department</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.department || "Not selected"}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Department
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.department || "Not selected"}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Doctor</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.doctor || "Not selected"}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Doctor
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.doctor || "Not selected"}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Date</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.date}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Date
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.date}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Time</p>
-                      <p className="text-sm font-semibold text-text-primary">{formData.time}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Time
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary">
+                        {formData.time}
+                      </p>
                     </div>
                   </div>
                   {formData.notes && (
                     <div>
-                      <p className="text-xs font-medium text-text-secondary">Notes</p>
-                      <p className="text-sm text-text-primary">{formData.notes}</p>
+                      <p className="text-xs font-medium text-text-secondary">
+                        Notes
+                      </p>
+                      <p className="text-sm text-text-primary">
+                        {formData.notes}
+                      </p>
                     </div>
                   )}
                 </div>
 
                 <div className="mt-6 flex justify-between gap-3">
-                  <Button variant="outline" size="md" onClick={() => setStep(2)} type="button">
+                  <Button
+                    variant="outline"
+                    size="md"
+                    onClick={() => setStep(2)}
+                    type="button"
+                  >
                     Previous
                   </Button>
                   <Button variant="primary" size="md" type="submit">

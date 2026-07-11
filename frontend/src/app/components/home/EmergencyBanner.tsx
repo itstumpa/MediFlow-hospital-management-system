@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 export function EmergencyBanner() {
   return (
     <section className="bg-primary-dark" aria-label="Emergency contact">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row md:gap-4 md:py-4">
+      <div className="mx-auto flex max-w-page flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row md:gap-4 md:py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
             <Phone className="h-5 w-5 text-accent" aria-hidden="true" />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/app/components/ui/Button";
 
 interface Doctor {
@@ -13,32 +14,36 @@ const doctors: Doctor[] = [
     name: "Dr. Sarah Rahman",
     specialty: "Cardiologist",
     experience: "15 years",
-    imageUrl: "",
+    imageUrl:
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=300&fit=crop&crop=face",
   },
   {
     name: "Dr. James Mitchell",
     specialty: "Neurologist",
     experience: "12 years",
-    imageUrl: "",
+    imageUrl:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face",
   },
   {
     name: "Dr. Ayesha Khan",
     specialty: "Pediatrician",
     experience: "10 years",
-    imageUrl: "",
+    imageUrl:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face",
   },
   {
     name: "Dr. Robert Chen",
     specialty: "Orthopedic Surgeon",
     experience: "18 years",
-    imageUrl: "",
+    imageUrl:
+      "https://images.unsplash.com/photo-1618498082410-b4aa22193b8e?w=300&h=300&fit=crop&crop=face",
   },
 ];
 
 export function FeaturedDoctors() {
   return (
-    <section id="doctors" className="bg-background py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+    <section id="doctors" className="bg-background py-10 md:py-14">
+      <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             Our featured doctors
@@ -56,14 +61,15 @@ export function FeaturedDoctors() {
               className="group flex flex-col items-center rounded-xl border border-border bg-surface p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               role="article"
             >
-              {/* Avatar placeholder */}
-              <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary/10 to-accent/10 ring-2 ring-border">
-                <span className="text-2xl font-bold text-primary">
-                  {doctor.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
+              {/* Doctor image */}
+              <div className="mb-4 h-24 w-24 overflow-hidden rounded-full ring-2 ring-border">
+                <Image
+                  src={doctor.imageUrl}
+                  alt={doctor.name}
+                  width={96}
+                  height={96}
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               <h3 className="text-lg font-semibold text-text-primary">

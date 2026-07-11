@@ -2,8 +2,8 @@ import { Button } from "@/app/components/ui/Button";
 
 export function CTA() {
   return (
-    <section className="bg-primary py-16 md:py-24">
-      <div className="mx-auto max-w-3xl px-4 text-center md:px-6 lg:px-8">
+    <section className="bg-primary py-10 md:py-14">
+      <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
           Ready to book your appointment?
         </h2>

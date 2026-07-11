@@ -1,5 +1,11 @@
+import {
+  ExternalLink,
+  Globe,
+  HeartPulse,
+  MessageCircle,
+  Share2,
+} from "lucide-react";
 import Link from "next/link";
-import { HeartPulse, Globe, MessageCircle, ExternalLink, Share2 } from "lucide-react";
 
 interface FooterLink {
   label: string;
@@ -42,7 +48,7 @@ export function Footer() {
 
   return (
     <footer className="bg-primary-dark text-white" role="contentinfo">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+      <div className="mx-auto max-w-page px-4 py-12 md:px-6 md:py-16 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="flex flex-col gap-4">
@@ -105,10 +111,7 @@ export function Footer() {
             </h3>
             <ul className="space-y-3" role="list">
               {contactInfo.map((item) => (
-                <li
-                  key={item.label}
-                  className="text-sm text-white/60"
-                >
+                <li key={item.label} className="text-sm text-white/60">
                   {item.label}
                 </li>
               ))}
@@ -143,7 +146,7 @@ export function Footer() {
 
       {/* Copyright bar */}
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-5 text-center text-xs text-white/40 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 py-5 text-center text-xs text-white/40 md:px-6 lg:px-8">
           &copy; {currentYear} MediFlow. All rights reserved.
         </div>
       </div>

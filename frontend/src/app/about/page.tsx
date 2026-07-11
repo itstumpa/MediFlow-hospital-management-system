@@ -1,6 +1,6 @@
-import { HeartPulse, Shield, Users, Award, Target, Eye } from "lucide-react";
-import { Button } from "@/app/components/ui/Button";
 import { FAQ } from "@/app/components/home/FAQ";
+import { Button } from "@/app/components/ui/Button";
+import { Award, Eye, HeartPulse, Shield, Target, Users } from "lucide-react";
 
 // TODO: Replace with API data
 const stats = [
@@ -66,7 +66,7 @@ export default function AboutPage() {
     <>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
             About MediFlow
           </h1>
@@ -79,14 +79,16 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="bg-surface py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Mission */}
             <div className="flex flex-col gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5">
                 <Target className="h-6 w-6 text-primary" aria-hidden="true" />
               </div>
-              <h2 className="text-2xl font-bold text-text-primary">Our mission</h2>
+              <h2 className="text-2xl font-bold text-text-primary">
+                Our mission
+              </h2>
               <p className="leading-relaxed text-text-secondary">
                 To make quality healthcare accessible, efficient, and
                 patient-friendly. We bridge the gap between patients and
@@ -101,7 +103,9 @@ export default function AboutPage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5">
                 <Eye className="h-6 w-6 text-primary" aria-hidden="true" />
               </div>
-              <h2 className="text-2xl font-bold text-text-primary">Our vision</h2>
+              <h2 className="text-2xl font-bold text-text-primary">
+                Our vision
+              </h2>
               <p className="leading-relaxed text-text-secondary">
                 To be the leading digital healthcare platform in Bangladesh and
                 beyond, setting the standard for integrated, technology-driven
@@ -115,7 +119,7 @@ export default function AboutPage() {
 
       {/* Stats bar */}
       <section className="bg-primary-dark py-12">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.label}>
@@ -133,7 +137,7 @@ export default function AboutPage() {
 
       {/* Core values */}
       <section className="bg-background py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
               Our core values
@@ -169,7 +173,7 @@ export default function AboutPage() {
 
       {/* Leadership team */}
       <section className="bg-surface py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
               Our leadership
@@ -204,7 +208,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="bg-primary py-16 text-center">
-        <div className="mx-auto max-w-3xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Ready to experience better healthcare?
           </h2>
@@ -213,7 +217,12 @@ export default function AboutPage() {
             needs.
           </p>
           <div className="mt-8">
-            <Button variant="secondary" size="lg" href="/appointment" className="text-primary-dark">
+            <Button
+              variant="secondary"
+              size="lg"
+              href="/appointment"
+              className="text-primary-dark"
+            >
               Book an appointment
             </Button>
           </div>

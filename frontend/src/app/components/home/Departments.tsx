@@ -1,14 +1,14 @@
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
   Baby,
   Bone,
-  Eye,
-  Stethoscope,
+  Brain,
   Ear,
+  Eye,
+  Heart,
+  Stethoscope,
   Syringe,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 interface Department {
   name: string;
@@ -29,8 +29,8 @@ const departments: Department[] = [
 
 export function Departments() {
   return (
-    <section id="departments" className="bg-surface py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+    <section id="departments" className="bg-surface py-10 md:py-14">
+      <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             Our departments
@@ -53,10 +53,7 @@ export function Departments() {
                 aria-label={`Department of ${dept.name}`}
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/5 transition-colors duration-200 group-hover:bg-primary/10">
-                  <Icon
-                    className="h-7 w-7 text-primary"
-                    aria-hidden="true"
-                  />
+                  <Icon className="h-7 w-7 text-primary" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-semibold text-text-primary md:text-base">
                   {dept.name}

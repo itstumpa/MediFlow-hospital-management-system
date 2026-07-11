@@ -1,17 +1,17 @@
+import { Button } from "@/app/components/ui/Button";
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
+  Ambulance,
   Baby,
   Bone,
-  Eye,
-  Stethoscope,
+  Brain,
   Ear,
-  Syringe,
+  Eye,
+  Heart,
   Microscope,
-  Ambulance,
+  Stethoscope,
+  Syringe,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import { Button } from "@/app/components/ui/Button";
 
 interface DepartmentDetail {
   name: string;
@@ -110,7 +110,7 @@ export default function DepartmentsPage() {
     <>
       {/* Hero banner */}
       <section className="bg-gradient-to-br from-primary to-primary-dark py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 text-center md:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
             Our departments
           </h1>
@@ -123,7 +123,7 @@ export default function DepartmentsPage() {
 
       {/* Departments grid */}
       <section className="bg-background py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-page px-4 md:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             {departments.map((dept) => {
               const Icon = dept.icon;

@@ -1,77 +1,62 @@
-import Image from "next/image";
+"use client";
+
 import { Button } from "@/app/components/ui/Button";
+import { motion } from "framer-motion";
+import { Search } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24 lg:px-8 lg:py-32">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-          {/* Left column: content */}
-          <div className="flex flex-col gap-8">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-5xl lg:text-6xl">
-              Quality healthcare,{" "}
-              <span className="text-primary">one click away</span>
-            </h1>
-            <p className="text-lg leading-relaxed text-text-secondary md:text-xl">
-              MediFlow brings together trusted doctors, modern clinics, and
+    <section className="relative flex min-h-[85vh] items-center overflow-hidden pt-20">
+      {/* Background image */}
+      <Image
+        src="https://plus.unsplash.com/premium_photo-1681843126728-04eab730febe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Team of medical professionals"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Color overlay using primary token */}
+      <div className="absolute inset-0 bg-primary/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/50 to-transparent" />
+
+      {/* Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative z-10 mx-auto w-full max-w-page px-4 md:px-6 lg:px-8"
+      >
+        <div className="max-w-4xl">
+          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl">
+            Healthcare that fits your life,
+            <br />
+            World-Class Care
+          </h1>
+
+          <p className="mt-6 max-w-4xl text-lg leading-relaxed text-white/85">
+            MediFlow brings together trusted doctors, modern clinics, and
               seamless digital tools to give you and your family the best
               healthcare experience — from booking appointments to managing
-              prescriptions, all in one place.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="primary" size="lg" href="/appointment">
-                Book Appointment
-              </Button>
-              <Button variant="outline" size="lg" href="/doctors">
-                Find a Doctor
-              </Button>
-            </div>
-            {/* Trust indicators */}
-            <div className="flex items-center gap-6 pt-4 text-sm text-text-secondary">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="h-8 w-8 rounded-full border-2 border-surface bg-primary/10"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-                <span>
-                  Trusted by{" "}
-                  <strong className="text-text-primary">10k+</strong> patients
-                </span>
-              </div>
-            </div>
-          </div>
+              prescriptions, all in one place. Experience expert medical services and personalized treatment
+            from the moment you walk through our doors.
+          </p>
 
-          {/* Right column: image placeholder */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 p-2 shadow-lg ring-1 ring-border">
-              <div className="flex h-full w-full items-center justify-center rounded-xl bg-surface">
-                <Image
-                  src="/hero-illustration.svg"
-                  alt="Doctor consulting with a patient using digital healthcare tools"
-                  width={500}
-                  height={375}
-                  className="h-auto w-full object-contain"
-                  priority
-                />
-              </div>
-            </div>
-            {/* Decorative accent dot */}
-            <div
-              className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-primary/5 blur-xl"
-              aria-hidden="true"
+          {/* Search bar */}
+          <div className="mt-8 flex max-w-xl overflow-hidden rounded-lg bg-white shadow-lg">
+            <input
+              type="text"
+              placeholder="Search by specialty, condition, treatment, or Doctors"
+              className="flex-1 px-5 py-4 text-sm text-text-primary outline-none placeholder:text-text-secondary"
             />
-            <div
-              className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-accent/10 blur-lg"
-              aria-hidden="true"
-            />
+            <Button variant="primary" className="rounded-none px-8">
+              <Search className="h-4 w-4" />
+              Search
+            </Button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
