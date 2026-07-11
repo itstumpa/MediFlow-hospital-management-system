@@ -414,7 +414,6 @@ export default function DoctorsPage() {
             <div className="my-14 h-px w-full bg-border/60" />
 
             <FeaturedDoctor doctors={featuredDoctors} />
-
           </div>
         </div>
       </div>

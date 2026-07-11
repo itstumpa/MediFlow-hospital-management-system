@@ -2,7 +2,6 @@
 
 import {
   DepartmentGrid,
-  DepartmentPreview,
   DepartmentsCTA,
   DepartmentSearch,
   DepartmentsHero,
