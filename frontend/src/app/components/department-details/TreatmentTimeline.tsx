@@ -1,11 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
-import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { TreatmentStep } from "@/lib/data/department-detail";
+import { motion } from "framer-motion";
+import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 
 interface Props {
   steps: TreatmentStep[];
@@ -35,10 +34,15 @@ export function TreatmentTimeline({ steps }: Props) {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+                transition={{
+                  duration: 1.5,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  delay: 0.3,
+                }}
                 className="h-full origin-left"
                 style={{
-                  background: "linear-gradient(90deg, #0e7c7b, #2dd4bf, #0e7c7b)",
+                  background:
+                    "linear-gradient(90deg, #0e7c7b, #2dd4bf, #0e7c7b)",
                 }}
               />
             </div>
@@ -57,8 +61,18 @@ export function TreatmentTimeline({ steps }: Props) {
 
                   {/* Arrow (except last) */}
                   {idx < steps.length - 1 && (
-                    <div className="absolute left-[calc(50%_+_28px)] top-6 hidden text-primary/30 lg:block" aria-hidden="true">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                      className="absolute left-[calc(50%_+_28px)] top-6 hidden text-primary/30 lg:block"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <path d="M5 12h14M13 5l7 7-7 7" />
                       </svg>
                     </div>

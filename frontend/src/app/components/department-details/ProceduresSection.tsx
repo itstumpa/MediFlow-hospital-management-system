@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Clock, Activity, Scan, ChevronRight } from "lucide-react";
-import { staggerContainer, staggerItem, cardHover } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
-import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { Button } from "@/app/components/ui/Button";
+import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { ProcedureItem } from "@/lib/data/department-detail";
+import { motion } from "framer-motion";
+import { Activity, ChevronRight, Clock, Scan } from "lucide-react";
+import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 
 interface Props {
   procedures: ProcedureItem[];
@@ -72,9 +72,17 @@ export function ProceduresSection({ procedures }: Props) {
 
               {/* CTA */}
               <div className="mt-4">
-                <Button variant="ghost" size="sm" className="group/btn p-0 text-primary hover:bg-transparent">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="group/btn p-0 text-primary hover:bg-transparent"
+                >
                   Learn More
-                  <ChevronRight size={14} className="ml-1 transition-transform duration-200 group-hover/btn:translate-x-0.5" aria-hidden="true" />
+                  <ChevronRight
+                    size={14}
+                    className="ml-1 transition-transform duration-200 group-hover/btn:translate-x-0.5"
+                    aria-hidden="true"
+                  />
                 </Button>
               </div>
             </motion.div>

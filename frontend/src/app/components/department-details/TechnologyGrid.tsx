@@ -1,11 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
-import { staggerContainer, staggerItem, iconRotate } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { TechnologyDetail } from "@/lib/data/department-detail";
+import { motion } from "framer-motion";
+import { CheckCircle } from "lucide-react";
+import {
+  iconRotate,
+  staggerContainer,
+  staggerItem,
+} from "./SharedMotionVariants";
 
 interface Props {
   technologies: TechnologyDetail[];

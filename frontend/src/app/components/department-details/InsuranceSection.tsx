@@ -63,13 +63,15 @@ export function InsuranceSection({ providers }: Props) {
                   >
                     <Landmark size={20} aria-hidden="true" />
                   </motion.div>
-                  <div>
+                  <div className="flex flex-1 items-center justify-between">
                     <p className="text-sm font-semibold text-text-primary">
                       {provider.name}
                     </p>
-                    <p className="text-xs text-text-secondary">
-                      {provider.plans}
-                    </p>
+                    {provider.accepted && (
+                      <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-600">
+                        Accepted
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               ))}

@@ -1,14 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ChevronRight, Heart, Star, Shield, Clock, BadgeCheck } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/app/components/ui/Button";
-import { staggerContainer, staggerItem, slideRight } from "./SharedMotionVariants";
-import type { Department } from "@/lib/data/departments";
-import { useMemo } from "react";
 import { createFloatingY } from "@/lib/animations/floating";
+import type { Department } from "@/lib/data/departments";
+import { motion } from "framer-motion";
+import { ChevronRight, Clock, Shield, Star } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useMemo } from "react";
+import {
+  slideRight,
+  staggerContainer,
+  staggerItem,
+} from "./SharedMotionVariants";
 
 interface Props {
   department: Department;
@@ -59,7 +63,10 @@ export function DepartmentHero({ department }: Props) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#0a5f5e] via-primary to-primary-dark">
       {/* Background decorations */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white/[0.03]" />
         <div className="absolute -right-32 -bottom-32 h-80 w-80 rounded-full bg-accent/[0.04]" />
         <div className="absolute left-1/3 top-1/4 h-64 w-64 rounded-full bg-white/[0.02]" />
@@ -74,11 +81,17 @@ export function DepartmentHero({ department }: Props) {
           className="mb-8 flex items-center gap-2 text-sm text-white/70"
           aria-label="Breadcrumb"
         >
-          <Link href="/" className="transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded">
+          <Link
+            href="/"
+            className="transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded"
+          >
             Home
           </Link>
           <ChevronRight size={14} aria-hidden="true" />
-          <Link href="/departments" className="transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded">
+          <Link
+            href="/departments"
+            className="transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded"
+          >
             Departments
           </Link>
           <ChevronRight size={14} aria-hidden="true" />
@@ -110,7 +123,9 @@ export function DepartmentHero({ department }: Props) {
               className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
               Advanced{" "}
-              <span className="text-accent">{department.name.split("(")[0].trim()} Care</span>
+              <span className="text-accent">
+                {department.name.split("(")[0].trim()} Care
+              </span>
             </motion.h1>
 
             {/* Description */}
@@ -141,7 +156,10 @@ export function DepartmentHero({ department }: Props) {
             </motion.div>
 
             {/* Buttons */}
-            <motion.div variants={staggerItem} className="mt-8 flex flex-wrap gap-4">
+            <motion.div
+              variants={staggerItem}
+              className="mt-8 flex flex-wrap gap-4"
+            >
               <Button
                 variant="secondary"
                 size="lg"
@@ -206,7 +224,11 @@ export function DepartmentHero({ department }: Props) {
               />
               <FloatingCard
                 icon={Clock}
-                text={department.emergencyAvailable ? "Emergency Available" : "Online Consultations"}
+                text={
+                  department.emergencyAvailable
+                    ? "Emergency Available"
+                    : "Online Consultations"
+                }
                 className="text-primary"
                 delay={1}
                 x={-5}

@@ -1,13 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { BadgeCheck, Star } from "lucide-react";
-import { staggerContainer, staggerItem, imageZoom } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
-import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { Button } from "@/app/components/ui/Button";
+import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { SpecialistBrief } from "@/lib/data/department-detail";
+import { motion } from "framer-motion";
+import { BadgeCheck, Star } from "lucide-react";
+import Image from "next/image";
+import {
+  imageZoom,
+  staggerContainer,
+  staggerItem,
+} from "./SharedMotionVariants";
 
 interface Props {
   specialists: SpecialistBrief[];
@@ -37,29 +41,48 @@ function SpecialistCard({ doctor }: { doctor: SpecialistBrief }) {
         {/* Verified badge */}
         {doctor.verified && (
           <div className="absolute left-3 top-3 rounded-full bg-white/90 p-1.5 shadow-sm backdrop-blur-sm">
-            <BadgeCheck size={16} className="text-primary" aria-label="Verified doctor" />
+            <BadgeCheck
+              size={16}
+              className="text-primary"
+              aria-label="Verified doctor"
+            />
           </div>
         )}
 
         {/* Rating */}
         <div className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-text-primary shadow-sm backdrop-blur-sm">
-          <Star size={12} className="fill-amber-400 text-amber-400" aria-hidden="true" />
+          <Star
+            size={12}
+            className="fill-amber-400 text-amber-400"
+            aria-hidden="true"
+          />
           <span>{doctor.rating}</span>
         </div>
       </div>
 
       {/* Info */}
       <div className="p-4">
-        <h3 className="text-sm font-semibold text-text-primary">{doctor.name}</h3>
+        <h3 className="text-sm font-semibold text-text-primary">
+          {doctor.name}
+        </h3>
         <p className="mt-0.5 text-xs text-primary">{doctor.specialty}</p>
-        <p className="mt-1 text-xs text-text-secondary">{doctor.experience} years experience</p>
+        <p className="mt-1 text-xs text-text-secondary">
+          {doctor.experience} years experience
+        </p>
 
-        <div className="mt-1 flex items-center gap-1 text-xs text-amber-500" aria-label={`${doctor.rating} out of 5 stars`}>
+        <div
+          className="mt-1 flex items-center gap-1 text-xs text-amber-500"
+          aria-label={`${doctor.rating} out of 5 stars`}
+        >
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
               size={11}
-              className={i < Math.round(doctor.rating) ? "fill-amber-400 text-amber-400" : "text-border"}
+              className={
+                i < Math.round(doctor.rating)
+                  ? "fill-amber-400 text-amber-400"
+                  : "text-border"
+              }
               aria-hidden="true"
             />
           ))}

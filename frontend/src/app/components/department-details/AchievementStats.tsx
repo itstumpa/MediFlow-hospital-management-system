@@ -1,16 +1,24 @@
 "use client";
 
+import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
+import type { AchievementStat } from "@/lib/data/department-detail";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { staggerContainer, staggerItem } from "./SharedMotionVariants";
-import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
-import type { AchievementStat } from "@/lib/data/department-detail";
 
 interface Props {
   achievements: AchievementStat[];
 }
 
-function CountUp({ value, prefix = "", suffix = "" }: { value: string; prefix?: string; suffix?: string }) {
+function CountUp({
+  value,
+  prefix = "",
+  suffix = "",
+}: {
+  value: string;
+  prefix?: string;
+  suffix?: string;
+}) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const counted = useRef(false);
@@ -81,7 +89,11 @@ export function AchievementStats({ achievements }: Props) {
               className="text-center"
             >
               <div className="text-3xl font-bold text-white md:text-4xl">
-                <CountUp value={stat.value} prefix={stat.prefix || ""} suffix={stat.suffix || ""} />
+                <CountUp
+                  value={stat.value}
+                  prefix={stat.prefix || ""}
+                  suffix={stat.suffix || ""}
+                />
               </div>
               <div className="mt-1 text-sm text-white/70">{stat.label}</div>
             </motion.div>

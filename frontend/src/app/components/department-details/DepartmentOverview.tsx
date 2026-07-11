@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { CheckCircle, Heart, Eye, Target } from "lucide-react";
-import { staggerContainer, staggerItem } from "./SharedMotionVariants";
-import type { Department } from "@/lib/data/departments";
 import type { DepartmentOverview } from "@/lib/data/department-detail";
+import type { Department } from "@/lib/data/departments";
+import { motion } from "framer-motion";
+import { CheckCircle, Eye, Heart, Target } from "lucide-react";
+import Image from "next/image";
+import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 
 interface Props {
   department: Department;
@@ -24,7 +24,10 @@ export function DepartmentOverview({ department, overview }: Props) {
           className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
         >
           {/* Left: Image */}
-          <motion.div variants={staggerItem} className="overflow-hidden rounded-2xl">
+          <motion.div
+            variants={staggerItem}
+            className="overflow-hidden rounded-2xl"
+          >
             <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src={department.imageUrl}

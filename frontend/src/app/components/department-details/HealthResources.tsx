@@ -58,11 +58,11 @@ export function HealthResources({ resources }: Props) {
                 <div className="mb-2 flex items-center gap-3 text-[11px] text-text-secondary">
                   <span className="flex items-center gap-1">
                     <Clock size={11} aria-hidden="true" />
-                    {resource.readTime}
+                    {resource.readingTime}
                   </span>
                   <span className="flex items-center gap-1">
                     <BookOpen size={11} aria-hidden="true" />
-                    By {resource.doctor}
+                    By {resource.author}
                   </span>
                 </div>
 

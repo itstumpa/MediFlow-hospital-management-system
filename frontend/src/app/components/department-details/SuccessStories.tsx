@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { Quote, Star, ChevronLeft, ChevronRight, BadgeCheck, HeartPulse } from "lucide-react";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { DeptSuccessStory } from "@/lib/data/department-detail";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  BadgeCheck,
+  ChevronLeft,
+  ChevronRight,
+  HeartPulse,
+  Quote,
+  Star,
+} from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 interface Props {
   stories: DeptSuccessStory[];
@@ -17,8 +24,10 @@ export function SuccessStories({ stories }: Props) {
 
   if (stories.length === 0) return null;
 
-  const prev = () => setActiveIndex((p) => (p === 0 ? stories.length - 1 : p - 1));
-  const next = () => setActiveIndex((p) => (p === stories.length - 1 ? 0 : p + 1));
+  const prev = () =>
+    setActiveIndex((p) => (p === 0 ? stories.length - 1 : p - 1));
+  const next = () =>
+    setActiveIndex((p) => (p === stories.length - 1 ? 0 : p + 1));
 
   const story = stories[activeIndex];
 
@@ -41,7 +50,10 @@ export function SuccessStories({ stories }: Props) {
               className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-sm"
             >
               {/* Quote decoration */}
-              <div className="absolute -left-4 -top-4 text-primary/5" aria-hidden="true">
+              <div
+                className="absolute -left-4 -top-4 text-primary/5"
+                aria-hidden="true"
+              >
                 <Quote size={100} />
               </div>
 
@@ -56,9 +68,17 @@ export function SuccessStories({ stories }: Props) {
                         {story.treatment}
                       </span>
                     </span>
-                    <div className="flex items-center gap-0.5" aria-label={`${story.rating} out of 5 stars`}>
+                    <div
+                      className="flex items-center gap-0.5"
+                      aria-label={`${story.rating} out of 5 stars`}
+                    >
                       {Array.from({ length: story.rating }).map((_, i) => (
-                        <Star key={i} size={14} className="fill-amber-400 text-amber-400" aria-hidden="true" />
+                        <Star
+                          key={i}
+                          size={14}
+                          className="fill-amber-400 text-amber-400"
+                          aria-hidden="true"
+                        />
                       ))}
                     </div>
                   </div>
@@ -71,12 +91,20 @@ export function SuccessStories({ stories }: Props) {
                   {/* Before/After summary */}
                   <div className="mt-6 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-xl border border-red-100 bg-red-50/50 p-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-red-600">Before</p>
-                      <p className="mt-1 text-sm text-red-800">{story.beforeSummary}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-red-600">
+                        Before
+                      </p>
+                      <p className="mt-1 text-sm text-red-800">
+                        {story.beforeSummary}
+                      </p>
                     </div>
                     <div className="rounded-xl border border-emerald-100 bg-emerald-50/50 p-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">After</p>
-                      <p className="mt-1 text-sm text-emerald-800">{story.afterSummary}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600">
+                        After
+                      </p>
+                      <p className="mt-1 text-sm text-emerald-800">
+                        {story.afterSummary}
+                      </p>
                     </div>
                   </div>
 
@@ -95,7 +123,11 @@ export function SuccessStories({ stories }: Props) {
                       <div className="flex items-center gap-1.5 text-sm font-semibold text-text-primary">
                         {story.patientName}
                         {story.verified && (
-                          <BadgeCheck size={15} className="text-primary" aria-label="Verified patient" />
+                          <BadgeCheck
+                            size={15}
+                            className="text-primary"
+                            aria-label="Verified patient"
+                          />
                         )}
                       </div>
                       <p className="text-xs text-text-secondary">
@@ -109,7 +141,10 @@ export function SuccessStories({ stories }: Props) {
                 <div className="relative hidden md:col-span-2 md:block">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
                   <div className="flex h-full items-center justify-center p-8">
-                    <HeartPulse className="h-20 w-20 text-primary/[0.07]" aria-hidden="true" />
+                    <HeartPulse
+                      className="h-20 w-20 text-primary/[0.07]"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </div>
@@ -133,7 +168,9 @@ export function SuccessStories({ stories }: Props) {
                     key={idx}
                     onClick={() => setActiveIndex(idx)}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === activeIndex ? "w-8 bg-primary" : "w-2 bg-border hover:bg-primary/40"
+                      idx === activeIndex
+                        ? "w-8 bg-primary"
+                        : "w-2 bg-border hover:bg-primary/40"
                     }`}
                     role="tab"
                     aria-selected={idx === activeIndex}
