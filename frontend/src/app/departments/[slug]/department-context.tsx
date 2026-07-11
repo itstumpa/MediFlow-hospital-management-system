@@ -1,7 +1,7 @@
 "use client";
 
-import type { Department } from "@/lib/data/departments";
 import type { DepartmentDetailData } from "@/lib/data/department-detail";
+import type { Department } from "@/lib/data/departments";
 import { createContext, useContext } from "react";
 
 interface DepartmentContextValue {
@@ -30,7 +30,9 @@ export function DepartmentProvider({
 export function useDepartmentContext() {
   const ctx = useContext(DepartmentContext);
   if (!ctx) {
-    throw new Error("useDepartmentContext must be used within DepartmentProvider");
+    throw new Error(
+      "useDepartmentContext must be used within DepartmentProvider",
+    );
   }
   return ctx;
 }

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { HelpCircle, ChevronDown } from "lucide-react";
-import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { DeptFAQ } from "@/lib/data/department-detail";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, HelpCircle } from "lucide-react";
+import { useState } from "react";
+import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 
 interface Props {
   faqs: DeptFAQ[];

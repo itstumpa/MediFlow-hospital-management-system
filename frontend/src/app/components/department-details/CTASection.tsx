@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Phone } from "lucide-react";
-import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { Button } from "@/app/components/ui/Button";
 import type { Department } from "@/lib/data/departments";
+import { motion } from "framer-motion";
+import { Calendar, ChevronRight, Phone } from "lucide-react";
+import { staggerContainer, staggerItem } from "./SharedMotionVariants";
 
 interface Props {
   department: Department;
@@ -18,7 +18,10 @@ export function CTASection({ department }: Props) {
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-[#0a5f5e]" />
 
       {/* Decorations */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white/[0.03]" />
         <div className="absolute -right-32 -bottom-32 h-80 w-80 rounded-full bg-accent/[0.04]" />
         <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-white/[0.02]" />
@@ -35,7 +38,11 @@ export function CTASection({ department }: Props) {
           {/* Icon */}
           <motion.div variants={staggerItem} className="mx-auto mb-6">
             <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
-              <department.icon size={32} className="text-accent" aria-hidden="true" />
+              <department.icon
+                size={32}
+                className="text-accent"
+                aria-hidden="true"
+              />
             </div>
           </motion.div>
 
@@ -56,8 +63,9 @@ export function CTASection({ department }: Props) {
             variants={staggerItem}
             className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/80"
           >
-            Take the first step towards better health. Our expert team is here to
-            provide you with world-class care and personalized treatment options.
+            Take the first step towards better health. Our expert team is here
+            to provide you with world-class care and personalized treatment
+            options.
           </motion.p>
 
           {/* Buttons */}
@@ -91,7 +99,10 @@ export function CTASection({ department }: Props) {
           </motion.div>
 
           {/* Bottom text */}
-          <motion.p variants={staggerItem} className="mt-6 text-sm text-white/50">
+          <motion.p
+            variants={staggerItem}
+            className="mt-6 text-sm text-white/50"
+          >
             Same-day appointments available. Most insurance plans accepted.
           </motion.p>
         </motion.div>

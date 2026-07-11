@@ -1,21 +1,21 @@
 "use client";
 
 import {
+  AchievementStats,
+  ConditionsGrid,
+  CTASection,
+  DepartmentFAQ,
   DepartmentHero,
   DepartmentOverview,
-  ConditionsGrid,
-  ProceduresSection,
-  TechnologyGrid,
-  SpecialistsGrid,
-  TreatmentTimeline,
-  AchievementStats,
-  SuccessStories,
-  FacilitiesGallery,
-  InsuranceSection,
-  HealthResources,
-  DepartmentFAQ,
   EmergencyCard,
-  CTASection,
+  FacilitiesGallery,
+  HealthResources,
+  InsuranceSection,
+  ProceduresSection,
+  SpecialistsGrid,
+  SuccessStories,
+  TechnologyGrid,
+  TreatmentTimeline,
 } from "@/app/components/department-details";
 import { useDepartmentContext } from "./department-context";
 

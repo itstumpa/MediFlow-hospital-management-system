@@ -1,6 +1,6 @@
 "use client";
 
-import { type Variants, type Easing } from "framer-motion";
+import { type Easing, type Variants } from "framer-motion";
 
 const easeOut: Easing = [0.25, 0.1, 0.25, 1];
 
@@ -94,11 +94,11 @@ export const countUp = (
 ): {
   initial: number;
   animate: { count: number };
-  transition: { duration: number; ease: string };
+  transition: { duration: number; ease: Readonly<[number, number, number, number]> };
 } => ({
   initial: 0,
   animate: { count: target },
-  transition: { duration, ease: [0.25, 0.1, 0.25, 1] },
+  transition: { duration, ease: [0.25, 0.1, 0.25, 1] as const },
 });
 
 export const underlineHover = {

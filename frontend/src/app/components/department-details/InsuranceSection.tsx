@@ -1,17 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  Shield,
-  CreditCard,
-  Landmark,
-  Building2,
-  CheckCircle,
-} from "lucide-react";
-import { staggerContainer, staggerItem, iconRotate } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { InsuranceProvider } from "@/lib/data/department-detail";
+import { motion } from "framer-motion";
+import {
+  Building2,
+  CheckCircle,
+  CreditCard,
+  Landmark,
+  Shield,
+} from "lucide-react";
+import {
+  iconRotate,
+  staggerContainer,
+  staggerItem,
+} from "./SharedMotionVariants";
 
 interface Props {
   providers: InsuranceProvider[];
@@ -92,13 +96,24 @@ export function InsuranceSection({ providers }: Props) {
               className="rounded-xl border border-border bg-background p-5 shadow-sm"
             >
               <div className="mb-3 flex items-center gap-2 text-text-primary">
-                <CreditCard size={18} className="text-primary" aria-hidden="true" />
+                <CreditCard
+                  size={18}
+                  className="text-primary"
+                  aria-hidden="true"
+                />
                 <h3 className="text-sm font-semibold">Payment Methods</h3>
               </div>
               <ul className="space-y-2">
                 {paymentFeatures.slice(0, 3).map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-xs text-text-secondary">
-                    <CheckCircle size={13} className="shrink-0 text-primary" aria-hidden="true" />
+                  <li
+                    key={feature}
+                    className="flex items-center gap-2 text-xs text-text-secondary"
+                  >
+                    <CheckCircle
+                      size={13}
+                      className="shrink-0 text-primary"
+                      aria-hidden="true"
+                    />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -111,13 +126,24 @@ export function InsuranceSection({ providers }: Props) {
               className="rounded-xl border border-border bg-background p-5 shadow-sm"
             >
               <div className="mb-3 flex items-center gap-2 text-text-primary">
-                <Building2 size={18} className="text-primary" aria-hidden="true" />
+                <Building2
+                  size={18}
+                  className="text-primary"
+                  aria-hidden="true"
+                />
                 <h3 className="text-sm font-semibold">Corporate Healthcare</h3>
               </div>
               <ul className="space-y-2">
                 {paymentFeatures.slice(3).map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-xs text-text-secondary">
-                    <CheckCircle size={13} className="shrink-0 text-primary" aria-hidden="true" />
+                  <li
+                    key={feature}
+                    className="flex items-center gap-2 text-xs text-text-secondary"
+                  >
+                    <CheckCircle
+                      size={13}
+                      className="shrink-0 text-primary"
+                      aria-hidden="true"
+                    />
                     <span>{feature}</span>
                   </li>
                 ))}

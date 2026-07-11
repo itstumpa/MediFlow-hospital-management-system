@@ -1,13 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { BookOpen, Clock, ChevronRight } from "lucide-react";
-import { staggerContainer, staggerItem, imageZoom } from "./SharedMotionVariants";
 import { AnimatedSection } from "@/app/components/ui/AnimatedSection";
-import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { Button } from "@/app/components/ui/Button";
+import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import type { HealthResource } from "@/lib/data/department-detail";
+import { motion } from "framer-motion";
+import { BookOpen, ChevronRight, Clock } from "lucide-react";
+import Image from "next/image";
+import {
+  imageZoom,
+  staggerContainer,
+  staggerItem,
+} from "./SharedMotionVariants";
 
 interface Props {
   resources: HealthResource[];
@@ -71,15 +75,18 @@ export function HealthResources({ resources }: Props) {
                   {resource.title}
                 </h3>
 
-                {/* Description */}
-                <p className="mt-2 flex-1 text-xs leading-relaxed text-text-secondary">
-                  {resource.description}
-                </p>
-
                 {/* Link */}
-                <Button variant="ghost" size="sm" className="group/btn mt-3 self-start p-0 text-primary hover:bg-transparent">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="group/btn mt-3 self-start p-0 text-primary hover:bg-transparent"
+                >
                   Read Article
-                  <ChevronRight size={13} className="ml-0.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" aria-hidden="true" />
+                  <ChevronRight
+                    size={13}
+                    className="ml-0.5 transition-transform duration-200 group-hover/btn:translate-x-0.5"
+                    aria-hidden="true"
+                  />
                 </Button>
               </div>
             </motion.div>

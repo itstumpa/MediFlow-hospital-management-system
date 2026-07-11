@@ -1,8 +1,8 @@
 "use client";
 
 import { PageTransition } from "@/app/components/ui/PageTransition";
-import { departments } from "@/lib/data/departments";
 import { getDepartmentDetail } from "@/lib/data/department-detail";
+import { departments } from "@/lib/data/departments";
 import { notFound, useParams } from "next/navigation";
 import { DepartmentProvider } from "./department-context";
 
