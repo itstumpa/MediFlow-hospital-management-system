@@ -57,3 +57,20 @@ export type { StatsCardData } from "./StatsCard";
 export { StatsGrid } from "./StatsGrid";
 export { SystemStatus } from "./SystemStatus";
 export { TopDoctors } from "./TopDoctors";
+
+/* ============================================
+   Manage Doctors components
+   ============================================ */
+export { BulkActions } from "./doctors/BulkActions";
+export { DeleteDoctorDialog } from "./doctors/DeleteDoctorDialog";
+export { DoctorCard } from "./doctors/DoctorCard";
+export { DoctorFilters } from "./doctors/DoctorFilters";
+export { DoctorsStats } from "./doctors/DoctorsStats";
+export { DoctorsTable } from "./doctors/DoctorsTable";
+export { DoctorsToolbar } from "./doctors/DoctorsToolbar";
+export { EmptyState } from "./doctors/EmptyState";
+export { ExportDialog } from "./doctors/ExportDialog";
+export { ImportDialog } from "./doctors/ImportDialog";
+export { LoadingSkeleton } from "./doctors/LoadingSkeleton";
+export type { Doctor, DoctorFilters as DoctorFiltersType, ViewMode, SortField, ExportFormat } from "./doctors/types";
+export { DEFAULT_FILTERS, doctorsData } from "./doctors";

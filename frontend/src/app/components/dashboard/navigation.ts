@@ -97,6 +97,13 @@ export const navigationGroups: NavGroupDef[] = [
 export const allNavItems = navigationGroups.flatMap((g) => g.items);
 
 /** Map of href → label for breadcrumb resolution */
-export const breadcrumbLabels: Record<string, string> = Object.fromEntries(
+const autoLabels = Object.fromEntries(
   allNavItems.map((item) => [item.href, item.label]),
 );
+
+/** Map of href → label for breadcrumb resolution */
+export const breadcrumbLabels: Record<string, string> = {
+  ...autoLabels,
+  "/admin/doctors/new": "New Doctor",
+  "/admin/doctors/[id]/edit": "Edit Doctor",
+};
