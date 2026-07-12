@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Stethoscope, UserPlus, FileText, BarChart3, Building2, CalendarCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Building2,
+  CalendarCheck,
+  FileText,
+  Stethoscope,
+  UserPlus,
+} from "lucide-react";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 interface QuickAction {
@@ -18,42 +26,48 @@ const actions: QuickAction[] = [
     label: "Add Doctor",
     description: "Onboard a new physician",
     href: "/admin/doctors",
-    colorClass: "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400",
+    colorClass:
+      "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400",
   },
   {
     icon: UserPlus,
     label: "New Patient",
     description: "Register a patient",
     href: "/admin/patients",
-    colorClass: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
+    colorClass:
+      "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
   },
   {
     icon: FileText,
     label: "Create Article",
     description: "Write a health article",
     href: "/admin/articles",
-    colorClass: "bg-violet-50 text-violet-600 dark:bg-violet-950/30 dark:text-violet-400",
+    colorClass:
+      "bg-violet-50 text-violet-600 dark:bg-violet-950/30 dark:text-violet-400",
   },
   {
     icon: BarChart3,
     label: "View Reports",
     description: "Analytics & insights",
     href: "/admin/analytics",
-    colorClass: "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400",
+    colorClass:
+      "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400",
   },
   {
     icon: Building2,
     label: "Manage Departments",
     description: "Organize departments",
     href: "/admin/departments",
-    colorClass: "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
+    colorClass:
+      "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
   },
   {
     icon: CalendarCheck,
     label: "Appointments",
     description: "Schedule management",
     href: "/admin/appointments",
-    colorClass: "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/30 dark:text-cyan-400",
+    colorClass:
+      "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/30 dark:text-cyan-400",
   },
 ];
 
@@ -87,7 +101,9 @@ export function QuickActions() {
             className="group relative overflow-hidden rounded-xl border border-slate-100 bg-slate-50/50 p-4 transition-all hover:border-slate-200 hover:bg-white hover:shadow-md dark:border-slate-800 dark:bg-slate-800/30 dark:hover:border-slate-700 dark:hover:bg-slate-800"
           >
             <div className="flex items-start justify-between">
-              <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${action.colorClass}`}>
+              <span
+                className={`flex h-10 w-10 items-center justify-center rounded-xl ${action.colorClass}`}
+              >
                 <action.icon className="h-5 w-5" />
               </span>
               <ArrowRight className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-slate-500 dark:text-slate-600 dark:group-hover:text-slate-400" />

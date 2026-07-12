@@ -1,53 +1,59 @@
-export { Sidebar } from "./Sidebar";
-export { SidebarItem } from "./SidebarItem";
-export { SidebarGroup } from "./SidebarGroup";
-export { MobileSidebar } from "./MobileSidebar";
-export { Header } from "./Header";
-export { SearchBar } from "./SearchBar";
 export { Breadcrumb } from "./Breadcrumb";
-export { NotificationDropdown } from "./NotificationDropdown";
-export { UserDropdown } from "./UserDropdown";
-export { ThemeToggle } from "./ThemeToggle";
 export { DashboardContainer } from "./DashboardContainer";
 export { DashboardContent } from "./DashboardContent";
-export { PageHeader } from "./PageHeader";
-export { DashboardProvider, useDashboard } from "./use-dashboard";
 export {
-  PageSkeleton,
-  StatGridSkeleton,
-  TableSkeleton,
   ChartSkeleton,
+  PageSkeleton,
   StatCardSkeleton,
+  StatGridSkeleton,
   TableRowSkeleton,
+  TableSkeleton,
 } from "./DashboardSkeleton";
-export { navigationGroups, allNavItems, breadcrumbLabels } from "./navigation";
+export { Header } from "./Header";
+export { MobileSidebar } from "./MobileSidebar";
 export {
-  fadeUp,
+  buttonPress,
   fadeDown,
   fadeIn,
+  fadeUp,
+  hoverLift,
   scaleFade,
   slideLeft,
   staggerContainer,
   staggerItem,
-  hoverLift,
-  buttonPress,
 } from "./MotionVariants";
-export type { NavItemDef, NavGroupDef, BreadcrumbSegment, NotificationItem, DashboardContextValue } from "./types";
+export { allNavItems, breadcrumbLabels, navigationGroups } from "./navigation";
+export { NotificationDropdown } from "./NotificationDropdown";
+export { PageHeader } from "./PageHeader";
+export { SearchBar } from "./SearchBar";
+export { Sidebar } from "./Sidebar";
+export { SidebarGroup } from "./SidebarGroup";
+export { SidebarItem } from "./SidebarItem";
+export { ThemeToggle } from "./ThemeToggle";
+export type {
+  BreadcrumbSegment,
+  DashboardContextValue,
+  NavGroupDef,
+  NavItemDef,
+  NotificationItem,
+} from "./types";
+export { DashboardProvider, useDashboard } from "./use-dashboard";
+export { UserDropdown } from "./UserDropdown";
 
 /* ============================================
    Dashboard Overview components
    ============================================ */
+export { ActivityTimeline } from "./ActivityTimeline";
 export { AnimatedCounter } from "./AnimatedCounter";
+export { AppointmentChart } from "./AppointmentChart";
+export { AppointmentTable } from "./AppointmentTable";
+export { LatestMessages } from "./LatestMessages";
+export { QuickActions } from "./QuickActions";
+export { RecentPatients } from "./RecentPatients";
+export { RevenueChart } from "./RevenueChart";
 export { Sparkline } from "./Sparkline";
 export { StatsCard } from "./StatsCard";
 export type { StatsCardData } from "./StatsCard";
 export { StatsGrid } from "./StatsGrid";
-export { RevenueChart } from "./RevenueChart";
-export { AppointmentChart } from "./AppointmentChart";
-export { AppointmentTable } from "./AppointmentTable";
-export { RecentPatients } from "./RecentPatients";
-export { QuickActions } from "./QuickActions";
-export { ActivityTimeline } from "./ActivityTimeline";
-export { LatestMessages } from "./LatestMessages";
-export { TopDoctors } from "./TopDoctors";
 export { SystemStatus } from "./SystemStatus";
+export { TopDoctors } from "./TopDoctors";

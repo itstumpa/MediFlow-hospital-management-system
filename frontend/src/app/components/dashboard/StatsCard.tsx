@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { Sparkline } from "./Sparkline";
@@ -68,7 +68,18 @@ const colorMap: Record<string, { bg: string; text: string; glow: string }> = {
 };
 
 export function StatsCard({ data, index = 0 }: StatsCardProps) {
-  const { icon: Icon, label, value, prefix = "", suffix = "", trend, trendLabel, sparkline, colorClass, description } = data;
+  const {
+    icon: Icon,
+    label,
+    value,
+    prefix = "",
+    suffix = "",
+    trend,
+    trendLabel,
+    sparkline,
+    colorClass,
+    description,
+  } = data;
   const colors = colorMap[colorClass] ?? colorMap.blue;
   const isPositive = trend >= 0;
 
@@ -76,7 +87,11 @@ export function StatsCard({ data, index = 0 }: StatsCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, delay: index * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{
+        duration: 0.35,
+        delay: index * 0.06,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
       whileHover={{ y: -3, transition: { duration: 0.2 } }}
       className={cn(
         "group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900",
@@ -84,12 +99,22 @@ export function StatsCard({ data, index = 0 }: StatsCardProps) {
       )}
     >
       {/* Glow effect on hover */}
-      <div className={cn("pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100", colors.glow)} />
+      <div
+        className={cn(
+          "pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+          colors.glow,
+        )}
+      />
 
       <div className="relative">
         {/* Top row: icon + trend badge */}
         <div className="flex items-start justify-between">
-          <span className={cn("flex h-10 w-10 items-center justify-center rounded-xl", colors.bg)}>
+          <span
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-xl",
+              colors.bg,
+            )}
+          >
             <Icon className={cn("h-5 w-5", colors.text)} />
           </span>
           <span
@@ -100,9 +125,18 @@ export function StatsCard({ data, index = 0 }: StatsCardProps) {
                 : "bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400",
             )}
           >
-            <svg className="h-3 w-3" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <svg
+              className="h-3 w-3"
+              viewBox="0 0 12 12"
+              fill="none"
+              aria-hidden="true"
+            >
               <path
-                d={isPositive ? "M6 2.5v7M6 2.5L3 5.5M6 2.5L9 5.5" : "M6 9.5v-7M6 9.5L3 6.5M6 9.5L9 6.5"}
+                d={
+                  isPositive
+                    ? "M6 2.5v7M6 2.5L3 5.5M6 2.5L9 5.5"
+                    : "M6 9.5v-7M6 9.5L3 6.5M6 9.5L9 6.5"
+                }
                 stroke="currentColor"
                 strokeWidth="1.5"
                 strokeLinecap="round"
@@ -125,15 +159,26 @@ export function StatsCard({ data, index = 0 }: StatsCardProps) {
         {/* Label + sparkline row */}
         <div className="mt-1 flex items-center justify-between">
           <div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">{label}</p>
-            <p className="mt-0.5 text-xs text-slate-400 dark:text-slate-500">{trendLabel}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              {label}
+            </p>
+            <p className="mt-0.5 text-xs text-slate-400 dark:text-slate-500">
+              {trendLabel}
+            </p>
           </div>
-          <Sparkline data={sparkline} color={isPositive ? "#16a34a" : "#dc2626"} width={60} height={24} />
+          <Sparkline
+            data={sparkline}
+            color={isPositive ? "#16a34a" : "#dc2626"}
+            width={60}
+            height={24}
+          />
         </div>
 
         {/* Description */}
         {description && (
-          <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">{description}</p>
+          <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">
+            {description}
+          </p>
         )}
       </div>
     </motion.div>

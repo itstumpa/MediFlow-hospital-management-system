@@ -68,7 +68,12 @@ export function Sparkline({
       />
 
       {/* End dot */}
-      <circle cx={points[points.length - 1].split(",")[0]} cy={points[points.length - 1].split(",")[1]} r="2" fill={color} />
+      <circle
+        cx={points[points.length - 1].split(",")[0]}
+        cy={points[points.length - 1].split(",")[1]}
+        r="2"
+        fill={color}
+      />
     </svg>
   );
 }

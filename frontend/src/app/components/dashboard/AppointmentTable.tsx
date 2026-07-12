@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eye, Edit3, MoreHorizontal } from "lucide-react";
+import { Edit3, Eye, MoreHorizontal } from "lucide-react";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 interface Appointment {
@@ -13,18 +13,62 @@ interface Appointment {
 }
 
 const appointments: Appointment[] = [
-  { patient: "Alice Thompson", doctor: "Dr. Sarah Johnson", department: "Cardiology", time: "09:00 AM", status: "Completed" },
-  { patient: "Mark Rivera", doctor: "Dr. James Mitchell", department: "Neurology", time: "10:30 AM", status: "Confirmed" },
-  { patient: "Emily Watson", doctor: "Dr. Lisa Park", department: "Pediatrics", time: "11:00 AM", status: "Pending" },
-  { patient: "Robert Chen", doctor: "Dr. David Kim", department: "Orthopedics", time: "01:30 PM", status: "Confirmed" },
-  { patient: "Sophia Lee", doctor: "Dr. Sarah Johnson", department: "Cardiology", time: "02:00 PM", status: "Pending" },
-  { patient: "James Wilson", doctor: "Dr. Michael Torres", department: "Dermatology", time: "03:30 PM", status: "Cancelled" },
-  { patient: "Olivia Brown", doctor: "Dr. Emily Watson", department: "Pediatrics", time: "04:00 PM", status: "Confirmed" },
+  {
+    patient: "Alice Thompson",
+    doctor: "Dr. Sarah Johnson",
+    department: "Cardiology",
+    time: "09:00 AM",
+    status: "Completed",
+  },
+  {
+    patient: "Mark Rivera",
+    doctor: "Dr. James Mitchell",
+    department: "Neurology",
+    time: "10:30 AM",
+    status: "Confirmed",
+  },
+  {
+    patient: "Emily Watson",
+    doctor: "Dr. Lisa Park",
+    department: "Pediatrics",
+    time: "11:00 AM",
+    status: "Pending",
+  },
+  {
+    patient: "Robert Chen",
+    doctor: "Dr. David Kim",
+    department: "Orthopedics",
+    time: "01:30 PM",
+    status: "Confirmed",
+  },
+  {
+    patient: "Sophia Lee",
+    doctor: "Dr. Sarah Johnson",
+    department: "Cardiology",
+    time: "02:00 PM",
+    status: "Pending",
+  },
+  {
+    patient: "James Wilson",
+    doctor: "Dr. Michael Torres",
+    department: "Dermatology",
+    time: "03:30 PM",
+    status: "Cancelled",
+  },
+  {
+    patient: "Olivia Brown",
+    doctor: "Dr. Emily Watson",
+    department: "Pediatrics",
+    time: "04:00 PM",
+    status: "Confirmed",
+  },
 ];
 
 const statusStyles: Record<string, string> = {
-  Confirmed: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400",
-  Pending: "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
+  Confirmed:
+    "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400",
+  Pending:
+    "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
   Cancelled: "bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400",
   Completed: "bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400",
 };
@@ -57,12 +101,24 @@ export function AppointmentTable() {
         <table className="w-full text-sm" role="table">
           <thead>
             <tr className="border-b border-slate-50 text-left text-xs font-medium text-slate-500 dark:border-slate-800/30 dark:text-slate-400">
-              <th className="px-5 py-3" scope="col">Patient</th>
-              <th className="px-5 py-3" scope="col">Doctor</th>
-              <th className="px-5 py-3" scope="col">Department</th>
-              <th className="px-5 py-3" scope="col">Time</th>
-              <th className="px-5 py-3" scope="col">Status</th>
-              <th className="px-5 py-3 text-right" scope="col">Actions</th>
+              <th className="px-5 py-3" scope="col">
+                Patient
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Doctor
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Department
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Time
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Status
+              </th>
+              <th className="px-5 py-3 text-right" scope="col">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>

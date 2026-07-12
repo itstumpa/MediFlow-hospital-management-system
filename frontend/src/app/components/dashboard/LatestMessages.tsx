@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eye, Mail, MoreHorizontal } from "lucide-react";
+import { Eye, Mail } from "lucide-react";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 interface Message {
@@ -14,11 +14,46 @@ interface Message {
 }
 
 const messages: Message[] = [
-  { name: "John Anderson", initials: "JA", email: "john@example.com", subject: "Appointment Reschedule Request", time: "12 min ago", unread: true },
-  { name: "Maria Garcia", initials: "MG", email: "maria@example.com", subject: "Insurance Coverage Inquiry", time: "45 min ago", unread: true },
-  { name: "David Kim", initials: "DK", email: "david@example.com", subject: "Prescription Refill Request", time: "2 hours ago", unread: false },
-  { name: "Lisa Thompson", initials: "LT", email: "lisa@example.com", subject: "Lab Results Question", time: "4 hours ago", unread: false },
-  { name: "Robert Chen", initials: "RC", email: "robert@example.com", subject: "New Patient Registration Help", time: "Yesterday", unread: false },
+  {
+    name: "John Anderson",
+    initials: "JA",
+    email: "john@example.com",
+    subject: "Appointment Reschedule Request",
+    time: "12 min ago",
+    unread: true,
+  },
+  {
+    name: "Maria Garcia",
+    initials: "MG",
+    email: "maria@example.com",
+    subject: "Insurance Coverage Inquiry",
+    time: "45 min ago",
+    unread: true,
+  },
+  {
+    name: "David Kim",
+    initials: "DK",
+    email: "david@example.com",
+    subject: "Prescription Refill Request",
+    time: "2 hours ago",
+    unread: false,
+  },
+  {
+    name: "Lisa Thompson",
+    initials: "LT",
+    email: "lisa@example.com",
+    subject: "Lab Results Question",
+    time: "4 hours ago",
+    unread: false,
+  },
+  {
+    name: "Robert Chen",
+    initials: "RC",
+    email: "robert@example.com",
+    subject: "New Patient Registration Help",
+    time: "Yesterday",
+    unread: false,
+  },
 ];
 
 const bgColors = [
@@ -75,27 +110,42 @@ export function LatestMessages() {
             {/* Content */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <span className={`text-sm font-medium ${msg.unread ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}>
+                <span
+                  className={`text-sm font-medium ${msg.unread ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"}`}
+                >
                   {msg.name}
                 </span>
                 {msg.unread && (
-                  <span className="h-2 w-2 rounded-full bg-blue-500" aria-label="Unread message" />
+                  <span
+                    className="h-2 w-2 rounded-full bg-blue-500"
+                    aria-label="Unread message"
+                  />
                 )}
               </div>
               <p className="truncate text-xs text-slate-500 dark:text-slate-500">
                 {msg.subject}
               </p>
-              <p className="text-xs text-slate-400 dark:text-slate-500">{msg.email}</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500">
+                {msg.email}
+              </p>
             </div>
 
             {/* Time + actions */}
             <div className="flex shrink-0 flex-col items-end gap-1">
-              <span className="text-xs text-slate-400 dark:text-slate-500">{msg.time}</span>
+              <span className="text-xs text-slate-400 dark:text-slate-500">
+                {msg.time}
+              </span>
               <div className="flex gap-0.5 opacity-0 transition-opacity group-hover:opacity-100">
-                <button className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300" aria-label={`View message from ${msg.name}`}>
+                <button
+                  className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                  aria-label={`View message from ${msg.name}`}
+                >
                   <Eye className="h-3.5 w-3.5" />
                 </button>
-                <button className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300" aria-label={`Reply to ${msg.name}`}>
+                <button
+                  className="rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                  aria-label={`Reply to ${msg.name}`}
+                >
                   <Mail className="h-3.5 w-3.5" />
                 </button>
               </div>

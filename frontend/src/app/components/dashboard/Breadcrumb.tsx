@@ -1,11 +1,11 @@
 "use client";
 
-import { Fragment } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronRight, LayoutDashboard } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Fragment } from "react";
 import { breadcrumbLabels } from "./navigation";
 
 export function Breadcrumb() {
@@ -19,9 +19,7 @@ export function Breadcrumb() {
       const href = "/" + arr.slice(0, index + 1).join("/");
       const label =
         breadcrumbLabels[href] ||
-        segment
-          .replace(/-/g, " ")
-          .replace(/\b\w/g, (c) => c.toUpperCase());
+        segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
       return { label, href, isLast: index === arr.length - 1 };
     });
 
@@ -39,7 +37,10 @@ export function Breadcrumb() {
 
       {segments.map((segment) => (
         <Fragment key={segment.href}>
-          <ChevronRight className="h-3.5 w-3.5 text-slate-300 dark:text-slate-600" aria-hidden="true" />
+          <ChevronRight
+            className="h-3.5 w-3.5 text-slate-300 dark:text-slate-600"
+            aria-hidden="true"
+          />
           {segment.isLast ? (
             <motion.span
               initial={{ opacity: 0, x: -4 }}

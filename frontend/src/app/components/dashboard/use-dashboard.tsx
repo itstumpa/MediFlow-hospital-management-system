@@ -2,10 +2,10 @@
 
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
-  useCallback,
   type ReactNode,
 } from "react";
 import type { DashboardContextValue } from "./types";
@@ -60,10 +60,7 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const toggleDarkMode = useCallback(
-    () => setIsDarkMode((prev) => !prev),
-    [],
-  );
+  const toggleDarkMode = useCallback(() => setIsDarkMode((prev) => !prev), []);
 
   return (
     <DashboardContext.Provider

@@ -1,7 +1,7 @@
 "use client";
 
-import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Search } from "lucide-react";
 
 interface SearchBarProps {
   onOpen?: () => void;
@@ -23,7 +23,9 @@ export function SearchBar({ onOpen }: SearchBarProps) {
       aria-label="Open search"
     >
       <Search className="h-4 w-4 shrink-0" />
-      <span className="flex-1 text-left">Search doctors, patients, articles...</span>
+      <span className="flex-1 text-left">
+        Search doctors, patients, articles...
+      </span>
       <kbd
         className={cn(
           "hidden shrink-0 items-center gap-0.5 rounded-lg border border-slate-200 bg-slate-50 px-1.5 py-0.5",

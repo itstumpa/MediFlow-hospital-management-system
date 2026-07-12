@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertTriangle, RefreshCw, LifeBuoy } from "lucide-react";
+import { AlertTriangle, LifeBuoy, RefreshCw } from "lucide-react";
 
 export default function DashboardError({
   error,

@@ -8,7 +8,11 @@ interface SidebarGroupProps {
   children: React.ReactNode;
 }
 
-export function SidebarGroup({ label, collapsed, children }: SidebarGroupProps) {
+export function SidebarGroup({
+  label,
+  collapsed,
+  children,
+}: SidebarGroupProps) {
   return (
     <div className="px-3">
       {/* Group label — hidden when collapsed */}

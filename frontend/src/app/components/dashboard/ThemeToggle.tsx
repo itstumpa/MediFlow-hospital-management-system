@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useDashboard } from "./use-dashboard";
 
 export function ThemeToggle() {

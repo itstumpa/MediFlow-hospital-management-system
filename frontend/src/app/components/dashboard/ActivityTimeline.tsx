@@ -1,8 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserPlus, CalendarCheck, FileText, Building2, Stethoscope, ArrowRight } from "lucide-react";
-import { fadeUp } from "./MotionVariants";
+import {
+  ArrowRight,
+  Building2,
+  CalendarCheck,
+  FileText,
+  Stethoscope,
+  UserPlus,
+} from "lucide-react";
 
 interface Activity {
   icon: typeof UserPlus;
@@ -51,7 +57,11 @@ const activities: Activity[] = [
 ];
 
 const iconMap: Record<string, typeof UserPlus> = {
-  UserPlus, CalendarCheck, FileText, Building2, Stethoscope,
+  UserPlus,
+  CalendarCheck,
+  FileText,
+  Building2,
+  Stethoscope,
 };
 
 export function ActivityTimeline() {
@@ -70,22 +80,33 @@ export function ActivityTimeline() {
       {/* Timeline */}
       <div className="relative px-5 py-4">
         {/* Vertical line */}
-        <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-slate-100 dark:bg-slate-800" aria-hidden="true" />
+        <div
+          className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-slate-100 dark:bg-slate-800"
+          aria-hidden="true"
+        />
 
         <div className="space-y-0">
           {activities.map((activity, i) => {
-            const Icon = iconMap[activity.icon.name as keyof typeof iconMap] || activity.icon;
+            const Icon =
+              iconMap[activity.icon.name as keyof typeof iconMap] ||
+              activity.icon;
             return (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.35, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{
+                  duration: 0.35,
+                  delay: i * 0.1,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
                 className="relative flex gap-4 pb-6 last:pb-0"
               >
                 {/* Timeline dot */}
                 <div className="relative z-10 flex shrink-0">
-                  <span className={`flex h-[14px] w-[14px] items-center justify-center rounded-full ${activity.color} ring-4 ring-white dark:ring-slate-900`}>
+                  <span
+                    className={`flex h-[14px] w-[14px] items-center justify-center rounded-full ${activity.color} ring-4 ring-white dark:ring-slate-900`}
+                  >
                     <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   </span>
                 </div>

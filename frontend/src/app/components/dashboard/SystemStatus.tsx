@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Server, Database, Globe, Mail, HardDrive } from "lucide-react";
+import { Database, Globe, HardDrive, Mail, Server } from "lucide-react";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 interface SystemService {
@@ -13,22 +13,54 @@ interface SystemService {
 }
 
 const services: SystemService[] = [
-  { icon: Server, name: "Server", status: "Healthy", uptime: "99.9%", response: "12 ms" },
-  { icon: Database, name: "Database", status: "Healthy", uptime: "99.8%", response: "8 ms" },
-  { icon: Globe, name: "API", status: "Healthy", uptime: "99.7%", response: "45 ms" },
-  { icon: Mail, name: "Email Service", status: "Warning", uptime: "98.2%", response: "120 ms" },
-  { icon: HardDrive, name: "Storage", status: "Healthy", uptime: "99.9%", response: "5 ms" },
+  {
+    icon: Server,
+    name: "Server",
+    status: "Healthy",
+    uptime: "99.9%",
+    response: "12 ms",
+  },
+  {
+    icon: Database,
+    name: "Database",
+    status: "Healthy",
+    uptime: "99.8%",
+    response: "8 ms",
+  },
+  {
+    icon: Globe,
+    name: "API",
+    status: "Healthy",
+    uptime: "99.7%",
+    response: "45 ms",
+  },
+  {
+    icon: Mail,
+    name: "Email Service",
+    status: "Warning",
+    uptime: "98.2%",
+    response: "120 ms",
+  },
+  {
+    icon: HardDrive,
+    name: "Storage",
+    status: "Healthy",
+    uptime: "99.9%",
+    response: "5 ms",
+  },
 ];
 
 const statusConfig = {
   Healthy: {
     dot: "bg-emerald-500",
-    badge: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400",
+    badge:
+      "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400",
     pulse: true,
   },
   Warning: {
     dot: "bg-amber-500",
-    badge: "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
+    badge:
+      "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
     pulse: true,
   },
   Down: {
@@ -84,7 +116,9 @@ export function SystemStatus() {
               className="flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/20"
             >
               {/* Icon */}
-              <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${iconColors[i]}`}>
+              <span
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${iconColors[i]}`}
+              >
                 <svc.icon className="h-4.5 w-4.5" />
               </span>
 
@@ -94,9 +128,15 @@ export function SystemStatus() {
                   <span className="text-sm font-medium text-slate-900 dark:text-white">
                     {svc.name}
                   </span>
-                  <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${cfg.badge}`}>
-                    <span className={`relative flex h-1.5 w-1.5 ${cfg.pulse ? "" : ""}`}>
-                      <span className={`inline-flex h-1.5 w-1.5 rounded-full ${cfg.dot}`} />
+                  <span
+                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${cfg.badge}`}
+                  >
+                    <span
+                      className={`relative flex h-1.5 w-1.5 ${cfg.pulse ? "" : ""}`}
+                    >
+                      <span
+                        className={`inline-flex h-1.5 w-1.5 rounded-full ${cfg.dot}`}
+                      />
                     </span>
                     {svc.status}
                   </span>

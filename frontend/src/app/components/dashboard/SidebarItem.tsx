@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { activeIndicatorVariants } from "./MotionVariants";
 import type { NavItemDef } from "./types";
 
@@ -12,7 +12,10 @@ interface SidebarItemProps {
   collapsed: boolean;
 }
 
-export function SidebarItem({ item: { icon: Icon, label, href, badge }, collapsed }: SidebarItemProps) {
+export function SidebarItem({
+  item: { icon: Icon, label, href, badge },
+  collapsed,
+}: SidebarItemProps) {
   const pathname = usePathname();
   const isActive = pathname === href || pathname.startsWith(href + "/");
 

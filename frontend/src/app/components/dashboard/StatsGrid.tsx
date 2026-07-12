@@ -1,8 +1,17 @@
 "use client";
 
-import { Stethoscope, Users, CalendarCheck, Building2, Clock, FileText, MessageSquare, DollarSign } from "lucide-react";
-import { StatsCard } from "./StatsCard";
+import {
+  Building2,
+  CalendarCheck,
+  Clock,
+  DollarSign,
+  FileText,
+  MessageSquare,
+  Stethoscope,
+  Users,
+} from "lucide-react";
 import type { StatsCardData } from "./StatsCard";
+import { StatsCard } from "./StatsCard";
 
 const statsData: StatsCardData[] = [
   {

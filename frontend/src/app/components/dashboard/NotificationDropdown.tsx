@@ -1,12 +1,17 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Bell, CheckCheck, ExternalLink, Mail, CalendarCheck, AlertTriangle, Info } from "lucide-react";
+import { cn, timeAgo } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  AlertTriangle,
+  Bell,
+  CheckCheck,
+  ExternalLink,
+  Info,
+} from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { useCallback, useRef, useState } from "react";
 import { scaleFade } from "./MotionVariants";
-import { timeAgo } from "@/lib/utils";
 import type { NotificationItem } from "./types";
 
 /* Mock notifications */
@@ -14,7 +19,8 @@ const mockNotifications: NotificationItem[] = [
   {
     id: "1",
     title: "New appointment booked",
-    description: "Sarah Chen booked a cardiology appointment for tomorrow at 10:00 AM",
+    description:
+      "Sarah Chen booked a cardiology appointment for tomorrow at 10:00 AM",
     time: new Date(Date.now() - 1000 * 60 * 15),
     read: false,
     type: "info",
@@ -54,8 +60,10 @@ const typeIcons = {
 
 const typeStyles = {
   info: "bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400",
-  success: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
-  warning: "bg-amber-50 text-amber-600 dark:bg-amber-950/40 dark:text-amber-400",
+  success:
+    "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
+  warning:
+    "bg-amber-50 text-amber-600 dark:bg-amber-950/40 dark:text-amber-400",
   error: "bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-400",
 };
 
@@ -77,7 +85,8 @@ export function NotificationDropdown() {
           "text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600",
           "dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-slate-300",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-          isOpen && "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300",
+          isOpen &&
+            "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300",
         )}
         aria-label={`Notifications ${unreadCount > 0 ? `(${unreadCount} unread)` : ""}`}
         aria-expanded={isOpen}
@@ -95,7 +104,11 @@ export function NotificationDropdown() {
         {isOpen && (
           <>
             {/* Click-outside backdrop */}
-            <div className="fixed inset-0 z-40" onClick={handleClose} aria-hidden="true" />
+            <div
+              className="fixed inset-0 z-40"
+              onClick={handleClose}
+              aria-hidden="true"
+            />
 
             <motion.div
               key="notif-dropdown"
@@ -129,7 +142,9 @@ export function NotificationDropdown() {
                 {mockNotifications.length === 0 ? (
                   <div className="flex flex-col items-center gap-2 px-4 py-12 text-center">
                     <Bell className="h-8 w-8 text-slate-300 dark:text-slate-600" />
-                    <p className="text-sm text-slate-500 dark:text-slate-400">No notifications yet</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      No notifications yet
+                    </p>
                   </div>
                 ) : (
                   mockNotifications.map((notif) => {

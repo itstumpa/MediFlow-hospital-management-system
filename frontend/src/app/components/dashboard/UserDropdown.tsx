@@ -1,16 +1,10 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronDown,
-  HelpCircle,
-  LogOut,
-  Settings,
-  User,
-} from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, HelpCircle, LogOut, Settings, User } from "lucide-react";
+import Link from "next/link";
+import { useCallback, useRef, useState } from "react";
 import { scaleFade } from "./MotionVariants";
 
 const menuItems = [
@@ -64,7 +58,11 @@ export function UserDropdown() {
         {isOpen && (
           <>
             {/* Click-outside backdrop */}
-            <div className="fixed inset-0 z-40" onClick={handleClose} aria-hidden="true" />
+            <div
+              className="fixed inset-0 z-40"
+              onClick={handleClose}
+              aria-hidden="true"
+            />
 
             <motion.div
               key="user-dropdown"

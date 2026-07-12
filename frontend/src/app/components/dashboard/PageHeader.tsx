@@ -1,7 +1,7 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
 
 interface PageHeaderProps {
   title: string;
@@ -14,7 +14,12 @@ interface PageHeaderProps {
  * Reusable page header with title, optional subtitle, and action buttons.
  * Used at the top of every dashboard page.
  */
-export function PageHeader({ title, subtitle, actions, className }: PageHeaderProps) {
+export function PageHeader({
+  title,
+  subtitle,
+  actions,
+  className,
+}: PageHeaderProps) {
   return (
     <div
       className={cn(
@@ -32,7 +37,9 @@ export function PageHeader({ title, subtitle, actions, className }: PageHeaderPr
           </p>
         )}
       </div>
-      {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
+      {actions && (
+        <div className="flex shrink-0 items-center gap-2">{actions}</div>
+      )}
     </div>
   );
 }

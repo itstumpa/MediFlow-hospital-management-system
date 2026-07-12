@@ -14,10 +14,7 @@ interface SkeletonProps {
 function SkeletonBlock({ className }: SkeletonProps) {
   return (
     <div
-      className={cn(
-        "rounded-xl skeleton-shimmer",
-        className,
-      )}
+      className={cn("rounded-xl skeleton-shimmer", className)}
       aria-hidden="true"
     />
   );
@@ -63,7 +60,13 @@ export function TableRowSkeleton({ columns = 6 }: { columns?: number }) {
 /**
  * Table skeleton with header and multiple rows.
  */
-export function TableSkeleton({ rows = 5, columns = 6 }: { rows?: number; columns?: number }) {
+export function TableSkeleton({
+  rows = 5,
+  columns = 6,
+}: {
+  rows?: number;
+  columns?: number;
+}) {
   return (
     <div className="dash-card overflow-hidden">
       {/* Header */}

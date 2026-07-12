@@ -1,12 +1,12 @@
 "use client";
 
-import { Menu, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useDashboard } from "./use-dashboard";
+import { Menu, Plus } from "lucide-react";
 import { Breadcrumb } from "./Breadcrumb";
+import { NotificationDropdown } from "./NotificationDropdown";
 import { SearchBar } from "./SearchBar";
 import { ThemeToggle } from "./ThemeToggle";
-import { NotificationDropdown } from "./NotificationDropdown";
+import { useDashboard } from "./use-dashboard";
 import { UserDropdown } from "./UserDropdown";
 
 export function Header() {

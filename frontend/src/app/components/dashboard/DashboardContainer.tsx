@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
 
 interface DashboardContainerProps {
   children: ReactNode;
@@ -10,7 +10,10 @@ interface DashboardContainerProps {
  * Max-width centered container for dashboard content.
  * Wraps content at 1600px with responsive padding.
  */
-export function DashboardContainer({ children, className }: DashboardContainerProps) {
+export function DashboardContainer({
+  children,
+  className,
+}: DashboardContainerProps) {
   return (
     <div
       className={cn(

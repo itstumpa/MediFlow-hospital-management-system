@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarCheck, Eye, MoreHorizontal } from "lucide-react";
+import { Eye, MoreHorizontal } from "lucide-react";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 interface RecentPatient {
@@ -14,18 +14,63 @@ interface RecentPatient {
 }
 
 const patients: RecentPatient[] = [
-  { name: "Sarah Chen", initials: "SC", age: 34, department: "Cardiology", visitDate: "Today", status: "Active" },
-  { name: "Michael Brown", initials: "MB", age: 52, department: "Neurology", visitDate: "Today", status: "Follow-up" },
-  { name: "Emma Davis", initials: "ED", age: 28, department: "Orthopedics", visitDate: "Yesterday", status: "Discharged" },
-  { name: "James Wilson", initials: "JW", age: 45, department: "Dermatology", visitDate: "Yesterday", status: "Active" },
-  { name: "Olivia Taylor", initials: "OT", age: 19, department: "Pediatrics", visitDate: "2 days ago", status: "Follow-up" },
-  { name: "Daniel Martinez", initials: "DM", age: 61, department: "Cardiology", visitDate: "2 days ago", status: "Discharged" },
+  {
+    name: "Sarah Chen",
+    initials: "SC",
+    age: 34,
+    department: "Cardiology",
+    visitDate: "Today",
+    status: "Active",
+  },
+  {
+    name: "Michael Brown",
+    initials: "MB",
+    age: 52,
+    department: "Neurology",
+    visitDate: "Today",
+    status: "Follow-up",
+  },
+  {
+    name: "Emma Davis",
+    initials: "ED",
+    age: 28,
+    department: "Orthopedics",
+    visitDate: "Yesterday",
+    status: "Discharged",
+  },
+  {
+    name: "James Wilson",
+    initials: "JW",
+    age: 45,
+    department: "Dermatology",
+    visitDate: "Yesterday",
+    status: "Active",
+  },
+  {
+    name: "Olivia Taylor",
+    initials: "OT",
+    age: 19,
+    department: "Pediatrics",
+    visitDate: "2 days ago",
+    status: "Follow-up",
+  },
+  {
+    name: "Daniel Martinez",
+    initials: "DM",
+    age: 61,
+    department: "Cardiology",
+    visitDate: "2 days ago",
+    status: "Discharged",
+  },
 ];
 
 const statusStyles: Record<string, string> = {
-  Active: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400",
-  "Follow-up": "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
-  Discharged: "bg-slate-50 text-slate-600 dark:bg-slate-800/50 dark:text-slate-400",
+  Active:
+    "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400",
+  "Follow-up":
+    "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
+  Discharged:
+    "bg-slate-50 text-slate-600 dark:bg-slate-800/50 dark:text-slate-400",
 };
 
 const bgColors = [
@@ -65,11 +110,21 @@ export function RecentPatients() {
         <table className="w-full text-sm" role="table">
           <thead>
             <tr className="border-b border-slate-50 text-left text-xs font-medium text-slate-500 dark:border-slate-800/30 dark:text-slate-400">
-              <th className="px-5 py-3" scope="col">Patient</th>
-              <th className="px-5 py-3" scope="col">Age</th>
-              <th className="px-5 py-3" scope="col">Department</th>
-              <th className="px-5 py-3" scope="col">Visit Date</th>
-              <th className="px-5 py-3" scope="col">Status</th>
+              <th className="px-5 py-3" scope="col">
+                Patient
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Age
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Department
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Visit Date
+              </th>
+              <th className="px-5 py-3" scope="col">
+                Status
+              </th>
               <th className="px-5 py-3 text-right" scope="col"></th>
             </tr>
           </thead>
@@ -92,9 +147,15 @@ export function RecentPatients() {
                     </span>
                   </div>
                 </td>
-                <td className="px-5 py-3 text-slate-600 dark:text-slate-400">{p.age}</td>
-                <td className="px-5 py-3 text-slate-600 dark:text-slate-400">{p.department}</td>
-                <td className="px-5 py-3 text-slate-600 dark:text-slate-400">{p.visitDate}</td>
+                <td className="px-5 py-3 text-slate-600 dark:text-slate-400">
+                  {p.age}
+                </td>
+                <td className="px-5 py-3 text-slate-600 dark:text-slate-400">
+                  {p.department}
+                </td>
+                <td className="px-5 py-3 text-slate-600 dark:text-slate-400">
+                  {p.visitDate}
+                </td>
                 <td className="px-5 py-3">
                   <span
                     className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${statusStyles[p.status]}`}
@@ -104,10 +165,16 @@ export function RecentPatients() {
                 </td>
                 <td className="px-5 py-3 text-right">
                   <div className="flex items-center justify-end gap-1 opacity-0 transition-opacity group-hover:opacity-100">
-                    <button className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300" aria-label={`View ${p.name}`}>
+                    <button
+                      className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                      aria-label={`View ${p.name}`}
+                    >
                       <Eye className="h-4 w-4" />
                     </button>
-                    <button className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300" aria-label="More options">
+                    <button
+                      className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                      aria-label="More options"
+                    >
                       <MoreHorizontal className="h-4 w-4" />
                     </button>
                   </div>

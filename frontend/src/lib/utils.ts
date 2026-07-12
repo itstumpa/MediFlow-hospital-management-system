@@ -12,7 +12,10 @@ export function cn(...inputs: ClassValue[]) {
 /**
  * Format a date string to a human-readable format.
  */
-export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions): string {
+export function formatDate(
+  date: Date | string,
+  options?: Intl.DateTimeFormatOptions,
+): string {
   const d = typeof date === "string" ? new Date(date) : date;
   return d.toLocaleDateString("en-US", {
     month: "short",

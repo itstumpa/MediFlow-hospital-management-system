@@ -1,14 +1,13 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { HeartPulse, X } from "lucide-react";
 import { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
-import { HeartPulse } from "lucide-react";
+import { fadeIn, slideLeft } from "./MotionVariants";
 import { navigationGroups } from "./navigation";
 import { SidebarGroup } from "./SidebarGroup";
 import { SidebarItem } from "./SidebarItem";
 import { useDashboard } from "./use-dashboard";
-import { fadeIn, slideLeft } from "./MotionVariants";
 
 export function MobileSidebar() {
   const { mobileSidebarOpen, setMobileSidebarOpen } = useDashboard();
@@ -76,9 +75,17 @@ export function MobileSidebar() {
             <nav className="flex-1 overflow-y-auto py-4 dash-scrollbar">
               <div className="flex flex-col gap-5">
                 {navigationGroups.map((group) => (
-                  <SidebarGroup key={group.label} label={group.label} collapsed={false}>
+                  <SidebarGroup
+                    key={group.label}
+                    label={group.label}
+                    collapsed={false}
+                  >
                     {group.items.map((item) => (
-                      <SidebarItem key={item.href} item={item} collapsed={false} />
+                      <SidebarItem
+                        key={item.href}
+                        item={item}
+                        collapsed={false}
+                      />
                     ))}
                   </SidebarGroup>
                 ))}

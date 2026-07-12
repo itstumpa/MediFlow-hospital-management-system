@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, ExternalLink, MoreHorizontal } from "lucide-react";
+import { ExternalLink, MoreHorizontal, Star } from "lucide-react";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 interface TopDoctor {
@@ -15,11 +15,51 @@ interface TopDoctor {
 }
 
 const doctors: TopDoctor[] = [
-  { name: "Dr. Sarah Johnson", initials: "SJ", specialty: "Cardiologist", rating: 4.9, patients: 245, department: "Cardiology", appointments: 38 },
-  { name: "Dr. James Mitchell", initials: "JM", specialty: "Neurologist", rating: 4.8, patients: 198, department: "Neurology", appointments: 32 },
-  { name: "Dr. Lisa Park", initials: "LP", specialty: "Pediatrician", rating: 4.9, patients: 267, department: "Pediatrics", appointments: 41 },
-  { name: "Dr. David Kim", initials: "DK", specialty: "Orthopedic Surgeon", rating: 4.7, patients: 178, department: "Orthopedics", appointments: 29 },
-  { name: "Dr. Michael Torres", initials: "MT", specialty: "Dermatologist", rating: 4.8, patients: 156, department: "Dermatology", appointments: 25 },
+  {
+    name: "Dr. Sarah Johnson",
+    initials: "SJ",
+    specialty: "Cardiologist",
+    rating: 4.9,
+    patients: 245,
+    department: "Cardiology",
+    appointments: 38,
+  },
+  {
+    name: "Dr. James Mitchell",
+    initials: "JM",
+    specialty: "Neurologist",
+    rating: 4.8,
+    patients: 198,
+    department: "Neurology",
+    appointments: 32,
+  },
+  {
+    name: "Dr. Lisa Park",
+    initials: "LP",
+    specialty: "Pediatrician",
+    rating: 4.9,
+    patients: 267,
+    department: "Pediatrics",
+    appointments: 41,
+  },
+  {
+    name: "Dr. David Kim",
+    initials: "DK",
+    specialty: "Orthopedic Surgeon",
+    rating: 4.7,
+    patients: 178,
+    department: "Orthopedics",
+    appointments: 29,
+  },
+  {
+    name: "Dr. Michael Torres",
+    initials: "MT",
+    specialty: "Dermatologist",
+    rating: 4.8,
+    patients: 156,
+    department: "Dermatology",
+    appointments: 25,
+  },
 ];
 
 const bgColors = [
@@ -84,21 +124,35 @@ export function TopDoctors() {
             {/* Stats */}
             <div className="hidden items-center gap-6 sm:flex">
               <div className="text-right">
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">{doc.patients}</p>
-                <p className="text-xs text-slate-400 dark:text-slate-500">Patients</p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                  {doc.patients}
+                </p>
+                <p className="text-xs text-slate-400 dark:text-slate-500">
+                  Patients
+                </p>
               </div>
               <div className="text-right">
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">{doc.appointments}</p>
-                <p className="text-xs text-slate-400 dark:text-slate-500">This week</p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                  {doc.appointments}
+                </p>
+                <p className="text-xs text-slate-400 dark:text-slate-500">
+                  This week
+                </p>
               </div>
             </div>
 
             {/* Actions */}
             <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
-              <button className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400" aria-label={`View ${doc.name} profile`}>
+              <button
+                className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+                aria-label={`View ${doc.name} profile`}
+              >
                 <ExternalLink className="h-4 w-4" />
               </button>
-              <button className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300" aria-label="More options">
+              <button
+                className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                aria-label="More options"
+              >
                 <MoreHorizontal className="h-4 w-4" />
               </button>
             </div>

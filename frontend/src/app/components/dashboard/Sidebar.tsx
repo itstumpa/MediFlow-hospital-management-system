@@ -1,15 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  ChevronLeft,
-  HeartPulse,
-  LogOut,
-  Settings,
-  User,
-} from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ChevronLeft, HeartPulse, LogOut, Settings, User } from "lucide-react";
+import Link from "next/link";
 import { navigationGroups } from "./navigation";
 import { SidebarGroup } from "./SidebarGroup";
 import { SidebarItem } from "./SidebarItem";
@@ -53,9 +47,17 @@ export function Sidebar() {
       <nav className="flex-1 overflow-y-auto py-4 dash-scrollbar">
         <div className="flex flex-col gap-5">
           {navigationGroups.map((group) => (
-            <SidebarGroup key={group.label} label={group.label} collapsed={sidebarCollapsed}>
+            <SidebarGroup
+              key={group.label}
+              label={group.label}
+              collapsed={sidebarCollapsed}
+            >
               {group.items.map((item) => (
-                <SidebarItem key={item.href} item={item} collapsed={sidebarCollapsed} />
+                <SidebarItem
+                  key={item.href}
+                  item={item}
+                  collapsed={sidebarCollapsed}
+                />
               ))}
             </SidebarGroup>
           ))}
