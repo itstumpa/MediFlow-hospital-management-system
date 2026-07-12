@@ -1,10 +1,10 @@
 "use client";
 
+import { staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import type { DoctorFormValues } from "./form-schema";
-import { staggerItem } from "@/lib/animations/stagger";
 
 export function BiographySection() {
   const {
@@ -42,7 +42,8 @@ export function BiographySection() {
           aria-invalid={!!errors.biography}
         />
         <p className="text-xs text-slate-400 dark:text-slate-500">
-          Suggested: educational background, years of experience, clinical focus areas, research interests, and patient care philosophy.
+          Suggested: educational background, years of experience, clinical focus
+          areas, research interests, and patient care philosophy.
         </p>
       </div>
 

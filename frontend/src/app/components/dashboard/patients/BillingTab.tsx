@@ -1,18 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
-  DollarSign,
-  Calendar,
-  CreditCard,
-  Receipt,
-  Download,
-} from "lucide-react";
-import type { BillingRecord } from "@/lib/data/patient-detail";
-import { formatDate } from "@/lib/utils";
-import { staggerItem, staggerContainer } from "@/app/components/dashboard/MotionVariants";
+  staggerContainer,
+  staggerItem,
+} from "@/app/components/dashboard/MotionVariants";
 import { EmptyState } from "@/app/components/ui/EmptyState";
-import { cn } from "@/lib/utils";
+import type { BillingRecord } from "@/lib/data/patient-detail";
+import { cn, formatDate } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Calendar, CreditCard, Receipt } from "lucide-react";
 
 interface BillingTabProps {
   records: BillingRecord[];
@@ -27,7 +23,8 @@ const statusConfig = {
   },
   pending: {
     label: "Pending",
-    class: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
     dot: "bg-amber-500",
   },
   overdue: {
@@ -37,8 +34,7 @@ const statusConfig = {
   },
   cancelled: {
     label: "Cancelled",
-    class:
-      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
     dot: "bg-slate-400",
   },
 };
@@ -146,7 +142,8 @@ export function BillingTab({ records }: BillingTabProps) {
                     variants={staggerItem}
                     className={cn(
                       "transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50",
-                      (bill.status === "pending" || bill.status === "overdue") &&
+                      (bill.status === "pending" ||
+                        bill.status === "overdue") &&
                         "bg-amber-50/30 dark:bg-amber-950/10",
                     )}
                   >
@@ -172,10 +169,7 @@ export function BillingTab({ records }: BillingTabProps) {
                         )}
                       >
                         <span
-                          className={cn(
-                            "h-1.5 w-1.5 rounded-full",
-                            status.dot,
-                          )}
+                          className={cn("h-1.5 w-1.5 rounded-full", status.dot)}
                         />
                         {status.label}
                       </span>

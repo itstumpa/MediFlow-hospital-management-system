@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  X,
+  CheckCircle2,
+  Download,
+  File,
   FileSpreadsheet,
   FileText,
-  File,
-  Download,
-  CheckCircle2,
+  X,
 } from "lucide-react";
+import { useState } from "react";
 import type { ExportFormat } from "./types";
 
 interface ExportDialogProps {
@@ -19,14 +19,46 @@ interface ExportDialogProps {
   totalCount: number;
 }
 
-const formatOptions: { format: ExportFormat; icon: React.ElementType; label: string; desc: string; color: string }[] = [
-  { format: "csv", icon: FileText, label: "CSV", desc: "Comma-separated values", color: "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/40 dark:text-emerald-400" },
-  { format: "excel", icon: FileSpreadsheet, label: "Excel", desc: "Microsoft Excel (.xlsx)", color: "text-blue-600 bg-blue-100 dark:bg-blue-900/40 dark:text-blue-400" },
-  { format: "pdf", icon: File, label: "PDF", desc: "Adobe PDF document", color: "text-rose-600 bg-rose-100 dark:bg-rose-900/40 dark:text-rose-400" },
+const formatOptions: {
+  format: ExportFormat;
+  icon: React.ElementType;
+  label: string;
+  desc: string;
+  color: string;
+}[] = [
+  {
+    format: "csv",
+    icon: FileText,
+    label: "CSV",
+    desc: "Comma-separated values",
+    color:
+      "text-emerald-600 bg-emerald-100 dark:bg-emerald-900/40 dark:text-emerald-400",
+  },
+  {
+    format: "excel",
+    icon: FileSpreadsheet,
+    label: "Excel",
+    desc: "Microsoft Excel (.xlsx)",
+    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/40 dark:text-blue-400",
+  },
+  {
+    format: "pdf",
+    icon: File,
+    label: "PDF",
+    desc: "Adobe PDF document",
+    color: "text-rose-600 bg-rose-100 dark:bg-rose-900/40 dark:text-rose-400",
+  },
 ];
 
-export function ExportDialog({ open, onClose, onExport, totalCount }: ExportDialogProps) {
-  const [selectedFormat, setSelectedFormat] = useState<ExportFormat | null>(null);
+export function ExportDialog({
+  open,
+  onClose,
+  onExport,
+  totalCount,
+}: ExportDialogProps) {
+  const [selectedFormat, setSelectedFormat] = useState<ExportFormat | null>(
+    null,
+  );
 
   const handleExport = () => {
     if (selectedFormat) {
@@ -53,7 +85,10 @@ export function ExportDialog({ open, onClose, onExport, totalCount }: ExportDial
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-800"
           >
-            <button onClick={onClose} className="absolute right-4 top-4 rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700">
+            <button
+              onClick={onClose}
+              className="absolute right-4 top-4 rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+            >
               <X className="h-4 w-4" />
             </button>
 
@@ -61,9 +96,12 @@ export function ExportDialog({ open, onClose, onExport, totalCount }: ExportDial
               <Download className="h-6 w-6 text-blue-600 dark:text-blue-400" />
             </div>
 
-            <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">Export Doctors</h3>
+            <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">
+              Export Doctors
+            </h3>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-              Export {totalCount} doctor{totalCount !== 1 ? "s" : ""} to your preferred format.
+              Export {totalCount} doctor{totalCount !== 1 ? "s" : ""} to your
+              preferred format.
             </p>
 
             <div className="mt-5 grid gap-3">
@@ -77,12 +115,18 @@ export function ExportDialog({ open, onClose, onExport, totalCount }: ExportDial
                       : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600"
                   }`}
                 >
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${opt.color}`}>
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-xl ${opt.color}`}
+                  >
                     <opt.icon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-slate-900 dark:text-white">{opt.label}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{opt.desc}</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                      {opt.label}
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {opt.desc}
+                    </p>
                   </div>
                   {selectedFormat === opt.format && (
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />

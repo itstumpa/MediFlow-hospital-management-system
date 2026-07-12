@@ -1,18 +1,18 @@
 "use client";
 
+import { staggerItem } from "@/app/components/dashboard/MotionVariants";
+import type { PatientDetail } from "@/lib/data/patient-detail";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import {
+  Activity,
   CalendarCheck,
   ClipboardList,
-  Activity,
-  Pill,
-  FlaskRoundIcon as Flask,
   DollarSign,
+  FlaskRoundIcon as Flask,
+  Pill,
 } from "lucide-react";
-import type { PatientDetail } from "@/lib/data/patient-detail";
-import { staggerItem } from "@/app/components/dashboard/MotionVariants";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState } from "react";
 
 interface StatCardProps {
   icon: React.ElementType;
@@ -23,7 +23,13 @@ interface StatCardProps {
   delay?: number;
 }
 
-function AnimatedCounter({ target, duration = 1500 }: { target: number; duration?: number }) {
+function AnimatedCounter({
+  target,
+  duration = 1500,
+}: {
+  target: number;
+  duration?: number;
+}) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const counted = useRef(false);
@@ -53,7 +59,14 @@ function AnimatedCounter({ target, duration = 1500 }: { target: number; duration
   return <span ref={ref}>{count}</span>;
 }
 
-function StatCard({ icon: Icon, label, value, color, bgColor, delay = 0 }: StatCardProps) {
+function StatCard({
+  icon: Icon,
+  label,
+  value,
+  color,
+  bgColor,
+  delay = 0,
+}: StatCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}

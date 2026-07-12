@@ -1,18 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  CalendarOff,
-  Clock,
-  Coffee,
-  LogOut,
-} from "lucide-react";
-import type {
-  DayScheduleDetailed,
-  LeaveDate,
-} from "@/lib/data/admin-doctors";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import type { DayScheduleDetailed, LeaveDate } from "@/lib/data/admin-doctors";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { CalendarOff, Clock, Coffee, LogOut } from "lucide-react";
 
 interface ScheduleTabProps {
   schedule: DayScheduleDetailed[];
@@ -36,7 +28,10 @@ export function ScheduleTab({ schedule, leaveDates }: ScheduleTabProps) {
       className="grid gap-5 lg:grid-cols-2"
     >
       {/* Weekly Calendar */}
-      <motion.div variants={staggerItem} className="dash-card overflow-hidden p-5">
+      <motion.div
+        variants={staggerItem}
+        className="dash-card overflow-hidden p-5"
+      >
         <div className="mb-4 flex items-center gap-2.5">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
             <Clock className="h-4 w-4" />
@@ -70,7 +65,8 @@ export function ScheduleTab({ schedule, leaveDates }: ScheduleTabProps) {
                 </span>
                 {day.isWorking ? (
                   <span className="text-sm text-slate-600 dark:text-slate-400">
-                    {formatTime(day.startTime)} &ndash; {formatTime(day.endTime)}
+                    {formatTime(day.startTime)} &ndash;{" "}
+                    {formatTime(day.endTime)}
                   </span>
                 ) : (
                   <span className="flex items-center gap-1 text-sm text-red-400">
@@ -92,7 +88,10 @@ export function ScheduleTab({ schedule, leaveDates }: ScheduleTabProps) {
       {/* Break Times & Leave Dates */}
       <div className="space-y-5">
         {/* Break Times */}
-        <motion.div variants={staggerItem} className="dash-card overflow-hidden p-5">
+        <motion.div
+          variants={staggerItem}
+          className="dash-card overflow-hidden p-5"
+        >
           <div className="mb-4 flex items-center gap-2.5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400">
               <Coffee className="h-4 w-4" />
@@ -123,7 +122,10 @@ export function ScheduleTab({ schedule, leaveDates }: ScheduleTabProps) {
         </motion.div>
 
         {/* Leave Dates */}
-        <motion.div variants={staggerItem} className="dash-card overflow-hidden p-5">
+        <motion.div
+          variants={staggerItem}
+          className="dash-card overflow-hidden p-5"
+        >
           <div className="mb-4 flex items-center gap-2.5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400">
               <LogOut className="h-4 w-4" />

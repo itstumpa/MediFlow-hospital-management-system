@@ -1,23 +1,23 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Search,
-  SlidersHorizontal,
+  ChevronDown,
   Grid3X3,
   List,
+  Search,
+  SlidersHorizontal,
   X,
-  ChevronDown,
 } from "lucide-react";
-import type { ViewMode, PatientFilters, PatientStatus, Gender, BloodGroup } from "./types";
+import { useEffect, useRef, useState } from "react";
 import {
+  bloodGroupOptions,
   departmentOptions,
   doctorOptions,
-  bloodGroupOptions,
   genderOptions,
   statusOptions,
 } from "./mock";
+import type { PatientFilters, ViewMode } from "./types";
 
 interface PatientsToolbarProps {
   filters: PatientFilters;
@@ -84,7 +84,8 @@ function DropdownFilter<T extends string>({
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -114,7 +115,9 @@ function DropdownFilter<T extends string>({
             {selected.length}
           </span>
         )}
-        <ChevronDown className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
       <AnimatePresence>
         {open && (
@@ -143,8 +146,18 @@ function DropdownFilter<T extends string>({
                   }`}
                 >
                   {selected.includes(opt) && (
-                    <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="h-3 w-3 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   )}
                 </div>
@@ -175,7 +188,8 @@ export function PatientsToolbar({
   onToggleFilterPanel,
   filterPanelOpen,
 }: PatientsToolbarProps) {
-  const updateSearch = (search: string) => onFiltersChange({ ...filters, search });
+  const updateSearch = (search: string) =>
+    onFiltersChange({ ...filters, search });
 
   const hasActiveFilters =
     filters.department.length > 0 ||

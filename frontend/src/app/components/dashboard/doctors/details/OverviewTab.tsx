@@ -1,20 +1,18 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
 import { motion } from "framer-motion";
 import {
   BookOpen,
-  Briefcase,
   Building2,
   Globe,
   GraduationCap,
-  Phone,
   PhoneCall,
   ScrollText,
   Shield,
   Stethoscope,
 } from "lucide-react";
-import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 
 interface OverviewTabProps {
   doctor: AdminDoctorDetail;
@@ -49,13 +47,7 @@ function SectionCard({
   );
 }
 
-function InfoRow({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-4 py-2">
       <span className="shrink-0 text-xs font-medium text-slate-500 dark:text-slate-400">
@@ -166,7 +158,10 @@ export function OverviewTab({ doctor }: OverviewTabProps) {
           <InfoRow label="Hospital" value={doctor.hospital} />
           <InfoRow label="Address" value={doctor.hospitalAddress} />
           <InfoRow label="Phone" value={doctor.hospitalPhone} />
-          <InfoRow label="Consultation Fee" value={`$${doctor.consultationFee}`} />
+          <InfoRow
+            label="Consultation Fee"
+            value={`$${doctor.consultationFee}`}
+          />
         </div>
       </SectionCard>
 

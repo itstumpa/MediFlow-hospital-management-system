@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { AlertTriangle, X, Save, Trash2 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { AlertTriangle, Save, Trash2, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 type DialogVariant = "discard" | "save-draft" | "delete";
@@ -37,7 +37,8 @@ const dialogConfig: Record<
     description:
       "Save the current form as a draft. You can continue editing later. The doctor will not be visible to patients until published.",
     confirmLabel: "Save Draft",
-    confirmClass: "bg-blue-500 hover:bg-blue-600 focus-visible:outline-blue-500",
+    confirmClass:
+      "bg-blue-500 hover:bg-blue-600 focus-visible:outline-blue-500",
   },
   delete: {
     icon: Trash2,
@@ -114,7 +115,12 @@ export function ConfirmDialog({
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.1 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 20,
+                delay: 0.1,
+              }}
               className={`mx-auto flex h-12 w-12 items-center justify-center rounded-full ${
                 variant === "save-draft"
                   ? "bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400"

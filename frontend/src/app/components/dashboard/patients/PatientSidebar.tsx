@@ -1,21 +1,19 @@
 "use client";
 
+import { staggerItem } from "@/app/components/dashboard/MotionVariants";
+import type { PatientDetail } from "@/lib/data/patient-detail";
+import { formatDate } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   Calendar,
-  Stethoscope,
-  Shield,
-  Phone,
-  MapPin,
-  Edit3,
   CalendarCheck,
-  FileText,
-  Printer,
   CreditCard,
+  Edit3,
+  FileText,
+  Phone,
+  Printer,
+  Shield,
 } from "lucide-react";
-import type { PatientDetail } from "@/lib/data/patient-detail";
-import { formatDate } from "@/lib/utils";
-import { staggerItem } from "@/app/components/dashboard/MotionVariants";
 
 interface PatientSidebarProps {
   patient: PatientDetail;
@@ -50,11 +48,11 @@ function QuickActionButton({
   variant?: "primary" | "default" | "danger";
 }) {
   const colors = {
-    primary:
-      "bg-dash-primary text-white hover:bg-dash-primary-dark shadow-sm",
+    primary: "bg-dash-primary text-white hover:bg-dash-primary-dark shadow-sm",
     default:
       "border border-dash-border text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700",
-    danger: "border border-red-200 text-red-600 hover:bg-red-50 dark:border-red-900/30 dark:text-red-400 dark:hover:bg-red-900/20",
+    danger:
+      "border border-red-200 text-red-600 hover:bg-red-50 dark:border-red-900/30 dark:text-red-400 dark:hover:bg-red-900/20",
   };
 
   return (
@@ -71,10 +69,7 @@ function QuickActionButton({
 
 export function PatientSidebar({ patient }: PatientSidebarProps) {
   return (
-    <motion.div
-      variants={staggerItem}
-      className="space-y-5"
-    >
+    <motion.div variants={staggerItem} className="space-y-5">
       {/* Patient Summary */}
       <SidebarSection title="Patient Summary">
         <div className="space-y-3">
@@ -104,18 +99,28 @@ export function PatientSidebar({ patient }: PatientSidebarProps) {
           <div className="space-y-1.5 text-sm">
             <div className="flex justify-between">
               <span className="text-slate-500 dark:text-slate-400">Age</span>
-              <span className="font-medium text-slate-900 dark:text-white">{patient.age} yrs</span>
+              <span className="font-medium text-slate-900 dark:text-white">
+                {patient.age} yrs
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-500 dark:text-slate-400">Gender</span>
-              <span className="font-medium text-slate-900 dark:text-white">{patient.gender}</span>
+              <span className="font-medium text-slate-900 dark:text-white">
+                {patient.gender}
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-500 dark:text-slate-400">Department</span>
-              <span className="font-medium text-slate-900 dark:text-white">{patient.department}</span>
+              <span className="text-slate-500 dark:text-slate-400">
+                Department
+              </span>
+              <span className="font-medium text-slate-900 dark:text-white">
+                {patient.department}
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-500 dark:text-slate-400">Registered</span>
+              <span className="text-slate-500 dark:text-slate-400">
+                Registered
+              </span>
               <span className="font-medium text-slate-900 dark:text-white">
                 {formatDate(patient.registrationDate)}
               </span>
@@ -206,8 +211,15 @@ export function PatientSidebar({ patient }: PatientSidebarProps) {
       {/* Quick Actions */}
       <SidebarSection title="Quick Actions">
         <div className="space-y-2.5">
-          <QuickActionButton icon={Edit3} label="Edit Patient" variant="primary" />
-          <QuickActionButton icon={CalendarCheck} label="Schedule Appointment" />
+          <QuickActionButton
+            icon={Edit3}
+            label="Edit Patient"
+            variant="primary"
+          />
+          <QuickActionButton
+            icon={CalendarCheck}
+            label="Schedule Appointment"
+          />
           <QuickActionButton icon={FileText} label="Medical Records" />
           <QuickActionButton icon={Printer} label="Print Summary" />
           <QuickActionButton icon={CreditCard} label="Billing" />

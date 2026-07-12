@@ -1,26 +1,26 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Download, Upload } from "lucide-react";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
-import { PatientsStats } from "@/app/components/dashboard/patients/PatientsStats";
-import { PatientsToolbar } from "@/app/components/dashboard/patients/PatientsToolbar";
-import { PatientFilters } from "@/app/components/dashboard/patients/PatientFilters";
-import { PatientsTable } from "@/app/components/dashboard/patients/PatientsTable";
 import { BulkActions } from "@/app/components/dashboard/patients/BulkActions";
-import { EmptyState } from "@/app/components/dashboard/patients/EmptyState";
 import { DeletePatientDialog } from "@/app/components/dashboard/patients/DeletePatientDialog";
+import { EmptyState } from "@/app/components/dashboard/patients/EmptyState";
 import { ExportDialog } from "@/app/components/dashboard/patients/ExportDialog";
 import { ImportDialog } from "@/app/components/dashboard/patients/ImportDialog";
 import { LoadingSkeleton } from "@/app/components/dashboard/patients/LoadingSkeleton";
 import { patientsData } from "@/app/components/dashboard/patients/mock";
+import { PatientFilters } from "@/app/components/dashboard/patients/PatientFilters";
+import { PatientsStats } from "@/app/components/dashboard/patients/PatientsStats";
+import { PatientsTable } from "@/app/components/dashboard/patients/PatientsTable";
+import { PatientsToolbar } from "@/app/components/dashboard/patients/PatientsToolbar";
 import type {
   Patient,
   PatientFilters as PatientFiltersType,
   ViewMode,
 } from "@/app/components/dashboard/patients/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/patients/types";
+import { AnimatePresence, motion } from "framer-motion";
+import { Download, Plus, Upload } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 
 export default function PatientsPage() {
   const [loading, setLoading] = useState(false);
@@ -45,7 +45,7 @@ export default function PatientsPage() {
           p.email.toLowerCase().includes(q) ||
           p.phone.toLowerCase().includes(q) ||
           p.patientId.toLowerCase().includes(q) ||
-          p.patientId.toLowerCase().includes(q.replace("p-", ""))
+          p.patientId.toLowerCase().includes(q.replace("p-", "")),
       );
     }
 
@@ -82,7 +82,7 @@ export default function PatientsPage() {
     // Age Range filter
     if (filters.ageRange[0] > 0 || filters.ageRange[1] < 120) {
       result = result.filter(
-        (p) => p.age >= filters.ageRange[0] && p.age <= filters.ageRange[1]
+        (p) => p.age >= filters.ageRange[0] && p.age <= filters.ageRange[1],
       );
     }
 
@@ -95,14 +95,14 @@ export default function PatientsPage() {
         result.sort(
           (a, b) =>
             new Date(b.registrationDate).getTime() -
-            new Date(a.registrationDate).getTime()
+            new Date(a.registrationDate).getTime(),
         );
         break;
       case "oldest":
         result.sort(
           (a, b) =>
             new Date(a.registrationDate).getTime() -
-            new Date(b.registrationDate).getTime()
+            new Date(b.registrationDate).getTime(),
         );
         break;
       case "recentVisit":
@@ -218,7 +218,9 @@ export default function PatientsPage() {
                   viewMode={viewMode}
                   onViewModeChange={setViewMode}
                   selectedCount={selectedIds.size}
-                  onToggleFilterPanel={() => setFilterPanelOpen(!filterPanelOpen)}
+                  onToggleFilterPanel={() =>
+                    setFilterPanelOpen(!filterPanelOpen)
+                  }
                   filterPanelOpen={filterPanelOpen}
                 />
 
@@ -316,10 +318,7 @@ export default function PatientsPage() {
         selectedCount={selectedIds.size}
       />
 
-      <ImportDialog
-        open={importOpen}
-        onClose={() => setImportOpen(false)}
-      />
+      <ImportDialog open={importOpen} onClose={() => setImportOpen(false)} />
     </div>
   );
 }

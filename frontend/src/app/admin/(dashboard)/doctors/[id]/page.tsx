@@ -1,60 +1,54 @@
 "use client";
 
-import { use, useState, useMemo, Suspense, lazy } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronRight,
-  Download,
-  Edit,
-  ShieldOff,
-  Trash2,
-} from "lucide-react";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getAdminDoctorDetail } from "@/lib/data/admin-doctors";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import { DoctorHero } from "@/app/components/dashboard/doctors/details/DoctorHero";
 import { QuickStats } from "@/app/components/dashboard/doctors/details/QuickStats";
-import { Sidebar } from "@/app/components/dashboard/doctors/details/Sidebar";
 import { RelatedDoctors } from "@/app/components/dashboard/doctors/details/RelatedDoctors";
+import { Sidebar } from "@/app/components/dashboard/doctors/details/Sidebar";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import { getAdminDoctorDetail } from "@/lib/data/admin-doctors";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronRight, Download, Edit, ShieldOff, Trash2 } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Suspense, lazy, use, useMemo, useState } from "react";
 
 // ─── Lazy-loaded tab components ───
 const OverviewTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/OverviewTab"
-  ).then((m) => ({ default: m.OverviewTab })),
+  import("@/app/components/dashboard/doctors/details/OverviewTab").then(
+    (m) => ({ default: m.OverviewTab }),
+  ),
 );
 const AppointmentsTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/AppointmentsTab"
-  ).then((m) => ({ default: m.AppointmentsTab })),
+  import("@/app/components/dashboard/doctors/details/AppointmentsTab").then(
+    (m) => ({ default: m.AppointmentsTab }),
+  ),
 );
 const PatientsTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/PatientsTab"
-  ).then((m) => ({ default: m.PatientsTab })),
+  import("@/app/components/dashboard/doctors/details/PatientsTab").then(
+    (m) => ({ default: m.PatientsTab }),
+  ),
 );
 const ReviewsTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/ReviewsTab"
-  ).then((m) => ({ default: m.ReviewsTab })),
+  import("@/app/components/dashboard/doctors/details/ReviewsTab").then((m) => ({
+    default: m.ReviewsTab,
+  })),
 );
 const ScheduleTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/ScheduleTab"
-  ).then((m) => ({ default: m.ScheduleTab })),
+  import("@/app/components/dashboard/doctors/details/ScheduleTab").then(
+    (m) => ({ default: m.ScheduleTab }),
+  ),
 );
 const DocumentsTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/DocumentsTab"
-  ).then((m) => ({ default: m.DocumentsTab })),
+  import("@/app/components/dashboard/doctors/details/DocumentsTab").then(
+    (m) => ({ default: m.DocumentsTab }),
+  ),
 );
 const ActivityTab = lazy(() =>
-  import(
-    "@/app/components/dashboard/doctors/details/ActivityTab"
-  ).then((m) => ({ default: m.ActivityTab })),
+  import("@/app/components/dashboard/doctors/details/ActivityTab").then(
+    (m) => ({ default: m.ActivityTab }),
+  ),
 );
 
 // ─── Loading fallback for lazy tabs ───
@@ -63,9 +57,7 @@ function TabLoader() {
     <div className="dash-card flex items-center justify-center py-20">
       <div className="flex flex-col items-center gap-3">
         <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          Loading...
-        </p>
+        <p className="text-sm text-slate-500 dark:text-slate-400">Loading...</p>
       </div>
     </div>
   );
@@ -264,9 +256,7 @@ export default function DoctorDetailPage({
               id={`panel-${activeTab}`}
               aria-labelledby={`tab-${activeTab}`}
             >
-              <Suspense fallback={<TabLoader />}>
-                {renderTabContent()}
-              </Suspense>
+              <Suspense fallback={<TabLoader />}>{renderTabContent()}</Suspense>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -279,10 +269,7 @@ export default function DoctorDetailPage({
 
       {/* ─── Related Doctors ─── */}
       <motion.div variants={staggerItem}>
-        <RelatedDoctors
-          currentId={doctor.id}
-          department={doctor.department}
-        />
+        <RelatedDoctors currentId={doctor.id} department={doctor.department} />
       </motion.div>
     </motion.div>
   );

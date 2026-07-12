@@ -1,41 +1,40 @@
 "use client";
 
-import { useCallback, useEffect, useState, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, FormProvider } from "react-hook-form";
-import {
-  ChevronRight,
-  Eye,
-  Save,
-  X,
-  FileText,
-  Sparkles,
-  CheckCircle2,
-} from "lucide-react";
+import { Breadcrumb } from "@/app/components/dashboard/Breadcrumb";
 import { pageFade } from "@/lib/animations/pageTransition";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { cn } from "@/lib/utils";
-import { doctorFormSchema, defaultFormValues, type DoctorFormValues } from "./form-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { CheckCircle2, Eye, FileText, Save, Sparkles, X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { AvailabilitySchedule } from "./AvailabilitySchedule";
+import { BiographySection } from "./BiographySection";
+import { CertificationsForm } from "./CertificationsForm";
+import { ClinicInfo } from "./ClinicInfo";
+import { ConfirmDialog } from "./ConfirmDialog";
+import { EducationForm } from "./EducationForm";
+import {
+  defaultFormValues,
+  doctorFormSchema,
+  type DoctorFormValues,
+} from "./form-schema";
+import { LanguagesSection } from "./LanguagesSection";
 import { PersonalInfo } from "./PersonalInfo";
 import { ProfessionalInfo } from "./ProfessionalInfo";
-import { EducationForm } from "./EducationForm";
-import { CertificationsForm } from "./CertificationsForm";
-import { LanguagesSection } from "./LanguagesSection";
-import { BiographySection } from "./BiographySection";
-import { ClinicInfo } from "./ClinicInfo";
-import { AvailabilitySchedule } from "./AvailabilitySchedule";
 import { Sidebar } from "./Sidebar";
-import { ConfirmDialog } from "./ConfirmDialog";
-import { Breadcrumb } from "@/app/components/dashboard/Breadcrumb";
 
 interface DoctorFormProps {
   mode: "create" | "edit";
   defaultValues?: Partial<DoctorFormValues>;
 }
 
-export function DoctorForm({ mode, defaultValues: editValues }: DoctorFormProps) {
+export function DoctorForm({
+  mode,
+  defaultValues: editValues,
+}: DoctorFormProps) {
   const router = useRouter();
   const [showDiscardDialog, setShowDiscardDialog] = useState(false);
   const [showSaveDraftDialog, setShowSaveDraftDialog] = useState(false);
@@ -52,7 +51,8 @@ export function DoctorForm({ mode, defaultValues: editValues }: DoctorFormProps)
     ...editValues,
     // Ensure arrays exist properly
     education: editValues?.education || defaultFormValues.education,
-    certifications: editValues?.certifications || defaultFormValues.certifications,
+    certifications:
+      editValues?.certifications || defaultFormValues.certifications,
     languages: editValues?.languages || defaultFormValues.languages,
     availability: {
       ...defaultFormValues.availability,
@@ -121,7 +121,7 @@ export function DoctorForm({ mode, defaultValues: editValues }: DoctorFormProps)
         router.push("/admin/doctors");
       }, 2000);
     },
-    [router]
+    [router],
   );
 
   const handleSaveDraft = useCallback(() => {
@@ -355,7 +355,7 @@ export function DoctorForm({ mode, defaultValues: editValues }: DoctorFormProps)
                       "inline-flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-all",
                       "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800",
                       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
-                      "disabled:cursor-not-allowed disabled:opacity-60"
+                      "disabled:cursor-not-allowed disabled:opacity-60",
                     )}
                     whileHover={isSubmitting ? {} : { scale: 1.02 }}
                     whileTap={isSubmitting ? {} : { scale: 0.98 }}
@@ -364,12 +364,31 @@ export function DoctorForm({ mode, defaultValues: editValues }: DoctorFormProps)
                       <>
                         <motion.span
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="inline-flex"
                         >
-                          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          <svg
+                            className="h-4 w-4"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                            />
                           </svg>
                         </motion.span>
                         {isEdit ? "Updating..." : "Creating..."}
@@ -424,7 +443,13 @@ export function DoctorForm({ mode, defaultValues: editValues }: DoctorFormProps)
   );
 }
 
-function SuccessToast({ visible, isEdit }: { visible: boolean; isEdit: boolean }) {
+function SuccessToast({
+  visible,
+  isEdit,
+}: {
+  visible: boolean;
+  isEdit: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, x: "-50%" }}

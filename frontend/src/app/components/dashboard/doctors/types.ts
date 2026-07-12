@@ -1,9 +1,20 @@
-export type DoctorStatus = "Active" | "Inactive" | "On Leave" | "Vacation" | "Emergency Duty";
+export type DoctorStatus =
+  | "Active"
+  | "Inactive"
+  | "On Leave"
+  | "Vacation"
+  | "Emergency Duty";
 export type Availability = "Available" | "Busy" | "Out of Office";
 export type Gender = "Male" | "Female";
 export type ConsultationType = "Online" | "Offline" | "Both";
 export type ViewMode = "table" | "grid";
-export type SortField = "name" | "department" | "experience" | "patients" | "rating" | "status";
+export type SortField =
+  | "name"
+  | "department"
+  | "experience"
+  | "patients"
+  | "rating"
+  | "status";
 export type ExportFormat = "csv" | "excel" | "pdf";
 
 export interface Doctor {

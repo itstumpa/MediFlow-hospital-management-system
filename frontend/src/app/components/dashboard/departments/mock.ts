@@ -335,6 +335,4 @@ export const floorOptions = [
   ...new Set(departmentsData.map((d) => d.floor)),
 ].sort();
 
-export const statusOptions = [
-  ...new Set(departmentsData.map((d) => d.status)),
-];
+export const statusOptions = [...new Set(departmentsData.map((d) => d.status))];

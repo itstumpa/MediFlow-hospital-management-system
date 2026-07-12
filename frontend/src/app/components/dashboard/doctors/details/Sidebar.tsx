@@ -1,5 +1,7 @@
 "use client";
 
+import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   Building2,
@@ -14,8 +16,6 @@ import {
   UserX,
 } from "lucide-react";
 import Image from "next/image";
-import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
-import { cn } from "@/lib/utils";
 
 interface SidebarProps {
   doctor: AdminDoctorDetail;
@@ -117,8 +117,8 @@ export function Sidebar({ doctor }: SidebarProps) {
               Consultation Fee
             </span>
             <span className="flex items-center gap-1 text-xs font-semibold text-slate-900 dark:text-white">
-              <CreditCard className="h-3.5 w-3.5 text-slate-400" />
-              ${doctor.consultationFee}
+              <CreditCard className="h-3.5 w-3.5 text-slate-400" />$
+              {doctor.consultationFee}
             </span>
           </div>
 

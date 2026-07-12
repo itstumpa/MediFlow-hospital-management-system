@@ -1,51 +1,48 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ArrowLeft,
-  Edit3,
-  CalendarPlus,
-  Printer,
-  Trash2,
-  ChevronRight,
-  Home,
-  Users,
-  User,
   Activity,
+  ArrowLeft,
+  CalendarPlus,
+  ChevronRight,
   ClipboardList,
-  Pill,
+  Edit3,
   FlaskRoundIcon as Flask,
+  Home,
+  Pill,
+  Printer,
   Receipt,
-  Clock,
-  Stethoscope,
+  Trash2,
+  User,
 } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import {
-  mockPatient,
-  mockAppointments,
-  mockMedicalRecords,
-  mockPrescriptions,
-  mockLabReports,
-  mockBillingRecords,
   mockActivities,
+  mockAppointments,
+  mockBillingRecords,
+  mockLabReports,
+  mockMedicalRecords,
+  mockPatient,
+  mockPrescriptions,
   mockRelatedPatients,
 } from "@/lib/data/patient-detail";
-import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 
-import { PatientHero } from "@/app/components/dashboard/patients/PatientHero";
-import { PatientStats } from "@/app/components/dashboard/patients/PatientStats";
-import { MedicalAlerts } from "@/app/components/dashboard/patients/MedicalAlerts";
-import { OverviewTab } from "@/app/components/dashboard/patients/OverviewTab";
-import { AppointmentsTab } from "@/app/components/dashboard/patients/AppointmentsTab";
-import { MedicalRecordsTab } from "@/app/components/dashboard/patients/MedicalRecordsTab";
-import { PrescriptionsTab } from "@/app/components/dashboard/patients/PrescriptionsTab";
-import { LabReportsTab } from "@/app/components/dashboard/patients/LabReportsTab";
-import { BillingTab } from "@/app/components/dashboard/patients/BillingTab";
 import { ActivityTab } from "@/app/components/dashboard/patients/ActivityTab";
+import { AppointmentsTab } from "@/app/components/dashboard/patients/AppointmentsTab";
+import { BillingTab } from "@/app/components/dashboard/patients/BillingTab";
+import { LabReportsTab } from "@/app/components/dashboard/patients/LabReportsTab";
+import { MedicalAlerts } from "@/app/components/dashboard/patients/MedicalAlerts";
+import { MedicalRecordsTab } from "@/app/components/dashboard/patients/MedicalRecordsTab";
+import { OverviewTab } from "@/app/components/dashboard/patients/OverviewTab";
+import { PatientHero } from "@/app/components/dashboard/patients/PatientHero";
 import { PatientSidebar } from "@/app/components/dashboard/patients/PatientSidebar";
+import { PatientStats } from "@/app/components/dashboard/patients/PatientStats";
+import { PrescriptionsTab } from "@/app/components/dashboard/patients/PrescriptionsTab";
 import { RelatedPatients } from "@/app/components/dashboard/patients/RelatedPatients";
 import { cn } from "@/lib/utils";
 
@@ -168,7 +165,10 @@ export default function PatientDetailPage() {
       {/* ============================================ */}
       {/* Breadcrumb */}
       {/* ============================================ */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex items-center gap-1.5 text-sm"
+      >
         <Link
           href="/admin/dashboard"
           className="inline-flex items-center gap-1 text-slate-500 transition-colors hover:text-dash-primary dark:text-slate-400"
@@ -215,21 +215,13 @@ export default function PatientDetailPage() {
 
         {/* Actions */}
         <div className="flex shrink-0 flex-wrap items-center gap-2">
-          <ActionButton
-            icon={Edit3}
-            label="Edit Patient"
-            variant="primary"
-          />
+          <ActionButton icon={Edit3} label="Edit Patient" variant="primary" />
           <ActionButton
             icon={CalendarPlus}
             label="Schedule"
             variant="default"
           />
-          <ActionButton
-            icon={Printer}
-            label="Print"
-            variant="default"
-          />
+          <ActionButton icon={Printer} label="Print" variant="default" />
           <ActionButton
             icon={Trash2}
             label="Delete"
@@ -367,8 +359,8 @@ export default function PatientDetailPage() {
               </h2>
               <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
                 Are you sure you want to delete {patient.name}&apos;s record?
-                This action cannot be undone. All medical history,
-                appointments, and billing data will be permanently removed.
+                This action cannot be undone. All medical history, appointments,
+                and billing data will be permanently removed.
               </p>
               <div className="mt-6 flex items-center justify-end gap-3">
                 <button

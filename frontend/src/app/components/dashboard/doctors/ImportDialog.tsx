@@ -1,15 +1,8 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  X,
-  Upload,
-  File,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-} from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { AlertCircle, File, Upload, X } from "lucide-react";
+import { useCallback, useRef, useState } from "react";
 
 interface ImportDialogProps {
   open: boolean;
@@ -108,7 +101,10 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-800"
           >
-            <button onClick={onClose} className="absolute right-4 top-4 rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700">
+            <button
+              onClick={onClose}
+              className="absolute right-4 top-4 rounded-lg p-1 text-slate-400 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+            >
               <X className="h-4 w-4" />
             </button>
 
@@ -116,7 +112,9 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
               <Upload className="h-6 w-6 text-violet-600 dark:text-violet-400" />
             </div>
 
-            <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">Import Doctors</h3>
+            <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">
+              Import Doctors
+            </h3>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
               Upload a CSV, Excel, or JSON file to bulk import doctors.
             </p>
@@ -135,8 +133,12 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
                     : "border-slate-300 hover:border-slate-400 dark:border-slate-600 dark:hover:border-slate-500"
                 }`}
               >
-                <Upload className={`mx-auto h-10 w-10 ${dragOver ? "text-blue-500" : "text-slate-400"}`} />
-                <p className={`mt-3 text-sm font-medium ${dragOver ? "text-blue-600" : "text-slate-600 dark:text-slate-400"}`}>
+                <Upload
+                  className={`mx-auto h-10 w-10 ${dragOver ? "text-blue-500" : "text-slate-400"}`}
+                />
+                <p
+                  className={`mt-3 text-sm font-medium ${dragOver ? "text-blue-600" : "text-slate-600 dark:text-slate-400"}`}
+                >
                   {dragOver ? "Drop file here" : "Drag & drop file here"}
                 </p>
                 <p className="mt-1 text-xs text-slate-400">
@@ -158,12 +160,17 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
                 <div className="flex items-center gap-3">
                   <File className="h-8 w-8 text-blue-500" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-slate-900 dark:text-white truncate">{file.name}</p>
+                    <p className="text-sm font-medium text-slate-900 dark:text-white truncate">
+                      {file.name}
+                    </p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                       {(file.size / 1024).toFixed(1)} KB
                     </p>
                   </div>
-                  <button onClick={reset} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600">
+                  <button
+                    onClick={reset}
+                    className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600"
+                  >
                     <X className="h-4 w-4" />
                   </button>
                 </div>
@@ -174,8 +181,12 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
             {importing && (
               <div className="mt-5 space-y-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">Importing data...</span>
-                  <span className="font-medium text-slate-900 dark:text-white">{Math.round(progress)}%</span>
+                  <span className="text-slate-600 dark:text-slate-400">
+                    Importing data...
+                  </span>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    {Math.round(progress)}%
+                  </span>
                 </div>
                 <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
                   <motion.div
@@ -201,7 +212,10 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
             {/* Actions */}
             <div className="mt-6 flex items-center gap-3">
               <button
-                onClick={() => { reset(); onClose(); }}
+                onClick={() => {
+                  reset();
+                  onClose();
+                }}
                 className="flex-1 rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700"
               >
                 Cancel

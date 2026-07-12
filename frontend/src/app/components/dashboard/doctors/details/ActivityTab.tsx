@@ -1,17 +1,17 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import type { ActivityLog } from "@/lib/data/admin-doctors";
+import { cn, timeAgo } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   Activity,
+  ArrowLeftRight,
   CalendarSync,
   Pencil,
   PlusCircle,
   ToggleLeft,
-  ArrowLeftRight,
 } from "lucide-react";
-import type { ActivityLog } from "@/lib/data/admin-doctors";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
-import { cn, timeAgo } from "@/lib/utils";
 import { EmptyState } from "./EmptyState";
 
 interface ActivityTabProps {
@@ -64,8 +64,7 @@ export function ActivityTab({ activity }: ActivityTabProps) {
 
         <div className="space-y-0">
           {activity.map((log, i) => {
-            const Icon =
-              activityIcons[log.type] ?? activityIcons.updated;
+            const Icon = activityIcons[log.type] ?? activityIcons.updated;
             const colorClass =
               activityColors[log.type] ?? activityColors.updated;
             const isLast = i === activity.length - 1;
@@ -110,5 +109,3 @@ export function ActivityTab({ activity }: ActivityTabProps) {
     </motion.div>
   );
 }
-
-

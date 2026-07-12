@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  X,
+  Check,
+  Download,
+  File,
   FileSpreadsheet,
   FileText,
-  File,
-  Download,
-  Check,
+  X,
 } from "lucide-react";
+import { useState } from "react";
 import type { ExportFormat } from "./types";
 
 interface ExportDialogProps {
@@ -18,13 +18,37 @@ interface ExportDialogProps {
   selectedCount?: number;
 }
 
-const formats: { key: ExportFormat; label: string; description: string; icon: React.ElementType }[] = [
-  { key: "csv", label: "CSV", description: "Comma-separated values file", icon: FileText },
-  { key: "excel", label: "Excel", description: "Microsoft Excel spreadsheet", icon: FileSpreadsheet },
-  { key: "pdf", label: "PDF", description: "Portable Document Format", icon: File },
+const formats: {
+  key: ExportFormat;
+  label: string;
+  description: string;
+  icon: React.ElementType;
+}[] = [
+  {
+    key: "csv",
+    label: "CSV",
+    description: "Comma-separated values file",
+    icon: FileText,
+  },
+  {
+    key: "excel",
+    label: "Excel",
+    description: "Microsoft Excel spreadsheet",
+    icon: FileSpreadsheet,
+  },
+  {
+    key: "pdf",
+    label: "PDF",
+    description: "Portable Document Format",
+    icon: File,
+  },
 ];
 
-export function ExportDialog({ open, onClose, selectedCount = 0 }: ExportDialogProps) {
+export function ExportDialog({
+  open,
+  onClose,
+  selectedCount = 0,
+}: ExportDialogProps) {
   const [selectedFormat, setSelectedFormat] = useState<ExportFormat>("csv");
   const [exporting, setExporting] = useState(false);
   const [exported, setExported] = useState(false);
@@ -139,9 +163,24 @@ export function ExportDialog({ open, onClose, selectedCount = 0 }: ExportDialogP
               >
                 {exporting ? (
                   <>
-                    <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    <svg
+                      className="h-4 w-4 animate-spin"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                      />
                     </svg>
                     Exporting...
                   </>

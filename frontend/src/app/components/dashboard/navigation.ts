@@ -106,4 +106,8 @@ export const breadcrumbLabels: Record<string, string> = {
   ...autoLabels,
   "/admin/doctors/new": "New Doctor",
   "/admin/doctors/[id]/edit": "Edit Doctor",
+  "/admin/departments/new": "New Department",
+  "/admin/departments/[id]/edit": "Edit Department",
+  "/admin/articles/new": "New Article",
+  "/admin/articles/[id]/edit": "Edit Article",
 };

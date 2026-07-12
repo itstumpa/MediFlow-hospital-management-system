@@ -250,7 +250,11 @@ export const mockPatient: PatientDetail = {
   ],
   vaccinationStatus: [
     { vaccine: "COVID-19 (Moderna)", date: "2024-10-15", status: "completed" },
-    { vaccine: "Influenza (Seasonal)", date: "2025-09-01", status: "completed" },
+    {
+      vaccine: "Influenza (Seasonal)",
+      date: "2025-09-01",
+      status: "completed",
+    },
     { vaccine: "Tetanus Booster", date: "2023-05-20", status: "completed" },
     { vaccine: "Hepatitis B", date: "2026-01-10", status: "pending" },
   ],

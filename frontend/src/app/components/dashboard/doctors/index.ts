@@ -10,6 +10,21 @@ export { EmptyState } from "./EmptyState";
 export { ExportDialog } from "./ExportDialog";
 export { ImportDialog } from "./ImportDialog";
 export { LoadingSkeleton } from "./LoadingSkeleton";
-export type { Doctor, DoctorFilters, DoctorStatus, Availability, ConsultationType, Gender, ViewMode, SortField, ExportFormat } from "./types";
+export {
+  departmentOptions,
+  doctorsData,
+  experienceRanges,
+  languageOptions,
+  specializationOptions,
+} from "./mock";
 export { DEFAULT_FILTERS } from "./types";
-export { doctorsData, departmentOptions, specializationOptions, languageOptions, experienceRanges } from "./mock";
+export type {
+  Availability,
+  ConsultationType,
+  Doctor,
+  DoctorStatus,
+  ExportFormat,
+  Gender,
+  SortField,
+  ViewMode,
+} from "./types";

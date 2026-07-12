@@ -1,23 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronDown,
-  ChevronUp,
-  ChevronsUpDown,
-  ArrowUpDown,
-  Eye,
-  Edit3,
-  Trash2,
-  MoreHorizontal,
-  Star,
-  Calendar,
-  MessageSquare,
-  UserX,
-} from "lucide-react";
-import type { Doctor, DoctorFilters, SortField, ViewMode } from "./types";
+import { ChevronDown, ChevronUp, ChevronsUpDown } from "lucide-react";
 import { DoctorRow } from "./DoctorRow";
+import type { Doctor, DoctorFilters, SortField, ViewMode } from "./types";
 
 interface DoctorsTableProps {
   doctors: Doctor[];
@@ -32,10 +17,26 @@ interface DoctorsTableProps {
   viewMode: ViewMode;
 }
 
-const COLUMNS: { key: SortField | "checkbox" | "actions" | "appointments" | "availability" | "specialization"; label: string; sortable: boolean; width: string }[] = [
+const COLUMNS: {
+  key:
+    | SortField
+    | "checkbox"
+    | "actions"
+    | "appointments"
+    | "availability"
+    | "specialization";
+  label: string;
+  sortable: boolean;
+  width: string;
+}[] = [
   { key: "checkbox", label: "", sortable: false, width: "w-10" },
   { key: "name", label: "Doctor", sortable: true, width: "min-w-[220px]" },
-  { key: "specialization", label: "Department", sortable: false, width: "min-w-[160px]" },
+  {
+    key: "specialization",
+    label: "Department",
+    sortable: false,
+    width: "min-w-[160px]",
+  },
   { key: "experience", label: "Experience", sortable: true, width: "w-24" },
   { key: "patients", label: "Patients", sortable: true, width: "w-20" },
   { key: "rating", label: "Rating", sortable: true, width: "w-20" },
@@ -68,7 +69,8 @@ export function DoctorsTable({
   };
 
   const renderSortIcon = (field: SortField) => {
-    if (filters.sortBy !== field) return <ChevronsUpDown className="h-3.5 w-3.5 text-slate-400" />;
+    if (filters.sortBy !== field)
+      return <ChevronsUpDown className="h-3.5 w-3.5 text-slate-400" />;
     return filters.sortAsc ? (
       <ChevronUp className="h-3.5 w-3.5 text-blue-600" />
     ) : (

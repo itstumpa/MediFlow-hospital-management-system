@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 import {
-  Eye,
   Edit3,
+  Eye,
   FileText,
-  Calendar,
-  MoreHorizontal,
   Mail,
+  MoreHorizontal,
   Phone,
 } from "lucide-react";
 import type { Patient } from "./types";
@@ -24,7 +23,8 @@ interface PatientCardProps {
 
 const statusConfig: Record<string, { class: string; dot: string }> = {
   Active: {
-    class: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+    class:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
     dot: "bg-emerald-500",
   },
   Inactive: {
@@ -36,18 +36,26 @@ const statusConfig: Record<string, { class: string; dot: string }> = {
     dot: "bg-blue-500",
   },
   Discharged: {
-    class: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
     dot: "bg-amber-500",
   },
   Pending: {
-    class: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
+    class:
+      "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
     dot: "bg-purple-500",
   },
 };
 
 const avatarColors = [
-  "bg-blue-500", "bg-emerald-500", "bg-violet-500", "bg-amber-500",
-  "bg-rose-500", "bg-cyan-500", "bg-orange-500", "bg-indigo-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-violet-500",
+  "bg-amber-500",
+  "bg-rose-500",
+  "bg-cyan-500",
+  "bg-orange-500",
+  "bg-indigo-500",
 ];
 
 export function PatientCard({
@@ -65,7 +73,11 @@ export function PatientCard({
   const formatDate = (date: string | null) => {
     if (!date) return "None";
     const d = new Date(date);
-    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   };
 
   return (
@@ -112,25 +124,39 @@ export function PatientCard({
           <h3 className="mt-3 text-sm font-bold text-slate-900 dark:text-white">
             {patient.name}
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">{patient.patientId}</p>
-          <p className="text-xs text-slate-400 dark:text-slate-500">{patient.department}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            {patient.patientId}
+          </p>
+          <p className="text-xs text-slate-400 dark:text-slate-500">
+            {patient.department}
+          </p>
         </div>
 
         {/* Stats */}
         <div className="mt-4 grid grid-cols-3 gap-3 rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
           <div className="text-center">
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Age</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">{patient.age}</p>
+            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+              Age
+            </p>
+            <p className="text-sm font-bold text-slate-900 dark:text-white">
+              {patient.age}
+            </p>
           </div>
           <div className="text-center">
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Blood</p>
+            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+              Blood
+            </p>
             <p className="text-sm font-bold text-slate-900 dark:text-white">
               {patient.bloodGroup}
             </p>
           </div>
           <div className="text-center">
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Gender</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">{patient.gender}</p>
+            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+              Gender
+            </p>
+            <p className="text-sm font-bold text-slate-900 dark:text-white">
+              {patient.gender}
+            </p>
           </div>
         </div>
 

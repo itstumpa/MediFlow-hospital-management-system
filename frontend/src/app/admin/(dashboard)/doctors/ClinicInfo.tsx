@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Building, MapPin, DoorOpen, Phone, AlertCircle } from "lucide-react";
-import { useFormContext } from "react-hook-form";
-import { hospitals, floors } from "./form-mock";
-import type { DoctorFormValues } from "./form-schema";
 import { staggerItem } from "@/lib/animations/stagger";
+import { motion } from "framer-motion";
+import { AlertCircle, Building, DoorOpen, MapPin, Phone } from "lucide-react";
+import { useFormContext } from "react-hook-form";
+import { floors, hospitals } from "./form-mock";
+import type { DoctorFormValues } from "./form-schema";
 
 const inputGlow =
   "transition-all duration-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]";
@@ -51,7 +51,9 @@ export function ClinicInfo() {
           >
             <option value="">Select hospital</option>
             {hospitals.map((h) => (
-              <option key={h} value={h}>{h}</option>
+              <option key={h} value={h}>
+                {h}
+              </option>
             ))}
           </select>
         </div>
@@ -74,7 +76,9 @@ export function ClinicInfo() {
             >
               <option value="">Select floor</option>
               {floors.map((f) => (
-                <option key={f} value={f}>{f}</option>
+                <option key={f} value={f}>
+                  {f}
+                </option>
               ))}
             </select>
           </div>

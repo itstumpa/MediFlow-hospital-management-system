@@ -1,24 +1,29 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { PageHeader } from "@/app/components/dashboard/PageHeader";
+import { BulkActions } from "@/app/components/dashboard/doctors/BulkActions";
+import { DeleteDoctorDialog } from "@/app/components/dashboard/doctors/DeleteDoctorDialog";
+import { DoctorCard } from "@/app/components/dashboard/doctors/DoctorCard";
+import { DoctorFilters } from "@/app/components/dashboard/doctors/DoctorFilters";
+import { DoctorsStats } from "@/app/components/dashboard/doctors/DoctorsStats";
+import { DoctorsTable } from "@/app/components/dashboard/doctors/DoctorsTable";
+import { DoctorsToolbar } from "@/app/components/dashboard/doctors/DoctorsToolbar";
+import { EmptyState } from "@/app/components/dashboard/doctors/EmptyState";
+import { ExportDialog } from "@/app/components/dashboard/doctors/ExportDialog";
+import { ImportDialog } from "@/app/components/dashboard/doctors/ImportDialog";
+import { LoadingSkeleton } from "@/app/components/dashboard/doctors/LoadingSkeleton";
+import { doctorsData } from "@/app/components/dashboard/doctors/mock";
+import type {
+  Doctor,
+  DoctorFilters as DoctorFiltersType,
+  ExportFormat,
+  ViewMode,
+} from "@/app/components/dashboard/doctors/types";
+import { DEFAULT_FILTERS } from "@/app/components/dashboard/doctors/types";
 import { motion } from "framer-motion";
 import { Plus, Upload } from "lucide-react";
 import Link from "next/link";
-import { PageHeader } from "@/app/components/dashboard/PageHeader";
-import { DoctorsStats } from "@/app/components/dashboard/doctors/DoctorsStats";
-import { DoctorsToolbar } from "@/app/components/dashboard/doctors/DoctorsToolbar";
-import { DoctorFilters } from "@/app/components/dashboard/doctors/DoctorFilters";
-import { DoctorsTable } from "@/app/components/dashboard/doctors/DoctorsTable";
-import { DoctorCard } from "@/app/components/dashboard/doctors/DoctorCard";
-import { BulkActions } from "@/app/components/dashboard/doctors/BulkActions";
-import { DeleteDoctorDialog } from "@/app/components/dashboard/doctors/DeleteDoctorDialog";
-import { ExportDialog } from "@/app/components/dashboard/doctors/ExportDialog";
-import { ImportDialog } from "@/app/components/dashboard/doctors/ImportDialog";
-import { EmptyState } from "@/app/components/dashboard/doctors/EmptyState";
-import { LoadingSkeleton } from "@/app/components/dashboard/doctors/LoadingSkeleton";
-import type { Doctor, DoctorFilters as DoctorFiltersType, ViewMode, ExportFormat } from "@/app/components/dashboard/doctors/types";
-import { DEFAULT_FILTERS } from "@/app/components/dashboard/doctors/types";
-import { doctorsData } from "@/app/components/dashboard/doctors/mock";
+import { useCallback, useMemo, useState } from "react";
 
 export default function DoctorsPage() {
   const [filters, setFilters] = useState<DoctorFiltersType>(DEFAULT_FILTERS);
@@ -46,7 +51,7 @@ export default function DoctorsPage() {
           d.email.toLowerCase().includes(q) ||
           d.department.toLowerCase().includes(q) ||
           d.specialization.toLowerCase().includes(q) ||
-          d.id.toLowerCase().includes(q)
+          d.id.toLowerCase().includes(q),
       );
     }
 
@@ -55,7 +60,9 @@ export default function DoctorsPage() {
     }
 
     if (filters.specialization.length > 0) {
-      result = result.filter((d) => filters.specialization.includes(d.specialization));
+      result = result.filter((d) =>
+        filters.specialization.includes(d.specialization),
+      );
     }
 
     if (filters.status.length > 0) {
@@ -67,35 +74,48 @@ export default function DoctorsPage() {
     }
 
     if (filters.availability.length > 0) {
-      result = result.filter((d) => filters.availability.includes(d.availability));
+      result = result.filter((d) =>
+        filters.availability.includes(d.availability),
+      );
     }
 
     if (filters.consultationType.length > 0) {
-      result = result.filter((d) => filters.consultationType.includes(d.consultationType));
+      result = result.filter((d) =>
+        filters.consultationType.includes(d.consultationType),
+      );
     }
 
     if (filters.experience[0] > 0 || filters.experience[1] < 50) {
       result = result.filter(
-        (d) => d.experience >= filters.experience[0] && d.experience <= filters.experience[1]
+        (d) =>
+          d.experience >= filters.experience[0] &&
+          d.experience <= filters.experience[1],
       );
     }
 
     if (filters.rating[0] > 0 || filters.rating[1] < 5) {
       result = result.filter(
-        (d) => d.rating >= filters.rating[0] && d.rating <= filters.rating[1]
+        (d) => d.rating >= filters.rating[0] && d.rating <= filters.rating[1],
       );
     }
 
     result.sort((a, b) => {
       const factor = filters.sortAsc ? 1 : -1;
       switch (filters.sortBy) {
-        case "name": return factor * a.name.localeCompare(b.name);
-        case "department": return factor * a.department.localeCompare(b.department);
-        case "experience": return factor * (a.experience - b.experience);
-        case "patients": return factor * (a.patients - b.patients);
-        case "rating": return factor * (a.rating - b.rating);
-        case "status": return factor * a.status.localeCompare(b.status);
-        default: return 0;
+        case "name":
+          return factor * a.name.localeCompare(b.name);
+        case "department":
+          return factor * a.department.localeCompare(b.department);
+        case "experience":
+          return factor * (a.experience - b.experience);
+        case "patients":
+          return factor * (a.patients - b.patients);
+        case "rating":
+          return factor * (a.rating - b.rating);
+        case "status":
+          return factor * a.status.localeCompare(b.status);
+        default:
+          return 0;
       }
     });
 
@@ -103,7 +123,10 @@ export default function DoctorsPage() {
   }, [doctors, filters]);
 
   // ---- Pagination ----
-  const totalPages = Math.max(1, Math.ceil(filteredDoctors.length / rowsPerPage));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredDoctors.length / rowsPerPage),
+  );
   const paginatedDoctors = useMemo(() => {
     const start = (currentPage - 1) * rowsPerPage;
     return filteredDoctors.slice(start, start + rowsPerPage);
@@ -120,7 +143,10 @@ export default function DoctorsPage() {
   }, []);
 
   const handleSelectAll = useCallback(() => {
-    if (selectedIds.size === paginatedDoctors.length && paginatedDoctors.length > 0) {
+    if (
+      selectedIds.size === paginatedDoctors.length &&
+      paginatedDoctors.length > 0
+    ) {
       setSelectedIds(new Set());
     } else {
       setSelectedIds(new Set(paginatedDoctors.map((d) => d.id)));
@@ -154,9 +180,12 @@ export default function DoctorsPage() {
     setDeleteTarget(null);
   }, []);
 
-  const handleExport = useCallback((format: ExportFormat) => {
-    console.log(`Exporting ${filteredDoctors.length} doctors as ${format}`);
-  }, [filteredDoctors]);
+  const handleExport = useCallback(
+    (format: ExportFormat) => {
+      console.log(`Exporting ${filteredDoctors.length} doctors as ${format}`);
+    },
+    [filteredDoctors],
+  );
 
   const handleImport = useCallback((file: File) => {
     console.log("Importing file:", file.name);
@@ -194,8 +223,18 @@ export default function DoctorsPage() {
               onClick={() => setExportOpen(true)}
               className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
             >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
               </svg>
               Export
             </motion.button>
@@ -297,7 +336,10 @@ export default function DoctorsPage() {
                       </span>{" "}
                       to{" "}
                       <span className="font-medium text-slate-700 dark:text-slate-300">
-                        {Math.min(currentPage * rowsPerPage, filteredDoctors.length)}
+                        {Math.min(
+                          currentPage * rowsPerPage,
+                          filteredDoctors.length,
+                        )}
                       </span>{" "}
                       of{" "}
                       <span className="font-medium text-slate-700 dark:text-slate-300">
@@ -319,7 +361,9 @@ export default function DoctorsPage() {
                           className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                         >
                           {[5, 10, 20, 50].map((n) => (
-                            <option key={n} value={n}>{n}</option>
+                            <option key={n} value={n}>
+                              {n}
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -327,48 +371,75 @@ export default function DoctorsPage() {
                       {/* Page buttons */}
                       <div className="flex items-center gap-1">
                         <button
-                          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                          onClick={() =>
+                            setCurrentPage((p) => Math.max(1, p - 1))
+                          }
                           disabled={currentPage === 1}
                           className="rounded-lg border border-slate-200 p-2 text-slate-600 transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700"
                         >
-                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                          <svg
+                            className="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M15 19l-7-7 7-7"
+                            />
                           </svg>
                         </button>
 
-                        {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                          let pageNum: number;
-                          if (totalPages <= 5) {
-                            pageNum = i + 1;
-                          } else if (currentPage <= 3) {
-                            pageNum = i + 1;
-                          } else if (currentPage >= totalPages - 2) {
-                            pageNum = totalPages - 4 + i;
-                          } else {
-                            pageNum = currentPage - 2 + i;
-                          }
-                          return (
-                            <button
-                              key={pageNum}
-                              onClick={() => setCurrentPage(pageNum)}
-                              className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-medium transition-all ${
-                                currentPage === pageNum
-                                  ? "bg-blue-600 text-white shadow-sm"
-                                  : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
-                              }`}
-                            >
-                              {pageNum}
-                            </button>
-                          );
-                        })}
+                        {Array.from(
+                          { length: Math.min(5, totalPages) },
+                          (_, i) => {
+                            let pageNum: number;
+                            if (totalPages <= 5) {
+                              pageNum = i + 1;
+                            } else if (currentPage <= 3) {
+                              pageNum = i + 1;
+                            } else if (currentPage >= totalPages - 2) {
+                              pageNum = totalPages - 4 + i;
+                            } else {
+                              pageNum = currentPage - 2 + i;
+                            }
+                            return (
+                              <button
+                                key={pageNum}
+                                onClick={() => setCurrentPage(pageNum)}
+                                className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-medium transition-all ${
+                                  currentPage === pageNum
+                                    ? "bg-blue-600 text-white shadow-sm"
+                                    : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                                }`}
+                              >
+                                {pageNum}
+                              </button>
+                            );
+                          },
+                        )}
 
                         <button
-                          onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                          onClick={() =>
+                            setCurrentPage((p) => Math.min(totalPages, p + 1))
+                          }
                           disabled={currentPage === totalPages}
                           className="rounded-lg border border-slate-200 p-2 text-slate-600 transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700"
                         >
-                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          <svg
+                            className="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -400,7 +471,10 @@ export default function DoctorsPage() {
       <DeleteDoctorDialog
         doctor={deleteTarget}
         open={deleteOpen}
-        onClose={() => { setDeleteOpen(false); setDeleteTarget(null); }}
+        onClose={() => {
+          setDeleteOpen(false);
+          setDeleteTarget(null);
+        }}
         onConfirm={handleDeleteConfirm}
       />
       <ExportDialog

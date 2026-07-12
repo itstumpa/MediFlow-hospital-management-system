@@ -1,11 +1,11 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import type { DoctorPatient } from "@/lib/data/admin-doctors";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { CalendarDays, Users } from "lucide-react";
 import Image from "next/image";
-import type { DoctorPatient } from "@/lib/data/admin-doctors";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
-import { cn } from "@/lib/utils";
 import { EmptyState } from "./EmptyState";
 
 interface PatientsTabProps {

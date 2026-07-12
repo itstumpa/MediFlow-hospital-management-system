@@ -9,7 +9,11 @@ interface EmptyStateProps {
   onAddDoctor: () => void;
 }
 
-export function EmptyState({ hasFilters, onClearFilters, onAddDoctor }: EmptyStateProps) {
+export function EmptyState({
+  hasFilters,
+  onClearFilters,
+  onAddDoctor,
+}: EmptyStateProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

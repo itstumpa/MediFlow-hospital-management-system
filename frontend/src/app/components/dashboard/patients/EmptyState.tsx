@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Plus } from "lucide-react";
+import { Plus, Users } from "lucide-react";
 
 interface EmptyStateProps {
   onAddPatient?: () => void;
@@ -39,7 +39,8 @@ export function EmptyState({ onAddPatient }: EmptyStateProps) {
         transition={{ duration: 0.3, delay: 0.3 }}
         className="mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400"
       >
-        No patients match your current search criteria. Try adjusting your filters or add a new patient to get started.
+        No patients match your current search criteria. Try adjusting your
+        filters or add a new patient to get started.
       </motion.p>
 
       {onAddPatient && (

@@ -1,19 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
-  FileText,
-  FileImage,
-  FileSpreadsheet,
-  Paperclip,
-  Calendar,
-  Stethoscope,
-} from "lucide-react";
+  staggerContainer,
+  staggerItem,
+} from "@/app/components/dashboard/MotionVariants";
+import { EmptyState } from "@/app/components/ui/EmptyState";
 import type { MedicalRecord } from "@/lib/data/patient-detail";
 import { formatDate } from "@/lib/utils";
-import { staggerItem, staggerContainer } from "@/app/components/dashboard/MotionVariants";
-import { EmptyState } from "@/app/components/ui/EmptyState";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  FileImage,
+  FileSpreadsheet,
+  FileText,
+  Paperclip,
+  Stethoscope,
+} from "lucide-react";
 
 interface MedicalRecordsTabProps {
   records: MedicalRecord[];
@@ -137,11 +139,7 @@ function RecordTimeline({ records }: MedicalRecordsTabProps) {
 
 export function MedicalRecordsTab({ records }: MedicalRecordsTabProps) {
   return (
-    <motion.div
-      variants={staggerContainer}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={staggerContainer} initial="hidden" animate="visible">
       <RecordTimeline records={records} />
     </motion.div>
   );

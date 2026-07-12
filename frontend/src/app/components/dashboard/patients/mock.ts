@@ -1,4 +1,4 @@
-import type { Patient, BloodGroup, PatientStatus } from "./types";
+import type { BloodGroup, Patient, PatientStatus } from "./types";
 
 export const patientsData: Patient[] = [
   {
@@ -602,7 +602,14 @@ export const doctorOptions = [
 ];
 
 export const bloodGroupOptions: BloodGroup[] = [
-  "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",
+  "A+",
+  "A-",
+  "B+",
+  "B-",
+  "AB+",
+  "AB-",
+  "O+",
+  "O-",
 ];
 
 export const genderOptions = ["Male", "Female"] as const;

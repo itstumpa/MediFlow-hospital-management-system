@@ -1,8 +1,8 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
 import { DoctorPreview } from "./DoctorPreview";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 
 export function Sidebar() {
   return (
@@ -69,9 +69,7 @@ export function Sidebar() {
             "Availability",
           ].map((section, i) => (
             <div key={i} className="flex items-center gap-2">
-              <div
-                className="h-1.5 w-1.5 rounded-full bg-blue-500"
-              />
+              <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {section}
               </span>

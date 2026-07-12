@@ -1,10 +1,10 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import type { DoctorReview } from "@/lib/data/admin-doctors";
 import { motion } from "framer-motion";
 import { MessageSquare, Star } from "lucide-react";
 import Image from "next/image";
-import type { DoctorReview } from "@/lib/data/admin-doctors";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { EmptyState } from "./EmptyState";
 
 interface ReviewsTabProps {
@@ -15,7 +15,10 @@ interface ReviewsTabProps {
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`}>
+    <div
+      className="flex items-center gap-0.5"
+      aria-label={`${rating} out of 5 stars`}
+    >
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
@@ -61,7 +64,9 @@ export function ReviewsTab({
           <span className="text-3xl font-bold text-amber-600 dark:text-amber-400">
             {averageRating.toFixed(1)}
           </span>
-          <span className="text-[10px] font-medium text-amber-500">out of 5</span>
+          <span className="text-[10px] font-medium text-amber-500">
+            out of 5
+          </span>
         </div>
         <div className="space-y-1">
           <div className="flex items-center gap-2">

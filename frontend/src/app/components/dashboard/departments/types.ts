@@ -1,4 +1,8 @@
-export type DepartmentStatus = "Active" | "Inactive" | "Under Maintenance" | "Closed";
+export type DepartmentStatus =
+  | "Active"
+  | "Inactive"
+  | "Under Maintenance"
+  | "Closed";
 export type ViewMode = "table" | "grid";
 export type SortField =
   | "name"

@@ -1,17 +1,17 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { X, RotateCcw } from "lucide-react";
-import type { PatientFilters, PatientStatus, Gender, BloodGroup } from "./types";
+import { AnimatePresence, motion } from "framer-motion";
+import { RotateCcw, X } from "lucide-react";
 import {
+  ageRanges,
+  bloodGroupOptions,
   departmentOptions,
   doctorOptions,
-  bloodGroupOptions,
   genderOptions,
-  statusOptions,
   insuranceOptions,
-  ageRanges,
+  statusOptions,
 } from "./mock";
+import type { PatientFilters } from "./types";
 
 interface PatientFiltersProps {
   filters: PatientFilters;
@@ -63,8 +63,18 @@ function CheckboxGroup<T extends string>({
               }`}
             >
               {selected.includes(opt) && (
-                <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <svg
+                  className="h-3 w-3 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               )}
             </div>
@@ -116,7 +126,9 @@ export function PatientFilters({
         >
           <div className="w-[280px]">
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-slate-700">
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Filters</h3>
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                Filters
+              </h3>
               <div className="flex items-center gap-1">
                 {activeCount > 0 && (
                   <button
@@ -136,12 +148,17 @@ export function PatientFilters({
               </div>
             </div>
 
-            <div className="space-y-5 overflow-y-auto px-4 py-4" style={{ maxHeight: "calc(100vh - 300px)" }}>
+            <div
+              className="space-y-5 overflow-y-auto px-4 py-4"
+              style={{ maxHeight: "calc(100vh - 300px)" }}
+            >
               <CheckboxGroup
                 label="Department"
                 options={departmentOptions}
                 selected={filters.department}
-                onChange={(val) => onFiltersChange({ ...filters, department: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, department: val })
+                }
               />
 
               <CheckboxGroup
@@ -155,7 +172,9 @@ export function PatientFilters({
                 label="Blood Group"
                 options={bloodGroupOptions}
                 selected={filters.bloodGroup}
-                onChange={(val) => onFiltersChange({ ...filters, bloodGroup: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, bloodGroup: val })
+                }
               />
 
               <CheckboxGroup
@@ -169,7 +188,9 @@ export function PatientFilters({
                 label="Insurance"
                 options={insuranceOptions}
                 selected={filters.insurance}
-                onChange={(val) => onFiltersChange({ ...filters, insurance: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, insurance: val })
+                }
               />
 
               <CheckboxGroup
@@ -192,13 +213,15 @@ export function PatientFilters({
                         onFiltersChange({
                           ...filters,
                           ageRange:
-                            filters.ageRange[0] === range.min && filters.ageRange[1] === range.max
+                            filters.ageRange[0] === range.min &&
+                            filters.ageRange[1] === range.max
                               ? [0, 120]
                               : [range.min, range.max],
                         })
                       }
                       className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
-                        filters.ageRange[0] === range.min && filters.ageRange[1] === range.max
+                        filters.ageRange[0] === range.min &&
+                        filters.ageRange[1] === range.max
                           ? "bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
                           : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
                       }`}

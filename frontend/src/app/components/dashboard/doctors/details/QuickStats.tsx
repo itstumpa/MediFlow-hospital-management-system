@@ -1,5 +1,7 @@
 "use client";
 
+import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   CalendarCheck,
@@ -10,8 +12,6 @@ import {
   Users,
 } from "lucide-react";
 import { AnimatedCounter } from "../../AnimatedCounter";
-import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
-import { cn } from "@/lib/utils";
 
 interface QuickStatsProps {
   stats: AdminDoctorDetail["stats"];

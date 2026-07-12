@@ -1,6 +1,19 @@
-export type PatientStatus = "Active" | "Inactive" | "Admitted" | "Discharged" | "Pending";
+export type PatientStatus =
+  | "Active"
+  | "Inactive"
+  | "Admitted"
+  | "Discharged"
+  | "Pending";
 export type Gender = "Male" | "Female";
-export type BloodGroup = "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
+export type BloodGroup =
+  | "A+"
+  | "A-"
+  | "B+"
+  | "B-"
+  | "AB+"
+  | "AB-"
+  | "O+"
+  | "O-";
 export type ViewMode = "table" | "card";
 export type SortField = "newest" | "oldest" | "name" | "recentVisit";
 export type ExportFormat = "csv" | "excel" | "pdf";

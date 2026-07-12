@@ -1,12 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Pill, Calendar, User, RefreshCw } from "lucide-react";
-import type { Prescription } from "@/lib/data/patient-detail";
-import { formatDate } from "@/lib/utils";
-import { staggerItem, staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import {
+  staggerContainer,
+  staggerItem,
+} from "@/app/components/dashboard/MotionVariants";
 import { EmptyState } from "@/app/components/ui/EmptyState";
-import { cn } from "@/lib/utils";
+import type { Prescription } from "@/lib/data/patient-detail";
+import { cn, formatDate } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Calendar, Pill, RefreshCw, User } from "lucide-react";
 
 interface PrescriptionsTabProps {
   prescriptions: Prescription[];
@@ -20,8 +22,7 @@ const statusConfig = {
   },
   completed: {
     label: "Completed",
-    class:
-      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
   },
   discontinued: {
     label: "Discontinued",
@@ -41,11 +42,7 @@ export function PrescriptionsTab({ prescriptions }: PrescriptionsTabProps) {
   }
 
   return (
-    <motion.div
-      variants={staggerContainer}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={staggerContainer} initial="hidden" animate="visible">
       <div className="grid gap-4 sm:grid-cols-2">
         {prescriptions.map((rx, i) => {
           const status = statusConfig[rx.status];
@@ -108,7 +105,9 @@ export function PrescriptionsTab({ prescriptions }: PrescriptionsTabProps) {
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                     <RefreshCw className="h-3.5 w-3.5" />
-                    <span>{rx.refills} refill{rx.refills !== 1 ? "s" : ""} remaining</span>
+                    <span>
+                      {rx.refills} refill{rx.refills !== 1 ? "s" : ""} remaining
+                    </span>
                   </div>
                 </div>
 

@@ -1,5 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-
 // ──── Appointment ────
 export interface DoctorAppointment {
   id: string;
@@ -130,7 +128,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
     isVerified: true,
     consultationFee: 40,
     hospital: "MediFlow Medical Center",
-    hospitalAddress: "123 Healthcare Blvd, Suite 400, Medical District, NY 10001",
+    hospitalAddress:
+      "123 Healthcare Blvd, Suite 400, Medical District, NY 10001",
     hospitalPhone: "+1 (555) 123-4567",
     biography:
       "Dr. Sarah Johnson is a highly experienced interventional cardiologist dedicated to providing exceptional heart care. With over 18 years of clinical practice, she specializes in diagnosing and treating complex cardiovascular conditions. Her patient-centered approach combines cutting-edge medical technology with compassionate care, ensuring every patient receives personalized treatment plans. She has performed over 5,000 successful cardiac interventions and published numerous research papers on interventional cardiology. Dr. Johnson is a sought-after speaker at international medical conferences and serves on the editorial board of several prestigious cardiology journals.",
@@ -192,7 +191,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-001",
         patientName: "John Smith",
-        patientAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-12",
         time: "09:00 AM",
         status: "scheduled",
@@ -200,7 +200,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-002",
         patientName: "Emily Davis",
-        patientAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-12",
         time: "10:30 AM",
         status: "scheduled",
@@ -208,7 +209,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-003",
         patientName: "Robert Wilson",
-        patientAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-12",
         time: "11:00 AM",
         status: "completed",
@@ -216,7 +218,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-004",
         patientName: "Sophia Martinez",
-        patientAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-11",
         time: "02:00 PM",
         status: "completed",
@@ -224,7 +227,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-005",
         patientName: "William Brown",
-        patientAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-11",
         time: "03:30 PM",
         status: "cancelled",
@@ -232,7 +236,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-006",
         patientName: "Olivia Taylor",
-        patientAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-10",
         time: "09:00 AM",
         status: "completed",
@@ -240,7 +245,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "apt-007",
         patientName: "James Anderson",
-        patientAvatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
         date: "2026-07-10",
         time: "01:00 PM",
         status: "no-show",
@@ -252,7 +258,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
         name: "John Smith",
         age: 58,
         gender: "Male",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+        avatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
         lastVisit: "2026-07-12",
         condition: "Coronary Artery Disease",
       },
@@ -261,7 +268,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
         name: "Emily Davis",
         age: 45,
         gender: "Female",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+        avatar:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
         lastVisit: "2026-07-12",
         condition: "Hypertension",
       },
@@ -270,7 +278,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
         name: "Robert Wilson",
         age: 62,
         gender: "Male",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+        avatar:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
         lastVisit: "2026-07-12",
         condition: "Heart Failure",
       },
@@ -279,7 +288,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
         name: "Sophia Martinez",
         age: 35,
         gender: "Female",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+        avatar:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
         lastVisit: "2026-07-11",
         condition: "Arrhythmia",
       },
@@ -288,7 +298,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
         name: "Olivia Taylor",
         age: 52,
         gender: "Female",
-        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+        avatar:
+          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
         lastVisit: "2026-07-10",
         condition: "Valvular Heart Disease",
       },
@@ -297,7 +308,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "rev-001",
         patientName: "John Smith",
-        patientAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
         rating: 5,
         comment:
           "Dr. Johnson is an exceptional cardiologist. She took the time to explain my condition thoroughly and made me feel at ease. The treatment plan she designed has significantly improved my quality of life.",
@@ -306,7 +318,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "rev-002",
         patientName: "Emily Davis",
-        patientAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
         rating: 5,
         comment:
           "Very professional and caring. The staff was wonderful and Dr. Johnson made sure all my questions were answered before I left.",
@@ -315,7 +328,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "rev-003",
         patientName: "Robert Wilson",
-        patientAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
         rating: 4,
         comment:
           "Great doctor with excellent knowledge. The wait time was a bit long but the care I received was worth it.",
@@ -324,7 +338,8 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "rev-004",
         patientName: "Sophia Martinez",
-        patientAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+        patientAvatar:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
         rating: 5,
         comment:
           "Dr. Johnson saved my life. After years of misdiagnosis, she identified my condition in the first visit. I'm forever grateful.",
@@ -463,8 +478,7 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "act-001",
         action: "Doctor Created",
-        description:
-          "Dr. Sarah Johnson was added to the system by Admin User",
+        description: "Dr. Sarah Johnson was added to the system by Admin User",
         timestamp: "2024-01-15T09:00:00Z",
         type: "created",
       },
@@ -486,14 +500,16 @@ export const adminDoctorDetails: Record<string, AdminDoctorDetail> = {
       {
         id: "act-004",
         action: "Department Changed",
-        description: "Transferred from General Cardiology to Interventional Cardiology",
+        description:
+          "Transferred from General Cardiology to Interventional Cardiology",
         timestamp: "2024-08-15T10:00:00Z",
         type: "changed",
       },
       {
         id: "act-005",
         action: "Status Updated",
-        description: "Employment status changed to Active after credential verification",
+        description:
+          "Employment status changed to Active after credential verification",
         timestamp: "2024-09-01T08:00:00Z",
         type: "status",
       },

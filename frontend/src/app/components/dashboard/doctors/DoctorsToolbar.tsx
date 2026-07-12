@@ -1,18 +1,24 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Search,
-  SlidersHorizontal,
+  ChevronDown,
   Grid3X3,
   List,
+  Search,
+  SlidersHorizontal,
   X,
-  ChevronDown,
 } from "lucide-react";
-import type { ViewMode, DoctorFilters, DoctorStatus, Gender, Availability, ConsultationType } from "./types";
+import { useEffect, useRef, useState } from "react";
 import { departmentOptions, specializationOptions } from "./mock";
+import type {
+  Availability,
+  ConsultationType,
+  DoctorFilters,
+  DoctorStatus,
+  Gender,
+  ViewMode,
+} from "./types";
 
 interface DoctorsToolbarProps {
   filters: DoctorFilters;
@@ -24,12 +30,27 @@ interface DoctorsToolbarProps {
   filterPanelOpen: boolean;
 }
 
-const statusOptions: DoctorStatus[] = ["Active", "Inactive", "On Leave", "Vacation", "Emergency Duty"];
+const statusOptions: DoctorStatus[] = [
+  "Active",
+  "Inactive",
+  "On Leave",
+  "Vacation",
+  "Emergency Duty",
+];
 const genderOptions: Gender[] = ["Male", "Female"];
-const availabilityOptions: Availability[] = ["Available", "Busy", "Out of Office"];
+const availabilityOptions: Availability[] = [
+  "Available",
+  "Busy",
+  "Out of Office",
+];
 const consultationOptions: ConsultationType[] = ["Online", "Offline", "Both"];
 
-function FilterChip({ label, active, onClick, onRemove }: {
+function FilterChip({
+  label,
+  active,
+  onClick,
+  onRemove,
+}: {
   label: string;
   active: boolean;
   onClick: () => void;
@@ -63,7 +84,12 @@ function FilterChip({ label, active, onClick, onRemove }: {
   );
 }
 
-function DropdownFilter<T extends string>({ label, options, selected, onChange }: {
+function DropdownFilter<T extends string>({
+  label,
+  options,
+  selected,
+  onChange,
+}: {
   label: string;
   options: T[];
   selected: T[];
@@ -74,7 +100,8 @@ function DropdownFilter<T extends string>({ label, options, selected, onChange }
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -104,7 +131,9 @@ function DropdownFilter<T extends string>({ label, options, selected, onChange }
             {selected.length}
           </span>
         )}
-        <ChevronDown className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
       <AnimatePresence>
         {open && (
@@ -133,8 +162,18 @@ function DropdownFilter<T extends string>({ label, options, selected, onChange }
                   }`}
                 >
                   {selected.includes(opt) && (
-                    <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="h-3 w-3 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   )}
                 </div>
@@ -165,7 +204,8 @@ export function DoctorsToolbar({
   onToggleFilterPanel,
   filterPanelOpen,
 }: DoctorsToolbarProps) {
-  const updateSearch = (search: string) => onFiltersChange({ ...filters, search });
+  const updateSearch = (search: string) =>
+    onFiltersChange({ ...filters, search });
 
   const hasActiveFilters =
     filters.department.length > 0 ||
@@ -254,7 +294,9 @@ export function DoctorsToolbar({
             onRemove={() =>
               onFiltersChange({
                 ...filters,
-                availability: filters.availability.filter((a) => a !== "Available"),
+                availability: filters.availability.filter(
+                  (a) => a !== "Available",
+                ),
               })
             }
           />
@@ -339,7 +381,9 @@ export function DoctorsToolbar({
           label="Specialization"
           options={specializationOptions}
           selected={filters.specialization}
-          onChange={(val) => onFiltersChange({ ...filters, specialization: val })}
+          onChange={(val) =>
+            onFiltersChange({ ...filters, specialization: val })
+          }
         />
         <DropdownFilter
           label="Status"
@@ -363,7 +407,9 @@ export function DoctorsToolbar({
           label="Consultation"
           options={consultationOptions}
           selected={filters.consultationType}
-          onChange={(val) => onFiltersChange({ ...filters, consultationType: val })}
+          onChange={(val) =>
+            onFiltersChange({ ...filters, consultationType: val })
+          }
         />
       </div>
 

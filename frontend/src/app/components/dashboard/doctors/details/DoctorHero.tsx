@@ -1,5 +1,6 @@
 "use client";
 
+import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
 import { motion } from "framer-motion";
 import {
   Award,
@@ -12,7 +13,6 @@ import {
   Users,
 } from "lucide-react";
 import Image from "next/image";
-import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
 
 interface DoctorHeroProps {
   doctor: AdminDoctorDetail;
@@ -24,8 +24,7 @@ export function DoctorHero({ doctor }: DoctorHeroProps) {
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
     "on-leave":
       "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
-    terminated:
-      "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+    terminated: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
     suspended:
       "bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400",
   };

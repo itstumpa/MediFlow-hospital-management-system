@@ -1,12 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FlaskRoundIcon as Flask, Calendar, User, Download } from "lucide-react";
-import type { LabReport } from "@/lib/data/patient-detail";
-import { formatDate } from "@/lib/utils";
-import { staggerItem, staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import {
+  staggerContainer,
+  staggerItem,
+} from "@/app/components/dashboard/MotionVariants";
 import { EmptyState } from "@/app/components/ui/EmptyState";
-import { cn } from "@/lib/utils";
+import type { LabReport } from "@/lib/data/patient-detail";
+import { cn, formatDate } from "@/lib/utils";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  Download,
+  FlaskRoundIcon as Flask,
+  User,
+} from "lucide-react";
 
 interface LabReportsTabProps {
   reports: LabReport[];
@@ -21,7 +28,8 @@ const statusConfig = {
   },
   pending: {
     label: "Pending",
-    class: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
     dot: "bg-amber-500",
   },
   cancelled: {

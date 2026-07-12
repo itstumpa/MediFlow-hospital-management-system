@@ -1,14 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ChevronDown,
-  ChevronUp,
-  ChevronsUpDown,
-} from "lucide-react";
-import type { Patient, PatientFilters, SortField, ViewMode } from "./types";
-import { PatientRow } from "./PatientRow";
+import { ChevronDown, ChevronUp, ChevronsUpDown } from "lucide-react";
 import { PatientCard } from "./PatientCard";
+import { PatientRow } from "./PatientRow";
+import type { Patient, PatientFilters, SortField, ViewMode } from "./types";
 
 interface PatientsTableProps {
   patients: Patient[];
@@ -35,13 +31,35 @@ const COLUMNS: {
 }[] = [
   { key: "checkbox", label: "", sortable: false, width: "w-10" },
   { key: "patientId", label: "Patient ID", sortable: false, width: "w-32" },
-  { key: "name", label: "Name", sortable: true, width: "min-w-[200px]", sortField: "name" },
+  {
+    key: "name",
+    label: "Name",
+    sortable: true,
+    width: "min-w-[200px]",
+    sortField: "name",
+  },
   { key: "age", label: "Age", sortable: false, width: "w-16" },
   { key: "gender", label: "Gender", sortable: false, width: "w-20" },
   { key: "bloodGroup", label: "Blood", sortable: false, width: "w-20" },
-  { key: "doctor", label: "Assigned Doctor", sortable: false, width: "min-w-[150px]" },
-  { key: "department", label: "Department", sortable: false, width: "min-w-[130px]" },
-  { key: "lastVisit", label: "Last Visit", sortable: true, width: "w-28", sortField: "recentVisit" },
+  {
+    key: "doctor",
+    label: "Assigned Doctor",
+    sortable: false,
+    width: "min-w-[150px]",
+  },
+  {
+    key: "department",
+    label: "Department",
+    sortable: false,
+    width: "min-w-[130px]",
+  },
+  {
+    key: "lastVisit",
+    label: "Last Visit",
+    sortable: true,
+    width: "w-28",
+    sortField: "recentVisit",
+  },
   { key: "upcoming", label: "Upcoming", sortable: false, width: "w-28" },
   { key: "status", label: "Status", sortable: false, width: "w-24" },
   { key: "actions", label: "", sortable: false, width: "w-24" },
@@ -62,7 +80,8 @@ export function PatientsTable({
   onMessage,
   viewMode,
 }: PatientsTableProps) {
-  const allSelected = patients.length > 0 && selectedIds.size === patients.length;
+  const allSelected =
+    patients.length > 0 && selectedIds.size === patients.length;
 
   const handleSort = (field: SortField) => {
     if (filters.sortBy === field) {

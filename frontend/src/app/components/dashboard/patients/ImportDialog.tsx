@@ -1,16 +1,15 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  X,
-  Upload,
+  AlertCircle,
+  Check,
   FileSpreadsheet,
   FileText,
-  Check,
-  AlertCircle,
-  ChevronDown,
+  Upload,
+  X,
 } from "lucide-react";
+import { useRef, useState } from "react";
 
 interface ImportDialogProps {
   open: boolean;
@@ -182,13 +181,30 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                         {fileName}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        {step === "uploading" ? "Uploading..." : "Validating..."}
+                        {step === "uploading"
+                          ? "Uploading..."
+                          : "Validating..."}
                       </p>
                     </div>
                     {step === "validating" && (
-                      <svg className="h-5 w-5 animate-spin text-blue-500" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      <svg
+                        className="h-5 w-5 animate-spin text-blue-500"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                        />
                       </svg>
                     )}
                   </div>
@@ -197,7 +213,9 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                 {/* Progress bar */}
                 <div>
                   <div className="flex items-center justify-between text-xs text-slate-500">
-                    <span>{step === "uploading" ? "Uploading" : "Validating"}</span>
+                    <span>
+                      {step === "uploading" ? "Uploading" : "Validating"}
+                    </span>
                     <span>{progress}%</span>
                   </div>
                   <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
@@ -238,19 +256,25 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                     <p className="text-xl font-bold text-slate-900 dark:text-white">
                       {validationResults.total}
                     </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Total</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Total
+                    </p>
                   </div>
                   <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-center dark:border-emerald-800 dark:bg-emerald-900/20">
                     <p className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
                       {validationResults.valid}
                     </p>
-                    <p className="text-xs text-emerald-600 dark:text-emerald-400">Valid</p>
+                    <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                      Valid
+                    </p>
                   </div>
                   <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-center dark:border-red-800 dark:bg-red-900/20">
                     <p className="text-xl font-bold text-red-600 dark:text-red-400">
                       {validationResults.errors}
                     </p>
-                    <p className="text-xs text-red-600 dark:text-red-400">Errors</p>
+                    <p className="text-xs text-red-600 dark:text-red-400">
+                      Errors
+                    </p>
                   </div>
                 </div>
 

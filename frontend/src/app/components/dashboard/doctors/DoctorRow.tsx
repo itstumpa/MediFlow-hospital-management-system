@@ -1,23 +1,23 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  MoreHorizontal,
-  Eye,
-  Edit3,
-  MessageSquare,
-  UserX,
-  Trash2,
-  Calendar,
-  Star,
-  CheckCircle,
-  XCircle,
-  Clock,
-  Luggage,
   AlertTriangle,
+  Calendar,
+  CheckCircle,
   Circle,
+  Clock,
+  Edit3,
+  Eye,
+  Luggage,
+  MessageSquare,
+  MoreHorizontal,
+  Star,
+  Trash2,
+  UserX,
+  XCircle,
 } from "lucide-react";
+import { useState } from "react";
 import type { Doctor } from "./types";
 
 interface DoctorRowProps {
@@ -30,12 +30,38 @@ interface DoctorRowProps {
   index: number;
 }
 
-const statusConfig: Record<string, { class: string; dot: string; icon: React.ElementType }> = {
-  Active: { class: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300", dot: "bg-emerald-500", icon: CheckCircle },
-  Inactive: { class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400", dot: "bg-slate-400", icon: XCircle },
-  "On Leave": { class: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300", dot: "bg-amber-500", icon: Clock },
-  Vacation: { class: "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300", dot: "bg-violet-500", icon: Luggage },
-  "Emergency Duty": { class: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300", dot: "bg-rose-500", icon: AlertTriangle },
+const statusConfig: Record<
+  string,
+  { class: string; dot: string; icon: React.ElementType }
+> = {
+  Active: {
+    class:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+    dot: "bg-emerald-500",
+    icon: CheckCircle,
+  },
+  Inactive: {
+    class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    dot: "bg-slate-400",
+    icon: XCircle,
+  },
+  "On Leave": {
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
+    dot: "bg-amber-500",
+    icon: Clock,
+  },
+  Vacation: {
+    class:
+      "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
+    dot: "bg-violet-500",
+    icon: Luggage,
+  },
+  "Emergency Duty": {
+    class: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
+    dot: "bg-rose-500",
+    icon: AlertTriangle,
+  },
 };
 
 const availabilityColors: Record<string, string> = {
@@ -45,19 +71,43 @@ const availabilityColors: Record<string, string> = {
 };
 
 const avatarColors = [
-  "bg-blue-500", "bg-emerald-500", "bg-violet-500", "bg-amber-500",
-  "bg-rose-500", "bg-cyan-500", "bg-orange-500", "bg-indigo-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-violet-500",
+  "bg-amber-500",
+  "bg-rose-500",
+  "bg-cyan-500",
+  "bg-orange-500",
+  "bg-indigo-500",
 ];
 
-function Avatar({ name, initials, colorClass }: { name: string; initials: string; colorClass: string }) {
+function Avatar({
+  name,
+  initials,
+  colorClass,
+}: {
+  name: string;
+  initials: string;
+  colorClass: string;
+}) {
   return (
-    <div className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold text-white ${colorClass}`}>
+    <div
+      className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold text-white ${colorClass}`}
+    >
       {initials}
     </div>
   );
 }
 
-export function DoctorRow({ doctor, selected, onSelect, onView, onEdit, onDelete, index }: DoctorRowProps) {
+export function DoctorRow({
+  doctor,
+  selected,
+  onSelect,
+  onView,
+  onEdit,
+  onDelete,
+  index,
+}: DoctorRowProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const StatusIcon = statusConfig[doctor.status]?.icon || Circle;
   const colorIdx = doctor.name.length % avatarColors.length;
@@ -88,26 +138,40 @@ export function DoctorRow({ doctor, selected, onSelect, onView, onEdit, onDelete
       {/* Doctor Info */}
       <td className="px-3 py-3">
         <div className="flex items-center gap-3">
-          <Avatar name={doctor.name} initials={doctor.initials} colorClass={avatarColors[colorIdx]} />
+          <Avatar
+            name={doctor.name}
+            initials={doctor.initials}
+            colorClass={avatarColors[colorIdx]}
+          />
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-sm font-semibold text-slate-900 dark:text-white">{doctor.name}</span>
+              <span className="text-sm font-semibold text-slate-900 dark:text-white">
+                {doctor.name}
+              </span>
               {doctor.verified && (
                 <span className="text-blue-500" title="Verified">
-                  <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    className="h-3.5 w-3.5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
                   </svg>
                 </span>
               )}
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400">{doctor.email}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              {doctor.email}
+            </p>
           </div>
         </div>
       </td>
 
       {/* Department */}
       <td className="px-3 py-3">
-        <span className="text-sm text-slate-700 dark:text-slate-300">{doctor.department}</span>
+        <span className="text-sm text-slate-700 dark:text-slate-300">
+          {doctor.department}
+        </span>
         <p className="text-xs text-slate-400">{doctor.specialization}</p>
       </td>
 
@@ -129,15 +193,21 @@ export function DoctorRow({ doctor, selected, onSelect, onView, onEdit, onDelete
       <td className="px-3 py-3">
         <div className="flex items-center gap-1">
           <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{doctor.rating}</span>
+          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+            {doctor.rating}
+          </span>
         </div>
       </td>
 
       {/* Status */}
       <td className="px-3 py-3">
         <div className="flex items-center gap-1.5">
-          <StatusIcon className={`h-3.5 w-3.5 ${statusConfig[doctor.status]?.class.split(" ")[1] || "text-slate-400"}`} />
-          <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${statusConfig[doctor.status]?.class}`}>
+          <StatusIcon
+            className={`h-3.5 w-3.5 ${statusConfig[doctor.status]?.class.split(" ")[1] || "text-slate-400"}`}
+          />
+          <span
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${statusConfig[doctor.status]?.class}`}
+          >
             {doctor.status}
           </span>
         </div>
@@ -146,8 +216,12 @@ export function DoctorRow({ doctor, selected, onSelect, onView, onEdit, onDelete
       {/* Availability */}
       <td className="px-3 py-3">
         <div className="flex items-center gap-1.5">
-          <div className={`h-2 w-2 rounded-full ${availabilityColors[doctor.availability]}`} />
-          <span className="text-sm text-slate-600 dark:text-slate-400">{doctor.availability}</span>
+          <div
+            className={`h-2 w-2 rounded-full ${availabilityColors[doctor.availability]}`}
+          />
+          <span className="text-sm text-slate-600 dark:text-slate-400">
+            {doctor.availability}
+          </span>
         </div>
       </td>
 
@@ -196,7 +270,10 @@ export function DoctorRow({ doctor, selected, onSelect, onView, onEdit, onDelete
           {/* Dropdown menu */}
           {menuOpen && (
             <>
-              <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setMenuOpen(false)}
+              />
               <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: -4 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -205,12 +282,47 @@ export function DoctorRow({ doctor, selected, onSelect, onView, onEdit, onDelete
                 className="absolute right-0 top-full z-50 mt-1 w-44 rounded-xl border border-slate-200 bg-white p-1.5 shadow-lg dark:border-slate-700 dark:bg-slate-800"
               >
                 {[
-                  { icon: Eye, label: "View Profile", onClick: () => { onView(doctor); setMenuOpen(false); } },
-                  { icon: Edit3, label: "Edit", onClick: () => { onEdit(doctor); setMenuOpen(false); } },
-                  { icon: Calendar, label: "Schedule", onClick: () => setMenuOpen(false) },
-                  { icon: MessageSquare, label: "Send Message", onClick: () => setMenuOpen(false) },
-                  { icon: UserX, label: "Deactivate", onClick: () => setMenuOpen(false), danger: true },
-                  { icon: Trash2, label: "Delete", onClick: () => { onDelete(doctor); setMenuOpen(false); }, danger: true },
+                  {
+                    icon: Eye,
+                    label: "View Profile",
+                    onClick: () => {
+                      onView(doctor);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: Edit3,
+                    label: "Edit",
+                    onClick: () => {
+                      onEdit(doctor);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: Calendar,
+                    label: "Schedule",
+                    onClick: () => setMenuOpen(false),
+                  },
+                  {
+                    icon: MessageSquare,
+                    label: "Send Message",
+                    onClick: () => setMenuOpen(false),
+                  },
+                  {
+                    icon: UserX,
+                    label: "Deactivate",
+                    onClick: () => setMenuOpen(false),
+                    danger: true,
+                  },
+                  {
+                    icon: Trash2,
+                    label: "Delete",
+                    onClick: () => {
+                      onDelete(doctor);
+                      setMenuOpen(false);
+                    },
+                    danger: true,
+                  },
                 ].map((item) => (
                   <button
                     key={item.label}

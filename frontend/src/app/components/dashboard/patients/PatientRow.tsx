@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  MoreHorizontal,
-  Eye,
-  Edit3,
   Calendar,
+  Edit3,
+  Eye,
   FileText,
   MessageSquare,
+  MoreHorizontal,
   Trash2,
 } from "lucide-react";
+import { useState } from "react";
 import type { Patient } from "./types";
 
 interface PatientRowProps {
@@ -28,7 +28,8 @@ interface PatientRowProps {
 
 const statusConfig: Record<string, { class: string; dot: string }> = {
   Active: {
-    class: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
+    class:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
     dot: "bg-emerald-500",
   },
   Inactive: {
@@ -40,21 +41,35 @@ const statusConfig: Record<string, { class: string; dot: string }> = {
     dot: "bg-blue-500",
   },
   Discharged: {
-    class: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
     dot: "bg-amber-500",
   },
   Pending: {
-    class: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
+    class:
+      "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
     dot: "bg-purple-500",
   },
 };
 
 const avatarColors = [
-  "bg-blue-500", "bg-emerald-500", "bg-violet-500", "bg-amber-500",
-  "bg-rose-500", "bg-cyan-500", "bg-orange-500", "bg-indigo-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-violet-500",
+  "bg-amber-500",
+  "bg-rose-500",
+  "bg-cyan-500",
+  "bg-orange-500",
+  "bg-indigo-500",
 ];
 
-function Avatar({ initials, colorClass }: { initials: string; colorClass: string }) {
+function Avatar({
+  initials,
+  colorClass,
+}: {
+  initials: string;
+  colorClass: string;
+}) {
   return (
     <div
       className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold text-white ${colorClass}`}
@@ -83,7 +98,11 @@ export function PatientRow({
   const formatDate = (date: string | null) => {
     if (!date) return "—";
     const d = new Date(date);
-    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   };
 
   return (
@@ -113,7 +132,10 @@ export function PatientRow({
       {/* Avatar + Patient ID */}
       <td className="px-3 py-3">
         <div className="flex items-center gap-3">
-          <Avatar initials={patient.initials} colorClass={avatarColors[colorIdx]} />
+          <Avatar
+            initials={patient.initials}
+            colorClass={avatarColors[colorIdx]}
+          />
           <span className="text-xs font-mono font-medium text-slate-500 dark:text-slate-400">
             {patient.patientId}
           </span>
@@ -127,17 +149,23 @@ export function PatientRow({
             {patient.name}
           </span>
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-400">{patient.email}</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400">
+          {patient.email}
+        </p>
       </td>
 
       {/* Age */}
       <td className="px-3 py-3">
-        <span className="text-sm text-slate-700 dark:text-slate-300">{patient.age}</span>
+        <span className="text-sm text-slate-700 dark:text-slate-300">
+          {patient.age}
+        </span>
       </td>
 
       {/* Gender */}
       <td className="px-3 py-3">
-        <span className="text-sm text-slate-700 dark:text-slate-300">{patient.gender}</span>
+        <span className="text-sm text-slate-700 dark:text-slate-300">
+          {patient.gender}
+        </span>
       </td>
 
       {/* Blood Group */}
@@ -156,7 +184,9 @@ export function PatientRow({
 
       {/* Department */}
       <td className="px-3 py-3">
-        <span className="text-sm text-slate-700 dark:text-slate-300">{patient.department}</span>
+        <span className="text-sm text-slate-700 dark:text-slate-300">
+          {patient.department}
+        </span>
       </td>
 
       {/* Last Visit */}
@@ -223,7 +253,10 @@ export function PatientRow({
           {/* Dropdown menu */}
           {menuOpen && (
             <>
-              <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setMenuOpen(false)}
+              />
               <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: -4 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -233,12 +266,55 @@ export function PatientRow({
                 role="menu"
               >
                 {[
-                  { icon: Eye, label: "View Patient", onClick: () => { onView(patient); setMenuOpen(false); } },
-                  { icon: Edit3, label: "Edit", onClick: () => { onEdit(patient); setMenuOpen(false); } },
-                  { icon: Calendar, label: "Appointments", onClick: () => { onAppointments(patient); setMenuOpen(false); } },
-                  { icon: FileText, label: "Medical Records", onClick: () => { onMedicalRecords(patient); setMenuOpen(false); } },
-                  { icon: MessageSquare, label: "Message", onClick: () => { onMessage(patient); setMenuOpen(false); } },
-                  { icon: Trash2, label: "Delete", onClick: () => { onDelete(patient); setMenuOpen(false); }, danger: true },
+                  {
+                    icon: Eye,
+                    label: "View Patient",
+                    onClick: () => {
+                      onView(patient);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: Edit3,
+                    label: "Edit",
+                    onClick: () => {
+                      onEdit(patient);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: Calendar,
+                    label: "Appointments",
+                    onClick: () => {
+                      onAppointments(patient);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: FileText,
+                    label: "Medical Records",
+                    onClick: () => {
+                      onMedicalRecords(patient);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: MessageSquare,
+                    label: "Message",
+                    onClick: () => {
+                      onMessage(patient);
+                      setMenuOpen(false);
+                    },
+                  },
+                  {
+                    icon: Trash2,
+                    label: "Delete",
+                    onClick: () => {
+                      onDelete(patient);
+                      setMenuOpen(false);
+                    },
+                    danger: true,
+                  },
                 ].map((item) => (
                   <button
                     key={item.label}

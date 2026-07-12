@@ -1,12 +1,12 @@
 "use client";
 
+import { staggerItem } from "@/lib/animations/stagger";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Languages } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import { languageOptions } from "./form-mock";
 import type { DoctorFormValues } from "./form-schema";
-import { staggerItem } from "@/lib/animations/stagger";
-import { cn } from "@/lib/utils";
 
 export function LanguagesSection() {
   const {
@@ -23,7 +23,7 @@ export function LanguagesSection() {
       setValue(
         "languages",
         current.filter((l) => l !== lang),
-        { shouldValidate: true }
+        { shouldValidate: true },
       );
     } else {
       setValue("languages", [...current, lang], { shouldValidate: true });
@@ -61,7 +61,7 @@ export function LanguagesSection() {
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
                 isSelected
                   ? "bg-blue-500 text-white shadow-sm shadow-blue-500/30"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600",
               )}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

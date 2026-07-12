@@ -1,9 +1,19 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { X, RotateCcw } from "lucide-react";
-import type { DoctorFilters, DoctorStatus, Gender, Availability, ConsultationType } from "./types";
-import { departmentOptions, specializationOptions, languageOptions, experienceRanges } from "./mock";
+import { AnimatePresence, motion } from "framer-motion";
+import { RotateCcw, X } from "lucide-react";
+import {
+  departmentOptions,
+  experienceRanges,
+  specializationOptions,
+} from "./mock";
+import type {
+  Availability,
+  ConsultationType,
+  DoctorFilters,
+  DoctorStatus,
+  Gender,
+} from "./types";
 
 interface DoctorFiltersProps {
   filters: DoctorFilters;
@@ -12,12 +22,27 @@ interface DoctorFiltersProps {
   onClose: () => void;
 }
 
-const statusOptions: DoctorStatus[] = ["Active", "Inactive", "On Leave", "Vacation", "Emergency Duty"];
+const statusOptions: DoctorStatus[] = [
+  "Active",
+  "Inactive",
+  "On Leave",
+  "Vacation",
+  "Emergency Duty",
+];
 const genderOptions: Gender[] = ["Male", "Female"];
-const availabilityOptions: Availability[] = ["Available", "Busy", "Out of Office"];
+const availabilityOptions: Availability[] = [
+  "Available",
+  "Busy",
+  "Out of Office",
+];
 const consultationOptions: ConsultationType[] = ["Online", "Offline", "Both"];
 
-function CheckboxGroup<T extends string>({ label, options, selected, onChange }: {
+function CheckboxGroup<T extends string>({
+  label,
+  options,
+  selected,
+  onChange,
+}: {
   label: string;
   options: readonly T[];
   selected: T[];
@@ -55,8 +80,18 @@ function CheckboxGroup<T extends string>({ label, options, selected, onChange }:
               }`}
             >
               {selected.includes(opt) && (
-                <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <svg
+                  className="h-3 w-3 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               )}
             </div>
@@ -71,7 +106,12 @@ function CheckboxGroup<T extends string>({ label, options, selected, onChange }:
   );
 }
 
-export function DoctorFilters({ filters, onFiltersChange, open, onClose }: DoctorFiltersProps) {
+export function DoctorFilters({
+  filters,
+  onFiltersChange,
+  open,
+  onClose,
+}: DoctorFiltersProps) {
   const handleReset = () => {
     onFiltersChange({
       ...filters,
@@ -106,7 +146,9 @@ export function DoctorFilters({ filters, onFiltersChange, open, onClose }: Docto
         >
           <div className="w-[280px]">
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-slate-700">
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Filters</h3>
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                Filters
+              </h3>
               <div className="flex items-center gap-1">
                 {activeCount > 0 && (
                   <button
@@ -126,13 +168,18 @@ export function DoctorFilters({ filters, onFiltersChange, open, onClose }: Docto
               </div>
             </div>
 
-            <div className="space-y-5 overflow-y-auto px-4 py-4" style={{ maxHeight: "calc(100vh - 300px)" }}>
+            <div
+              className="space-y-5 overflow-y-auto px-4 py-4"
+              style={{ maxHeight: "calc(100vh - 300px)" }}
+            >
               {/* Department */}
               <CheckboxGroup
                 label="Department"
                 options={departmentOptions}
                 selected={filters.department}
-                onChange={(val) => onFiltersChange({ ...filters, department: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, department: val })
+                }
               />
 
               {/* Specialization */}
@@ -140,7 +187,9 @@ export function DoctorFilters({ filters, onFiltersChange, open, onClose }: Docto
                 label="Specialization"
                 options={specializationOptions}
                 selected={filters.specialization}
-                onChange={(val) => onFiltersChange({ ...filters, specialization: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, specialization: val })
+                }
               />
 
               {/* Status */}
@@ -164,7 +213,9 @@ export function DoctorFilters({ filters, onFiltersChange, open, onClose }: Docto
                 label="Availability"
                 options={availabilityOptions}
                 selected={filters.availability}
-                onChange={(val) => onFiltersChange({ ...filters, availability: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, availability: val })
+                }
               />
 
               {/* Consultation Type */}
@@ -172,7 +223,9 @@ export function DoctorFilters({ filters, onFiltersChange, open, onClose }: Docto
                 label="Consultation"
                 options={consultationOptions}
                 selected={filters.consultationType}
-                onChange={(val) => onFiltersChange({ ...filters, consultationType: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, consultationType: val })
+                }
               />
 
               {/* Experience Range */}
@@ -188,13 +241,15 @@ export function DoctorFilters({ filters, onFiltersChange, open, onClose }: Docto
                         onFiltersChange({
                           ...filters,
                           experience:
-                            filters.experience[0] === range.min && filters.experience[1] === range.max
+                            filters.experience[0] === range.min &&
+                            filters.experience[1] === range.max
                               ? [0, 50]
                               : [range.min, range.max],
                         })
                       }
                       className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
-                        filters.experience[0] === range.min && filters.experience[1] === range.max
+                        filters.experience[0] === range.min &&
+                        filters.experience[1] === range.max
                           ? "bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
                           : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
                       }`}

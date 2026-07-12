@@ -1,19 +1,22 @@
 "use client";
 
+import {
+  staggerContainer,
+  staggerItem,
+} from "@/app/components/dashboard/MotionVariants";
+import { EmptyState } from "@/app/components/ui/EmptyState";
+import type { Activity } from "@/lib/data/patient-detail";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  UserPlus,
+  Activity as ActivityIcon,
   CalendarCheck,
-  Pill,
-  FlaskRoundIcon as Flask,
   CreditCard,
   FileText,
-  Activity as ActivityIcon,
+  FlaskRoundIcon as Flask,
+  Pill,
+  UserPlus,
 } from "lucide-react";
-import type { Activity } from "@/lib/data/patient-detail";
-import { staggerContainer, staggerItem } from "@/app/components/dashboard/MotionVariants";
-import { EmptyState } from "@/app/components/ui/EmptyState";
-import { cn } from "@/lib/utils";
 
 interface ActivityTabProps {
   activities: Activity[];
@@ -34,7 +37,11 @@ function timeAgo(dateStr: string): string {
   if (diffDay === 1) return "Yesterday";
   if (diffDay < 7) return `${diffDay}d ago`;
   if (diffDay < 30) return `${Math.floor(diffDay / 7)}w ago`;
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 const activityConfig = {
@@ -87,11 +94,7 @@ export function ActivityTab({ activities }: ActivityTabProps) {
   }
 
   return (
-    <motion.div
-      variants={staggerContainer}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={staggerContainer} initial="hidden" animate="visible">
       <div className="relative">
         {/* Timeline line */}
         <div className="absolute left-[23px] top-3 bottom-3 w-0.5 bg-gradient-to-b from-dash-primary via-dash-border to-dash-border dark:via-slate-700 dark:to-slate-700" />

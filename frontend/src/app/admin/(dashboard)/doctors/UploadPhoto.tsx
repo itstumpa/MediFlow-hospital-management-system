@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Camera, Upload, X, User } from "lucide-react";
-import { useCallback, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Camera, Upload, User, X } from "lucide-react";
+import { useCallback, useRef, useState } from "react";
 
 interface UploadPhotoProps {
   value: string;
@@ -21,7 +21,12 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
       if (!file) return;
 
       // Validate file type
-      const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+      ];
       if (!allowedTypes.includes(file.type)) {
         return;
       }
@@ -39,7 +44,7 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
       };
       reader.readAsDataURL(file);
     },
-    [onChange]
+    [onChange],
   );
 
   const handleDrop = useCallback(
@@ -49,7 +54,7 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
       const file = e.dataTransfer.files[0];
       handleFile(file);
     },
-    [handleFile]
+    [handleFile],
   );
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -90,7 +95,8 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
             : preview
               ? "border-transparent"
               : "border-slate-300 bg-slate-50 hover:border-slate-400 dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-slate-500",
-          error && "border-red-400 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
+          error &&
+            "border-red-400 bg-red-50 dark:border-red-500 dark:bg-red-500/10",
         )}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
@@ -171,12 +177,14 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className={cn(
-              "flex h-16 w-16 items-center justify-center rounded-full transition-colors",
-              isDragOver
-                ? "bg-blue-100 text-blue-500 dark:bg-blue-500/20"
-                : "bg-slate-100 text-slate-400 dark:bg-slate-700 dark:text-slate-500"
-            )}>
+            <div
+              className={cn(
+                "flex h-16 w-16 items-center justify-center rounded-full transition-colors",
+                isDragOver
+                  ? "bg-blue-100 text-blue-500 dark:bg-blue-500/20"
+                  : "bg-slate-100 text-slate-400 dark:bg-slate-700 dark:text-slate-500",
+              )}
+            >
               {isDragOver ? (
                 <Upload className="h-7 w-7" />
               ) : (
@@ -185,7 +193,9 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
             </div>
             <div>
               <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                <span className="text-blue-600 dark:text-blue-400">Click to upload</span>{" "}
+                <span className="text-blue-600 dark:text-blue-400">
+                  Click to upload
+                </span>{" "}
                 or drag and drop
               </p>
               <p className="mt-0.5 text-xs text-slate-400 dark:text-slate-500">

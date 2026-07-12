@@ -1,10 +1,10 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Star, MapPin, Briefcase, BadgeCheck, Clock, User } from "lucide-react";
+import { BadgeCheck, Briefcase, Clock, MapPin, Star, User } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import type { DoctorFormValues } from "./form-schema";
-import { cn } from "@/lib/utils";
 
 const statusColors: Record<string, string> = {
   Active: "bg-emerald-500",
@@ -15,8 +15,14 @@ const statusColors: Record<string, string> = {
 };
 
 const avatarColors = [
-  "bg-blue-500", "bg-emerald-500", "bg-violet-500", "bg-amber-500",
-  "bg-rose-500", "bg-cyan-500", "bg-orange-500", "bg-indigo-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-violet-500",
+  "bg-amber-500",
+  "bg-rose-500",
+  "bg-cyan-500",
+  "bg-orange-500",
+  "bg-indigo-500",
 ];
 
 export function DoctorPreview() {
@@ -32,8 +38,11 @@ export function DoctorPreview() {
   const languages = watch("languages");
   const consultationFee = watch("consultationFee");
 
-  const fullName = [firstName, lastName].filter(Boolean).join(" ") || "Doctor Name";
-  const initials = `${firstName?.charAt(0) || ""}${lastName?.charAt(0) || ""}`.toUpperCase() || "DR";
+  const fullName =
+    [firstName, lastName].filter(Boolean).join(" ") || "Doctor Name";
+  const initials =
+    `${firstName?.charAt(0) || ""}${lastName?.charAt(0) || ""}`.toUpperCase() ||
+    "DR";
   const colorIdx = (firstName?.length || 0) % avatarColors.length;
 
   return (
@@ -56,7 +65,7 @@ export function DoctorPreview() {
           <motion.div
             className={cn(
               "relative flex h-20 w-20 items-center justify-center rounded-full text-2xl font-bold text-white shadow-lg",
-              avatarColors[colorIdx]
+              avatarColors[colorIdx],
             )}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
@@ -99,7 +108,7 @@ export function DoctorPreview() {
                 <span
                   className={cn(
                     "h-1.5 w-1.5 rounded-full",
-                    statusColors[status] || "bg-slate-400"
+                    statusColors[status] || "bg-slate-400",
                   )}
                 />
                 {status}
@@ -122,7 +131,7 @@ export function DoctorPreview() {
                   "h-3.5 w-3.5",
                   star <= 4
                     ? "fill-amber-400 text-amber-400"
-                    : "fill-slate-200 text-slate-200 dark:fill-slate-600 dark:text-slate-600"
+                    : "fill-slate-200 text-slate-200 dark:fill-slate-600 dark:text-slate-600",
                 )}
               />
             ))}
@@ -153,8 +162,8 @@ export function DoctorPreview() {
           {/* Fee */}
           {consultationFee > 0 && (
             <div className="mt-3 flex items-center gap-1 text-sm font-semibold text-slate-900 dark:text-white">
-              <MapPin className="h-3.5 w-3.5 text-slate-400" />
-              ${consultationFee} / visit
+              <MapPin className="h-3.5 w-3.5 text-slate-400" />$
+              {consultationFee} / visit
             </div>
           )}
         </div>

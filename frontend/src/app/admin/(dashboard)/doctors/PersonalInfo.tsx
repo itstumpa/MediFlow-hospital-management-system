@@ -1,12 +1,12 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
-import { Calendar, Globe, Droplets, User as UserIcon } from "lucide-react";
+import { Calendar, Droplets, Globe, User as UserIcon } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import { UploadPhoto } from "./UploadPhoto";
 import { bloodGroups, nationalities } from "./form-mock";
 import type { DoctorFormValues } from "./form-schema";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 
 export function PersonalInfo() {
   const {
@@ -54,10 +54,7 @@ export function PersonalInfo() {
       </motion.div>
 
       {/* Name Row */}
-      <motion.div
-        variants={staggerItem}
-        className="grid gap-4 sm:grid-cols-2"
-      >
+      <motion.div variants={staggerItem} className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-1.5">
           <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
             First Name <span className="text-red-500">*</span>
@@ -66,7 +63,9 @@ export function PersonalInfo() {
             {...register("firstName")}
             placeholder="Enter first name"
             className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${inputGlow} ${
-              errors.firstName ? "border-red-400 focus:border-red-400 focus:ring-red-500/20" : ""
+              errors.firstName
+                ? "border-red-400 focus:border-red-400 focus:ring-red-500/20"
+                : ""
             }`}
             aria-invalid={!!errors.firstName}
             aria-describedby={errors.firstName ? "firstName-error" : undefined}
@@ -86,7 +85,9 @@ export function PersonalInfo() {
             {...register("lastName")}
             placeholder="Enter last name"
             className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${inputGlow} ${
-              errors.lastName ? "border-red-400 focus:border-red-400 focus:ring-red-500/20" : ""
+              errors.lastName
+                ? "border-red-400 focus:border-red-400 focus:ring-red-500/20"
+                : ""
             }`}
             aria-invalid={!!errors.lastName}
             aria-describedby={errors.lastName ? "lastName-error" : undefined}
@@ -100,10 +101,7 @@ export function PersonalInfo() {
       </motion.div>
 
       {/* Contact Row */}
-      <motion.div
-        variants={staggerItem}
-        className="grid gap-4 sm:grid-cols-2"
-      >
+      <motion.div variants={staggerItem} className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-1.5">
           <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
             Email <span className="text-red-500">*</span>
@@ -113,7 +111,9 @@ export function PersonalInfo() {
             type="email"
             placeholder="doctor@hospital.com"
             className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${inputGlow} ${
-              errors.email ? "border-red-400 focus:border-red-400 focus:ring-red-500/20" : ""
+              errors.email
+                ? "border-red-400 focus:border-red-400 focus:ring-red-500/20"
+                : ""
             }`}
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
@@ -134,7 +134,9 @@ export function PersonalInfo() {
             type="tel"
             placeholder="+1 (555) 000-0000"
             className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${inputGlow} ${
-              errors.phone ? "border-red-400 focus:border-red-400 focus:ring-red-500/20" : ""
+              errors.phone
+                ? "border-red-400 focus:border-red-400 focus:ring-red-500/20"
+                : ""
             }`}
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? "phone-error" : undefined}
@@ -208,7 +210,9 @@ export function PersonalInfo() {
             >
               <option value="">Select</option>
               {bloodGroups.map((bg) => (
-                <option key={bg} value={bg}>{bg}</option>
+                <option key={bg} value={bg}>
+                  {bg}
+                </option>
               ))}
             </select>
           </div>
@@ -232,7 +236,9 @@ export function PersonalInfo() {
             >
               <option value="">Select</option>
               {nationalities.map((n) => (
-                <option key={n} value={n}>{n}</option>
+                <option key={n} value={n}>
+                  {n}
+                </option>
               ))}
             </select>
           </div>

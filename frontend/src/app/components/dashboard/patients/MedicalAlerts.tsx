@@ -1,17 +1,16 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import type { PatientAlert } from "@/lib/data/patient-detail";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertTriangle,
-  ShieldAlert,
   HeartPulse,
   Pill,
-  Phone,
+  ShieldAlert,
   Skull,
 } from "lucide-react";
-import type { PatientAlert } from "@/lib/data/patient-detail";
-import { staggerItem, staggerContainer } from "@/app/components/dashboard/MotionVariants";
-import { cn } from "@/lib/utils";
 
 interface MedicalAlertsProps {
   alerts: PatientAlert[];

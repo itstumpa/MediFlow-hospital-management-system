@@ -1,10 +1,10 @@
 "use client";
 
+import { staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
 import { Award, Plus, Trash2 } from "lucide-react";
-import { useFormContext, useFieldArray } from "react-hook-form";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import type { DoctorFormValues } from "./form-schema";
-import { staggerItem } from "@/lib/animations/stagger";
 
 const inputGlow =
   "transition-all duration-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]";
@@ -151,7 +151,12 @@ export function CertificationsForm() {
       <motion.button
         type="button"
         onClick={() =>
-          append({ certificate: "", organization: "", issuedYear: "", expiryYear: "" })
+          append({
+            certificate: "",
+            organization: "",
+            issuedYear: "",
+            expiryYear: "",
+          })
         }
         className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed border-slate-300 px-4 py-3 text-sm font-medium text-slate-500 transition-all hover:border-blue-400 hover:text-blue-600 dark:border-slate-600 dark:text-slate-400 dark:hover:border-blue-500 dark:hover:text-blue-400"
         whileHover={{ scale: 1.01 }}

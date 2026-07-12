@@ -1,19 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
-  Calendar,
-  Clock,
-  Video,
-  MapPin,
-  Eye,
-  XCircle,
-} from "lucide-react";
-import type { Appointment } from "@/lib/data/patient-detail";
-import { formatDate, formatTime } from "@/lib/utils";
-import { staggerItem, staggerContainer } from "@/app/components/dashboard/MotionVariants";
+  staggerContainer,
+  staggerItem,
+} from "@/app/components/dashboard/MotionVariants";
 import { EmptyState } from "@/app/components/ui/EmptyState";
-import { cn } from "@/lib/utils";
+import type { Appointment } from "@/lib/data/patient-detail";
+import { cn, formatDate, formatTime } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Calendar, Clock, Eye, XCircle } from "lucide-react";
 
 interface AppointmentsTabProps {
   appointments: Appointment[];
@@ -22,8 +17,7 @@ interface AppointmentsTabProps {
 const statusConfig = {
   scheduled: {
     label: "Scheduled",
-    class:
-      "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     dot: "bg-blue-500",
   },
   completed: {
@@ -39,8 +33,7 @@ const statusConfig = {
   },
   "no-show": {
     label: "No Show",
-    class:
-      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
     dot: "bg-slate-400",
   },
 };

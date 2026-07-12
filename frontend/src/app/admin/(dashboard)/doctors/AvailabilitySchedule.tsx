@@ -1,11 +1,11 @@
 "use client";
 
+import { staggerItem } from "@/lib/animations/stagger";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import type { DoctorFormValues } from "./form-schema";
-import { staggerItem } from "@/lib/animations/stagger";
-import { cn } from "@/lib/utils";
 
 const DAYS = [
   "Monday",
@@ -30,7 +30,11 @@ export function AvailabilitySchedule() {
     }
   };
 
-  const updateTime = (day: string, field: "startTime" | "endTime", value: string) => {
+  const updateTime = (
+    day: string,
+    field: "startTime" | "endTime",
+    value: string,
+  ) => {
     setValue(`availability.${day}.${field}`, value, { shouldDirty: true });
   };
 
@@ -70,7 +74,7 @@ export function AvailabilitySchedule() {
                 "flex items-center gap-3 rounded-lg border p-3 transition-all",
                 dayData.available
                   ? "border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800/50"
-                  : "border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-800/20"
+                  : "border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-800/20",
               )}
             >
               {/* Toggle */}
@@ -85,7 +89,7 @@ export function AvailabilitySchedule() {
                   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
                   dayData.available
                     ? "bg-blue-500"
-                    : "bg-slate-200 dark:bg-slate-700"
+                    : "bg-slate-200 dark:bg-slate-700",
                 )}
               >
                 <motion.span
@@ -93,7 +97,7 @@ export function AvailabilitySchedule() {
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   className={cn(
                     "inline-block h-4 w-4 rounded-full bg-white shadow-sm",
-                    dayData.available ? "translate-x-5" : "translate-x-1"
+                    dayData.available ? "translate-x-5" : "translate-x-1",
                   )}
                 />
               </button>
@@ -104,7 +108,7 @@ export function AvailabilitySchedule() {
                   "w-24 text-sm font-medium",
                   dayData.available
                     ? "text-slate-700 dark:text-slate-300"
-                    : "text-slate-400 dark:text-slate-500"
+                    : "text-slate-400 dark:text-slate-500",
                 )}
               >
                 {day.slice(0, 3)}
@@ -121,7 +125,7 @@ export function AvailabilitySchedule() {
                     "rounded-lg border bg-white px-2.5 py-1.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:bg-slate-800 dark:text-white",
                     dayData.available
                       ? "border-slate-300 dark:border-slate-600"
-                      : "border-slate-200 text-slate-300 dark:border-slate-700 dark:text-slate-600"
+                      : "border-slate-200 text-slate-300 dark:border-slate-700 dark:text-slate-600",
                   )}
                   aria-label={`${day} start time`}
                 />
@@ -130,7 +134,7 @@ export function AvailabilitySchedule() {
                     "text-sm",
                     dayData.available
                       ? "text-slate-400"
-                      : "text-slate-300 dark:text-slate-600"
+                      : "text-slate-300 dark:text-slate-600",
                   )}
                 >
                   to
@@ -144,7 +148,7 @@ export function AvailabilitySchedule() {
                     "rounded-lg border bg-white px-2.5 py-1.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:bg-slate-800 dark:text-white",
                     dayData.available
                       ? "border-slate-300 dark:border-slate-600"
-                      : "border-slate-200 text-slate-300 dark:border-slate-700 dark:text-slate-600"
+                      : "border-slate-200 text-slate-300 dark:border-slate-700 dark:text-slate-600",
                   )}
                   aria-label={`${day} end time`}
                 />
@@ -157,7 +161,7 @@ export function AvailabilitySchedule() {
                     "inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium",
                     dayData.available
                       ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300"
-                      : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
+                      : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400",
                   )}
                 >
                   {dayData.available ? "Available" : "Unavailable"}

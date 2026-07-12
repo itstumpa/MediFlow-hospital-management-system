@@ -1,5 +1,8 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import type { DoctorDocument } from "@/lib/data/admin-doctors";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   Download,
@@ -9,9 +12,6 @@ import {
   FileSignature,
   FileText,
 } from "lucide-react";
-import type { DoctorDocument } from "@/lib/data/admin-doctors";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
-import { cn } from "@/lib/utils";
 import { EmptyState } from "./EmptyState";
 
 interface DocumentsTabProps {
@@ -48,10 +48,7 @@ const categoryConfig: Record<
   },
 };
 
-const statusStyles: Record<
-  string,
-  { label: string; class: string }
-> = {
+const statusStyles: Record<string, { label: string; class: string }> = {
   active: {
     label: "Active",
     class:
@@ -79,9 +76,7 @@ export function DocumentsTab({ documents }: DocumentsTabProps) {
     );
   }
 
-  const grouped = documents.reduce<
-    Record<string, DoctorDocument[]>
-  >(
+  const grouped = documents.reduce<Record<string, DoctorDocument[]>>(
     (acc, doc) => {
       const cat = doc.category;
       if (!acc[cat]) acc[cat] = [];
@@ -102,8 +97,7 @@ export function DocumentsTab({ documents }: DocumentsTabProps) {
     >
       {categoryOrder.map((catKey) => {
         const docs = grouped[catKey] ?? [];
-        const config =
-          categoryConfig[catKey] ?? categoryConfig.license;
+        const config = categoryConfig[catKey] ?? categoryConfig.license;
         const Icon = config.icon;
 
         return (

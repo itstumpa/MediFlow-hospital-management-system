@@ -1,23 +1,18 @@
 "use client";
 
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import { getRelatedDoctors } from "@/lib/data/admin-doctors";
 import { motion } from "framer-motion";
 import { Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
-import { getRelatedDoctors } from "@/lib/data/admin-doctors";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
-import { cn } from "@/lib/utils";
 
 interface RelatedDoctorsProps {
   currentId: string;
   department: string;
 }
 
-export function RelatedDoctors({
-  currentId,
-  department,
-}: RelatedDoctorsProps) {
+export function RelatedDoctors({ currentId, department }: RelatedDoctorsProps) {
   const related = getRelatedDoctors(currentId, department);
 
   if (related.length === 0) return null;

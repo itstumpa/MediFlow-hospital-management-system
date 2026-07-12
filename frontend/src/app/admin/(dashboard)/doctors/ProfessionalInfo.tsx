@@ -1,11 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Stethoscope, BadgeDollarSign, Hash, Briefcase, IdCard } from "lucide-react";
-import { useFormContext } from "react-hook-form";
-import { departments, specializations, designations } from "./form-mock";
-import type { DoctorFormValues } from "./form-schema";
 import { staggerItem } from "@/lib/animations/stagger";
+import { motion } from "framer-motion";
+import {
+  BadgeDollarSign,
+  Briefcase,
+  Hash,
+  IdCard,
+  Stethoscope,
+} from "lucide-react";
+import { useFormContext } from "react-hook-form";
+import { departments, designations, specializations } from "./form-mock";
+import type { DoctorFormValues } from "./form-schema";
 
 const inputGlow =
   "transition-all duration-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]";
@@ -19,9 +25,7 @@ const inputClass = (hasError: boolean) =>
 
 const selectClass = (hasError: boolean) =>
   `w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none ${inputGlow} ${
-    hasError
-      ? "border-red-400"
-      : "border-slate-300 dark:border-slate-600"
+    hasError ? "border-red-400" : "border-slate-300 dark:border-slate-600"
   } dark:bg-slate-800 dark:text-white`;
 
 export function ProfessionalInfo() {
@@ -83,7 +87,9 @@ export function ProfessionalInfo() {
           >
             <option value="">Select department</option>
             {departments.map((dept) => (
-              <option key={dept} value={dept}>{dept}</option>
+              <option key={dept} value={dept}>
+                {dept}
+              </option>
             ))}
           </select>
           {errors.department && (
@@ -102,14 +108,20 @@ export function ProfessionalInfo() {
             disabled={!selectedDept}
           >
             <option value="">
-              {selectedDept ? "Select specialization" : "Select department first"}
+              {selectedDept
+                ? "Select specialization"
+                : "Select department first"}
             </option>
             {deptSpecializations.map((spec) => (
-              <option key={spec} value={spec}>{spec}</option>
+              <option key={spec} value={spec}>
+                {spec}
+              </option>
             ))}
           </select>
           {errors.specialization && (
-            <p className="text-xs text-red-500">{errors.specialization.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.specialization.message}
+            </p>
           )}
         </div>
       </div>
@@ -129,7 +141,9 @@ export function ProfessionalInfo() {
             >
               <option value="">Select designation</option>
               {designations.map((des) => (
-                <option key={des} value={des}>{des}</option>
+                <option key={des} value={des}>
+                  {des}
+                </option>
               ))}
             </select>
           </div>
@@ -152,7 +166,9 @@ export function ProfessionalInfo() {
             aria-invalid={!!errors.yearsOfExperience}
           />
           {errors.yearsOfExperience && (
-            <p className="text-xs text-red-500">{errors.yearsOfExperience.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.yearsOfExperience.message}
+            </p>
           )}
         </div>
       </div>
@@ -175,7 +191,9 @@ export function ProfessionalInfo() {
             />
           </div>
           {errors.consultationFee && (
-            <p className="text-xs text-red-500">{errors.consultationFee.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.consultationFee.message}
+            </p>
           )}
         </div>
 
@@ -195,7 +213,9 @@ export function ProfessionalInfo() {
             <option value="Locum">Locum</option>
           </select>
           {errors.employmentType && (
-            <p className="text-xs text-red-500">{errors.employmentType.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.employmentType.message}
+            </p>
           )}
         </div>
       </div>
@@ -216,7 +236,9 @@ export function ProfessionalInfo() {
             />
           </div>
           {errors.licenseNumber && (
-            <p className="text-xs text-red-500">{errors.licenseNumber.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.licenseNumber.message}
+            </p>
           )}
         </div>
 
@@ -234,7 +256,9 @@ export function ProfessionalInfo() {
             />
           </div>
           {errors.medicalRegistrationNumber && (
-            <p className="text-xs text-red-500">{errors.medicalRegistrationNumber.message}</p>
+            <p className="text-xs text-red-500">
+              {errors.medicalRegistrationNumber.message}
+            </p>
           )}
         </div>
       </div>
@@ -245,39 +269,45 @@ export function ProfessionalInfo() {
           Status <span className="text-red-500">*</span>
         </label>
         <div className="flex flex-wrap gap-3">
-          {(["Active", "Inactive", "On Leave", "Vacation", "Emergency Duty"] as const).map(
-            (statusOption) => (
-              <label
-                key={statusOption}
-                className="relative flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm transition-all hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-500 has-checked:border-blue-500 has-checked:bg-blue-50 has-checked:text-blue-700 dark:has-checked:border-blue-400 dark:has-checked:bg-blue-500/10 dark:has-checked:text-blue-300"
+          {(
+            [
+              "Active",
+              "Inactive",
+              "On Leave",
+              "Vacation",
+              "Emergency Duty",
+            ] as const
+          ).map((statusOption) => (
+            <label
+              key={statusOption}
+              className="relative flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm transition-all hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-500 has-checked:border-blue-500 has-checked:bg-blue-50 has-checked:text-blue-700 dark:has-checked:border-blue-400 dark:has-checked:bg-blue-500/10 dark:has-checked:text-blue-300"
+            >
+              <input
+                type="radio"
+                value={statusOption}
+                {...register("status")}
+                className="sr-only"
+              />
+              <motion.div
+                className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-slate-300 transition-colors dark:border-slate-500"
+                initial={false}
+                animate={
+                  watch("status") === statusOption
+                    ? { borderColor: "#3b82f6", backgroundColor: "#3b82f6" }
+                    : {}
+                }
               >
-                <input
-                  type="radio"
-                  value={statusOption}
-                  {...register("status")}
-                  className="sr-only"
-                />
-                <motion.div
-                  className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-slate-300 transition-colors dark:border-slate-500"
-                  initial={false}
-                  animate={
-                    watch("status") === statusOption
-                      ? { borderColor: "#3b82f6", backgroundColor: "#3b82f6" }
-                      : {}
-                  }
-                >
-                  {watch("status") === statusOption && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="h-2 w-2 rounded-full bg-white"
-                    />
-                  )}
-                </motion.div>
-                {statusOption}
-              </label>
-            )
-          )}
+                {watch("status") === statusOption && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="h-2 w-2 rounded-full bg-white"
+                  />
+                )}
+              </motion.div>
+              {statusOption}
+            </label>
+          ))}
         </div>
         {errors.status && (
           <p className="text-xs text-red-500">{errors.status.message}</p>

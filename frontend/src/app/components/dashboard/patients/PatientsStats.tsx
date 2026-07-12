@@ -1,17 +1,17 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  Users,
-  UserPlus,
-  CalendarCheck,
   Activity,
-  DoorOpen,
+  CalendarCheck,
   Clock,
+  DoorOpen,
+  UserPlus,
+  Users,
 } from "lucide-react";
-import type { Patient } from "./types";
+import { useRef } from "react";
 import { Sparkline } from "../Sparkline";
+import type { Patient } from "./types";
 
 interface PatientsStatsProps {
   patients: Patient[];
@@ -34,11 +34,15 @@ const statsConfig = [
     icon: UserPlus,
     colorClass: "emerald",
     sparklineColor: "#16a34a",
-    getValue: (p: Patient[]) => p.filter((pat) => {
-      const d = new Date(pat.registrationDate);
-      const now = new Date();
-      return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-    }).length || 8,
+    getValue: (p: Patient[]) =>
+      p.filter((pat) => {
+        const d = new Date(pat.registrationDate);
+        const now = new Date();
+        return (
+          d.getMonth() === now.getMonth() &&
+          d.getFullYear() === now.getFullYear()
+        );
+      }).length || 8,
     getTrend: () => 18.2,
     getSparkline: () => [3, 5, 4, 7, 6, 8, 8],
   },
@@ -58,7 +62,8 @@ const statsConfig = [
     icon: Activity,
     colorClass: "amber",
     sparklineColor: "#d97706",
-    getValue: (p: Patient[]) => p.filter((pat) => pat.status === "Active").length,
+    getValue: (p: Patient[]) =>
+      p.filter((pat) => pat.status === "Active").length,
     getTrend: () => 8.7,
     getSparkline: () => [320, 335, 342, 348, 356, 362, 368],
   },
@@ -68,7 +73,8 @@ const statsConfig = [
     icon: DoorOpen,
     colorClass: "cyan",
     sparklineColor: "#0891b2",
-    getValue: (p: Patient[]) => p.filter((pat) => pat.status === "Discharged").length,
+    getValue: (p: Patient[]) =>
+      p.filter((pat) => pat.status === "Discharged").length,
     getTrend: () => 4.1,
     getSparkline: () => [42, 44, 43, 45, 46, 45, 47],
   },
@@ -78,19 +84,44 @@ const statsConfig = [
     icon: Clock,
     colorClass: "rose",
     sparklineColor: "#e11d48",
-    getValue: (p: Patient[]) => p.filter((pat) => pat.status === "Pending").length,
+    getValue: (p: Patient[]) =>
+      p.filter((pat) => pat.status === "Pending").length,
     getTrend: () => 22.3,
     getSparkline: () => [2, 3, 2, 4, 3, 5, 4],
   },
 ];
 
 const colorMap: Record<string, { bg: string; text: string; bar: string }> = {
-  blue: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-600 dark:text-blue-400", bar: "bg-blue-500" },
-  emerald: { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-600 dark:text-emerald-400", bar: "bg-emerald-500" },
-  violet: { bg: "bg-violet-100 dark:bg-violet-900/30", text: "text-violet-600 dark:text-violet-400", bar: "bg-violet-500" },
-  amber: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-600 dark:text-amber-400", bar: "bg-amber-500" },
-  cyan: { bg: "bg-cyan-100 dark:bg-cyan-900/30", text: "text-cyan-600 dark:text-cyan-400", bar: "bg-cyan-500" },
-  rose: { bg: "bg-rose-100 dark:bg-rose-900/30", text: "text-rose-600 dark:text-rose-400", bar: "bg-rose-500" },
+  blue: {
+    bg: "bg-blue-100 dark:bg-blue-900/30",
+    text: "text-blue-600 dark:text-blue-400",
+    bar: "bg-blue-500",
+  },
+  emerald: {
+    bg: "bg-emerald-100 dark:bg-emerald-900/30",
+    text: "text-emerald-600 dark:text-emerald-400",
+    bar: "bg-emerald-500",
+  },
+  violet: {
+    bg: "bg-violet-100 dark:bg-violet-900/30",
+    text: "text-violet-600 dark:text-violet-400",
+    bar: "bg-violet-500",
+  },
+  amber: {
+    bg: "bg-amber-100 dark:bg-amber-900/30",
+    text: "text-amber-600 dark:text-amber-400",
+    bar: "bg-amber-500",
+  },
+  cyan: {
+    bg: "bg-cyan-100 dark:bg-cyan-900/30",
+    text: "text-cyan-600 dark:text-cyan-400",
+    bar: "bg-cyan-500",
+  },
+  rose: {
+    bg: "bg-rose-100 dark:bg-rose-900/30",
+    text: "text-rose-600 dark:text-rose-400",
+    bar: "bg-rose-500",
+  },
 };
 
 function StatCard({
@@ -147,7 +178,9 @@ function StatCard({
     >
       <div className="relative">
         <div className="flex items-start justify-between">
-          <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${colors.bg}`}>
+          <span
+            className={`flex h-10 w-10 items-center justify-center rounded-xl ${colors.bg}`}
+          >
             <Icon className={`h-5 w-5 ${colors.text}`} />
           </span>
           <span
@@ -157,9 +190,18 @@ function StatCard({
                 : "bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400"
             }`}
           >
-            <svg className="h-3 w-3" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <svg
+              className="h-3 w-3"
+              viewBox="0 0 12 12"
+              fill="none"
+              aria-hidden="true"
+            >
               <path
-                d={isPositive ? "M6 2.5v7M6 2.5L3 5.5M6 2.5L9 5.5" : "M6 9.5v-7M6 9.5L3 6.5M6 9.5L9 6.5"}
+                d={
+                  isPositive
+                    ? "M6 2.5v7M6 2.5L3 5.5M6 2.5L9 5.5"
+                    : "M6 9.5v-7M6 9.5L3 6.5M6 9.5L9 6.5"
+                }
                 stroke="currentColor"
                 strokeWidth="1.5"
                 strokeLinecap="round"
@@ -178,13 +220,20 @@ function StatCard({
 
         <div className="mt-1 flex items-center justify-between">
           <p className="text-sm text-slate-500 dark:text-slate-400">{label}</p>
-          <Sparkline data={sparkline} color={sparklineColor} width={60} height={24} />
+          <Sparkline
+            data={sparkline}
+            color={sparklineColor}
+            width={60}
+            height={24}
+          />
         </div>
 
         <div className="mt-3 h-1 w-full rounded-full bg-slate-100 dark:bg-slate-800">
           <motion.div
             initial={{ width: 0 }}
-            animate={inView ? { width: `${Math.min((value / 1000) * 100, 100)}%` } : {}}
+            animate={
+              inView ? { width: `${Math.min((value / 1000) * 100, 100)}%` } : {}
+            }
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className={`h-full rounded-full ${colors.bar}`}
           />

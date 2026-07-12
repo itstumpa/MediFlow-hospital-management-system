@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, X } from "lucide-react";
 import type { Doctor } from "./types";
 
@@ -12,7 +11,12 @@ interface DeleteDoctorDialogProps {
   onConfirm: (doctor: Doctor) => void;
 }
 
-export function DeleteDoctorDialog({ doctor, open, onClose, onConfirm }: DeleteDoctorDialogProps) {
+export function DeleteDoctorDialog({
+  doctor,
+  open,
+  onClose,
+  onConfirm,
+}: DeleteDoctorDialogProps) {
   if (!doctor) return null;
 
   return (
@@ -52,8 +56,12 @@ export function DeleteDoctorDialog({ doctor, open, onClose, onConfirm }: DeleteD
               Delete Doctor
             </h3>
             <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              Are you sure you want to delete <span className="font-semibold text-slate-700 dark:text-slate-300">{doctor.name}</span>? 
-              This action cannot be undone. All associated data, appointments, and records will be permanently removed.
+              Are you sure you want to delete{" "}
+              <span className="font-semibold text-slate-700 dark:text-slate-300">
+                {doctor.name}
+              </span>
+              ? This action cannot be undone. All associated data, appointments,
+              and records will be permanently removed.
             </p>
 
             <div className="mt-2 rounded-xl bg-slate-50 p-3 dark:bg-slate-700/50">
@@ -62,8 +70,12 @@ export function DeleteDoctorDialog({ doctor, open, onClose, onConfirm }: DeleteD
                   {doctor.initials}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-white">{doctor.name}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">{doctor.department} — {doctor.specialization}</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white">
+                    {doctor.name}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {doctor.department} — {doctor.specialization}
+                  </p>
                 </div>
               </div>
             </div>

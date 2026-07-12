@@ -7,7 +7,9 @@ export const doctorFormSchema = z.object({
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  gender: z.enum(["Male", "Female", "Other"], { error: "Please select a gender" }),
+  gender: z.enum(["Male", "Female", "Other"], {
+    error: "Please select a gender",
+  }),
   dateOfBirth: z.string().min(1, "Date of birth is required"),
   bloodGroup: z.string().min(1, "Blood group is required"),
   nationality: z.string().min(1, "Nationality is required"),
@@ -20,28 +22,44 @@ export const doctorFormSchema = z.object({
   yearsOfExperience: z.coerce.number().min(0, "Experience cannot be negative"),
   consultationFee: z.coerce.number().min(0, "Fee cannot be negative"),
   licenseNumber: z.string().min(1, "License number is required"),
-  medicalRegistrationNumber: z.string().min(1, "Registration number is required"),
-  employmentType: z.enum(["Full-time", "Part-time", "Contract", "Visiting", "Locum"], {
-    error: "Please select employment type",
-  }),
-  status: z.enum(["Active", "Inactive", "On Leave", "Vacation", "Emergency Duty"], {
-    error: "Please select status",
-  }),
+  medicalRegistrationNumber: z
+    .string()
+    .min(1, "Registration number is required"),
+  employmentType: z.enum(
+    ["Full-time", "Part-time", "Contract", "Visiting", "Locum"],
+    {
+      error: "Please select employment type",
+    },
+  ),
+  status: z.enum(
+    ["Active", "Inactive", "On Leave", "Vacation", "Emergency Duty"],
+    {
+      error: "Please select status",
+    },
+  ),
 
   // Education
-  education: z.array(z.object({
-    degree: z.string().min(1, "Degree is required"),
-    institution: z.string().min(1, "Institution is required"),
-    year: z.string().min(1, "Year is required"),
-  })).min(1, "At least one education entry is required"),
+  education: z
+    .array(
+      z.object({
+        degree: z.string().min(1, "Degree is required"),
+        institution: z.string().min(1, "Institution is required"),
+        year: z.string().min(1, "Year is required"),
+      }),
+    )
+    .min(1, "At least one education entry is required"),
 
   // Certifications
-  certifications: z.array(z.object({
-    certificate: z.string().min(1, "Certificate is required"),
-    organization: z.string().min(1, "Organization is required"),
-    issuedYear: z.string().min(1, "Issued year is required"),
-    expiryYear: z.string().optional(),
-  })).optional(),
+  certifications: z
+    .array(
+      z.object({
+        certificate: z.string().min(1, "Certificate is required"),
+        organization: z.string().min(1, "Organization is required"),
+        issuedYear: z.string().min(1, "Issued year is required"),
+        expiryYear: z.string().optional(),
+      }),
+    )
+    .optional(),
 
   // Languages
   languages: z.array(z.string()).min(1, "Select at least one language"),
@@ -57,11 +75,14 @@ export const doctorFormSchema = z.object({
   emergencyContact: z.string().optional(),
 
   // Availability
-  availability: z.record(z.string(), z.object({
-    available: z.boolean(),
-    startTime: z.string(),
-    endTime: z.string(),
-  })),
+  availability: z.record(
+    z.string(),
+    z.object({
+      available: z.boolean(),
+      startTime: z.string(),
+      endTime: z.string(),
+    }),
+  ),
 });
 
 export type DoctorFormValues = z.infer<typeof doctorFormSchema>;
@@ -90,7 +111,9 @@ export const defaultFormValues: DoctorFormValues = {
 
   education: [{ degree: "", institution: "", year: "" }],
 
-  certifications: [{ certificate: "", organization: "", issuedYear: "", expiryYear: "" }],
+  certifications: [
+    { certificate: "", organization: "", issuedYear: "", expiryYear: "" },
+  ],
 
   languages: [],
 

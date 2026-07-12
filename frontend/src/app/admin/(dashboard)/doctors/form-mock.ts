@@ -19,33 +19,92 @@ export const departments = [
 ];
 
 export const specializations: Record<string, string[]> = {
-  Cardiology: ["Interventional Cardiology", "Electrophysiology", "General Cardiology", "Pediatric Cardiology"],
-  Neurology: ["Clinical Neurophysiology", "Stroke Medicine", "Pediatric Neurology", "Neuromuscular Medicine"],
-  Pediatrics: ["Neonatology", "Pediatric Cardiology", "Pediatric Neurology", "Adolescent Medicine"],
-  Orthopedics: ["Sports Medicine", "Joint Replacement", "Spine Surgery", "Pediatric Orthopedics"],
-  Dermatology: ["Cosmetic Dermatology", "Pediatric Dermatology", "Mohs Surgery", "Teledermatology"],
+  Cardiology: [
+    "Interventional Cardiology",
+    "Electrophysiology",
+    "General Cardiology",
+    "Pediatric Cardiology",
+  ],
+  Neurology: [
+    "Clinical Neurophysiology",
+    "Stroke Medicine",
+    "Pediatric Neurology",
+    "Neuromuscular Medicine",
+  ],
+  Pediatrics: [
+    "Neonatology",
+    "Pediatric Cardiology",
+    "Pediatric Neurology",
+    "Adolescent Medicine",
+  ],
+  Orthopedics: [
+    "Sports Medicine",
+    "Joint Replacement",
+    "Spine Surgery",
+    "Pediatric Orthopedics",
+  ],
+  Dermatology: [
+    "Cosmetic Dermatology",
+    "Pediatric Dermatology",
+    "Mohs Surgery",
+    "Teledermatology",
+  ],
   Ophthalmology: ["Cataract Surgery", "Glaucoma", "Retina", "Cornea"],
   ENT: ["Otology", "Rhinology", "Laryngology", "Head & Neck Surgery"],
-  Gynecology: ["Maternal-Fetal Medicine", "Reproductive Endocrinology", "Gynecologic Oncology"],
-  Gastroenterology: ["Hepatology", "Inflammatory Bowel Disease", "Pancreatic Disorders"],
-  Pulmonology: ["Critical Care", "Sleep Medicine", "Interventional Pulmonology"],
+  Gynecology: [
+    "Maternal-Fetal Medicine",
+    "Reproductive Endocrinology",
+    "Gynecologic Oncology",
+  ],
+  Gastroenterology: [
+    "Hepatology",
+    "Inflammatory Bowel Disease",
+    "Pancreatic Disorders",
+  ],
+  Pulmonology: [
+    "Critical Care",
+    "Sleep Medicine",
+    "Interventional Pulmonology",
+  ],
   Nephrology: ["Dialysis", "Transplant Medicine", "Hypertension"],
   Endocrinology: ["Diabetes", "Thyroid Disorders", "Metabolic Disorders"],
-  Psychiatry: ["Child & Adolescent", "Geriatric Psychiatry", "Addiction Medicine"],
+  Psychiatry: [
+    "Child & Adolescent",
+    "Geriatric Psychiatry",
+    "Addiction Medicine",
+  ],
   Urology: ["Endourology", "Urologic Oncology", "Female Urology"],
   Oncology: ["Medical Oncology", "Radiation Oncology", "Surgical Oncology"],
 };
 
-export const bloodGroups = [
-  "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",
-];
+export const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
 export const nationalities = [
-  "American", "British", "Canadian", "Australian", "German",
-  "French", "Spanish", "Italian", "Japanese", "Chinese",
-  "Indian", "Brazilian", "Mexican", "South Korean", "Swedish",
-  "Dutch", "Swiss", "Bangladeshi", "Pakistani", "Nigerian",
-  "Egyptian", "Turkish", "Russian", "Saudi Arabian", "Emirati",
+  "American",
+  "British",
+  "Canadian",
+  "Australian",
+  "German",
+  "French",
+  "Spanish",
+  "Italian",
+  "Japanese",
+  "Chinese",
+  "Indian",
+  "Brazilian",
+  "Mexican",
+  "South Korean",
+  "Swedish",
+  "Dutch",
+  "Swiss",
+  "Bangladeshi",
+  "Pakistani",
+  "Nigerian",
+  "Egyptian",
+  "Turkish",
+  "Russian",
+  "Saudi Arabian",
+  "Emirati",
 ];
 
 export const languageOptions = [
@@ -127,14 +186,32 @@ export const mockDoctorEditData: DoctorFormValues = {
   status: "Active",
 
   education: [
-    { degree: "MD - Doctor of Medicine", institution: "Harvard Medical School", year: "2010" },
+    {
+      degree: "MD - Doctor of Medicine",
+      institution: "Harvard Medical School",
+      year: "2010",
+    },
     { degree: "MBBS", institution: "Johns Hopkins University", year: "2006" },
-    { degree: "Fellowship in Interventional Cardiology", institution: "Mayo Clinic", year: "2012" },
+    {
+      degree: "Fellowship in Interventional Cardiology",
+      institution: "Mayo Clinic",
+      year: "2012",
+    },
   ],
 
   certifications: [
-    { certificate: "American Board of Internal Medicine", organization: "ABIM", issuedYear: "2011", expiryYear: "2031" },
-    { certificate: "Cardiovascular Disease Certification", organization: "American Board of Internal Medicine", issuedYear: "2013", expiryYear: "2033" },
+    {
+      certificate: "American Board of Internal Medicine",
+      organization: "ABIM",
+      issuedYear: "2011",
+      expiryYear: "2031",
+    },
+    {
+      certificate: "Cardiovascular Disease Certification",
+      organization: "American Board of Internal Medicine",
+      issuedYear: "2013",
+      expiryYear: "2033",
+    },
   ],
 
   languages: ["English", "Spanish"],

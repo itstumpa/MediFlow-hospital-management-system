@@ -1,26 +1,25 @@
 "use client";
 
+import { staggerItem } from "@/app/components/dashboard/MotionVariants";
+import type { PatientDetail } from "@/lib/data/patient-detail";
+import { cn, formatDate, getInitials } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  Calendar,
-  User,
-  Droplets,
-  Shield,
-  Stethoscope,
   Building2,
-  CreditCard,
-  Edit3,
+  Calendar,
   CalendarCheck,
+  CreditCard,
+  Droplets,
+  Edit3,
   FileText,
+  Globe,
   Heart,
   Mail,
   Phone,
-  Globe,
+  Shield,
+  Stethoscope,
+  User,
 } from "lucide-react";
-import type { PatientDetail } from "@/lib/data/patient-detail";
-import { getInitials, formatDate } from "@/lib/utils";
-import { staggerItem } from "@/app/components/dashboard/MotionVariants";
-import { cn } from "@/lib/utils";
 
 interface PatientHeroProps {
   patient: PatientDetail;
@@ -35,8 +34,7 @@ const statusConfig = {
   },
   inactive: {
     label: "Inactive",
-    class:
-      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
     dot: "bg-slate-400",
   },
   critical: {
@@ -46,8 +44,7 @@ const statusConfig = {
   },
   discharged: {
     label: "Discharged",
-    class:
-      "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     dot: "bg-blue-500",
   },
 };
@@ -136,7 +133,9 @@ export function PatientHero({ patient }: PatientHeroProps) {
                     status.class,
                   )}
                 >
-                  <span className={cn("h-1.5 w-1.5 rounded-full", status.dot)} />
+                  <span
+                    className={cn("h-1.5 w-1.5 rounded-full", status.dot)}
+                  />
                   {status.label}
                 </span>
               </div>
@@ -197,12 +196,12 @@ export function PatientHero({ patient }: PatientHeroProps) {
             label="DOB"
             value={formatDate(patient.dateOfBirth)}
           />
+          <StatBadge icon={User} label="Gender" value={patient.gender} />
           <StatBadge
-            icon={User}
-            label="Gender"
-            value={patient.gender}
+            icon={Shield}
+            label="Blood Group"
+            value={patient.bloodGroup}
           />
-          <StatBadge icon={Shield} label="Blood Group" value={patient.bloodGroup} />
           <StatBadge
             icon={Stethoscope}
             label="Doctor"
@@ -220,12 +219,18 @@ export function PatientHero({ patient }: PatientHeroProps) {
           />
           <StatBadge icon={Phone} label="Phone" value={patient.phone} />
           <StatBadge icon={Mail} label="Email" value={patient.email} />
-          <StatBadge icon={Heart} label="Marital" value={patient.maritalStatus} />
-          <StatBadge icon={Globe} label="Nationality" value={patient.nationality} />
+          <StatBadge
+            icon={Heart}
+            label="Marital"
+            value={patient.maritalStatus}
+          />
+          <StatBadge
+            icon={Globe}
+            label="Nationality"
+            value={patient.nationality}
+          />
         </div>
       </div>
     </motion.div>
   );
 }
-
-

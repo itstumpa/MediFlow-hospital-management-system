@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { X, AlertTriangle, Trash2 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { AlertTriangle, Trash2, X } from "lucide-react";
 import type { Patient } from "./types";
 
 interface DeletePatientDialogProps {
@@ -12,8 +12,14 @@ interface DeletePatientDialogProps {
 }
 
 const avatarColors = [
-  "bg-blue-500", "bg-emerald-500", "bg-violet-500", "bg-amber-500",
-  "bg-rose-500", "bg-cyan-500", "bg-orange-500", "bg-indigo-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-violet-500",
+  "bg-amber-500",
+  "bg-rose-500",
+  "bg-cyan-500",
+  "bg-orange-500",
+  "bg-indigo-500",
 ];
 
 export function DeletePatientDialog({
@@ -75,7 +81,8 @@ export function DeletePatientDialog({
 
             {/* Description */}
             <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
-              Are you sure you want to delete this patient? This action cannot be undone.
+              Are you sure you want to delete this patient? This action cannot
+              be undone.
             </p>
 
             {/* Patient preview */}
@@ -97,20 +104,36 @@ export function DeletePatientDialog({
               </div>
               <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
                 <div>
-                  <span className="text-slate-500 dark:text-slate-400">Age:</span>{" "}
-                  <span className="font-medium text-slate-700 dark:text-slate-300">{patient.age}</span>
+                  <span className="text-slate-500 dark:text-slate-400">
+                    Age:
+                  </span>{" "}
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    {patient.age}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-slate-500 dark:text-slate-400">Gender:</span>{" "}
-                  <span className="font-medium text-slate-700 dark:text-slate-300">{patient.gender}</span>
+                  <span className="text-slate-500 dark:text-slate-400">
+                    Gender:
+                  </span>{" "}
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    {patient.gender}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-slate-500 dark:text-slate-400">Blood:</span>{" "}
-                  <span className="font-medium text-slate-700 dark:text-slate-300">{patient.bloodGroup}</span>
+                  <span className="text-slate-500 dark:text-slate-400">
+                    Blood:
+                  </span>{" "}
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    {patient.bloodGroup}
+                  </span>
                 </div>
                 <div>
-                  <span className="text-slate-500 dark:text-slate-400">Status:</span>{" "}
-                  <span className="font-medium text-slate-700 dark:text-slate-300">{patient.status}</span>
+                  <span className="text-slate-500 dark:text-slate-400">
+                    Status:
+                  </span>{" "}
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    {patient.status}
+                  </span>
                 </div>
               </div>
             </div>

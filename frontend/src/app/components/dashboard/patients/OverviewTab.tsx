@@ -1,23 +1,20 @@
 "use client";
 
+import { staggerItem } from "@/app/components/dashboard/MotionVariants";
+import type { PatientDetail } from "@/lib/data/patient-detail";
+import { cn, formatDate } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
+  AlertCircle,
+  FileText,
   MapPin,
   Phone,
-  Mail,
-  Users,
-  AlertCircle,
   Pill,
-  Syringe,
-  FileText,
-  Stethoscope,
   Shield,
-  Calendar,
+  Stethoscope,
+  Syringe,
+  Users,
 } from "lucide-react";
-import type { PatientDetail } from "@/lib/data/patient-detail";
-import { formatDate } from "@/lib/utils";
-import { staggerItem } from "@/app/components/dashboard/MotionVariants";
-import { cn } from "@/lib/utils";
 
 interface OverviewTabProps {
   patient: PatientDetail;
@@ -67,7 +64,11 @@ function InfoRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function SeverityBadge({ severity }: { severity: "mild" | "moderate" | "severe" }) {
+function SeverityBadge({
+  severity,
+}: {
+  severity: "mild" | "moderate" | "severe";
+}) {
   const colors = {
     mild: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     moderate:
@@ -90,16 +91,20 @@ function StatusBadge({ status }: { status: string }) {
   const colors: Record<string, string> = {
     completed:
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
-    pending: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    pending:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
     overdue: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-    Managed: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
-    "Under Treatment": "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+    Managed:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
+    "Under Treatment":
+      "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
   };
   return (
     <span
       className={cn(
         "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider",
-        colors[status] || "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+        colors[status] ||
+          "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
       )}
     >
       {status}
@@ -119,8 +124,14 @@ export function OverviewTab({ patient }: OverviewTabProps) {
       <InfoSection title="Personal Information" icon={Users}>
         <div className="divide-y divide-dash-border dark:divide-slate-700">
           <InfoRow label="Full Name" value={patient.name} />
-          <InfoRow label="Date of Birth" value={formatDate(patient.dateOfBirth)} />
-          <InfoRow label="Age / Gender" value={`${patient.age} yrs / ${patient.gender}`} />
+          <InfoRow
+            label="Date of Birth"
+            value={formatDate(patient.dateOfBirth)}
+          />
+          <InfoRow
+            label="Age / Gender"
+            value={`${patient.age} yrs / ${patient.gender}`}
+          />
           <InfoRow label="Blood Group" value={patient.bloodGroup} />
           <InfoRow label="Marital Status" value={patient.maritalStatus} />
           <InfoRow label="Occupation" value={patient.occupation} />
