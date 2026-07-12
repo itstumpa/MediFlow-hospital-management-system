@@ -43,12 +43,12 @@ const statusConfig: Record<string, { class: string; icon: React.ElementType }> =
       icon: Clock,
     },
     Archived: {
-      class:
-        "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+      class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
       icon: Archive,
     },
     Private: {
-      class: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
+      class:
+        "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
       icon: Eye,
     },
   };

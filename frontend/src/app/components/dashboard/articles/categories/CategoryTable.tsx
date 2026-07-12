@@ -1,52 +1,53 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { useMemo, useState, useCallback, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpDown,
-  CalendarDays,
+  Check,
   ChevronDown,
-  Edit3,
   Eye,
-  FolderOpen,
-  ImageIcon,
-  MoreHorizontal,
+  Edit3,
+  Trash2,
   Star,
   StarOff,
-  Trash2,
+  CalendarDays,
+  ImageIcon,
+  MoreHorizontal,
+  FolderOpen,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
+import type { ArticleCategory, ViewMode } from "./types";
 import { staggerItem } from "../../MotionVariants";
-import type { ArticleCategory } from "./types";
 
 /* ─── Icon resolver ─── */
-import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
+  Heart,
+  Brain,
   Apple,
   Baby,
-  Bath,
-  Bone,
-  Brain,
+  Activity,
+  Wind,
   Droplets,
-  Ear,
-  Eye as EyeIcon,
-  Fingerprint,
-  Heart,
-  HeartPulse,
-  Lung,
-  Microscope,
-  Moon,
-  Pill,
   Shield,
-  Sparkles,
+  Eye as EyeIcon,
+  Smile,
+  Bone,
   Stethoscope,
-  Sun,
+  Pill,
+  Microscope,
+  HeartPulse,
   Syringe,
-  Tooth,
-  Venus,
   Weight,
+  Bath,
+  Ear,
+  Fingerprint,
+  Venus,
+  Sparkles,
+  Sun,
+  Moon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -54,11 +55,11 @@ const iconMap: Record<string, LucideIcon> = {
   Apple,
   Baby,
   Activity,
-  Lung,
+  Wind,
   Droplets,
   Shield,
   Eye: EyeIcon,
-  Tooth,
+  Smile,
   Bone,
   Stethoscope,
   Pill,

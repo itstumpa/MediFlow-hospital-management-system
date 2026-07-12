@@ -1,0 +1,1457 @@
+﻿Γû▓ Next.js 16.2.9 (Turbopack)
+
+  Creating an optimized production build ...
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\user\AppData\Roaming\n ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Build error occurred
+Error: Turbopack build failed with 22 errors:
+./src/app/admin/(dashboard)/activity-logs/page.tsx:487:29
+the name `ActivityFiltersComponent` is defined multiple times
+  [90m485 |[0m
+  [90m486 |[0m [90m// Re-export the filter component with a different name 
+to avoid conflict[0m
+[31m[1m>[0m [90m487 |[0m [36mimport[0m { [33mActivityFilters[0m 
+[36mas[0m [33mActivityFiltersComponent[0m } [36mfrom[0m 
+[32m"@/app/components/dashboard/a...[0m
+  [90m    |[0m                             
+[31m[1m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTable.tsx:442:10
+the name `ChevronLeft` is defined multiple times
+  [90m440 |[0m
+  [90m441 |[0m [36mimport[0m { useState, useCallback } [36mfrom[0m 
+[32m"react"[0m;
+[31m[1m>[0m [90m442 |[0m [36mimport[0m { [33mChevronLeft[0m, 
+[33mChevronRight[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m    |[0m          [31m[1m^^^^^^^^^^^[0m
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTable.tsx:442:23
+the name `ChevronRight` is defined multiple times
+  [90m440 |[0m
+  [90m441 |[0m [36mimport[0m { useState, useCallback } [36mfrom[0m 
+[32m"react"[0m;
+[31m[1m>[0m [90m442 |[0m [36mimport[0m { [33mChevronLeft[0m, 
+[33mChevronRight[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m    |[0m                       [31m[1m^^^^^^^^^^^^[0m
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTimeline.tsx:507:10
+the name `MapPin` is defined multiple times
+  [90m505 |[0m }
+  [90m506 |[0m
+[31m[1m>[0m [90m507 |[0m [36mimport[0m { [33mMapPin[0m } 
+[36mfrom[0m [32m"lucide-react"[0m;
+  [90m    |[0m          [31m[1m^^^^^^[0m
+  [90m508 |[0m [36mimport[0m { useState, useMemo } [36mfrom[0m 
+[32m"react"[0m;
+  [90m509 |[0m
+  [90m510 |[0m [36mfunction[0m [33mActivityTimelineSkeleton[0m() {
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTimeline.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTimeline.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTable.tsx:441:20
+the name `useCallback` is defined multiple times
+  [90m439 |[0m }
+  [90m440 |[0m
+[31m[1m>[0m [90m441 |[0m [36mimport[0m { useState, useCallback } 
+[36mfrom[0m [32m"react"[0m;
+  [90m    |[0m                    [31m[1m^^^^^^^^^^^[0m
+  [90m442 |[0m [36mimport[0m { [33mChevronLeft[0m, [33mChevronRight[0m 
+} [36mfrom[0m [32m"lucide-react"[0m;
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTable.tsx:441:10
+the name `useState` is defined multiple times
+  [90m439 |[0m }
+  [90m440 |[0m
+[31m[1m>[0m [90m441 |[0m [36mimport[0m { useState, useCallback } 
+[36mfrom[0m [32m"react"[0m;
+  [90m    |[0m          [31m[1m^^^^^^^^[0m
+  [90m442 |[0m [36mimport[0m { [33mChevronLeft[0m, [33mChevronRight[0m 
+} [36mfrom[0m [32m"lucide-react"[0m;
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Chrome doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Chrome was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] 
+(ecmascript).
+Did you mean to import ChartColumnDecreasing?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Chrome doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Chrome was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] 
+(ecmascript).
+Did you mean to import ChartColumnDecreasing?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Edge doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Edge was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] 
+(ecmascript).
+Did you mean to import Badge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Edge doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Edge was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] 
+(ecmascript).
+Did you mean to import Badge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Firefox doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Firefox was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] 
+(ecmascript).
+Did you mean to import FileBox?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Firefox doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Firefox was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] 
+(ecmascript).
+Did you mean to import FileBox?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:49:1
+Export RoleBadge doesn't exist in target module
+  [90m47 |[0m ... [32m"lucide-react"[0m;
+  [90m48 |[0m ... [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityModu..[0m.
+[31m[1m>[0m [90m49 |[0m ... { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./SeverityBa...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m50 |[0m ... { format } [36mfrom[0m [32m"date-fns"[0m;
+  [90m51 |[0m ...
+  [90m52 |[0m ...[36mace[0m [33mActivityDrawerProps[0m {
+
+The export RoleBadge was not found in module 
+[project]/src/app/components/dashboard/activity-logs/SeverityBadge.tsx 
+[app-client] (ecmascript).
+Did you mean to import ModuleBadge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:49:1
+Export RoleBadge doesn't exist in target module
+  [90m47 |[0m ... [32m"lucide-react"[0m;
+  [90m48 |[0m ... [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityModu..[0m.
+[31m[1m>[0m [90m49 |[0m ... { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./SeverityBa...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m50 |[0m ... { format } [36mfrom[0m [32m"date-fns"[0m;
+  [90m51 |[0m ...
+  [90m52 |[0m ...[36mace[0m [33mActivityDrawerProps[0m {
+
+The export RoleBadge was not found in module 
+[project]/src/app/components/dashboard/activity-logs/SeverityBadge.tsx 
+[app-ssr] (ecmascript).
+Did you mean to import ModuleBadge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityFilters.tsx:31:1
+Export RoleBadge doesn't exist in target module
+  [90m29 |[0m ...[33m_FIELD_OPTIONS[0m,
+  [90m30 |[0m ... [32m"./types"[0m;
+[31m[1m>[0m [90m31 |[0m ... { [33mModuleBadge[0m, [33mActionBadge[0m, 
+[33mSeverityBadge[0m, [33mStatusBadge[0m, [33mRoleBadge[0m } 
+[36mfrom[0m [32m"./SeverityBa...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m32 |[0m ... { useState, useCallback, useMemo } [36mfrom[0m 
+[32m"react"[0m;
+  [90m33 |[0m ...
+  [90m34 |[0m ...[36mace[0m [33mActivityFiltersProps[0m {
+
+The export RoleBadge was not found in module 
+[project]/src/app/components/dashboard/activity-logs/SeverityBadge.tsx 
+[app-client] (ecmascript).
+Did you mean to import ModuleBadge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityFilters.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityFilters.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityFilters.tsx:31:1
+Export RoleBadge doesn't exist in target module
+  [90m29 |[0m ...[33m_FIELD_OPTIONS[0m,
+  [90m30 |[0m ... [32m"./types"[0m;
+[31m[1m>[0m [90m31 |[0m ... { [33mModuleBadge[0m, [33mActionBadge[0m, 
+[33mSeverityBadge[0m, [33mStatusBadge[0m, [33mRoleBadge[0m } 
+[36mfrom[0m [32m"./SeverityBa...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m32 |[0m ... { useState, useCallback, useMemo } [36mfrom[0m 
+[32m"react"[0m;
+  [90m33 |[0m ...
+  [90m34 |[0m ...[36mace[0m [33mActivityFiltersProps[0m {
+
+The export RoleBadge was not found in module 
+[project]/src/app/components/dashboard/activity-logs/SeverityBadge.tsx 
+[app-ssr] (ecmascript).
+Did you mean to import ModuleBadge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityFilters.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityFilters.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTable.tsx:53:1
+Export RoleBadge doesn't exist in target module
+  [90m51 |[0m ... [32m"lucide-react"[0m;
+  [90m52 |[0m ... [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityModu..[0m.
+[31m[1m>[0m [90m53 |[0m ... { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./SeverityBa...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m54 |[0m ... { formatDistanceToNow, format } [36mfrom[0m 
+[32m"date-fns"[0m;
+  [90m55 |[0m ...
+  [90m56 |[0m ...[36mace[0m [33mActivityTableProps[0m {
+
+The export RoleBadge was not found in module 
+[project]/src/app/components/dashboard/activity-logs/SeverityBadge.tsx 
+[app-client] (ecmascript).
+Did you mean to import ModuleBadge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityTable.tsx:53:1
+Export RoleBadge doesn't exist in target module
+  [90m51 |[0m ... [32m"lucide-react"[0m;
+  [90m52 |[0m ... [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityModu..[0m.
+[31m[1m>[0m [90m53 |[0m ... { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./SeverityBa...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m54 |[0m ... { formatDistanceToNow, format } [36mfrom[0m 
+[32m"date-fns"[0m;
+  [90m55 |[0m ...
+  [90m56 |[0m ...[36mace[0m [33mActivityTableProps[0m {
+
+The export RoleBadge was not found in module 
+[project]/src/app/components/dashboard/activity-logs/SeverityBadge.tsx 
+[app-ssr] (ecmascript).
+Did you mean to import ModuleBadge?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityTable.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Safari doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Safari was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] 
+(ecmascript).
+Did you mean to import Star?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1
+Export Safari doesn't exist in target module
+  [90m 3 |[0m [36mimport[0m { motion, [33mAnimatePresence[0m } 
+[36mfrom[0m [32m"framer-motion"[0m;
+  [90m 4 |[0m [36mimport[0m { cn } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 5 |[0m [36mimport[0m {
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 6 |[0m   [33mX[0m,
+  [90m   |[0m [31m[1m^^^^[0m
+[31m[1m>[0m [90m 7 |[0m   [33mCopy[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m 8 |[0m   [33mDownload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m 9 |[0m   [33mChevronDown[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m10 |[0m   [33mChevronUp[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m11 |[0m   [33mUser[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m12 |[0m   [33mMail[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m13 |[0m   [33mGlobe[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m14 |[0m   [33mSmartphone[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m15 |[0m   [33mMonitor[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m16 |[0m   [33mClock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m17 |[0m   [33mMapPin[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m18 |[0m   [33mShield[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m19 |[0m   [33mActivity[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m20 |[0m   [33mDatabase[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m21 |[0m   [33mServer[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m22 |[0m   [33mLock[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m23 |[0m   [33mUnlock[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m24 |[0m   [33mLogIn[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m25 |[0m   [33mLogOut[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m26 |[0m   [33mUserPlus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m27 |[0m   [33mUserMinus[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m28 |[0m   [33mUserCheck[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m29 |[0m   [33mUserX[0m,
+  [90m   |[0m [31m[1m^^^^^^^^[0m
+[31m[1m>[0m [90m30 |[0m   [33mEdit[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m31 |[0m   [33mTrash2[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m32 |[0m   [33mRefreshCw[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m33 |[0m   [33mZap[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m34 |[0m   [33mEye[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m35 |[0m   [33mKey[0m,
+  [90m   |[0m [31m[1m^^^^^^[0m
+[31m[1m>[0m [90m36 |[0m   [33mUpload[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m37 |[0m   [33mCalendar[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^[0m
+[31m[1m>[0m [90m38 |[0m   [33mChrome[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m39 |[0m   [33mFirefox[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m40 |[0m   [33mSafari[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m41 |[0m   [33mEdge[0m,
+  [90m   |[0m [31m[1m^^^^^^^[0m
+[31m[1m>[0m [90m42 |[0m   [33mTablet[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^[0m
+[31m[1m>[0m [90m43 |[0m   [33mAlertCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m44 |[0m   [33mCheckCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m45 |[0m   [33mXCircle[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m46 |[0m   [33mMoreHorizontal[0m,
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m47 |[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m48 |[0m [36mimport[0m [36mtype[0m { [33mActivityLog[0m, 
+[33mActivitySeverity[0m, [33mActivityStatus[0m, 
+[33mActivityActionType[0m, [33mActivityM...[0m
+  [90m49 |[0m [36mimport[0m { [33mSeverityBadge[0m, 
+[33mStatusBadge[0m, [33mActionBadge[0m, [33mModuleBadge[0m, 
+[33mRoleBadge[0m } [36mfrom[0m [32m"./Severit...[0m
+  [90m50 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+
+The export Safari was not found in module 
+[project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] 
+(ecmascript).
+Did you mean to import Star?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx [Client 
+Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/admin/(dashboard)/activity-logs/page.tsx:44:1
+Export mockActivityLogs doesn't exist in target module
+  [90m42 |[0m   [33mEmptyState[0m,
+  [90m43 |[0m } [36mfrom[0m 
+[32m"@/app/components/dashboard/activity-logs"[0m;
+[31m[1m>[0m [90m44 |[0m [36mimport[0m { mockActivityLogs } 
+[36mfrom[0m [32m"@/app/components/dashboard/activity-logs/mock"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m45 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+  [90m46 |[0m
+  [90m47 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m 
+[33mActivityLogsPage[0m() {
+
+The export mockActivityLogs was not found in module 
+[project]/src/app/components/dashboard/activity-logs/mock.ts [app-client] 
+(ecmascript).
+Did you mean to import activityLogsData?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+./src/app/admin/(dashboard)/activity-logs/page.tsx:44:1
+Export mockActivityLogs doesn't exist in target module
+  [90m42 |[0m   [33mEmptyState[0m,
+  [90m43 |[0m } [36mfrom[0m 
+[32m"@/app/components/dashboard/activity-logs"[0m;
+[31m[1m>[0m [90m44 |[0m [36mimport[0m { mockActivityLogs } 
+[36mfrom[0m [32m"@/app/components/dashboard/activity-logs/mock"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m45 |[0m [36mimport[0m { format } [36mfrom[0m [32m"date-fns"[0m;
+  [90m46 |[0m
+  [90m47 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m 
+[33mActivityLogsPage[0m() {
+
+The export mockActivityLogs was not found in module 
+[project]/src/app/components/dashboard/activity-logs/mock.ts [app-ssr] 
+(ecmascript).
+Did you mean to import activityLogsData?
+All exports of the module are statically known (It doesn't have dynamic 
+exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component 
+Browser]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Client Component SSR]
+    ./src/app/admin/(dashboard)/activity-logs/page.tsx [Server Component]
+
+
+    at <unknown> (./src/app/admin/(dashboard)/activity-logs/page.tsx:487:29)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTable.tsx:442:10)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTable.tsx:442:23)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTimeline.tsx:507:10)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTable.tsx:441:20)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTable.tsx:441:10)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1)
+    ... collapsed 5 duplicate lines matching above 1 lines 5 times...
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:49:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:49:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityFilters.tsx:31:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityFilters.tsx:31:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTable.tsx:53:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityTable.tsx:53:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1)
+    at <unknown> 
+(./src/app/components/dashboard/activity-logs/ActivityDrawer.tsx:5:1)
+    at <unknown> (./src/app/admin/(dashboard)/activity-logs/page.tsx:44:1)
+    at <unknown> (./src/app/admin/(dashboard)/activity-logs/page.tsx:44:1)

@@ -1,10 +1,10 @@
 "use client";
 
-import type { CalendarAppointment } from "@/lib/data/appointment-calendar";
-import { statusBgMap, statusDotMap } from "@/lib/data/appointment-calendar";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronRight, Clock } from "lucide-react";
+import { cn } from "@/lib/utils";
+import type { CalendarAppointment } from "@/lib/data/appointment-calendar";
+import { statusDotMap, statusBgMap } from "@/lib/data/appointment-calendar";
 
 interface UpcomingAppointmentsProps {
   appointments: CalendarAppointment[];
@@ -18,12 +18,7 @@ export function UpcomingAppointments({
   onAppointmentClick,
 }: UpcomingAppointmentsProps) {
   const sorted = [...appointments]
-    .filter(
-      (a) =>
-        a.status !== "Cancelled" &&
-        a.status !== "Completed" &&
-        a.status !== "No Show",
-    )
+    .filter((a) => a.status !== "Cancelled" && a.status !== "Completed" && a.status !== "No Show")
     .sort((a, b) => {
       const dateA = new Date(a.date + "T" + a.time).getTime();
       const dateB = new Date(b.date + "T" + b.time).getTime();
@@ -62,12 +57,7 @@ export function UpcomingAppointments({
             className="flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dash-primary dark:hover:bg-slate-700/50"
           >
             {/* Status dot */}
-            <span
-              className={cn(
-                "h-2 w-2 shrink-0 rounded-full",
-                statusDotMap[apt.status],
-              )}
-            />
+            <span className={cn("h-2 w-2 shrink-0 rounded-full", statusDotMap[apt.status])} />
 
             {/* Info */}
             <div className="min-w-0 flex-1">

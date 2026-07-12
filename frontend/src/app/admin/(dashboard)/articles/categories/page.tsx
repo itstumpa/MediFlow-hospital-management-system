@@ -1,14 +1,16 @@
 "use client";
 
-import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import { useCallback, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, LayoutList, LayoutGrid } from "lucide-react";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
-import { CategoryCard } from "@/app/components/dashboard/articles/categories/CategoryCard";
-import type { CategoryFormData } from "@/app/components/dashboard/articles/categories/CategoryForm";
-import { CategoryForm } from "@/app/components/dashboard/articles/categories/CategoryForm";
+import { StatsCards } from "@/app/components/dashboard/articles/categories/StatsCards";
 import { CategoryTable } from "@/app/components/dashboard/articles/categories/CategoryTable";
+import { CategoryCard } from "@/app/components/dashboard/articles/categories/CategoryCard";
+import { CategoryForm } from "@/app/components/dashboard/articles/categories/CategoryForm";
+import type { CategoryFormData } from "@/app/components/dashboard/articles/categories/CategoryForm";
 import { DeleteDialog } from "@/app/components/dashboard/articles/categories/DeleteDialog";
 import { EmptyState } from "@/app/components/dashboard/articles/categories/EmptyState";
-import { StatsCards } from "@/app/components/dashboard/articles/categories/StatsCards";
 import { categoriesData } from "@/app/components/dashboard/articles/categories/mock";
 import type {
   ArticleCategory,
@@ -17,9 +19,7 @@ import type {
 } from "@/app/components/dashboard/articles/categories/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/articles/categories/types";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { LayoutGrid, LayoutList, Plus } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 
 export default function ArticleCategoriesPage() {
   /* ─── State ─── */

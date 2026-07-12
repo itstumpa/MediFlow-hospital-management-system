@@ -1,32 +1,147 @@
 "use client";
 
-import { PageHeader } from "@/app/components/dashboard/PageHeader";
-import { DashboardContainer } from "@/app/components/dashboard/DashboardContainer";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { SettingsSidebar } from "@/app/components/dashboard/settings/SettingsSidebar";
+import { GeneralSettings } from "@/app/components/dashboard/settings/GeneralSettings";
+import { AppearanceSettings } from "@/app/components/dashboard/settings/AppearanceSettings";
+import { NotificationsSettings } from "@/app/components/dashboard/settings/NotificationsSettings";
+import { AppointmentSettings } from "@/app/components/dashboard/settings/AppointmentSettings";
+import { SecuritySettings } from "@/app/components/dashboard/settings/SecuritySettings";
+import { IntegrationsSettings } from "@/app/components/dashboard/settings/IntegrationSettings";
+import { BackupSettings } from "@/app/components/dashboard/settings/BackupSettings";
+import { APISettings } from "@/app/components/dashboard/settings/APISettings";
+import { BillingSettings } from "@/app/components/dashboard/settings/BillingSettings";
+import { DangerZone } from "@/app/components/dashboard/settings/DangerZone";
+import { DashboardShell } from "../dashboard-shell";
+import {
+  SettingsSection,
+  MOCK_ALL_SETTINGS,
+  SETTINGS_NAV,
+} from "@/app/components/dashboard/settings/types";
+import {
+  Settings,
+  Palette,
+  Bell,
+  Calendar,
+  Shield,
+  Plug,
+  Database,
+  Terminal,
+  CreditCard,
+  AlertTriangle,
+  Globe,
+} from "lucide-react";
+
+const SECTIONS: {
+  id: SettingsSection;
+  label: string;
+  component: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
+}[] = [
+  {
+    id: "general",
+    label: "General",
+    component: GeneralSettings,
+    icon: Settings,
+  },
+  {
+    id: "appearance",
+    label: "Appearance",
+    component: AppearanceSettings,
+    icon: Palette,
+  },
+  {
+    id: "localization",
+    label: "Localization",
+    component: NotificationsSettings,
+    icon: Globe,
+  },
+  {
+    id: "notifications",
+    label: "Notifications",
+    component: NotificationsSettings,
+    icon: Bell,
+  },
+  {
+    id: "appointments",
+    label: "Appointments",
+    component: AppointmentSettings,
+    icon: Calendar,
+  },
+  {
+    id: "security",
+    label: "Security",
+    component: SecuritySettings,
+    icon: Shield,
+  },
+  {
+    id: "integrations",
+    label: "Integrations",
+    component: IntegrationsSettings,
+    icon: Plug,
+  },
+  { id: "backup", label: "Backup", component: BackupSettings, icon: Database },
+  { id: "api", label: "API", component: APISettings, icon: Terminal },
+  {
+    id: "billing",
+    label: "Billing",
+    component: BillingSettings,
+    icon: CreditCard,
+  },
+  {
+    id: "danger",
+    label: "Danger Zone",
+    component: DangerZone,
+    icon: AlertTriangle,
+  },
+];
 
 export default function SettingsPage() {
-  return (
-    <div className="space-y-6">
-      <PageHeader
-        title="Settings"
-        subtitle="Configure hospital information, preferences, and system settings."
-      />
+  const [activeSection, setActiveSection] =
+    useState<SettingsSection>("general");
+  const [settings, setSettings] = useState(MOCK_ALL_SETTINGS);
 
-      <div className="dash-card p-12">
-        <div className="flex flex-col items-center text-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800">
-            <svg className="h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
-            Settings coming soon
-          </h3>
-          <p className="mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
-            Configure hospital details, appointment rules, notification preferences, security settings, and integrations.
-          </p>
+  const handleSettingsChange = (section: SettingsSection, data: any) => {
+    setSettings((prev) => ({
+      ...prev,
+      [section]: { ...prev[section], ...data },
+    }));
+  };
+
+  const handleSectionSelect = (section: string) => {
+    setActiveSection(section as SettingsSection);
+  };
+
+  const ActiveComponent =
+    SECTIONS.find((s) => s.id === activeSection)?.component || GeneralSettings;
+
+  return (
+    <DashboardShell>
+      <div className="flex h-full">
+        <SettingsSidebar
+          items={SETTINGS_NAV}
+          activeSection={activeSection}
+          onSelect={handleSectionSelect}
+        />
+
+        <div className="flex-1 overflow-y-auto p-6 lg:p-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-6xl mx-auto"
+          >
+            <AnimatePresence mode="wait">
+              <ActiveComponent
+                key={activeSection}
+                initialData={settings[activeSection]}
+                onChange={(data) => handleSettingsChange(activeSection, data)}
+              />
+            </AnimatePresence>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </DashboardShell>
   );
 }

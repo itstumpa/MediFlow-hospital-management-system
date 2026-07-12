@@ -2,9 +2,9 @@
 
 import { Plus, X } from "lucide-react";
 import {
+  mockRelatedArticles,
   mockDepartments,
   mockDoctors,
-  mockRelatedArticles,
 } from "../../../admin/(dashboard)/articles/mock";
 
 interface RelatedContentProps {

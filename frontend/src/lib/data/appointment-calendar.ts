@@ -64,20 +64,14 @@ export const statusColorMap: Record<AppointmentStatus, string> = {
 };
 
 export const statusBgMap: Record<AppointmentStatus, string> = {
-  Confirmed:
-    "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
-  Pending:
-    "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
+  Confirmed: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
+  Pending: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
   Cancelled: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
   Completed: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
-  "No Show":
-    "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-  Rescheduled:
-    "bg-violet-100 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300",
-  "Checked In":
-    "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-300",
-  "In Progress":
-    "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300",
+  "No Show": "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+  Rescheduled: "bg-violet-100 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300",
+  "Checked In": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-300",
+  "In Progress": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300",
 };
 
 export const statusDotMap: Record<AppointmentStatus, string> = {
@@ -105,66 +99,16 @@ export const statusEventBgMap: Record<AppointmentStatus, string> = {
 // ─── Doctors for Calendar ───────────────────────────────────
 
 export const calendarDoctors = [
-  {
-    id: "DOC-001",
-    name: "Dr. Sarah Johnson",
-    initials: "SJ",
-    department: "Cardiology",
-  },
-  {
-    id: "DOC-002",
-    name: "Dr. James Mitchell",
-    initials: "JM",
-    department: "Neurology",
-  },
-  {
-    id: "DOC-003",
-    name: "Dr. Ayesha Khan",
-    initials: "AK",
-    department: "Pediatrics",
-  },
-  {
-    id: "DOC-004",
-    name: "Dr. Robert Chen",
-    initials: "RC",
-    department: "Orthopedics",
-  },
-  {
-    id: "DOC-005",
-    name: "Dr. Emily Watson",
-    initials: "EW",
-    department: "Dermatology",
-  },
-  {
-    id: "DOC-006",
-    name: "Dr. Michael Torres",
-    initials: "MT",
-    department: "Cardiology",
-  },
-  {
-    id: "DOC-007",
-    name: "Dr. Lisa Park",
-    initials: "LP",
-    department: "Pediatrics",
-  },
-  {
-    id: "DOC-008",
-    name: "Dr. Omar Hassan",
-    initials: "OH",
-    department: "General Surgery",
-  },
-  {
-    id: "DOC-009",
-    name: "Dr. Maria Santos",
-    initials: "MS",
-    department: "Ophthalmology",
-  },
-  {
-    id: "DOC-010",
-    name: "Dr. John Baker",
-    initials: "JB",
-    department: "Pulmonology",
-  },
+  { id: "DOC-001", name: "Dr. Sarah Johnson", initials: "SJ", department: "Cardiology" },
+  { id: "DOC-002", name: "Dr. James Mitchell", initials: "JM", department: "Neurology" },
+  { id: "DOC-003", name: "Dr. Ayesha Khan", initials: "AK", department: "Pediatrics" },
+  { id: "DOC-004", name: "Dr. Robert Chen", initials: "RC", department: "Orthopedics" },
+  { id: "DOC-005", name: "Dr. Emily Watson", initials: "EW", department: "Dermatology" },
+  { id: "DOC-006", name: "Dr. Michael Torres", initials: "MT", department: "Cardiology" },
+  { id: "DOC-007", name: "Dr. Lisa Park", initials: "LP", department: "Pediatrics" },
+  { id: "DOC-008", name: "Dr. Omar Hassan", initials: "OH", department: "General Surgery" },
+  { id: "DOC-009", name: "Dr. Maria Santos", initials: "MS", department: "Ophthalmology" },
+  { id: "DOC-010", name: "Dr. John Baker", initials: "JB", department: "Pulmonology" },
 ] as const;
 
 export const calendarDepartments = [
@@ -219,55 +163,16 @@ const patients = [
 ];
 
 const statuses: AppointmentStatus[] = [
-  "Confirmed",
-  "Confirmed",
-  "Confirmed",
-  "Pending",
-  "Completed",
-  "Completed",
-  "Cancelled",
-  "Confirmed",
-  "Confirmed",
-  "In Progress",
-  "Checked In",
-  "No Show",
-  "Rescheduled",
-  "Confirmed",
-  "Pending",
-  "Confirmed",
-  "Completed",
-  "Confirmed",
-  "Pending",
-  "Confirmed",
-  "Confirmed",
-  "Completed",
-  "Confirmed",
-  "Confirmed",
-  "Pending",
-  "Completed",
-  "Confirmed",
-  "Confirmed",
-  "Checked In",
-  "Confirmed",
-  "Confirmed",
-  "Pending",
-  "Completed",
-  "Confirmed",
-  "No Show",
+  "Confirmed", "Confirmed", "Confirmed", "Pending", "Completed",
+  "Completed", "Cancelled", "Confirmed", "Confirmed", "In Progress",
+  "Checked In", "No Show", "Rescheduled", "Confirmed", "Pending",
+  "Confirmed", "Completed", "Confirmed", "Pending", "Confirmed",
+  "Confirmed", "Completed", "Confirmed", "Confirmed", "Pending",
+  "Completed", "Confirmed", "Confirmed", "Checked In", "Confirmed",
+  "Confirmed", "Pending", "Completed", "Confirmed", "No Show",
 ];
 
-const consultationTypes = [
-  "In-Person",
-  "Video",
-  "Phone",
-  "In-Person",
-  "In-Person",
-  "Video",
-  "In-Person",
-  "Phone",
-  "In-Person",
-  "Emergency",
-];
+const consultationTypes = ["In-Person", "Video", "Phone", "In-Person", "In-Person", "Video", "In-Person", "Phone", "In-Person", "Emergency"];
 
 function pad(n: number): string {
   return n.toString().padStart(2, "0");
@@ -294,13 +199,7 @@ export function generateMockAppointments(): CalendarAppointment[] {
 
     // Skip weekends for most appointments
     const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-    const count = isWeekend
-      ? dayOffset === 0
-        ? 2
-        : 0
-      : dayOffset === 0
-        ? Math.floor(Math.random() * 5) + 6
-        : Math.floor(Math.random() * 4) + 3;
+    const count = isWeekend ? (dayOffset === 0 ? 2 : 0) : (dayOffset === 0 ? Math.floor(Math.random() * 5) + 6 : Math.floor(Math.random() * 4) + 3);
 
     for (let i = 0; i < count; i++) {
       const patientIdx = Math.floor(Math.random() * patients.length);
@@ -341,26 +240,18 @@ export const mockCalendarAppointments = generateMockAppointments();
 
 // ─── Doctor Availability ────────────────────────────────────
 
-export const mockDoctorAvailability: DoctorAvailability[] = calendarDoctors.map(
-  (doc) => ({
-    doctorId: doc.id,
-    doctorName: doc.name,
-    doctorInitials: doc.initials,
-    department: doc.department,
-    isAvailable: Math.random() > 0.25,
-    nextSlot:
-      Math.random() > 0.3
-        ? `${pad(9 + Math.floor(Math.random() * 7))}:${Math.random() < 0.5 ? "00" : "30"}`
-        : undefined,
-  }),
-);
+export const mockDoctorAvailability: DoctorAvailability[] = calendarDoctors.map((doc) => ({
+  doctorId: doc.id,
+  doctorName: doc.name,
+  doctorInitials: doc.initials,
+  department: doc.department,
+  isAvailable: Math.random() > 0.25,
+  nextSlot: Math.random() > 0.3 ? `${pad(9 + Math.floor(Math.random() * 7))}:${Math.random() < 0.5 ? "00" : "30"}` : undefined,
+}));
 
 // ─── Today's Summary ────────────────────────────────────────
 
-export function getTodaySummary(
-  date: string,
-  appointments: CalendarAppointment[],
-): DaySummary {
+export function getTodaySummary(date: string, appointments: CalendarAppointment[]): DaySummary {
   const todayApps = appointments.filter((a) => a.date === date);
   return {
     totalAppointments: todayApps.length,

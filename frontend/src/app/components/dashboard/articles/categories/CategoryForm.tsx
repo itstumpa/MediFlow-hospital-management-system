@@ -1,40 +1,40 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FolderOpen, ImagePlus, Save, X } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { CATEGORY_ICONS } from "./mock";
+import { X, ImagePlus, Save, FolderOpen } from "lucide-react";
+import { cn } from "@/lib/utils";
 import type { ArticleCategory } from "./types";
+import { CATEGORY_ICONS } from "./mock";
 
 /* ─── Icon resolver ─── */
-import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
+  Heart,
+  Brain,
   Apple,
   Baby,
-  Bath,
-  Bone,
-  Brain,
+  Activity,
+  Wind,
   Droplets,
-  Ear,
-  Eye,
-  Fingerprint,
-  Heart,
-  HeartPulse,
-  Lung,
-  Microscope,
-  Moon,
-  Pill,
   Shield,
-  Sparkles,
+  Eye,
+  Smile,
+  Bone,
   Stethoscope,
-  Sun,
+  Pill,
+  Microscope,
+  HeartPulse,
   Syringe,
-  Tooth,
-  Venus,
   Weight,
+  Bath,
+  Ear,
+  Fingerprint,
+  Venus,
+  Sparkles,
+  Sun,
+  Moon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -42,11 +42,11 @@ const iconMap: Record<string, LucideIcon> = {
   Apple,
   Baby,
   Activity,
-  Lung,
+  Wind,
   Droplets,
   Shield,
   Eye,
-  Tooth,
+  Smile,
   Bone,
   Stethoscope,
   Pill,

@@ -1,7 +1,14 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Archive, BookOpen, Download, Tag, Trash2, X } from "lucide-react";
+import {
+  Archive,
+  BookOpen,
+  Download,
+  Tag,
+  Trash2,
+  X,
+} from "lucide-react";
 
 interface BulkActionsProps {
   selectedCount: number;

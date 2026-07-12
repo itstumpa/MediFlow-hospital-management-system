@@ -1,37 +1,37 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { AlertTriangle, FolderOpen, X } from "lucide-react";
+import { AlertTriangle, X, FolderOpen } from "lucide-react";
 import type { ArticleCategory } from "./types";
 
 /* ─── Icon resolver ─── */
-import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
+  Heart,
+  Brain,
   Apple,
   Baby,
-  Bath,
-  Bone,
-  Brain,
+  Activity,
+  Wind,
   Droplets,
-  Ear,
-  Eye,
-  Fingerprint,
-  Heart,
-  HeartPulse,
-  Lung,
-  Microscope,
-  Moon,
-  Pill,
   Shield,
-  Sparkles,
+  Eye,
+  Smile,
+  Bone,
   Stethoscope,
-  Sun,
+  Pill,
+  Microscope,
+  HeartPulse,
   Syringe,
-  Tooth,
-  Venus,
   Weight,
+  Bath,
+  Ear,
+  Fingerprint,
+  Venus,
+  Sparkles,
+  Sun,
+  Moon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -39,11 +39,11 @@ const iconMap: Record<string, LucideIcon> = {
   Apple,
   Baby,
   Activity,
-  Lung,
+  Wind,
   Droplets,
   Shield,
   Eye,
-  Tooth,
+  Smile,
   Bone,
   Stethoscope,
   Pill,

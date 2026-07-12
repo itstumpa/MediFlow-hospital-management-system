@@ -1,30 +1,28 @@
 "use client";
 
-import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import { useState, useMemo, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import {
+  CalendarToolbar,
+  MiniCalendar,
   AppointmentCalendar,
   AppointmentDrawer,
-  CalendarToolbar,
-  DoctorAvailability,
-  MiniCalendar,
   TodaySummary,
   UpcomingAppointments,
+  DoctorAvailability,
 } from "@/app/components/dashboard/calendar";
-import type {
-  CalendarAppointment,
-  CalendarView,
-} from "@/lib/data/appointment-calendar";
 import {
-  calendarDepartments,
-  calendarDoctors,
-  getTodaySummary,
   mockCalendarAppointments,
   mockDoctorAvailability,
+  getTodaySummary,
+  calendarDoctors,
+  calendarDepartments,
+  isSameDay,
 } from "@/lib/data/appointment-calendar";
-import { AnimatePresence, motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import type { CalendarAppointment, CalendarView } from "@/lib/data/appointment-calendar";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import { CalendarDays, Loader2 } from "lucide-react";
 
 export default function AppointmentCalendarPage() {
   const [currentDate, setCurrentDate] = useState(new Date(2026, 6, 12));
@@ -32,8 +30,7 @@ export default function AppointmentCalendarPage() {
   const [view, setView] = useState<CalendarView>("month");
   const [selectedDoctor, setSelectedDoctor] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
-  const [selectedAppointment, setSelectedAppointment] =
-    useState<CalendarAppointment | null>(null);
+  const [selectedAppointment, setSelectedAppointment] = useState<CalendarAppointment | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Simulate loading on view change
@@ -184,39 +181,10 @@ export default function AppointmentCalendarPage() {
               Keyboard shortcuts
             </p>
             <div className="mt-1.5 space-y-1 text-[11px] text-slate-500 dark:text-slate-400">
-              <p>
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  ←
-                </kbd>{" "}
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  →
-                </kbd>{" "}
-                Navigate
-              </p>
-              <p>
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  T
-                </kbd>{" "}
-                Today
-              </p>
-              <p>
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  D
-                </kbd>{" "}
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  W
-                </kbd>{" "}
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  M
-                </kbd>{" "}
-                Views
-              </p>
-              <p>
-                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
-                  Esc
-                </kbd>{" "}
-                Close drawer
-              </p>
+              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">←</kbd> <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">→</kbd> Navigate</p>
+              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">T</kbd> Today</p>
+              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">D</kbd> <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">W</kbd> <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">M</kbd> Views</p>
+              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">Esc</kbd> Close drawer</p>
             </div>
           </div>
         </div>

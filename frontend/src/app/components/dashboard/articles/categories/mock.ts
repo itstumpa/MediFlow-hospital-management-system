@@ -113,7 +113,7 @@ export const categoriesData: ArticleCategory[] = [
     slug: "respiratory-health",
     description:
       "Information on asthma, COPD, allergies, lung health, and breathing exercises for better respiratory function.",
-    icon: "Lung",
+    icon: "Wind",
     imageUrl:
       "https://images.unsplash.com/photo-1584634731339-252c581abfc5?w=800&q=80",
     articlesCount: 12,
@@ -186,11 +186,11 @@ export const CATEGORY_ICONS = [
   "Apple",
   "Baby",
   "Activity",
-  "Lung",
+  "Wind",
   "Droplets",
   "Shield",
   "Eye",
-  "Tooth",
+  "Smile",
   "Bone",
   "Stethoscope",
   "Pill",

@@ -21,15 +21,7 @@ interface ArticlesTableProps {
 }
 
 const COLUMNS: {
-  key:
-    | SortField
-    | "checkbox"
-    | "actions"
-    | "image"
-    | "author"
-    | "comments"
-    | "publishedAt"
-    | "updatedAt";
+  key: SortField | "checkbox" | "actions" | "image" | "author" | "comments" | "publishedAt" | "updatedAt";
   label: string;
   sortable: boolean;
   width: string;

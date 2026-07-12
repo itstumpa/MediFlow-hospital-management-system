@@ -1,9 +1,11 @@
 import {
+  Activity,
   BarChart3,
   Bell,
   Building2,
   CalendarCheck,
   FileText,
+  FolderOpen,
   LayoutDashboard,
   MessageSquare,
   Settings,
@@ -54,6 +56,11 @@ export const navigationGroups: NavGroupDef[] = [
         label: "Articles",
         href: "/admin/articles",
       },
+      {
+        icon: FolderOpen as LucideIcon,
+        label: "Categories",
+        href: "/admin/articles/categories",
+      },
     ],
   },
   {
@@ -89,6 +96,11 @@ export const navigationGroups: NavGroupDef[] = [
         label: "Settings",
         href: "/admin/settings",
       },
+      {
+        icon: Activity as LucideIcon,
+        label: "Activity Logs",
+        href: "/admin/activity-logs",
+      },
     ],
   },
 ];
@@ -110,4 +122,5 @@ export const breadcrumbLabels: Record<string, string> = {
   "/admin/departments/[id]/edit": "Edit Department",
   "/admin/articles/new": "New Article",
   "/admin/articles/[id]/edit": "Edit Article",
+  "/admin/activity-logs": "Activity Logs",
 };

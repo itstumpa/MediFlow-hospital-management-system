@@ -207,7 +207,9 @@ export function ArticlesFilters({
                 label="Author"
                 options={authorOptions}
                 selected={filters.author}
-                onChange={(val) => onFiltersChange({ ...filters, author: val })}
+                onChange={(val) =>
+                  onFiltersChange({ ...filters, author: val })
+                }
               />
 
               <RadioGroup
@@ -219,10 +221,7 @@ export function ArticlesFilters({
                 ]}
                 value={filters.featured}
                 onChange={(val) =>
-                  onFiltersChange({
-                    ...filters,
-                    featured: val as "all" | "featured" | "standard",
-                  })
+                  onFiltersChange({ ...filters, featured: val as "all" | "featured" | "standard" })
                 }
               />
 
@@ -244,10 +243,7 @@ export function ArticlesFilters({
                       type="date"
                       value={filters.dateFrom}
                       onChange={(e) =>
-                        onFiltersChange({
-                          ...filters,
-                          dateFrom: e.target.value,
-                        })
+                        onFiltersChange({ ...filters, dateFrom: e.target.value })
                       }
                       className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                     />

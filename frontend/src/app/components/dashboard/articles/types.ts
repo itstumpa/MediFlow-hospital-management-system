@@ -1,9 +1,4 @@
-export type ArticleStatus =
-  | "Published"
-  | "Draft"
-  | "Scheduled"
-  | "Archived"
-  | "Private";
+export type ArticleStatus = "Published" | "Draft" | "Scheduled" | "Archived" | "Private";
 export type ViewMode = "table" | "grid";
 export type SortField =
   | "title"

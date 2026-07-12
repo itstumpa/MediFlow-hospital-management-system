@@ -3,17 +3,13 @@ import type { Article } from "./types";
 export const articlesData: Article[] = [
   {
     id: "art-001",
-    title:
-      "Understanding Heart Health: A Complete Guide to Cardiovascular Wellness",
+    title: "Understanding Heart Health: A Complete Guide to Cardiovascular Wellness",
     slug: "understanding-heart-health",
-    excerpt:
-      "Learn about the fundamentals of heart health, including risk factors, prevention strategies, and lifestyle changes that can significantly reduce your risk of heart disease.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop",
+    excerpt: "Learn about the fundamentals of heart health, including risk factors, prevention strategies, and lifestyle changes that can significantly reduce your risk of heart disease.",
+    featuredImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop",
     category: "Heart Health",
     author: "Dr. Sarah Johnson",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 15420,
     comments: 87,
@@ -27,14 +23,11 @@ export const articlesData: Article[] = [
     id: "art-002",
     title: "Managing Diabetes Through Diet: What You Need to Know",
     slug: "managing-diabetes-through-diet",
-    excerpt:
-      "Discover how dietary choices can help manage blood sugar levels effectively. Expert tips on meal planning, carb counting, and creating a balanced diabetic diet.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
+    excerpt: "Discover how dietary choices can help manage blood sugar levels effectively. Expert tips on meal planning, carb counting, and creating a balanced diabetic diet.",
+    featuredImage: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
     category: "Diabetes",
     author: "Dr. Priya Sharma",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 12350,
     comments: 56,
@@ -48,14 +41,11 @@ export const articlesData: Article[] = [
     id: "art-003",
     title: "Pediatric Vaccinations: A Parents' Schedule Guide",
     slug: "pediatric-vaccinations-guide",
-    excerpt:
-      "A comprehensive overview of the recommended vaccination schedule for children, addressing common concerns and highlighting the importance of immunizations.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop",
+    excerpt: "A comprehensive overview of the recommended vaccination schedule for children, addressing common concerns and highlighting the importance of immunizations.",
+    featuredImage: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop",
     category: "Vaccination",
     author: "Dr. Michael Torres",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 9870,
     comments: 112,
@@ -69,14 +59,11 @@ export const articlesData: Article[] = [
     id: "art-004",
     title: "Mental Health in the Workplace: Strategies for Wellbeing",
     slug: "mental-health-workplace-strategies",
-    excerpt:
-      "Explore effective strategies for maintaining mental health at work, including stress management techniques, boundary setting, and when to seek professional help.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop",
+    excerpt: "Explore effective strategies for maintaining mental health at work, including stress management techniques, boundary setting, and when to seek professional help.",
+    featuredImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop",
     category: "Mental Health",
     author: "Dr. Lisa Park",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 21300,
     comments: 203,
@@ -90,14 +77,11 @@ export const articlesData: Article[] = [
     id: "art-005",
     title: "Prenatal Nutrition: Essential Nutrients for a Healthy Pregnancy",
     slug: "prenatal-nutrition-essentials",
-    excerpt:
-      "A detailed guide to the vital nutrients needed during pregnancy, including folate, iron, calcium, and omega-3s, with food sources and supplementation advice.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1519735246-ea086ed2e114?w=800&h=500&fit=crop",
+    excerpt: "A detailed guide to the vital nutrients needed during pregnancy, including folate, iron, calcium, and omega-3s, with food sources and supplementation advice.",
+    featuredImage: "https://images.unsplash.com/photo-1519735246-ea086ed2e114?w=800&h=500&fit=crop",
     category: "Pregnancy",
     author: "Dr. Lisa Park",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 16780,
     comments: 94,
@@ -111,14 +95,11 @@ export const articlesData: Article[] = [
     id: "art-006",
     title: "The Ultimate Guide to Skin Care routines for Every Age",
     slug: "skin-care-routines-by-age",
-    excerpt:
-      "Board-certified dermatologists share their expert recommendations for skin care routines tailored to different age groups and skin types.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=500&fit=crop",
+    excerpt: "Board-certified dermatologists share their expert recommendations for skin care routines tailored to different age groups and skin types.",
+    featuredImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=500&fit=crop",
     category: "Skin Care",
     author: "Dr. Sarah Johnson",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
     status: "Draft",
     views: 0,
     comments: 0,
@@ -132,14 +113,11 @@ export const articlesData: Article[] = [
     id: "art-007",
     title: "Exercise During Pregnancy: Safe Workouts for Expectant Mothers",
     slug: "exercise-during-pregnancy-safe-workouts",
-    excerpt:
-      "Learn about safe exercise routines during pregnancy, including modifications for each trimester and warning signs to watch for.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop",
+    excerpt: "Learn about safe exercise routines during pregnancy, including modifications for each trimester and warning signs to watch for.",
+    featuredImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop",
     category: "Fitness",
     author: "Dr. Priya Sharma",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
     status: "Draft",
     views: 0,
     comments: 0,
@@ -153,14 +131,11 @@ export const articlesData: Article[] = [
     id: "art-008",
     title: "Emergency First Aid: Essential Skills Everyone Should Know",
     slug: "emergency-first-aid-essentials",
-    excerpt:
-      "Life-saving first aid techniques including CPR, wound care, and recognizing signs of stroke or heart attack. Every minute counts in an emergency.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1587745416684-47953f16f82c?w=800&h=500&fit=crop",
+    excerpt: "Life-saving first aid techniques including CPR, wound care, and recognizing signs of stroke or heart attack. Every minute counts in an emergency.",
+    featuredImage: "https://images.unsplash.com/photo-1587745416684-47953f16f82c?w=800&h=500&fit=crop",
     category: "Emergency",
     author: "Dr. Michael Torres",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
     status: "Scheduled",
     views: 0,
     comments: 0,
@@ -174,14 +149,11 @@ export const articlesData: Article[] = [
     id: "art-009",
     title: "Senior Care: Maintaining Independence as You Age",
     slug: "senior-care-maintaining-independence",
-    excerpt:
-      "Practical advice for seniors and caregivers on maintaining independence, preventing falls, managing medications, and staying socially connected.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&h=500&fit=crop",
+    excerpt: "Practical advice for seniors and caregivers on maintaining independence, preventing falls, managing medications, and staying socially connected.",
+    featuredImage: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&h=500&fit=crop",
     category: "Senior Care",
     author: "Dr. Sarah Johnson",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
     status: "Scheduled",
     views: 0,
     comments: 0,
@@ -195,14 +167,11 @@ export const articlesData: Article[] = [
     id: "art-010",
     title: "Childhood Nutrition: Building Healthy Eating Habits Early",
     slug: "childhood-nutrition-healthy-habits",
-    excerpt:
-      "Expert guidance on establishing nutritious eating patterns for children, from picky eating solutions to balanced meal planning for growing bodies.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&h=500&fit=crop",
+    excerpt: "Expert guidance on establishing nutritious eating patterns for children, from picky eating solutions to balanced meal planning for growing bodies.",
+    featuredImage: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&h=500&fit=crop",
     category: "Children",
     author: "Dr. Priya Sharma",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 11200,
     comments: 67,
@@ -216,14 +185,11 @@ export const articlesData: Article[] = [
     id: "art-011",
     title: "Understanding Cholesterol: Good vs Bad",
     slug: "understanding-cholesterol-good-bad",
-    excerpt:
-      "Break down the differences between HDL and LDL cholesterol, learn what your numbers mean, and discover dietary changes that can improve your lipid profile.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=500&fit=crop",
+    excerpt: "Break down the differences between HDL and LDL cholesterol, learn what your numbers mean, and discover dietary changes that can improve your lipid profile.",
+    featuredImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=500&fit=crop",
     category: "Heart Health",
     author: "Dr. Sarah Johnson",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 8900,
     comments: 43,
@@ -237,14 +203,11 @@ export const articlesData: Article[] = [
     id: "art-012",
     title: "Yoga for Beginners: A 30-Day Starter Plan",
     slug: "yoga-for-beginners-30-day-plan",
-    excerpt:
-      "Start your yoga journey with this beginner-friendly 30-day plan designed to improve flexibility, reduce stress, and build strength.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop",
+    excerpt: "Start your yoga journey with this beginner-friendly 30-day plan designed to improve flexibility, reduce stress, and build strength.",
+    featuredImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop",
     category: "Fitness",
     author: "Dr. Lisa Park",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
     status: "Archived",
     views: 25000,
     comments: 189,
@@ -258,14 +221,11 @@ export const articlesData: Article[] = [
     id: "art-013",
     title: "Women's Health: Annual Checkup Checklist",
     slug: "womens-health-annual-checkup-checklist",
-    excerpt:
-      "Everything you need to know about recommended screenings and preventive care for women at every stage of life.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
+    excerpt: "Everything you need to know about recommended screenings and preventive care for women at every stage of life.",
+    featuredImage: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
     category: "Women's Health",
     author: "Dr. Lisa Park",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=150&h=150&fit=crop&crop=face",
     status: "Private",
     views: 3400,
     comments: 18,
@@ -279,14 +239,11 @@ export const articlesData: Article[] = [
     id: "art-014",
     title: "Sleep Hygiene: How to Get Better Rest Naturally",
     slug: "sleep-hygiene-better-rest-naturally",
-    excerpt:
-      "Proven strategies for improving sleep quality, including optimal bedtime routines, environment adjustments, and natural remedies for insomnia.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop",
+    excerpt: "Proven strategies for improving sleep quality, including optimal bedtime routines, environment adjustments, and natural remedies for insomnia.",
+    featuredImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop",
     category: "Mental Health",
     author: "Dr. Michael Torres",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 18900,
     comments: 134,
@@ -300,14 +257,11 @@ export const articlesData: Article[] = [
     id: "art-015",
     title: "The Connection Between Gut Health and Overall Wellness",
     slug: "gut-health-connection-wellness",
-    excerpt:
-      "Explore the fascinating link between your digestive system and overall health, including immunity, mood, and chronic disease prevention.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
+    excerpt: "Explore the fascinating link between your digestive system and overall health, including immunity, mood, and chronic disease prevention.",
+    featuredImage: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=500&fit=crop",
     category: "Nutrition",
     author: "Dr. Priya Sharma",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&h=150&fit=crop&crop=face",
     status: "Draft",
     views: 0,
     comments: 0,
@@ -321,14 +275,11 @@ export const articlesData: Article[] = [
     id: "art-016",
     title: "Managing Allergies: Seasonal and Food Allergy Guide",
     slug: "managing-allergies-seasonal-food-guide",
-    excerpt:
-      "Comprehensive guide to identifying, managing, and treating seasonal and food allergies, including the latest in immunotherapy options.",
-    featuredImage:
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop",
+    excerpt: "Comprehensive guide to identifying, managing, and treating seasonal and food allergies, including the latest in immunotherapy options.",
+    featuredImage: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop",
     category: "Emergency",
     author: "Dr. Michael Torres",
-    authorAvatar:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
+    authorAvatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
     status: "Published",
     views: 7650,
     comments: 45,
@@ -340,9 +291,5 @@ export const articlesData: Article[] = [
   },
 ];
 
-export const authorOptions = [
-  ...new Set(articlesData.map((a) => a.author)),
-].sort();
-export const categoryOptions = [
-  ...new Set(articlesData.map((a) => a.category)),
-].sort();
+export const authorOptions = [...new Set(articlesData.map((a) => a.author))].sort();
+export const categoryOptions = [...new Set(articlesData.map((a) => a.category))].sort();

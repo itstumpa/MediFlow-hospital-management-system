@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  AlertCircle,
   AlertTriangle,
   Check,
   ChevronDown,
@@ -17,8 +16,10 @@ import {
   Plus,
   Quote,
   Table,
+  Trash2,
   Video,
   X,
+  AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
 import type { ContentBlock } from "../../../admin/(dashboard)/articles/form-schema";

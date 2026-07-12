@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, FileX2, FolderOpen, Star } from "lucide-react";
-import { staggerContainer, staggerItem } from "../../MotionVariants";
+import { FolderOpen, FileText, FileX2, Star } from "lucide-react";
 import type { ArticleCategory } from "./types";
+import { staggerContainer, staggerItem } from "../../MotionVariants";
 
 interface StatsCardsProps {
   categories: ArticleCategory[];

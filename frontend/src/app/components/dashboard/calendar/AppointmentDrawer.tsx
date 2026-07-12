@@ -1,24 +1,24 @@
 "use client";
 
-import type { CalendarAppointment } from "@/lib/data/appointment-calendar";
-import { statusBgMap, statusDotMap } from "@/lib/data/appointment-calendar";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  AlertCircle,
-  Building2,
+  X,
+  ExternalLink,
+  Edit3,
   Calendar,
   Clock,
-  Edit3,
-  ExternalLink,
-  FileText,
-  MapPin,
-  Phone,
-  Stethoscope,
   User,
+  Stethoscope,
+  Building2,
+  FileText,
+  AlertCircle,
+  Phone,
   Video,
-  X,
+  MapPin,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import type { CalendarAppointment } from "@/lib/data/appointment-calendar";
+import { statusBgMap, statusDotMap } from "@/lib/data/appointment-calendar";
 
 interface AppointmentDrawerProps {
   appointment: CalendarAppointment | null;
@@ -76,12 +76,7 @@ export function AppointmentDrawer({
               <div className="flex-1 overflow-y-auto p-5">
                 {/* Status Badge */}
                 <div className="mb-4 flex items-center gap-2">
-                  <span
-                    className={cn(
-                      "h-2 w-2 rounded-full",
-                      statusDotMap[appointment.status],
-                    )}
-                  />
+                  <span className={cn("h-2 w-2 rounded-full", statusDotMap[appointment.status])} />
                   <span
                     className={cn(
                       "rounded-full px-2.5 py-0.5 text-xs font-semibold",
@@ -125,32 +120,18 @@ export function AppointmentDrawer({
                 {/* Date & Time */}
                 <Section title="Date & Time" icon={Clock}>
                   <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                    {new Date(
-                      appointment.date + "T" + appointment.time,
-                    ).toLocaleDateString("en-US", {
-                      weekday: "long",
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
+                    {new Date(appointment.date + "T" + appointment.time).toLocaleDateString(
+                      "en-US",
+                      { weekday: "long", month: "long", day: "numeric", year: "numeric" },
+                    )}
                   </p>
                   <p className="text-sm text-slate-600 dark:text-slate-300">
-                    {appointment.time} — {appointment.endTime} (
-                    {appointment.duration} min)
+                    {appointment.time} — {appointment.endTime} ({appointment.duration} min)
                   </p>
                 </Section>
 
                 {/* Consultation Type */}
-                <Section
-                  title="Consultation Type"
-                  icon={
-                    appointment.consultationType === "Video"
-                      ? Video
-                      : appointment.consultationType === "Phone"
-                        ? Phone
-                        : MapPin
-                  }
-                >
+                <Section title="Consultation Type" icon={appointment.consultationType === "Video" ? Video : appointment.consultationType === "Phone" ? Phone : MapPin}>
                   <p className="text-sm font-semibold text-slate-900 dark:text-white">
                     {appointment.consultationType}
                   </p>
@@ -172,17 +153,9 @@ export function AppointmentDrawer({
                   Quick Actions
                 </h3>
                 <div className="grid grid-cols-3 gap-2">
-                  <ActionButton
-                    icon={ExternalLink}
-                    label="View"
-                    variant="primary"
-                  />
+                  <ActionButton icon={ExternalLink} label="View" variant="primary" />
                   <ActionButton icon={Edit3} label="Edit" variant="default" />
-                  <ActionButton
-                    icon={Calendar}
-                    label="Reschedule"
-                    variant="default"
-                  />
+                  <ActionButton icon={Calendar} label="Reschedule" variant="default" />
                 </div>
               </div>
             </div>

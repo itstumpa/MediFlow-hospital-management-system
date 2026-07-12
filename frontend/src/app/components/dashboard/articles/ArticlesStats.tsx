@@ -1,17 +1,18 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   BookOpen,
-  CalendarClock,
   CheckCircle2,
   Clock,
   Eye,
   FileText,
   MessageSquare,
   Star,
+  CalendarClock,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 import type { Article } from "./types";
 
 function AnimatedCounter({
@@ -33,18 +34,15 @@ function AnimatedCounter({
     let start = 0;
     const steps = 60;
     const increment = value / steps;
-    const timer = setInterval(
-      () => {
-        start += increment;
-        if (start >= value) {
-          setDisplayed(value);
-          clearInterval(timer);
-        } else {
-          setDisplayed(Math.round(start));
-        }
-      },
-      (duration * 1000) / steps,
-    );
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setDisplayed(value);
+        clearInterval(timer);
+      } else {
+        setDisplayed(Math.round(start));
+      }
+    }, (duration * 1000) / steps);
     return () => clearInterval(timer);
   }, [inView, value, duration]);
 
@@ -171,13 +169,9 @@ interface ArticlesStatsProps {
 
 export function ArticlesStats({ articles }: ArticlesStatsProps) {
   const totalArticles = articles.length;
-  const publishedArticles = articles.filter(
-    (a) => a.status === "Published",
-  ).length;
+  const publishedArticles = articles.filter((a) => a.status === "Published").length;
   const draftArticles = articles.filter((a) => a.status === "Draft").length;
-  const scheduledArticles = articles.filter(
-    (a) => a.status === "Scheduled",
-  ).length;
+  const scheduledArticles = articles.filter((a) => a.status === "Scheduled").length;
   const categories = new Set(articles.map((a) => a.category)).size;
   const totalViews = articles.reduce((acc, a) => acc + a.views, 0);
   const totalComments = articles.reduce((acc, a) => acc + a.comments, 0);
@@ -253,9 +247,7 @@ export function ArticlesStats({ articles }: ArticlesStatsProps) {
         text: "text-rose-600 dark:text-rose-400",
         glow: "shadow-rose-500/10",
       },
-      sparkline: [
-        5000, 12000, 18000, 25000, 35000, 48000, 62000, 80000, 139970,
-      ],
+      sparkline: [5000, 12000, 18000, 25000, 35000, 48000, 62000, 80000, 139970],
       trend: 22,
     },
     {

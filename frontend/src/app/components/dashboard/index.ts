@@ -87,6 +87,20 @@ export {
 } from "./notifications";
 
 /* ============================================
+   Roles & Permissions (RBAC) components
+   ============================================ */
+export {
+  PermissionMatrix,
+  SearchFilters,
+  RoleForm,
+  RolesTable,
+  RoleStats,
+  AssignUsersDialog,
+  DeleteDialog,
+  RolesPage,
+} from "./roles";
+
+/* ============================================
    Manage Doctors components
    ============================================ */
 export { DEFAULT_FILTERS, doctorsData } from "./doctors";
