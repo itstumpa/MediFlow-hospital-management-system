@@ -20,7 +20,10 @@ import {
   calendarDepartments,
   isSameDay,
 } from "@/lib/data/appointment-calendar";
-import type { CalendarAppointment, CalendarView } from "@/lib/data/appointment-calendar";
+import type {
+  CalendarAppointment,
+  CalendarView,
+} from "@/lib/data/appointment-calendar";
 import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import { CalendarDays, Loader2 } from "lucide-react";
 
@@ -30,7 +33,8 @@ export default function AppointmentCalendarPage() {
   const [view, setView] = useState<CalendarView>("month");
   const [selectedDoctor, setSelectedDoctor] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
-  const [selectedAppointment, setSelectedAppointment] = useState<CalendarAppointment | null>(null);
+  const [selectedAppointment, setSelectedAppointment] =
+    useState<CalendarAppointment | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Simulate loading on view change
@@ -181,10 +185,39 @@ export default function AppointmentCalendarPage() {
               Keyboard shortcuts
             </p>
             <div className="mt-1.5 space-y-1 text-[11px] text-slate-500 dark:text-slate-400">
-              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">←</kbd> <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">→</kbd> Navigate</p>
-              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">T</kbd> Today</p>
-              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">D</kbd> <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">W</kbd> <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">M</kbd> Views</p>
-              <p><kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">Esc</kbd> Close drawer</p>
+              <p>
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  ←
+                </kbd>{" "}
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  →
+                </kbd>{" "}
+                Navigate
+              </p>
+              <p>
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  T
+                </kbd>{" "}
+                Today
+              </p>
+              <p>
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  D
+                </kbd>{" "}
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  W
+                </kbd>{" "}
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  M
+                </kbd>{" "}
+                Views
+              </p>
+              <p>
+                <kbd className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] dark:bg-slate-700">
+                  Esc
+                </kbd>{" "}
+                Close drawer
+              </p>
             </div>
           </div>
         </div>
