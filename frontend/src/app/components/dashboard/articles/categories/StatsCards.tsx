@@ -1,14 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FolderOpen,
-  FileText,
-  FileX2,
-  Star,
-} from "lucide-react";
-import type { ArticleCategory } from "./types";
+import { FileText, FileX2, FolderOpen, Star } from "lucide-react";
 import { staggerContainer, staggerItem } from "../../MotionVariants";
+import type { ArticleCategory } from "./types";
 
 interface StatsCardsProps {
   categories: ArticleCategory[];
@@ -56,10 +51,7 @@ const statsConfig = [
   },
 ] as const;
 
-const colorMap: Record<
-  string,
-  { bg: string; text: string; ring: string }
-> = {
+const colorMap: Record<string, { bg: string; text: string; ring: string }> = {
   blue: {
     bg: "bg-blue-50 dark:bg-blue-950/30",
     text: "text-blue-600 dark:text-blue-400",

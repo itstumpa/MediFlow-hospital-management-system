@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  AlertCircle,
   AlertTriangle,
   Check,
   ChevronDown,
@@ -16,10 +17,8 @@ import {
   Plus,
   Quote,
   Table,
-  Trash2,
   Video,
   X,
-  AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
 import type { ContentBlock } from "../../../admin/(dashboard)/articles/form-schema";
@@ -166,9 +165,7 @@ function HeadingBlock({
     <div className="flex items-start gap-2">
       <select
         value={block.level}
-        onChange={(e) =>
-          onChange({ ...block, level: Number(e.target.value) })
-        }
+        onChange={(e) => onChange({ ...block, level: Number(e.target.value) })}
         className="mt-1 rounded-lg border border-slate-200 bg-white px-1.5 py-0.5 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
       >
         {[1, 2, 3, 4, 5, 6].map((l) => (
@@ -212,8 +209,7 @@ function ListBlock({
   block: ContentBlock & { type: "list" };
   onChange: (b: ContentBlock) => void;
 }) {
-  const addItem = () =>
-    onChange({ ...block, items: [...block.items, ""] });
+  const addItem = () => onChange({ ...block, items: [...block.items, ""] });
   const updateItem = (i: number, v: string) => {
     const items = [...block.items];
     items[i] = v;
@@ -232,7 +228,8 @@ function ListBlock({
           onClick={() =>
             onChange({
               ...block,
-              listType: block.listType === "unordered" ? "ordered" : "unordered",
+              listType:
+                block.listType === "unordered" ? "ordered" : "unordered",
             })
           }
           className="flex items-center gap-1 rounded-lg border border-slate-200 px-2 py-1 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
@@ -338,9 +335,7 @@ function CalloutBlock({
       <div className="flex-1 space-y-2">
         <textarea
           value={block.content}
-          onChange={(e) =>
-            onChange({ ...block, content: e.target.value })
-          }
+          onChange={(e) => onChange({ ...block, content: e.target.value })}
           placeholder="Callout text..."
           rows={2}
           className="w-full resize-y border-none bg-transparent text-sm leading-relaxed text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-0 dark:text-slate-300 dark:placeholder-slate-500"
@@ -350,7 +345,11 @@ function CalloutBlock({
           onChange={(e) =>
             onChange({
               ...block,
-              variant: e.target.value as "info" | "success" | "warning" | "danger",
+              variant: e.target.value as
+                | "info"
+                | "success"
+                | "warning"
+                | "danger",
             })
           }
           className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
@@ -484,11 +483,7 @@ function TableBlock({
       ...block,
       rows: [...block.rows, { label: "", value: "" }],
     });
-  const updateRow = (
-    i: number,
-    field: "label" | "value",
-    v: string,
-  ) => {
+  const updateRow = (i: number, field: "label" | "value", v: string) => {
     const rows = block.rows.map((r, idx) =>
       idx === i ? { ...r, [field]: v } : r,
     );
@@ -578,8 +573,7 @@ function MedicalWarningBlock({
     info: "border-blue-300 bg-blue-50 dark:border-blue-700 dark:bg-blue-950/30",
     warning:
       "border-amber-300 bg-amber-50 dark:border-amber-700 dark:bg-amber-950/30",
-    critical:
-      "border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-950/30",
+    critical: "border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-950/30",
   };
   const icons: Record<string, typeof AlertTriangle> = {
     info: Info,
@@ -598,7 +592,12 @@ function MedicalWarningBlock({
       <div className="flex-1 space-y-2">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Medical {block.severity === "critical" ? "Critical" : block.severity === "warning" ? "Warning" : "Note"}
+            Medical{" "}
+            {block.severity === "critical"
+              ? "Critical"
+              : block.severity === "warning"
+                ? "Warning"
+                : "Note"}
           </span>
           <select
             value={block.severity}
@@ -617,9 +616,7 @@ function MedicalWarningBlock({
         </div>
         <textarea
           value={block.content}
-          onChange={(e) =>
-            onChange({ ...block, content: e.target.value })
-          }
+          onChange={(e) => onChange({ ...block, content: e.target.value })}
           placeholder="Medical warning content..."
           rows={3}
           className="w-full resize-y border-none bg-transparent text-sm leading-relaxed text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-0 dark:text-slate-300 dark:placeholder-slate-500"
@@ -641,11 +638,7 @@ function FAQBlock({
       ...block,
       items: [...block.items, { question: "", answer: "" }],
     });
-  const updateItem = (
-    i: number,
-    field: "question" | "answer",
-    v: string,
-  ) => {
+  const updateItem = (i: number, field: "question" | "answer", v: string) => {
     const items = block.items.map((item, idx) =>
       idx === i ? { ...item, [field]: v } : item,
     );
@@ -725,9 +718,7 @@ function FAQBlock({
                   <div className="border-t border-slate-100 px-4 py-3 dark:border-slate-700">
                     <textarea
                       value={item.answer}
-                      onChange={(e) =>
-                        updateItem(i, "answer", e.target.value)
-                      }
+                      onChange={(e) => updateItem(i, "answer", e.target.value)}
                       placeholder="Answer..."
                       rows={3}
                       className="w-full resize-y border-none bg-transparent text-sm leading-relaxed text-slate-600 placeholder-slate-400 focus:outline-none focus:ring-0 dark:text-slate-400"
@@ -750,10 +741,7 @@ function FAQBlock({
   );
 }
 
-export function RichTextEditor({
-  value,
-  onChange,
-}: RichTextEditorProps) {
+export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
   const addBlock = (block: ContentBlock) => {
     onChange([...value, block]);
   };

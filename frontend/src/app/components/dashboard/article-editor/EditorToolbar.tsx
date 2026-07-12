@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AlertTriangle,
   AlignLeft,
   Code,
   Heading1,
@@ -13,8 +14,6 @@ import {
   Quote,
   Tablet,
   Video,
-  AlertTriangle,
-  Table as TableIcon,
 } from "lucide-react";
 import type { ContentBlock } from "../../../admin/(dashboard)/articles/form-schema";
 

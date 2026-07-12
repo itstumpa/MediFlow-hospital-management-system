@@ -8,7 +8,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Expert advice on cardiovascular wellness, heart disease prevention, and cardiac care. Covers everything from cholesterol management to post-surgery recovery.",
     icon: "Heart",
-    imageUrl: "https://images.unsplash.com/photo-1628348070889-cb656235b4eb?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1628348070889-cb656235b4eb?w=800&q=80",
     articlesCount: 24,
     featured: true,
     status: "active",
@@ -24,7 +25,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Resources for emotional wellbeing, anxiety management, depression support, and mental health care strategies for all ages.",
     icon: "Brain",
-    imageUrl: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
     articlesCount: 31,
     featured: true,
     status: "active",
@@ -40,7 +42,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Evidence-based dietary guidance, meal planning tips, and nutritional science to help you eat better at every stage of life.",
     icon: "Apple",
-    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
     articlesCount: 28,
     featured: true,
     status: "active",
@@ -54,7 +57,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Comprehensive care guides covering reproductive health, pregnancy, menopause, and overall wellness tailored for women.",
     icon: "Venus",
-    imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
     articlesCount: 22,
     featured: false,
     status: "active",
@@ -67,7 +71,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Pediatric care advice from vaccinations and developmental milestones to common childhood illnesses and parenting tips.",
     icon: "Baby",
-    imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
     articlesCount: 19,
     featured: false,
     status: "active",
@@ -80,7 +85,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "In-depth resources on diabetes management, thyroid health, hormone imbalances, and metabolic disorder treatments.",
     icon: "Activity",
-    imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
     articlesCount: 16,
     featured: true,
     status: "active",
@@ -94,7 +100,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Guides on bone health, joint pain relief, sports injuries, arthritis management, and orthopedic surgery recovery.",
     icon: "Bone",
-    imageUrl: "https://images.unsplash.com/photo-1579165466741-7f35e4755660?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1579165466741-7f35e4755660?w=800&q=80",
     articlesCount: 14,
     featured: false,
     status: "active",
@@ -107,7 +114,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Information on asthma, COPD, allergies, lung health, and breathing exercises for better respiratory function.",
     icon: "Lung",
-    imageUrl: "https://images.unsplash.com/photo-1584634731339-252c581abfc5?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1584634731339-252c581abfc5?w=800&q=80",
     articlesCount: 12,
     featured: false,
     status: "active",
@@ -120,7 +128,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Expert advice on skin conditions, acne treatments, anti-aging routines, and sun protection for healthy skin.",
     icon: "Droplets",
-    imageUrl: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
     articlesCount: 20,
     featured: false,
     status: "active",
@@ -133,7 +142,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Holistic health tips, preventive care advice, sleep optimization, stress management, and healthy lifestyle guides.",
     icon: "Shield",
-    imageUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80",
     articlesCount: 35,
     featured: true,
     status: "active",
@@ -147,7 +157,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Aging gracefully with resources on elder care, fall prevention, cognitive health, and chronic condition management.",
     icon: "HeartPulse",
-    imageUrl: "https://images.unsplash.com/photo-1550831107-1553da8c8464?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1550831107-1553da8c8464?w=800&q=80",
     articlesCount: 8,
     featured: false,
     status: "inactive",
@@ -160,7 +171,8 @@ export const categoriesData: ArticleCategory[] = [
     description:
       "Up-to-date information on vaccine schedules, immunization science, and disease prevention for all age groups.",
     icon: "Syringe",
-    imageUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800&q=80",
     articlesCount: 0,
     featured: false,
     status: "active",

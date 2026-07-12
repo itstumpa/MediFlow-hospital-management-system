@@ -1,45 +1,40 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import {
-  X,
-  ImagePlus,
-  Save,
-  FolderOpen,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { ArticleCategory } from "./types";
+import { AnimatePresence, motion } from "framer-motion";
+import { FolderOpen, ImagePlus, Save, X } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { CATEGORY_ICONS } from "./mock";
+import type { ArticleCategory } from "./types";
 
 /* ─── Icon resolver ─── */
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
+  Activity,
   Apple,
   Baby,
-  Activity,
-  Lung,
-  Droplets,
-  Shield,
-  Eye,
-  Tooth,
-  Bone,
-  Stethoscope,
-  Pill,
-  Microscope,
-  HeartPulse,
-  Syringe,
-  Weight,
   Bath,
+  Bone,
+  Brain,
+  Droplets,
   Ear,
+  Eye,
   Fingerprint,
-  Venus,
-  Sparkles,
-  Sun,
+  Heart,
+  HeartPulse,
+  Lung,
+  Microscope,
   Moon,
+  Pill,
+  Shield,
+  Sparkles,
+  Stethoscope,
+  Sun,
+  Syringe,
+  Tooth,
+  Venus,
+  Weight,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -139,13 +134,18 @@ export function CategoryForm({
     setForm((prev) => ({
       ...prev,
       name: value,
-      slug: slugTouched ? prev.slug : value.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
+      slug: slugTouched
+        ? prev.slug
+        : value
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9-]/g, ""),
     }));
   };
 
   const updateField = <K extends keyof CategoryFormData>(
     key: K,
-    value: CategoryFormData[K]
+    value: CategoryFormData[K],
   ) => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
@@ -306,7 +306,7 @@ export function CategoryForm({
                                   "flex items-center justify-center rounded-lg p-2 transition-all",
                                   form.icon === iconName
                                     ? "bg-blue-100 text-blue-600 ring-2 ring-blue-500/30 dark:bg-blue-950/40 dark:text-blue-400"
-                                    : "text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                                    : "text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700",
                                 )}
                                 title={iconName}
                               >
@@ -415,7 +415,7 @@ export function CategoryForm({
                     "relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20",
                     form.featured
                       ? "bg-blue-600"
-                      : "bg-slate-200 dark:bg-slate-700"
+                      : "bg-slate-200 dark:bg-slate-700",
                   )}
                   role="switch"
                   aria-checked={form.featured}
@@ -423,7 +423,7 @@ export function CategoryForm({
                   <span
                     className={cn(
                       "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow ring-0 transition-transform duration-200",
-                      form.featured ? "translate-x-5" : "translate-x-0"
+                      form.featured ? "translate-x-5" : "translate-x-0",
                     )}
                   />
                 </button>

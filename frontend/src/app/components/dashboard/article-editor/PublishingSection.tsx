@@ -1,7 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, Eye, Flag, Star, StarOff, ToggleLeft, ToggleRight, User } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Eye,
+  Flag,
+  Star,
+  StarOff,
+  ToggleLeft,
+  ToggleRight,
+  User,
+} from "lucide-react";
 import {
   mockAuthors,
   mockCategories,
@@ -130,9 +140,7 @@ export function PublishingSection({
             type="button"
             onClick={() => onChange("featured", !featured)}
             className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-              featured
-                ? "bg-amber-500"
-                : "bg-slate-300 dark:bg-slate-600"
+              featured ? "bg-amber-500" : "bg-slate-300 dark:bg-slate-600"
             }`}
           >
             <motion.div
@@ -160,9 +168,7 @@ export function PublishingSection({
             type="button"
             onClick={() => onChange("allowComments", !allowComments)}
             className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-              allowComments
-                ? "bg-blue-500"
-                : "bg-slate-300 dark:bg-slate-600"
+              allowComments ? "bg-blue-500" : "bg-slate-300 dark:bg-slate-600"
             }`}
           >
             <motion.div

@@ -1,46 +1,39 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  FolderOpen,
-  Star,
-  Eye,
-  Edit3,
-  Trash2,
-  FileText,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { ArticleCategory } from "./types";
+import { motion } from "framer-motion";
+import { Edit3, FileText, FolderOpen, Star, Trash2 } from "lucide-react";
 import { staggerItem } from "../../MotionVariants";
+import type { ArticleCategory } from "./types";
 
 /* ─── Icon resolver ─── */
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
+  Activity,
   Apple,
   Baby,
-  Activity,
-  Lung,
-  Droplets,
-  Shield,
-  Eye as EyeIcon,
-  Tooth,
-  Bone,
-  Stethoscope,
-  Pill,
-  Microscope,
-  HeartPulse,
-  Syringe,
-  Weight,
   Bath,
+  Bone,
+  Brain,
+  Droplets,
   Ear,
+  Eye as EyeIcon,
   Fingerprint,
-  Venus,
-  Sparkles,
-  Sun,
+  Heart,
+  HeartPulse,
+  Lung,
+  Microscope,
   Moon,
+  Pill,
+  Shield,
+  Sparkles,
+  Stethoscope,
+  Sun,
+  Syringe,
+  Tooth,
+  Venus,
+  Weight,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -138,7 +131,7 @@ export function CategoryCard({
             key={category.id}
             variants={staggerItem}
             className={cn(
-              "dash-card group relative cursor-pointer overflow-hidden p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              "dash-card group relative cursor-pointer overflow-hidden p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
             )}
             onClick={() => onView(category)}
           >
@@ -146,7 +139,7 @@ export function CategoryCard({
             <div
               className={cn(
                 "absolute inset-0 bg-gradient-to-b opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-                colors.gradient
+                colors.gradient,
               )}
             />
 
@@ -166,7 +159,7 @@ export function CategoryCard({
                 "relative flex h-14 w-14 items-center justify-center rounded-2xl ring-1 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg",
                 colors.bg,
                 colors.text,
-                colors.ring
+                colors.ring,
               )}
             >
               <Icon className="h-7 w-7" />
@@ -213,7 +206,7 @@ export function CategoryCard({
                     "rounded-lg p-1.5 transition-colors",
                     category.featured
                       ? "text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30"
-                      : "text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      : "text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700",
                   )}
                   aria-label={
                     category.featured

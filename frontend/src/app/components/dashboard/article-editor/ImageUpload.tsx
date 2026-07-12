@@ -1,8 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { CropIcon, ImageIcon, Replace, Trash2, Upload, X } from "lucide-react";
-import { useState, useRef, useCallback } from "react";
+import { CropIcon, ImageIcon, Replace, Trash2, Upload } from "lucide-react";
+import { useCallback, useRef, useState } from "react";
 
 interface ImageUploadProps {
   value: string;

@@ -1,53 +1,52 @@
 "use client";
 
-import { useMemo, useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpDown,
-  Check,
-  ChevronDown,
-  Eye,
-  Edit3,
-  Trash2,
-  Star,
-  StarOff,
   CalendarDays,
+  ChevronDown,
+  Edit3,
+  Eye,
+  FolderOpen,
   ImageIcon,
   MoreHorizontal,
-  FolderOpen,
+  Star,
+  StarOff,
+  Trash2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import type { ArticleCategory, ViewMode } from "./types";
+import { useEffect, useRef, useState } from "react";
 import { staggerItem } from "../../MotionVariants";
+import type { ArticleCategory } from "./types";
 
 /* ─── Icon resolver ─── */
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
+  Activity,
   Apple,
   Baby,
-  Activity,
-  Lung,
-  Droplets,
-  Shield,
-  Eye as EyeIcon,
-  Tooth,
-  Bone,
-  Stethoscope,
-  Pill,
-  Microscope,
-  HeartPulse,
-  Syringe,
-  Weight,
   Bath,
+  Bone,
+  Brain,
+  Droplets,
   Ear,
+  Eye as EyeIcon,
   Fingerprint,
-  Venus,
-  Sparkles,
-  Sun,
+  Heart,
+  HeartPulse,
+  Lung,
+  Microscope,
   Moon,
+  Pill,
+  Shield,
+  Sparkles,
+  Stethoscope,
+  Sun,
+  Syringe,
+  Tooth,
+  Venus,
+  Weight,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -93,7 +92,12 @@ const COLUMNS: ColumnDef[] = [
   { key: "image", label: "Image", sortable: false, hideOnMobile: true },
   { key: "name", label: "Name", sortable: true },
   { key: "slug", label: "Slug", sortable: true, hideOnMobile: true },
-  { key: "description", label: "Description", sortable: false, hideOnMobile: true },
+  {
+    key: "description",
+    label: "Description",
+    sortable: false,
+    hideOnMobile: true,
+  },
   { key: "articlesCount", label: "Articles", sortable: true },
   { key: "featured", label: "Featured", sortable: true },
   { key: "createdAt", label: "Created", sortable: true, hideOnMobile: true },
@@ -191,7 +195,7 @@ function ActionMenu({
                   "flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-sm transition-colors",
                   item.danger
                     ? "text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950/30"
-                    : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700"
+                    : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700",
                 )}
               >
                 <item.icon className="h-4 w-4" />
@@ -232,7 +236,7 @@ function CategoryRow({
       variants={staggerItem}
       className={cn(
         "group border-b border-slate-100 transition-colors last:border-0 hover:bg-slate-50/50 dark:border-slate-800 dark:hover:bg-slate-800/50",
-        selected && "bg-blue-50/50 dark:bg-blue-950/20"
+        selected && "bg-blue-50/50 dark:bg-blue-950/20",
       )}
     >
       {/* Checkbox */}
@@ -312,9 +316,7 @@ function CategoryRow({
             Featured
           </span>
         ) : (
-          <span className="text-xs text-slate-400 dark:text-slate-500">
-            —
-          </span>
+          <span className="text-xs text-slate-400 dark:text-slate-500">—</span>
         )}
       </td>
 
@@ -429,7 +431,7 @@ export function CategoryTable({
                     col.key === "slug" && "xl:table-cell",
                     col.key === "description" && "2xl:table-cell",
                     col.key === "image" && "lg:table-cell",
-                    col.key === "createdAt" && "lg:table-cell"
+                    col.key === "createdAt" && "lg:table-cell",
                   )}
                 >
                   {col.sortable ? (
@@ -443,7 +445,7 @@ export function CategoryTable({
                         <ChevronDown
                           className={cn(
                             "h-3 w-3 transition-transform",
-                            sortOrder === "asc" && "rotate-180"
+                            sortOrder === "asc" && "rotate-180",
                           )}
                         />
                       )}

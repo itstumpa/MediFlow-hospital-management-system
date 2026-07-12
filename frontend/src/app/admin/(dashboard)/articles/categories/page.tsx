@@ -1,16 +1,14 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus, LayoutList, LayoutGrid } from "lucide-react";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
-import { StatsCards } from "@/app/components/dashboard/articles/categories/StatsCards";
-import { CategoryTable } from "@/app/components/dashboard/articles/categories/CategoryTable";
 import { CategoryCard } from "@/app/components/dashboard/articles/categories/CategoryCard";
-import { CategoryForm } from "@/app/components/dashboard/articles/categories/CategoryForm";
 import type { CategoryFormData } from "@/app/components/dashboard/articles/categories/CategoryForm";
+import { CategoryForm } from "@/app/components/dashboard/articles/categories/CategoryForm";
+import { CategoryTable } from "@/app/components/dashboard/articles/categories/CategoryTable";
 import { DeleteDialog } from "@/app/components/dashboard/articles/categories/DeleteDialog";
 import { EmptyState } from "@/app/components/dashboard/articles/categories/EmptyState";
+import { StatsCards } from "@/app/components/dashboard/articles/categories/StatsCards";
 import { categoriesData } from "@/app/components/dashboard/articles/categories/mock";
 import type {
   ArticleCategory,
@@ -19,11 +17,14 @@ import type {
 } from "@/app/components/dashboard/articles/categories/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/articles/categories/types";
 import { cn } from "@/lib/utils";
-import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import { motion } from "framer-motion";
+import { LayoutGrid, LayoutList, Plus } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 
 export default function ArticleCategoriesPage() {
   /* ─── State ─── */
-  const [categories, setCategories] = useState<ArticleCategory[]>(categoriesData);
+  const [categories, setCategories] =
+    useState<ArticleCategory[]>(categoriesData);
   const [filters, setFilters] = useState<CategoryFiltersType>(DEFAULT_FILTERS);
   const [viewMode, setViewMode] = useState<ViewMode>("table");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -32,8 +33,11 @@ export default function ArticleCategoriesPage() {
 
   /* Modal states */
   const [formOpen, setFormOpen] = useState(false);
-  const [editingCategory, setEditingCategory] = useState<ArticleCategory | null>(null);
-  const [deleteTarget, setDeleteTarget] = useState<ArticleCategory | null>(null);
+  const [editingCategory, setEditingCategory] =
+    useState<ArticleCategory | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<ArticleCategory | null>(
+    null,
+  );
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   /* ─── Filtering & Sorting ─── */
@@ -47,7 +51,7 @@ export default function ArticleCategoriesPage() {
         (c) =>
           c.name.toLowerCase().includes(q) ||
           c.slug.toLowerCase().includes(q) ||
-          c.description.toLowerCase().includes(q)
+          c.description.toLowerCase().includes(q),
       );
     }
 
@@ -72,7 +76,10 @@ export default function ArticleCategoriesPage() {
         case "articlesCount":
           return factor * (a.articlesCount - b.articlesCount);
         case "createdAt":
-          return factor * (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+          return (
+            factor *
+            (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+          );
         default:
           return 0;
       }
@@ -82,7 +89,10 @@ export default function ArticleCategoriesPage() {
   }, [categories, filters]);
 
   /* ─── Pagination ─── */
-  const totalPages = Math.max(1, Math.ceil(filteredCategories.length / rowsPerPage));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredCategories.length / rowsPerPage),
+  );
   const paginatedCategories = useMemo(() => {
     const start = (currentPage - 1) * rowsPerPage;
     return filteredCategories.slice(start, start + rowsPerPage);
@@ -115,17 +125,21 @@ export default function ArticleCategoriesPage() {
   const clearSelection = useCallback(() => setSelectedIds(new Set()), []);
 
   /* ─── Sort handler ─── */
-  const handleSort = useCallback(
-    (key: string) => {
-      setFilters((prev) => {
-        if (prev.sortBy === key) {
-          return { ...prev, sortOrder: prev.sortOrder === "asc" ? "desc" : "asc" };
-        }
-        return { ...prev, sortBy: key as CategoryFiltersType["sortBy"], sortOrder: "asc" };
-      });
-    },
-    []
-  );
+  const handleSort = useCallback((key: string) => {
+    setFilters((prev) => {
+      if (prev.sortBy === key) {
+        return {
+          ...prev,
+          sortOrder: prev.sortOrder === "asc" ? "desc" : "asc",
+        };
+      }
+      return {
+        ...prev,
+        sortBy: key as CategoryFiltersType["sortBy"],
+        sortOrder: "asc",
+      };
+    });
+  }, []);
 
   /* ─── CRUD Handlers ─── */
   const handleCreate = useCallback(() => {
@@ -162,8 +176,8 @@ export default function ArticleCategoriesPage() {
                   seoTitle: data.seoTitle || undefined,
                   seoDescription: data.seoDescription || undefined,
                 }
-              : c
-          )
+              : c,
+          ),
         );
       } else {
         // Create new
@@ -186,7 +200,7 @@ export default function ArticleCategoriesPage() {
       setFormOpen(false);
       setEditingCategory(null);
     },
-    [editingCategory]
+    [editingCategory],
   );
 
   const handleDeleteRequest = useCallback((cat: ArticleCategory) => {
@@ -207,9 +221,7 @@ export default function ArticleCategoriesPage() {
 
   const handleToggleFeature = useCallback((cat: ArticleCategory) => {
     setCategories((prev) =>
-      prev.map((c) =>
-        c.id === cat.id ? { ...c, featured: !c.featured } : c
-      )
+      prev.map((c) => (c.id === cat.id ? { ...c, featured: !c.featured } : c)),
     );
   }, []);
 
@@ -224,10 +236,13 @@ export default function ArticleCategoriesPage() {
       setFilters((prev) => ({ ...prev, search: e.target.value }));
       setCurrentPage(1);
     },
-    []
+    [],
   );
 
-  const hasFilters = filters.search !== "" || filters.status !== "all" || filters.featured !== "all";
+  const hasFilters =
+    filters.search !== "" ||
+    filters.status !== "all" ||
+    filters.featured !== "all";
   const showEmptyState = filteredCategories.length === 0;
   const showContent = !showEmptyState;
 
@@ -347,7 +362,7 @@ export default function ArticleCategoriesPage() {
                 "p-2.5 transition-all",
                 viewMode === "table"
                   ? "bg-blue-600 text-white"
-                  : "bg-white text-slate-500 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
+                  : "bg-white text-slate-500 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800",
               )}
               aria-label="Table view"
             >
@@ -359,7 +374,7 @@ export default function ArticleCategoriesPage() {
                 "p-2.5 transition-all",
                 viewMode === "grid"
                   ? "bg-blue-600 text-white"
-                  : "bg-white text-slate-500 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
+                  : "bg-white text-slate-500 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800",
               )}
               aria-label="Grid view"
             >
@@ -476,12 +491,12 @@ export default function ArticleCategoriesPage() {
                           "flex h-8 w-8 items-center justify-center rounded-lg text-sm font-medium transition-all",
                           currentPage === page
                             ? "bg-blue-600 text-white shadow-sm"
-                            : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+                            : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800",
                         )}
                       >
                         {page}
                       </button>
-                    )
+                    ),
                   )}
 
                   <button

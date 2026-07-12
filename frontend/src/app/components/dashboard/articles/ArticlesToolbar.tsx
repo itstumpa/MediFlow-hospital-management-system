@@ -291,9 +291,7 @@ export function ArticlesToolbar({
                 featured: filters.featured === "featured" ? "all" : "featured",
               })
             }
-            onRemove={() =>
-              onFiltersChange({ ...filters, featured: "all" })
-            }
+            onRemove={() => onFiltersChange({ ...filters, featured: "all" })}
           />
         </div>
 

@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Archive,
-  CheckCircle2,
   Clock,
   Copy,
   Edit3,
@@ -59,8 +58,7 @@ const statusConfig: Record<
     icon: Archive,
   },
   Private: {
-    class:
-      "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
+    class: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
     dot: "bg-rose-500",
     icon: Eye,
   },

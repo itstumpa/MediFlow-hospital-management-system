@@ -1,37 +1,37 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { AlertTriangle, X, FolderOpen } from "lucide-react";
+import { AlertTriangle, FolderOpen, X } from "lucide-react";
 import type { ArticleCategory } from "./types";
 
 /* ─── Icon resolver ─── */
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
+  Activity,
   Apple,
   Baby,
-  Activity,
-  Lung,
-  Droplets,
-  Shield,
-  Eye,
-  Tooth,
-  Bone,
-  Stethoscope,
-  Pill,
-  Microscope,
-  HeartPulse,
-  Syringe,
-  Weight,
   Bath,
+  Bone,
+  Brain,
+  Droplets,
   Ear,
+  Eye,
   Fingerprint,
-  Venus,
-  Sparkles,
-  Sun,
+  Heart,
+  HeartPulse,
+  Lung,
+  Microscope,
   Moon,
+  Pill,
+  Shield,
+  Sparkles,
+  Stethoscope,
+  Sun,
+  Syringe,
+  Tooth,
+  Venus,
+  Weight,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -122,8 +122,8 @@ export function DeleteDialog({
               <span className="font-semibold text-slate-700 dark:text-slate-300">
                 {category.name}
               </span>
-              ? This action cannot be undone. All {category.articlesCount} articles
-              in this category will be uncategorized.
+              ? This action cannot be undone. All {category.articlesCount}{" "}
+              articles in this category will be uncategorized.
             </p>
 
             {/* Category summary */}

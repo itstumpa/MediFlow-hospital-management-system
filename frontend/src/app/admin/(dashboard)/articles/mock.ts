@@ -78,61 +78,71 @@ export const mockCategories: MockCategory[] = [
     id: "cat-1",
     name: "Heart Health",
     slug: "heart-health",
-    description: "Articles about cardiovascular health, heart disease prevention, and cardiac care.",
+    description:
+      "Articles about cardiovascular health, heart disease prevention, and cardiac care.",
   },
   {
     id: "cat-2",
     name: "Neurology",
     slug: "neurology",
-    description: "Brain health, neurological disorders, and cognitive wellness insights.",
+    description:
+      "Brain health, neurological disorders, and cognitive wellness insights.",
   },
   {
     id: "cat-3",
     name: "Pediatrics",
     slug: "pediatrics",
-    description: "Children's health, developmental milestones, and pediatric care guidance.",
+    description:
+      "Children's health, developmental milestones, and pediatric care guidance.",
   },
   {
     id: "cat-4",
     name: "Orthopedics",
     slug: "orthopedics",
-    description: "Bone health, joint care, sports injuries, and orthopedic treatments.",
+    description:
+      "Bone health, joint care, sports injuries, and orthopedic treatments.",
   },
   {
     id: "cat-5",
     name: "Dermatology",
     slug: "dermatology",
-    description: "Skin health, dermatological conditions, and cosmetic treatments.",
+    description:
+      "Skin health, dermatological conditions, and cosmetic treatments.",
   },
   {
     id: "cat-6",
     name: "Mental Health",
     slug: "mental-health",
-    description: "Mental wellness, therapy approaches, and psychological health resources.",
+    description:
+      "Mental wellness, therapy approaches, and psychological health resources.",
   },
   {
     id: "cat-7",
     name: "Nutrition",
     slug: "nutrition",
-    description: "Dietary guidance, nutritional science, and healthy eating habits.",
+    description:
+      "Dietary guidance, nutritional science, and healthy eating habits.",
   },
   {
     id: "cat-8",
     name: "Preventive Care",
     slug: "preventive-care",
-    description: "Preventive medicine, screenings, vaccinations, and wellness checkups.",
+    description:
+      "Preventive medicine, screenings, vaccinations, and wellness checkups.",
   },
   {
     id: "cat-9",
     name: "Women's Health",
     slug: "womens-health",
-    description: "Women's health issues, reproductive health, and gender-specific care.",
+    description:
+      "Women's health issues, reproductive health, and gender-specific care.",
   },
   {
     id: "cat-10",
     name: "Men's Health",
     slug: "mens-health",
-    description: "Men's health concerns, preventive care, and wellness strategies.",
+    description:
+      "Men's health concerns, preventive care, and wellness strategies.",
   },
 ];
 

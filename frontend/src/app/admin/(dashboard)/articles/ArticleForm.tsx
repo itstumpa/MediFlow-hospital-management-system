@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  ArticlePreview,
+  ConfirmDialog,
+  ImageUpload,
+  PublishingSection,
+  RelatedContent,
+  RichTextEditor,
+  SEOSection,
+} from "@/app/components/dashboard/article-editor";
 import { Breadcrumb } from "@/app/components/dashboard/Breadcrumb";
 import { pageFade } from "@/lib/animations/pageTransition";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
@@ -11,7 +20,6 @@ import {
   Eye,
   FileText,
   Globe,
-  ImageIcon,
   Layout,
   Link2,
   Save,
@@ -22,15 +30,6 @@ import {
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import {
-  ImageUpload,
-  RichTextEditor,
-  SEOSection,
-  PublishingSection,
-  RelatedContent,
-  ArticlePreview,
-  ConfirmDialog,
-} from "@/app/components/dashboard/article-editor";
 import {
   articleFormSchema,
   defaultFormValues,
@@ -299,9 +298,7 @@ export function ArticleForm({
                     <div className="group relative">
                       <input
                         value={formValues.title}
-                        onChange={(e) =>
-                          updateField("title", e.target.value)
-                        }
+                        onChange={(e) => updateField("title", e.target.value)}
                         placeholder="Enter an attention-grabbing title..."
                         className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 group-focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.15)] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
                       />
@@ -321,9 +318,7 @@ export function ArticleForm({
                     <div className="group relative">
                       <input
                         value={formValues.slug}
-                        onChange={(e) =>
-                          updateField("slug", e.target.value)
-                        }
+                        onChange={(e) => updateField("slug", e.target.value)}
                         placeholder="article-url-slug"
                         className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-44 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
                       />
@@ -356,9 +351,7 @@ export function ArticleForm({
                     </div>
                     <textarea
                       value={formValues.excerpt}
-                      onChange={(e) =>
-                        updateField("excerpt", e.target.value)
-                      }
+                      onChange={(e) => updateField("excerpt", e.target.value)}
                       placeholder="Write a brief summary of your article..."
                       rows={3}
                       className="dash-input w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
@@ -419,9 +412,7 @@ export function ArticleForm({
 
                 <RichTextEditor
                   value={formValues.content}
-                  onChange={(blocks) =>
-                    updateField("content", blocks)
-                  }
+                  onChange={(blocks) => updateField("content", blocks)}
                 />
               </motion.div>
 
@@ -539,12 +530,8 @@ export function ArticleForm({
                       "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
                       "disabled:cursor-not-allowed disabled:opacity-60",
                     )}
-                    whileHover={
-                      isSubmitting ? {} : { scale: 1.02 }
-                    }
-                    whileTap={
-                      isSubmitting ? {} : { scale: 0.98 }
-                    }
+                    whileHover={isSubmitting ? {} : { scale: 1.02 }}
+                    whileTap={isSubmitting ? {} : { scale: 0.98 }}
                   >
                     {isSubmitting ? (
                       <>
@@ -582,9 +569,7 @@ export function ArticleForm({
                     ) : (
                       <>
                         <FileText className="h-4 w-4" />
-                        {isEdit
-                          ? "Update Article"
-                          : "Publish Article"}
+                        {isEdit ? "Update Article" : "Publish Article"}
                       </>
                     )}
                   </motion.button>

@@ -2,9 +2,9 @@
 
 import { Plus, X } from "lucide-react";
 import {
-  mockRelatedArticles,
   mockDepartments,
   mockDoctors,
+  mockRelatedArticles,
 } from "../../../admin/(dashboard)/articles/mock";
 
 interface RelatedContentProps {
@@ -104,9 +104,7 @@ function MultiSelect<T extends { id: string }>({
   getLabel: (item: T) => string;
   getId: (item: T) => string;
 }) {
-  const available = items.filter(
-    (item) => !selectedIds.includes(getId(item)),
-  );
+  const available = items.filter((item) => !selectedIds.includes(getId(item)));
 
   return (
     <div className="space-y-2">

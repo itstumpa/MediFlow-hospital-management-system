@@ -40,18 +40,15 @@ export function ConfirmDialog({
   const variantStyles = {
     danger: {
       icon: "text-red-500 bg-red-100 dark:bg-red-900/30",
-      button:
-        "bg-red-600 hover:bg-red-700 focus:ring-red-500 text-white",
+      button: "bg-red-600 hover:bg-red-700 focus:ring-red-500 text-white",
     },
     warning: {
       icon: "text-amber-500 bg-amber-100 dark:bg-amber-900/30",
-      button:
-        "bg-amber-600 hover:bg-amber-700 focus:ring-amber-500 text-white",
+      button: "bg-amber-600 hover:bg-amber-700 focus:ring-amber-500 text-white",
     },
     info: {
       icon: "text-blue-500 bg-blue-100 dark:bg-blue-900/30",
-      button:
-        "bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 text-white",
+      button: "bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 text-white",
     },
   };
 

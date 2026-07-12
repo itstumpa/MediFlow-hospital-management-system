@@ -111,7 +111,11 @@ export const articleFormSchema = z.object({
   metaTitle: z.string().max(70).optional(),
   metaDescription: z.string().max(160).optional(),
   keywords: z.array(z.string()).default([]),
-  canonicalUrl: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+  canonicalUrl: z
+    .string()
+    .url("Must be a valid URL")
+    .optional()
+    .or(z.literal("")),
   ogImage: z.string().optional(),
 
   // Publishing

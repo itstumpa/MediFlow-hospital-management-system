@@ -1,9 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
-import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import {
   ArticleCard,
@@ -23,10 +19,13 @@ import type {
   ViewMode,
 } from "@/app/components/dashboard/articles/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/articles/types";
+import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
+import Link from "next/link";
+import { useCallback, useMemo, useState } from "react";
 
 export default function ArticlesPage() {
-  const [filters, setFilters] =
-    useState<ArticleFiltersType>(DEFAULT_FILTERS);
+  const [filters, setFilters] = useState<ArticleFiltersType>(DEFAULT_FILTERS);
   const [viewMode, setViewMode] = useState<ViewMode>("table");
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -450,9 +449,7 @@ export default function ArticlesPage() {
 
                         <button
                           onClick={() =>
-                            setCurrentPage((p) =>
-                              Math.min(totalPages, p + 1),
-                            )
+                            setCurrentPage((p) => Math.min(totalPages, p + 1))
                           }
                           disabled={currentPage === totalPages}
                           className="rounded-lg border border-slate-200 p-2 text-slate-600 transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700"

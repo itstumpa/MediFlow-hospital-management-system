@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Eye, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
 
 interface SEOSectionProps {
@@ -13,7 +13,8 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
   const metaTitle = values.metaTitle || values.title || "Meta Title";
   const metaDesc =
     values.metaDescription || values.excerpt || "Meta description";
-  const metaTitleFull = metaTitle.length > 60 ? `${metaTitle.slice(0, 57)}...` : metaTitle;
+  const metaTitleFull =
+    metaTitle.length > 60 ? `${metaTitle.slice(0, 57)}...` : metaTitle;
 
   return (
     <div className="space-y-6">

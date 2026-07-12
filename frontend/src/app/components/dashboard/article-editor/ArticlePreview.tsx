@@ -11,12 +11,12 @@ import {
   Star,
   User,
 } from "lucide-react";
+import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
 import {
   mockAuthors,
   mockCategories,
   mockTags,
 } from "../../../admin/(dashboard)/articles/mock";
-import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
 
 interface ArticlePreviewProps {
   values: ArticleFormValues;
@@ -178,8 +178,7 @@ export function ArticlePreview({ values }: ArticlePreviewProps) {
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    draft:
-      "bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-400",
+    draft: "bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-400",
     published:
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
     scheduled:
