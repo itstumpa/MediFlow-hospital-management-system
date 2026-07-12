@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-primary: #0e7c7b;
   --color-primary-dark: #0a5f5e;
@@ -13,8 +15,35 @@
   --color-warning: #f59e0b;
   --color-danger: #dc2626;
   --color-info: #3b82f6;
+
+  /* Dashboard-specific tokens */
+  --color-dash-primary: #2563eb;
+  --color-dash-primary-dark: #1d4ed8;
+  --color-dash-primary-light: #dbeafe;
+  --color-dash-bg: #f1f5f9;
+  --color-dash-surface: #ffffff;
+  --color-dash-border: #e2e8f0;
+  --color-dash-text: #0f172a;
+  --color-dash-text-secondary: #64748b;
+  --color-dash-sidebar: #ffffff;
+  --color-dash-sidebar-hover: #f1f5f9;
+  --color-dash-sidebar-active: #eff6ff;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --container-page: 1440px;
+}
+
+/* Dark mode theme overrides */
+.dark {
+  --color-dash-bg: #0f172a;
+  --color-dash-surface: #1e293b;
+  --color-dash-border: #334155;
+  --color-dash-text: #f1f5f9;
+  --color-dash-text-secondary: #94a3b8;
+  --color-dash-sidebar: #1e293b;
+  --color-dash-sidebar-hover: #334155;
+  --color-dash-sidebar-active: #1e3a5f;
+  --color-dash-primary-light: #1e3a5f;
 }
 
 body {
@@ -60,7 +89,94 @@ html {
   outline-offset: 2px;
 }
 
-/* Reduced motion — disable all non-essential animations */
+/* ============================================
+   Dashboard — Utility classes
+   ============================================ */
+@utility dash-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .dash-glass {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+@utility dash-card {
+  background: var(--color-dash-surface);
+  border: 1px solid var(--color-dash-border);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+@utility dash-card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.dash-card-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+@utility dash-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dash-border) transparent;
+}
+.dash-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.dash-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dash-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-dash-border);
+  border-radius: 9999px;
+}
+.dash-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dash-text-secondary);
+}
+
+/* ============================================
+   Keyframe animations
+   ============================================ */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   Skeleton shimmer utility
+   ============================================ */
+@utility skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-dash-border) 25%,
+    var(--color-dash-bg) 50%,
+    var(--color-dash-border) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -75,7 +191,6 @@ html {
     scroll-behavior: auto;
   }
 
-  /* Allow essential animations (e.g. progress bar, loading) to still function at minimal level */
   .essential-animation {
     animation-duration: 0.5s !important;
   }

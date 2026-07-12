@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function CTAButtons() {
   return (
-    <div className="hidden items-center gap-3 md:flex">
+    <div className="hidden items-center gap-4 md:flex md:ml-8">
       <Button variant="outline" size="sm" href="/auth/login">
         Login
       </Button>
