@@ -1,69 +1,67 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { format, formatDistanceToNow } from "date-fns";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState, useMemo } from "react";
 import {
-  X,
-  Copy,
-  Download,
-  ChevronDown,
-  ChevronUp,
-  User,
-  Mail,
-  Globe,
-  Smartphone,
-  Monitor,
-  Clock,
-  MapPin,
-  Shield,
   Activity,
+  AlertCircle,
+  BarChart3,
+  Bell,
+  Building2,
+  Calendar,
+  CheckCircle,
+  ChevronRight,
+  Clock,
+  Copy,
+  CreditCard,
   Database,
-  Server,
+  Download,
+  Edit,
+  Eye,
+  FileText,
+  Globe,
+  Key,
   Lock,
-  Unlock,
   LogIn,
   LogOut,
-  UserPlus,
-  UserMinus,
-  UserCheck,
-  UserX,
-  Edit,
-  Trash2,
-  RefreshCw,
-  Zap,
-  Eye,
-  Key,
-  Upload,
-  Calendar,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
-  MoreHorizontal,
-  Tablet,
-  Settings,
-  Users,
-  Stethoscope,
-  Building2,
-  FileText,
+  Mail,
+  MapPin,
   MessageSquare,
-  Bell,
-  CreditCard,
-  BarChart3,
+  Monitor,
+  RefreshCw,
+  Server,
+  Settings,
+  Shield,
+  Smartphone,
+  Stethoscope,
+  Tablet,
+  Trash2,
+  Upload,
+  User,
+  UserCheck,
+  UserMinus,
+  UserPlus,
+  Users,
+  UserX,
+  X,
+  Zap,
 } from "lucide-react";
-import type {
-  ActivityLog,
-  ActivitySeverity,
-  ActivityStatus,
-  ActivityActionType,
-  ActivityModule,
-} from "./types";
 import {
-  SeverityBadge,
-  StatusBadge,
   ActionBadge,
   ModuleBadge,
+  RoleBadge,
+  SeverityBadge,
+  StatusBadge,
 } from "./SeverityBadge";
-import { format, formatDistanceToNow } from "date-fns";
+import type {
+  ActivityActionType,
+  ActivityLog,
+  ActivityModule,
+  ActivitySeverity,
+  ActivityStatus,
+} from "./types";
 
 interface ActivityDrawerProps {
   log: ActivityLog | null;
@@ -357,7 +355,7 @@ export function ActivityDrawer({
                   <StatusBadge status={log.status} size="md" />
                 </div>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  {log.userName} • {log.userEmail} • {log.module} /{" "}
+                  {log.user.name} • {log.user.email} • {log.module} /{" "}
                   {log.action.replace("_", " ")}
                 </p>
               </div>
@@ -450,26 +448,26 @@ export function ActivityDrawer({
                 <DetailRow label="Name">
                   <div className="flex items-center gap-2">
                     <User className="h-4 w-4 text-slate-400" />
-                    <span>{log.userName}</span>
+                    <span>{log.user.name}</span>
                   </div>
                 </DetailRow>
                 <DetailRow label="Email">
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-slate-400" />
                     <a
-                      href={`mailto:${log.userEmail}`}
+                      href={`mailto:${log.user.email}`}
                       className="text-blue-600 hover:underline"
                     >
-                      {log.userEmail}
+                      {log.user.email}
                     </a>
                   </div>
                 </DetailRow>
                 <DetailRow label="Role">
-                  <RoleBadge role={log.userRole} size="md" />
+                  <RoleBadge role={log.user.role} size="md" />
                 </DetailRow>
                 <DetailRow label="User ID">
                   <code className="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
-                    {log.userId}
+                    {log.user.id}
                   </code>
                 </DetailRow>
               </div>
@@ -501,26 +499,26 @@ export function ActivityDrawer({
                 </DetailRow>
                 <DetailRow label="Browser">
                   <div className="flex items-center gap-2">
-                    {getBrowserIcon(log.browser)}
-                    <span>{log.browser}</span>
+                    {getBrowserIcon(log.device?.browser || "")}
+                    <span>{log.device?.browser || "Unknown"}</span>
                   </div>
                 </DetailRow>
                 <DetailRow label="Device">
                   <div className="flex items-center gap-2">
-                    {getDeviceIcon(log.device)}
-                    <span>{log.device}</span>
+                    {getDeviceIcon(log.device?.device || "desktop")}
+                    <span>{log.device?.device || "Unknown"}</span>
                   </div>
                 </DetailRow>
                 <DetailRow label="OS" className="sm:col-span-2">
                   <code className="font-mono text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
-                    {log.os}
+                    {log.device?.os || "Unknown"}
                   </code>
                 </DetailRow>
               </div>
             </DetailSection>
 
             {/* Related Entities */}
-            {log.relatedEntities.length > 0 && (
+            {log.relatedEntities && log.relatedEntities.length > 0 && (
               <DetailSection title="Related Entities">
                 <div className="flex flex-wrap gap-2">
                   {log.relatedEntities.map((entity, index) => (
@@ -537,7 +535,7 @@ export function ActivityDrawer({
             )}
 
             {/* Metadata */}
-            {Object.keys(log.metadata).length > 0 && (
+            {log.metadata && Object.keys(log.metadata).length > 0 && (
               <DetailSection title="Metadata">
                 <JsonViewer data={log.metadata} title="Metadata" collapsed />
               </DetailSection>

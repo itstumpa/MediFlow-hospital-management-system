@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Eye, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
 
 interface SEOSectionProps {

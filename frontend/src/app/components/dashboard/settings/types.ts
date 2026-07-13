@@ -1,3 +1,12 @@
+import {
+  AlertTriangle,
+  Database,
+  Key,
+  Settings,
+  Trash2,
+  UserX,
+} from "lucide-react";
+
 export type SettingsSection =
   | "general"
   | "appearance"
@@ -59,7 +68,8 @@ export const SETTINGS_NAV: SettingsNavItem[] = [
     id: "integrations",
     label: "Integrations",
     icon: "Plug",
-    description: "Google Calendar, Zoom, Stripe, PayPal, Twilio, Maps, Cloudinary",
+    description:
+      "Google Calendar, Zoom, Stripe, PayPal, Twilio, Maps, Cloudinary",
   },
   {
     id: "backup",
@@ -183,7 +193,7 @@ export interface PasswordPolicy {
   requireUppercase: boolean;
   requireLowercase: boolean;
   requireNumbers: boolean;
-  requireSymbols: boolean;
+  requireSpecialChars: boolean;
   maxAge: number;
   preventReuse: number;
 }
@@ -191,7 +201,8 @@ export interface PasswordPolicy {
 export interface TrustedDevice {
   id: string;
   name: string;
-  lastUsed: string;
+  lastActive: string;
+  ip: string;
   current: boolean;
 }
 
@@ -209,6 +220,7 @@ export interface IntegrationSettings {
 export interface IntegrationConfig {
   enabled: boolean;
   connected: boolean;
+  status?: "connected" | "disconnected" | "error";
   apiKey?: string;
   apiSecret?: string;
   publishableKey?: string;
@@ -233,17 +245,22 @@ export interface BackupSettings {
   backups: BackupRecord[];
   schedule: BackupSchedule;
   history: BackupHistoryItem[];
-  storageUsed: string;
-  storageLimit: string;
+  storageUsed: number;
+  storageLimit: number;
   storageProvider: "local" | "s3" | "gcs" | "azure";
-  encryptionEnabled: boolean;
+  encryptBackups: boolean;
+  verifyBackups: boolean;
   lastBackupStatus: "completed" | "failed" | "in_progress" | "never";
 }
 
 export interface BackupSchedule {
+  enabled: boolean;
   frequency: "daily" | "weekly" | "monthly";
   time: string;
   timezone: string;
+  retention: number;
+  compression: "none" | "gzip" | "brotli";
+  include: Record<string, boolean>;
   retentionDays: number;
   compressionEnabled: boolean;
 }
@@ -328,6 +345,21 @@ export interface Subscription {
   interval: "month" | "year";
   currentPeriodEnd: string;
   cancelAtPeriodEnd: boolean;
+}
+
+export interface SubscriptionPlan {
+  id: string;
+  name: string;
+  price: number;
+  interval: "month" | "year";
+  features: string[];
+  limits: {
+    patients: number;
+    appointments: number;
+    storage: number;
+    users: number;
+  };
+  popular: boolean;
 }
 
 export interface PaymentMethod {
@@ -443,31 +475,59 @@ export const MOCK_NOTIFICATIONS: NotificationSettings = {
   pushNotifications: true,
   browserNotifications: false,
   emailTypes: [
-    { id: "appointment_confirmed", label: "Appointment Confirmed", enabled: true },
-    { id: "appointment_reminder", label: "Appointment Reminder (24h)", enabled: true },
-    { id: "appointment_cancelled", label: "Appointment Cancelled", enabled: true },
+    {
+      id: "appointment_confirmed",
+      label: "Appointment Confirmed",
+      enabled: true,
+    },
+    {
+      id: "appointment_reminder",
+      label: "Appointment Reminder (24h)",
+      enabled: true,
+    },
+    {
+      id: "appointment_cancelled",
+      label: "Appointment Cancelled",
+      enabled: true,
+    },
     { id: "new_message", label: "New Contact Message", enabled: true },
     { id: "system_alerts", label: "System Alerts", enabled: true },
     { id: "weekly_report", label: "Weekly Analytics Report", enabled: false },
   ],
   smsTypes: [
-    { id: "appointment_reminder", label: "Appointment Reminder (2h)", enabled: true },
-    { id: "appointment_confirmed", label: "Appointment Confirmed", enabled: false },
+    {
+      id: "appointment_reminder",
+      label: "Appointment Reminder (2h)",
+      enabled: true,
+    },
+    {
+      id: "appointment_confirmed",
+      label: "Appointment Confirmed",
+      enabled: false,
+    },
     { id: "otp_verification", label: "OTP Verification", enabled: true },
   ],
 };
 
 export const MOCK_APPOINTMENTS: AppointmentSettings = {
-  workingDays: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+  workingDays: [1, 2, 3, 4, 5],
   slotDuration: 15,
   defaultConsultationTime: 30,
   cancellationWindow: 24,
   bookingRules: [
-    { id: "advance_booking", label: "Allow booking up to 90 days in advance", enabled: true },
+    {
+      id: "advance_booking",
+      label: "Allow booking up to 90 days in advance",
+      enabled: true,
+    },
     { id: "same_day", label: "Allow same-day appointments", enabled: true },
     { id: "double_booking", label: "Prevent double booking", enabled: true },
     { id: "min_notice", label: "Require 2-hour minimum notice", enabled: true },
-    { id: "patient_limit", label: "Limit to 3 appointments per patient per week", enabled: false },
+    {
+      id: "patient_limit",
+      label: "Limit to 3 appointments per patient per week",
+      enabled: false,
+    },
   ],
 };
 
@@ -478,22 +538,42 @@ export const MOCK_SECURITY: SecuritySettings = {
     requireUppercase: true,
     requireLowercase: true,
     requireNumbers: true,
-    requireSymbols: true,
-    expiryDays: 90,
+    requireSpecialChars: true,
+    maxAge: 90,
     preventReuse: 5,
   },
   sessionTimeout: 30,
   maxLoginAttempts: 5,
+  lockoutDuration: 15,
   trustedDevices: [
-    { id: "1", name: "MacBook Pro - Chrome", lastUsed: "2024-01-15T10:30:00Z", ip: "192.168.1.100" },
-    { id: "2", name: "iPhone 15 - Safari", lastUsed: "2024-01-14T18:45:00Z", ip: "192.168.1.101" },
-    { id: "3", name: "iPad Air - Safari", lastUsed: "2024-01-10T09:15:00Z", ip: "192.168.1.102" },
+    {
+      id: "1",
+      name: "MacBook Pro - Chrome",
+      lastActive: "2024-01-15T10:30:00Z",
+      ip: "192.168.1.100",
+      current: true,
+    },
+    {
+      id: "2",
+      name: "iPhone 15 - Safari",
+      lastActive: "2024-01-14T18:45:00Z",
+      ip: "192.168.1.101",
+      current: false,
+    },
+    {
+      id: "3",
+      name: "iPad Air - Safari",
+      lastActive: "2024-01-10T09:15:00Z",
+      ip: "192.168.1.102",
+      current: false,
+    },
   ],
 };
 
 export const MOCK_INTEGRATIONS: IntegrationSettings = {
   googleCalendar: {
     enabled: true,
+    connected: true,
     apiKey: "AIzaSyC...",
     secretKey: "GOCSPX...",
     webhookUrl: "https://api.mediflow.example.com/webhooks/google-calendar",
@@ -501,6 +581,7 @@ export const MOCK_INTEGRATIONS: IntegrationSettings = {
   },
   zoom: {
     enabled: true,
+    connected: true,
     apiKey: "ZOOM_API_KEY...",
     secretKey: "ZOOM_SECRET...",
     webhookUrl: "https://api.mediflow.example.com/webhooks/zoom",
@@ -508,6 +589,7 @@ export const MOCK_INTEGRATIONS: IntegrationSettings = {
   },
   stripe: {
     enabled: true,
+    connected: true,
     apiKey: "sk_live_...",
     secretKey: "whsec_...",
     webhookUrl: "https://api.mediflow.example.com/webhooks/stripe",
@@ -515,6 +597,7 @@ export const MOCK_INTEGRATIONS: IntegrationSettings = {
   },
   paypal: {
     enabled: false,
+    connected: false,
     apiKey: "",
     secretKey: "",
     webhookUrl: "https://api.mediflow.example.com/webhooks/paypal",
@@ -522,6 +605,7 @@ export const MOCK_INTEGRATIONS: IntegrationSettings = {
   },
   twilio: {
     enabled: true,
+    connected: true,
     apiKey: "AC...",
     secretKey: "auth_token...",
     webhookUrl: "https://api.mediflow.example.com/webhooks/twilio",
@@ -529,6 +613,7 @@ export const MOCK_INTEGRATIONS: IntegrationSettings = {
   },
   googleMaps: {
     enabled: true,
+    connected: true,
     apiKey: "AIzaSyB...",
     secretKey: "",
     webhookUrl: "",
@@ -536,6 +621,7 @@ export const MOCK_INTEGRATIONS: IntegrationSettings = {
   },
   cloudinary: {
     enabled: true,
+    connected: true,
     apiKey: "123456789...",
     secretKey: "abcdef...",
     webhookUrl: "https://api.mediflow.example.com/webhooks/cloudinary",
@@ -549,15 +635,117 @@ export const MOCK_BACKUP: BackupSettings = {
   retentionDays: 30,
   lastBackup: "2024-01-15T02:00:00Z",
   nextBackup: "2024-01-16T02:00:00Z",
+  backups: [
+    {
+      id: "1",
+      date: "2024-01-15T02:00:00Z",
+      size: "2.4 GB",
+      status: "completed",
+    },
+    {
+      id: "2",
+      date: "2024-01-14T02:00:00Z",
+      size: "2.3 GB",
+      status: "completed",
+    },
+    {
+      id: "3",
+      date: "2024-01-13T02:00:00Z",
+      size: "2.3 GB",
+      status: "completed",
+    },
+    {
+      id: "4",
+      date: "2024-01-12T02:00:00Z",
+      size: "2.2 GB",
+      status: "completed",
+    },
+    {
+      id: "5",
+      date: "2024-01-11T02:00:00Z",
+      size: "2.2 GB",
+      status: "completed",
+    },
+  ],
+  schedule: {
+    enabled: true,
+    frequency: "daily",
+    time: "02:00",
+    timezone: "America/New_York",
+    retention: 30,
+    compression: "gzip",
+    include: { database: true, files: true, config: true, logs: true },
+    retentionDays: 30,
+    compressionEnabled: true,
+  },
+  history: [
+    {
+      id: "bk_1",
+      type: "auto",
+      status: "completed",
+      size: "2.4 GB",
+      startedAt: "2024-01-15T02:00:00Z",
+      completedAt: "2024-01-15T02:15:00Z",
+      duration: "15m",
+    },
+    {
+      id: "bk_2",
+      type: "auto",
+      status: "completed",
+      size: "2.3 GB",
+      startedAt: "2024-01-14T02:00:00Z",
+      completedAt: "2024-01-14T02:12:00Z",
+      duration: "12m",
+    },
+    {
+      id: "bk_3",
+      type: "manual",
+      status: "completed",
+      size: "1.8 GB",
+      startedAt: "2024-01-13T14:30:00Z",
+      completedAt: "2024-01-13T14:45:00Z",
+      duration: "15m",
+    },
+    {
+      id: "bk_4",
+      type: "auto",
+      status: "completed",
+      size: "2.3 GB",
+      startedAt: "2024-01-13T02:00:00Z",
+      completedAt: "2024-01-13T02:14:00Z",
+      duration: "14m",
+    },
+    {
+      id: "bk_5",
+      type: "auto",
+      status: "failed",
+      size: "0",
+      startedAt: "2024-01-12T02:00:00Z",
+      completedAt: "2024-01-12T02:05:00Z",
+      duration: "5m",
+    },
+  ],
+  storageUsed: 12.5,
+  storageLimit: 100,
+  storageProvider: "s3",
+  encryptBackups: true,
+  verifyBackups: true,
+  lastBackupStatus: "completed",
 };
 
 export const MOCK_API: APISettings = {
-  apiKeys: [
+  keys: [
     {
       id: "key_1",
       name: "Production API Key",
       key: "mf_live_abc123...",
-      permissions: ["read:patients", "write:appointments", "read:doctors"],
+      prefix: "mf_live",
+      scopes: [
+        "patients:read",
+        "patients:write",
+        "appointments:read",
+        "appointments:write",
+      ],
       createdAt: "2024-01-01T00:00:00Z",
       lastUsed: "2024-01-15T10:30:00Z",
       status: "active",
@@ -566,7 +754,8 @@ export const MOCK_API: APISettings = {
       id: "key_2",
       name: "Development API Key",
       key: "mf_dev_xyz789...",
-      permissions: ["read:all", "write:all"],
+      prefix: "mf_dev",
+      scopes: ["patients:read", "appointments:read"],
       createdAt: "2024-01-10T00:00:00Z",
       lastUsed: "2024-01-14T15:20:00Z",
       status: "active",
@@ -575,7 +764,8 @@ export const MOCK_API: APISettings = {
       id: "key_3",
       name: "Legacy API Key (Revoked)",
       key: "mf_old_...",
-      permissions: ["read:patients"],
+      prefix: "mf_old",
+      scopes: ["patients:read"],
       createdAt: "2023-06-01T00:00:00Z",
       lastUsed: "2023-12-01T00:00:00Z",
       status: "revoked",
@@ -584,42 +774,141 @@ export const MOCK_API: APISettings = {
   webhooks: [
     {
       id: "wh_1",
+      name: "Appointment Webhooks",
       url: "https://webhook.example.com/mediflow",
       events: ["appointment.created", "appointment.updated", "patient.created"],
       secret: "whsec_abc123...",
-      enabled: true,
+      active: true,
       createdAt: "2024-01-05T00:00:00Z",
     },
     {
       id: "wh_2",
+      name: "Analytics Webhooks",
       url: "https://analytics.example.com/events",
       events: ["*"],
       secret: "whsec_xyz789...",
-      enabled: true,
+      active: true,
       createdAt: "2024-01-10T00:00:00Z",
     },
   ],
   rateLimits: [
-    { endpoint: "/api/patients", limit: 100, window: "1m" },
-    { endpoint: "/api/appointments", limit: 50, window: "1m" },
-    { endpoint: "/api/doctors", limit: 200, window: "1m" },
-    { endpoint: "/api/messages", limit: 30, window: "1m" },
+    {
+      id: "1",
+      endpoint: "/api/patients",
+      method: "GET",
+      requests: 100,
+      window: 60,
+      action: "throttle",
+    },
+    {
+      id: "2",
+      endpoint: "/api/appointments",
+      method: "POST",
+      requests: 50,
+      window: 60,
+      action: "throttle",
+    },
+    {
+      id: "3",
+      endpoint: "/api/doctors",
+      method: "GET",
+      requests: 200,
+      window: 60,
+      action: "throttle",
+    },
+    {
+      id: "4",
+      endpoint: "/api/messages",
+      method: "POST",
+      requests: 30,
+      window: 60,
+      action: "block",
+    },
   ],
+  globalRateLimit: {
+    enabled: true,
+    requestsPerMinute: 100,
+    requestsPerHour: 1000,
+    requestsPerDay: 10000,
+  },
 };
 
 export const MOCK_BILLING: BillingSettings = {
-  plan: "pro",
-  billingCycle: "monthly",
-  paymentMethod: {
-    type: "card",
-    last4: "4242",
-    brand: "Visa",
-    expiry: "12/2026",
+  subscription: {
+    plan: "professional",
+    status: "active",
+    interval: "month",
+    currentPeriodEnd: "2024-02-01T00:00:00Z",
+    cancelAtPeriodEnd: false,
   },
+  paymentMethods: [
+    {
+      id: "pm_1",
+      type: "card",
+      brand: "Visa",
+      last4: "4242",
+      expiryMonth: 12,
+      expiryYear: 2026,
+      isDefault: true,
+    },
+    {
+      id: "pm_2",
+      type: "card",
+      brand: "Mastercard",
+      last4: "5555",
+      expiryMonth: 6,
+      expiryYear: 2025,
+      isDefault: false,
+    },
+  ],
+  autoPayEnabled: true,
+  paymentRetryAttempts: 3,
+  paymentRetryInterval: 3,
+  sendPaymentReceipts: true,
   invoices: [
-    { id: "inv_1", date: "2024-01-01", amount: 199, status: "paid", pdfUrl: "#" },
-    { id: "inv_2", date: "2023-12-01", amount: 199, status: "paid", pdfUrl: "#" },
-    { id: "inv_3", date: "2023-11-01", amount: 199, status: "paid", pdfUrl: "#" },
+    {
+      id: "inv_001",
+      number: "INV-2024-001",
+      date: "2024-01-01",
+      amount: 99,
+      status: "paid",
+      plan: "professional",
+      pdfUrl: "#",
+    },
+    {
+      id: "inv_002",
+      number: "INV-2023-012",
+      date: "2023-12-01",
+      amount: 99,
+      status: "paid",
+      plan: "professional",
+      pdfUrl: "#",
+    },
+    {
+      id: "inv_003",
+      number: "INV-2023-011",
+      date: "2023-11-01",
+      amount: 99,
+      status: "paid",
+      plan: "professional",
+      pdfUrl: "#",
+    },
+  ],
+  contacts: [
+    {
+      id: "contact_1",
+      name: "Dr. Sarah Johnson",
+      email: "sarah@mediflow.example.com",
+      role: "billing",
+      notifications: true,
+    },
+    {
+      id: "contact_2",
+      name: "Admin User",
+      email: "admin@mediflow.example.com",
+      role: "admin",
+      notifications: true,
+    },
   ],
 };
 
@@ -627,10 +916,12 @@ export const MOCK_DANGER: DangerZoneActions = {
   clearCache: {
     id: "clearCache",
     label: "Clear Cache",
-    description: "Clear all cached data including API responses, images, and temporary files. This may temporarily slow down the application.",
+    description:
+      "Clear all cached data including API responses, images, and temporary files. This may temporarily slow down the application.",
     icon: Database,
     color: "amber",
-    bgColor: "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
+    bgColor:
+      "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
     borderColor: "border-amber-200 dark:border-amber-900/30",
     confirmText: "CLEAR CACHE",
     destructive: false,
@@ -639,10 +930,12 @@ export const MOCK_DANGER: DangerZoneActions = {
   resetSettings: {
     id: "resetSettings",
     label: "Reset All Settings",
-    description: "Reset all configuration settings to their default values. This cannot be undone and will affect all users.",
+    description:
+      "Reset all configuration settings to their default values. This cannot be undone and will affect all users.",
     icon: Settings,
     color: "orange",
-    bgColor: "bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400",
+    bgColor:
+      "bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400",
     borderColor: "border-orange-200 dark:border-orange-900/30",
     confirmText: "RESET SETTINGS",
     destructive: true,
@@ -651,7 +944,8 @@ export const MOCK_DANGER: DangerZoneActions = {
   deleteLogs: {
     id: "deleteLogs",
     label: "Delete Audit Logs",
-    description: "Permanently delete all audit logs and activity history. This action is irreversible and may affect compliance requirements.",
+    description:
+      "Permanently delete all audit logs and activity history. This action is irreversible and may affect compliance requirements.",
     icon: Trash2,
     color: "red",
     bgColor: "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",
@@ -663,10 +957,12 @@ export const MOCK_DANGER: DangerZoneActions = {
   anonymizeData: {
     id: "anonymizeData",
     label: "Anonymize Patient Data",
-    description: "Replace all personally identifiable information with anonymized data. Use for development/testing environments only.",
+    description:
+      "Replace all personally identifiable information with anonymized data. Use for development/testing environments only.",
     icon: UserX,
     color: "purple",
-    bgColor: "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
+    bgColor:
+      "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
     borderColor: "border-purple-200 dark:border-purple-900/30",
     confirmText: "ANONYMIZE DATA",
     destructive: true,
@@ -675,7 +971,8 @@ export const MOCK_DANGER: DangerZoneActions = {
   revokeAllSessions: {
     id: "revokeAllSessions",
     label: "Revoke All Sessions",
-    description: "Force logout all users across all devices. All active sessions will be terminated immediately.",
+    description:
+      "Force logout all users across all devices. All active sessions will be terminated immediately.",
     icon: Key,
     color: "blue",
     bgColor: "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
@@ -687,7 +984,8 @@ export const MOCK_DANGER: DangerZoneActions = {
   deleteAllData: {
     id: "deleteAllData",
     label: "Delete All Data",
-    description: "PERMANENTLY DELETE ALL APPLICATION DATA including patients, appointments, records, and configurations. THIS CANNOT BE UNDONE.",
+    description:
+      "PERMANENTLY DELETE ALL APPLICATION DATA including patients, appointments, records, and configurations. THIS CANNOT BE UNDONE.",
     icon: AlertTriangle,
     color: "red",
     bgColor: "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",

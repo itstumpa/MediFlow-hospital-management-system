@@ -1,75 +1,65 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { format, formatDistanceToNow } from "date-fns";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ChevronUpDown,
-  ChevronUp,
-  ChevronDown,
-  Eye,
-  Copy,
-  Download,
-  MoreHorizontal,
-  User,
-  Globe,
-  Smartphone,
-  Monitor,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
-  Clock,
-  Shield,
   Activity,
-  Database,
-  Mail,
-  Bell,
-  Settings,
-  Users,
-  Stethoscope,
-  Building2,
-  FileText,
-  MessageSquare,
-  CreditCard,
+  AlertCircle,
   BarChart3,
-  Server,
+  Bell,
+  Building2,
+  Calendar,
+  ChevronDown,
+  ChevronUp,
+  Copy,
+  CreditCard,
+  Database,
+  Download,
+  Edit,
+  Eye,
+  FileText,
+  Key,
   Lock,
-  Unlock,
   LogIn,
   LogOut,
-  UserPlus,
-  UserMinus,
-  UserCheck,
-  UserX,
-  Edit,
-  Trash2,
+  MessageSquare,
+  Monitor,
   RefreshCw,
-  Zap,
-  Key,
-  Upload,
-  Calendar,
+  Server,
+  Settings,
+  Shield,
+  Smartphone,
+  Stethoscope,
   Tablet,
+  Trash2,
+  Upload,
+  User,
+  UserCheck,
+  UserMinus,
+  UserPlus,
+  Users,
+  UserX,
+  Zap,
 } from "lucide-react";
-import type {
-  ActivityLog,
-  ActivitySeverity,
-  ActivityStatus,
-  ActivityActionType,
-  ActivityModule,
-} from "./types";
 import {
-  SeverityBadge,
-  StatusBadge,
   ActionBadge,
   ModuleBadge,
   RoleBadge,
+  StatusBadge,
 } from "./SeverityBadge";
-import { formatDistanceToNow, format } from "date-fns";
+import type {
+  ActivityActionType,
+  ActivityLog,
+  ActivityModule,
+  ActivitySortField,
+} from "./types";
 
 interface ActivityTableProps {
   logs: ActivityLog[];
   sortBy: string;
   sortAsc: boolean;
-  onSort: (field: string) => void;
+  onSort: (field: ActivitySortField) => void;
   selectedIds: Set<string>;
   onSelectionChange: (ids: Set<string>) => void;
   onRowClick: (log: ActivityLog) => void;
@@ -90,7 +80,7 @@ const COLUMN_DEFS = [
     width: "flex-1 min-w-[200px]",
     sortable: false,
   },
-  { key: "ip", label: "IP Address", width: "w-32", sortable: true },
+  { key: "ipAddress", label: "IP Address", width: "w-32", sortable: true },
   { key: "browser", label: "Browser", width: "w-28", sortable: false },
   { key: "device", label: "Device", width: "w-24", sortable: false },
   { key: "status", label: "Status", width: "w-24", sortable: true },
@@ -167,8 +157,8 @@ function getDeviceIcon(device: string) {
   return <Monitor className="h-4 w-4" />;
 }
 
-import { useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function ActivityTable({
   logs,
@@ -182,16 +172,28 @@ export function ActivityTable({
   className,
   isLoading = false,
 }: ActivityTableProps) {
-  const [sortConfig, setSortConfig] = useState<{ key: string; asc: boolean }>({
-    key: sortBy,
+  const [sortConfig, setSortConfig] = useState<{
+    key: ActivitySortField;
+    asc: boolean;
+  }>({
+    key: sortBy as ActivitySortField,
     asc: sortAsc,
   });
 
+  const selectAllRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (selectAllRef.current) {
+      selectAllRef.current.indeterminate =
+        selectedIds.size > 0 && selectedIds.size < logs.length;
+    }
+  }, [selectedIds, logs]);
+
   const handleSort = useCallback(
-    (key: string) => {
+    (key: ActivitySortField) => {
       const asc = sortConfig.key === key ? !sortConfig.asc : true;
       setSortConfig({ key, asc });
-      onSort(key);
+      onSort(key as ActivitySortField);
     },
     [sortConfig, onSort],
   );
@@ -247,11 +249,9 @@ export function ActivityTable({
                 style={{ width: "40px" }}
               >
                 <input
+                  ref={selectAllRef}
                   type="checkbox"
                   checked={selectedIds.size === logs.length && logs.length > 0}
-                  indeterminate={
-                    selectedIds.size > 0 && selectedIds.size < logs.length
-                  }
                   onChange={handleSelectAll}
                   className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
                   aria-label="Select all rows"
@@ -326,7 +326,7 @@ export function ActivityTable({
                       checked={selectedIds.has(log.id)}
                       onChange={(e) => handleSelectOne(log.id, e as any)}
                       className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                      aria-label={`Select ${log.userName}`}
+                      aria-label={`Select ${log.user.name}`}
                     />
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap">
@@ -353,16 +353,16 @@ export function ActivityTable({
                       </div>
                       <div className="min-w-0">
                         <p className="text-sm font-medium text-slate-900 dark:text-white truncate">
-                          {log.userName}
+                          {log.user.name}
                         </p>
                         <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
-                          {log.userEmail}
+                          {log.user.email}
                         </p>
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <RoleBadge role={log.userRole} size="sm" variant="soft" />
+                    <RoleBadge role={log.user.role} size="sm" variant="soft" />
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -372,7 +372,6 @@ export function ActivityTable({
                       <ModuleBadge
                         module={log.module}
                         size="sm"
-                        variant="soft"
                       />
                     </div>
                   </td>
@@ -382,7 +381,6 @@ export function ActivityTable({
                       <ActionBadge
                         action={log.action}
                         size="sm"
-                        variant="soft"
                       />
                     </div>
                   </td>
@@ -401,17 +399,17 @@ export function ActivityTable({
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400">
-                      {getBrowserIcon(log.browser)}
+                      {getBrowserIcon(log.device?.browser || "")}
                       <span className="truncate max-w-[100px]">
-                        {log.browser}
+                        {log.device?.browser || "Unknown"}
                       </span>
                     </div>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400">
-                      {getDeviceIcon(log.device)}
+                      {getDeviceIcon(log.device?.device || "desktop")}
                       <span className="truncate max-w-[80px]">
-                        {log.device}
+                        {log.device?.device || "Unknown"}
                       </span>
                     </div>
                   </td>

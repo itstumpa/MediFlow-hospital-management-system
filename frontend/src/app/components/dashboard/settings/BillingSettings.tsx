@@ -3,35 +3,31 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  CreditCard,
-  DollarSign,
-  Receipt,
-  Users,
-  Settings,
   AlertTriangle,
+  Calendar,
   CheckCircle,
-  XCircle,
+  Clock,
+  CreditCard,
+  Download,
+  HardDrive,
   Loader2,
   Plus,
-  Trash2,
-  Edit,
-  Download,
-  ArrowUpRight,
-  ArrowDownRight,
-  Calendar,
-  HardDrive,
-  User,
-  Clock,
+  Receipt,
   RotateCcw,
+  Settings,
+  Trash2,
+  User,
+  Users,
+  XCircle,
 } from "lucide-react";
 import { useState } from "react";
 import {
-  BillingSettings,
+  type BillingContact,
+  type BillingSettings,
+  type Invoice,
   MOCK_BILLING,
-  SubscriptionPlan,
-  Invoice,
-  PaymentMethod,
-  BillingContact,
+  type PaymentMethod,
+  type SubscriptionPlan,
 } from "./types";
 
 interface BillingSettingsProps {
@@ -107,7 +103,7 @@ export function BillingSettings({
     onChange?.({ [field]: value });
   };
 
-  const changePlan = async (planId: string) => {
+  const changePlan = async (planId: "free" | "professional" | "enterprise") => {
     setChangingPlan(planId);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     handleChange("subscription", {
@@ -479,7 +475,7 @@ export function BillingSettings({
                   </div>
 
                   <ul className="mb-6 space-y-3">
-                    {plan.features.map((feature) => (
+                    {plan.features.map((feature: string) => (
                       <li
                         key={feature}
                         className={cn(
@@ -503,7 +499,11 @@ export function BillingSettings({
                   </ul>
 
                   <button
-                    onClick={() => changePlan(plan.id)}
+                    onClick={() =>
+                      changePlan(
+                        plan.id as "free" | "professional" | "enterprise",
+                      )
+                    }
                     disabled={
                       data.subscription.plan === plan.id ||
                       changingPlan === plan.id

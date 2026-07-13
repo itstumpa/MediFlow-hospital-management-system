@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  AlertCircle,
   AlertTriangle,
   Check,
   ChevronDown,
@@ -16,10 +17,8 @@ import {
   Plus,
   Quote,
   Table,
-  Trash2,
   Video,
   X,
-  AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
 import type { ContentBlock } from "../../../admin/(dashboard)/articles/form-schema";
@@ -153,7 +152,6 @@ function HeadingBlock({
   block: ContentBlock & { type: "heading" };
   onChange: (b: ContentBlock) => void;
 }) {
-  const Tag = `h${block.level}` as keyof JSX.IntrinsicElements;
   const sizes: Record<number, string> = {
     1: "text-2xl font-bold",
     2: "text-xl font-bold",

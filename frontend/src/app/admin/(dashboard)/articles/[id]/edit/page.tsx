@@ -29,7 +29,7 @@ const mockEditArticle = {
       type: "callout" as const,
       content:
         "According to the World Health Organization, cardiovascular diseases are the number one cause of death globally, taking an estimated 17.9 million lives each year.",
-      variant: "info",
+      variant: "info" as const,
     },
     {
       id: "edit-block-4",
@@ -47,7 +47,7 @@ const mockEditArticle = {
         "Cardiomyopathy (heart muscle disease)",
         "Congenital heart defects",
       ],
-      listType: "unordered",
+      listType: "unordered" as const,
     },
     {
       id: "edit-block-6",
@@ -73,7 +73,7 @@ const mockEditArticle = {
       type: "medical-warning" as const,
       content:
         "If you experience chest pain, shortness of breath, or any signs of a heart attack, call emergency services immediately. Do not wait.",
-      severity: "critical",
+      severity: "critical" as const,
     },
   ],
   metaTitle: "Understanding Heart Disease: A Comprehensive Guide | MediFlow",
@@ -87,7 +87,7 @@ const mockEditArticle = {
   ],
   canonicalUrl: "https://mediflow.com/articles/understanding-heart-disease",
   ogImage: "",
-  status: "published",
+  status: "published" as const,
   author: "auth-1",
   category: "cat-1",
   tags: ["tag-1", "tag-2", "tag-13", "tag-14"],

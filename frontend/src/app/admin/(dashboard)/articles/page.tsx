@@ -1,9 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
-import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import {
   ArticleCard,
@@ -23,6 +19,10 @@ import type {
   ViewMode,
 } from "@/app/components/dashboard/articles/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/articles/types";
+import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
+import Link from "next/link";
+import { useCallback, useMemo, useState } from "react";
 
 export default function ArticlesPage() {
   const [filters, setFilters] = useState<ArticleFiltersType>(DEFAULT_FILTERS);

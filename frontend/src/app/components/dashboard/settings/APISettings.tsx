@@ -2,47 +2,57 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { 
-  Key, 
-  Shield, 
-  Globe, 
-  Terminal, 
-  Copy, 
-  Trash2, 
-  Plus, 
-  Eye, 
-  EyeOff, 
-  Loader2, 
-  Check, 
-  AlertTriangle, 
-  Info, 
-  X, 
-  CheckCircle, 
-  Download
+import {
+  CheckCircle,
+  Copy,
+  Download,
+  Eye,
+  EyeOff,
+  Globe,
+  Info,
+  Key,
+  Loader2,
+  Plus,
+  Shield,
+  Terminal,
+  Trash2,
+  X,
 } from "lucide-react";
 import { useState } from "react";
-import { type APISettings, MOCK_API, type APIKey, type Webhook, type RateLimitRule, type GlobalRateLimit } from "./types";
+import {
+  MOCK_API,
+  type APIKey,
+  type APISettings,
+  type RateLimitRule,
+  type Webhook,
+} from "./types";
 
 interface APISettingsProps {
   initialData?: APISettings;
   onChange?: (data: Partial<APISettings>) => void;
 }
 
-export function APISettings({ initialData = MOCK_API, onChange }: APISettingsProps) {
+export function APISettings({
+  initialData = MOCK_API,
+  onChange,
+}: APISettingsProps) {
   const [data, setData] = useState<APISettings>(initialData);
   const [showKey, setShowKey] = useState<string | null>(null);
   const [creatingKey, setCreatingKey] = useState(false);
-  const [newKeyName, setNewKeyName] = useState("");
+  const [newKeyName, setNewKeyName] = useState<string | undefined>(undefined);
   const [newKeyScopes, setNewKeyScopes] = useState<string[]>([]);
   const [testingWebhook, setTestingWebhook] = useState<string | null>(null);
 
-  const handleChange = <K extends keyof APISettings>(field: K, value: APISettings[K]) => {
+  const handleChange = <K extends keyof APISettings>(
+    field: K,
+    value: APISettings[K],
+  ) => {
     setData((prev) => ({ ...prev, [field]: value }));
     onChange?.({ [field]: value });
   };
 
   const createAPIKey = async () => {
-    if (!newKeyName.trim()) return;
+    if (!newKeyName?.trim()) return;
     setCreatingKey(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
     const newKey: APIKey = {
@@ -62,11 +72,19 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
   };
 
   const revokeKey = (id: string) => {
-    handleChange("keys", data.keys.map((k) => (k.id === id ? { ...k, status: "revoked" as const } : k)));
+    handleChange(
+      "keys",
+      data.keys.map((k) =>
+        k.id === id ? { ...k, status: "revoked" as const } : k,
+      ),
+    );
   };
 
   const deleteKey = (id: string) => {
-    handleChange("keys", data.keys.filter((k) => k.id !== id));
+    handleChange(
+      "keys",
+      data.keys.filter((k) => k.id !== id),
+    );
   };
 
   const copyKey = (key: string) => {
@@ -93,11 +111,17 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
   };
 
   const updateWebhook = (id: string, updates: Partial<Webhook>) => {
-    handleChange("webhooks", data.webhooks.map((w) => (w.id === id ? { ...w, ...updates } : w)));
+    handleChange(
+      "webhooks",
+      data.webhooks.map((w) => (w.id === id ? { ...w, ...updates } : w)),
+    );
   };
 
   const deleteWebhook = (id: string) => {
-    handleChange("webhooks", data.webhooks.filter((w) => w.id !== id));
+    handleChange(
+      "webhooks",
+      data.webhooks.filter((w) => w.id !== id),
+    );
   };
 
   const addRateLimitRule = () => {
@@ -113,11 +137,17 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
   };
 
   const updateRateLimitRule = (id: string, updates: Partial<RateLimitRule>) => {
-    handleChange("rateLimits", data.rateLimits.map((r) => (r.id === id ? { ...r, ...updates } : r)));
+    handleChange(
+      "rateLimits",
+      data.rateLimits.map((r) => (r.id === id ? { ...r, ...updates } : r)),
+    );
   };
 
   const deleteRateLimitRule = (id: string) => {
-    handleChange("rateLimits", data.rateLimits.filter((r) => r.id !== id));
+    handleChange(
+      "rateLimits",
+      data.rateLimits.filter((r) => r.id !== id),
+    );
   };
 
   const SCOPES = [
@@ -153,8 +183,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
               <Key className="h-5 w-5" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">API Keys</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Manage API keys for programmatic access</p>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                API Keys
+              </h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                Manage API keys for programmatic access
+              </p>
             </div>
           </div>
           <button
@@ -182,7 +216,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-6">
-                <h4 className="text-lg font-semibold text-slate-900 dark:text-white">Create New API Key</h4>
+                <h4 className="text-lg font-semibold text-slate-900 dark:text-white">
+                  Create New API Key
+                </h4>
                 <button
                   onClick={() => setNewKeyName(undefined)}
                   className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
@@ -193,7 +229,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
 
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Key Name</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Key Name
+                  </label>
                   <input
                     type="text"
                     value={newKeyName}
@@ -205,7 +243,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Scopes (Permissions)</label>
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Scopes (Permissions)
+                  </label>
                   <div className="flex flex-wrap gap-2 max-h-48 overflow-y-auto p-2 rounded-lg border border-slate-200 dark:border-slate-700">
                     {SCOPES.map((scope) => (
                       <label
@@ -221,9 +261,11 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                           type="checkbox"
                           checked={newKeyScopes.includes(scope)}
                           onChange={(e) =>
-                            setNewKeyScopes(e.target.checked
-                              ? [...newKeyScopes, scope]
-                              : newKeyScopes.filter((s) => s !== scope))
+                            setNewKeyScopes(
+                              e.target.checked
+                                ? [...newKeyScopes, scope]
+                                : newKeyScopes.filter((s) => s !== scope),
+                            )
                           }
                           className="h-3 w-3 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
                         />
@@ -243,10 +285,18 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                 </button>
                 <button
                   onClick={createAPIKey}
-                  disabled={creatingKey || !newKeyName.trim() || newKeyScopes.length === 0}
+                  disabled={
+                    creatingKey ||
+                    !newKeyName?.trim() ||
+                    newKeyScopes.length === 0
+                  }
                   className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {creatingKey ? <Loader2 className="h-4 w-4 animate-spin" /> : <Key className="h-4 w-4" />}
+                  {creatingKey ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Key className="h-4 w-4" />
+                  )}
                   {creatingKey ? "Creating..." : "Create Key"}
                 </button>
               </div>
@@ -271,7 +321,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
             >
               <div className="flex items-center gap-2 mb-4 text-emerald-600 dark:text-emerald-400">
                 <CheckCircle className="h-6 w-6" />
-                <h4 className="text-lg font-semibold text-slate-900 dark:text-white">API Key Created!</h4>
+                <h4 className="text-lg font-semibold text-slate-900 dark:text-white">
+                  API Key Created!
+                </h4>
               </div>
               <p className="mb-4 text-sm text-slate-500 dark:text-slate-400">
                 Copy this key now. You won't be able to see it again.
@@ -307,8 +359,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
           {data.keys.length === 0 ? (
             <div className="text-center py-8">
               <Key className="mx-auto h-12 w-12 text-slate-300 dark:text-slate-600" />
-              <h4 className="mt-3 font-medium text-slate-900 dark:text-white">No API keys yet</h4>
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Create your first API key to start integrating</p>
+              <h4 className="mt-3 font-medium text-slate-900 dark:text-white">
+                No API keys yet
+              </h4>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                Create your first API key to start integrating
+              </p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -322,38 +378,55 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                     key.status === "active"
                       ? "border-emerald-200 bg-emerald-50/50 dark:border-emerald-900/30 dark:bg-emerald-900/20"
                       : key.status === "revoked"
-                      ? "border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/20"
-                      : "border-slate-200 bg-slate-50/50 dark:border-slate-700 dark:bg-slate-800/50",
+                        ? "border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/20"
+                        : "border-slate-200 bg-slate-50/50 dark:border-slate-700 dark:bg-slate-800/50",
                   )}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={cn(
-                      "flex h-10 w-10 items-center justify-center rounded-xl",
-                      key.status === "active" && "bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400",
-                      key.status === "revoked" && "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",
-                      key.status === "expired" && "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
-                    )}>
+                    <div
+                      className={cn(
+                        "flex h-10 w-10 items-center justify-center rounded-xl",
+                        key.status === "active" &&
+                          "bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400",
+                        key.status === "revoked" &&
+                          "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",
+                        key.status === "expired" &&
+                          "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+                      )}
+                    >
                       <Key className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <h5 className="font-medium text-slate-900 dark:text-white">{key.name}</h5>
-                        <span className={cn(
-                          "text-xs px-2 py-0.5 rounded-full",
-                          key.status === "active" && "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
-                          key.status === "revoked" && "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-                          key.status === "expired" && "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400",
-                        )}>
+                        <h5 className="font-medium text-slate-900 dark:text-white">
+                          {key.name}
+                        </h5>
+                        <span
+                          className={cn(
+                            "text-xs px-2 py-0.5 rounded-full",
+                            key.status === "active" &&
+                              "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
+                            key.status === "revoked" &&
+                              "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+                            key.status === "expired" &&
+                              "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400",
+                          )}
+                        >
                           {key.status}
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
-                        Prefix: {key.prefix} • Created: {new Date(key.createdAt).toLocaleDateString()}
-                        {key.lastUsed && ` • Last used: ${new Date(key.lastUsed).toLocaleDateString()}`}
+                        Prefix: {key.prefix} • Created:{" "}
+                        {new Date(key.createdAt).toLocaleDateString()}
+                        {key.lastUsed &&
+                          ` • Last used: ${new Date(key.lastUsed).toLocaleDateString()}`}
                       </p>
                       <div className="mt-1 flex flex-wrap gap-1">
                         {key.scopes.map((scope) => (
-                          <span key={scope} className="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                          <span
+                            key={scope}
+                            className="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400"
+                          >
                             {scope}
                           </span>
                         ))}
@@ -369,7 +442,11 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                           className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
                           aria-label="Show key"
                         >
-                          {showKey === key.key ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                          {showKey === key.key ? (
+                            <EyeOff className="h-4 w-4" />
+                          ) : (
+                            <Eye className="h-4 w-4" />
+                          )}
                         </button>
                         <button
                           onClick={() => copyKey(key.key)}
@@ -411,8 +488,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
               <Globe className="h-5 w-5" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Webhooks</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Receive real-time notifications for events</p>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                Webhooks
+              </h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                Receive real-time notifications for events
+              </p>
             </div>
           </div>
           <button
@@ -428,8 +509,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
           {data.webhooks.length === 0 ? (
             <div className="text-center py-8">
               <Globe className="mx-auto h-12 w-12 text-slate-300 dark:text-slate-600" />
-              <h4 className="mt-3 font-medium text-slate-900 dark:text-white">No webhooks configured</h4>
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Add a webhook to receive event notifications</p>
+              <h4 className="mt-3 font-medium text-slate-900 dark:text-white">
+                No webhooks configured
+              </h4>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                Add a webhook to receive event notifications
+              </p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -450,12 +535,17 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                           <input
                             type="text"
                             value={webhook.name}
-                            onChange={(e) => updateWebhook(webhook.id, { name: e.target.value })}
+                            onChange={(e) =>
+                              updateWebhook(webhook.id, {
+                                name: e.target.value,
+                              })
+                            }
                             placeholder="Webhook name"
                             className="font-medium text-slate-900 dark:text-white bg-transparent border-none focus:outline-none focus:ring-0 text-sm"
                           />
                           <p className="text-xs text-slate-500 dark:text-slate-400">
-                            {webhook.events.length} events • {webhook.active ? "Active" : "Inactive"}
+                            {webhook.events.length} events •{" "}
+                            {webhook.active ? "Active" : "Inactive"}
                           </p>
                         </div>
                       </div>
@@ -464,17 +554,29 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                           <input
                             type="checkbox"
                             checked={webhook.active}
-                            onChange={(e) => updateWebhook(webhook.id, { active: e.target.checked })}
+                            onChange={(e) =>
+                              updateWebhook(webhook.id, {
+                                active: e.target.checked,
+                              })
+                            }
                             className="sr-only peer"
                           />
-                          <div className={cn(
-                            "w-11 h-6 rounded-full transition-colors",
-                            webhook.active ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
-                          )} />
-                          <span className={cn(
-                            "absolute left-1 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-white shadow-lg transition-transform",
-                            webhook.active ? "translate-x-5" : "translate-x-0",
-                          )} />
+                          <div
+                            className={cn(
+                              "w-11 h-6 rounded-full transition-colors",
+                              webhook.active
+                                ? "bg-blue-600"
+                                : "bg-slate-300 dark:bg-slate-600",
+                            )}
+                          />
+                          <span
+                            className={cn(
+                              "absolute left-1 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-white shadow-lg transition-transform",
+                              webhook.active
+                                ? "translate-x-5"
+                                : "translate-x-0",
+                            )}
+                          />
                         </label>
                         <button
                           onClick={() => testWebhook(webhook)}
@@ -501,18 +603,24 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
 
                   <div className="p-4 space-y-4">
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Webhook URL</label>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                        Webhook URL
+                      </label>
                       <input
                         type="url"
                         value={webhook.url}
-                        onChange={(e) => updateWebhook(webhook.id, { url: e.target.value })}
+                        onChange={(e) =>
+                          updateWebhook(webhook.id, { url: e.target.value })
+                        }
                         placeholder="https://your-app.com/webhook"
                         className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Secret (for signature verification)</label>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                        Secret (for signature verification)
+                      </label>
                       <div className="relative">
                         <input
                           type="password"
@@ -521,7 +629,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                           className="w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-mono text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         />
                         <button
-                          onClick={() => navigator.clipboard.writeText(webhook.secret)}
+                          onClick={() =>
+                            navigator.clipboard.writeText(webhook.secret)
+                          }
                           className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
                         >
                           <Copy className="h-5 w-5" />
@@ -530,7 +640,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Events to Subscribe</label>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                        Events to Subscribe
+                      </label>
                       <div className="flex flex-wrap gap-2">
                         {WEBHOOK_EVENTS.map((event) => (
                           <label
@@ -549,7 +661,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                                 updateWebhook(webhook.id, {
                                   events: e.target.checked
                                     ? [...webhook.events, event.value]
-                                    : webhook.events.filter((ev) => ev !== event.value),
+                                    : webhook.events.filter(
+                                        (ev) => ev !== event.value,
+                                      ),
                                 })
                               }
                               className="h-3 w-3 rounded border-slate-300 text-purple-600 focus:ring-purple-500"
@@ -574,48 +688,80 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
             <Shield className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Rate Limiting</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Configure API rate limits to prevent abuse</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Rate Limiting
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Configure API rate limits to prevent abuse
+            </p>
           </div>
         </div>
 
         <div className="dash-card p-6 space-y-6">
           <div className="flex items-center justify-between">
-            <h4 className="font-medium text-slate-900 dark:text-white">Global Rate Limit</h4>
+            <h4 className="font-medium text-slate-900 dark:text-white">
+              Global Rate Limit
+            </h4>
             <ToggleSwitch
               checked={data.globalRateLimit.enabled}
-              onChange={() => handleChange("globalRateLimit", { ...data.globalRateLimit, enabled: !data.globalRateLimit.enabled })}
+              onChange={() =>
+                handleChange("globalRateLimit", {
+                  ...data.globalRateLimit,
+                  enabled: !data.globalRateLimit.enabled,
+                })
+              }
             />
           </div>
 
           {data.globalRateLimit.enabled && (
             <div className="grid gap-4 sm:grid-cols-3 pt-4 border-t border-slate-200 dark:border-slate-700">
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Requests per Minute</label>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Requests per Minute
+                </label>
                 <input
                   type="number"
                   value={data.globalRateLimit.requestsPerMinute}
-                  onChange={(e) => handleChange("globalRateLimit", { ...data.globalRateLimit, requestsPerMinute: parseInt(e.target.value) })}
+                  onChange={(e) =>
+                    handleChange("globalRateLimit", {
+                      ...data.globalRateLimit,
+                      requestsPerMinute: parseInt(e.target.value),
+                    })
+                  }
                   className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   min="1"
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Requests per Hour</label>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Requests per Hour
+                </label>
                 <input
                   type="number"
                   value={data.globalRateLimit.requestsPerHour}
-                  onChange={(e) => handleChange("globalRateLimit", { ...data.globalRateLimit, requestsPerHour: parseInt(e.target.value) })}
+                  onChange={(e) =>
+                    handleChange("globalRateLimit", {
+                      ...data.globalRateLimit,
+                      requestsPerHour: parseInt(e.target.value),
+                    })
+                  }
                   className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   min="1"
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Requests per Day</label>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Requests per Day
+                </label>
                 <input
                   type="number"
                   value={data.globalRateLimit.requestsPerDay}
-                  onChange={(e) => handleChange("globalRateLimit", { ...data.globalRateLimit, requestsPerDay: parseInt(e.target.value) })}
+                  onChange={(e) =>
+                    handleChange("globalRateLimit", {
+                      ...data.globalRateLimit,
+                      requestsPerDay: parseInt(e.target.value),
+                    })
+                  }
                   className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   min="1"
                 />
@@ -625,7 +771,9 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
 
           <div className="pt-6 border-t border-slate-200 dark:border-slate-700">
             <div className="flex items-center justify-between mb-4">
-              <h4 className="font-medium text-slate-900 dark:text-white">Custom Rate Limit Rules</h4>
+              <h4 className="font-medium text-slate-900 dark:text-white">
+                Custom Rate Limit Rules
+              </h4>
               <button
                 onClick={addRateLimitRule}
                 className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
@@ -637,7 +785,8 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
 
             {data.rateLimits.length === 0 ? (
               <div className="text-center py-8 text-slate-500 dark:text-slate-400">
-                No custom rules configured. Global rate limit applies to all endpoints.
+                No custom rules configured. Global rate limit applies to all
+                endpoints.
               </div>
             ) : (
               <div className="space-y-3">
@@ -653,13 +802,21 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                         <input
                           type="text"
                           value={rule.endpoint}
-                          onChange={(e) => updateRateLimitRule(rule.id, { endpoint: e.target.value })}
+                          onChange={(e) =>
+                            updateRateLimitRule(rule.id, {
+                              endpoint: e.target.value,
+                            })
+                          }
                           placeholder="/api/*"
                           className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         />
                         <select
                           value={rule.method}
-                          onChange={(e) => updateRateLimitRule(rule.id, { method: e.target.value as RateLimitRule["method"] })}
+                          onChange={(e) =>
+                            updateRateLimitRule(rule.id, {
+                              method: e.target.value as RateLimitRule["method"],
+                            })
+                          }
                           className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         >
                           <option value="ALL">ALL</option>
@@ -673,10 +830,14 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                       <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
                         <span>Requests: {rule.requests}</span>
                         <span>Window: {rule.window}s</span>
-                        <span className={cn(
-                          "px-2 py-0.5 rounded-full text-xs font-medium",
-                          rule.action === "throttle" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400" : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-                        )}>
+                        <span
+                          className={cn(
+                            "px-2 py-0.5 rounded-full text-xs font-medium",
+                            rule.action === "throttle"
+                              ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
+                              : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+                          )}
+                        >
                           {rule.action}
                         </span>
                       </div>
@@ -685,7 +846,11 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                       <input
                         type="number"
                         value={rule.requests}
-                        onChange={(e) => updateRateLimitRule(rule.id, { requests: parseInt(e.target.value) })}
+                        onChange={(e) =>
+                          updateRateLimitRule(rule.id, {
+                            requests: parseInt(e.target.value),
+                          })
+                        }
                         min="1"
                         max="10000"
                         className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
@@ -693,14 +858,22 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                       <input
                         type="number"
                         value={rule.window}
-                        onChange={(e) => updateRateLimitRule(rule.id, { window: parseInt(e.target.value) })}
+                        onChange={(e) =>
+                          updateRateLimitRule(rule.id, {
+                            window: parseInt(e.target.value),
+                          })
+                        }
                         min="1"
                         max="3600"
                         className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       />
                       <select
                         value={rule.action}
-                        onChange={(e) => updateRateLimitRule(rule.id, { action: e.target.value as "throttle" | "block" })}
+                        onChange={(e) =>
+                          updateRateLimitRule(rule.id, {
+                            action: e.target.value as "throttle" | "block",
+                          })
+                        }
                         className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       >
                         <option value="throttle">Throttle</option>
@@ -729,8 +902,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
             <Info className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">API Documentation</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Access and share your API documentation</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              API Documentation
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Access and share your API documentation
+            </p>
           </div>
         </div>
 
@@ -741,8 +918,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                 <Terminal className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-medium text-slate-900 dark:text-white">OpenAPI Specification</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Download or view the OpenAPI 3.0 spec</p>
+                <h4 className="font-medium text-slate-900 dark:text-white">
+                  OpenAPI Specification
+                </h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Download or view the OpenAPI 3.0 spec
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -763,8 +944,12 @@ export function APISettings({ initialData = MOCK_API, onChange }: APISettingsPro
                 <Shield className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-medium text-slate-900 dark:text-white">Interactive API Explorer</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Test endpoints directly in the browser</p>
+                <h4 className="font-medium text-slate-900 dark:text-white">
+                  Interactive API Explorer
+                </h4>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Test endpoints directly in the browser
+                </p>
               </div>
             </div>
             <button className="inline-flex items-center gap-1.5 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700">

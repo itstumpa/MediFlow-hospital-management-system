@@ -11,12 +11,12 @@ import {
   Star,
   User,
 } from "lucide-react";
+import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
 import {
   mockAuthors,
   mockCategories,
   mockTags,
 } from "../../../admin/(dashboard)/articles/mock";
-import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
 
 interface ArticlePreviewProps {
   values: ArticleFormValues;

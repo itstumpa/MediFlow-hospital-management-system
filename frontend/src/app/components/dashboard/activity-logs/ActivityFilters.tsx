@@ -1,48 +1,50 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Search,
-  Filter,
-  X,
-  ChevronDown,
-  ChevronUp,
-  Calendar,
-  User,
-  Shield,
   Activity,
   AlertTriangle,
-  Wifi,
   ArrowUpDown,
+  Calendar,
+  ChevronDown,
+  ChevronUp,
   Download,
+  Filter,
+  List,
   RefreshCw,
+  Search,
+  Shield,
+  Table,
+  User,
+  Wifi,
+  X,
 } from "lucide-react";
-import type {
-  ActivityFilters,
-  ActivityModule,
-  ActivityActionType,
-  ActivitySeverity,
-  ActivityStatus,
-  UserRole,
-  ActivitySortField,
-} from "./types";
+import { useCallback, useMemo, useState } from "react";
 import {
-  DEFAULT_ACTIVITY_FILTERS,
-  MODULE_OPTIONS,
-  ACTION_TYPE_OPTIONS,
-  ROLE_OPTIONS,
-  SEVERITY_OPTIONS,
-  STATUS_OPTIONS,
-  SORT_FIELD_OPTIONS,
-} from "./types";
-import {
-  ModuleBadge,
   ActionBadge,
+  ModuleBadge,
+  RoleBadge,
   SeverityBadge,
   StatusBadge,
 } from "./SeverityBadge";
-import { useState, useCallback, useMemo } from "react";
+import type {
+  ActivityActionType,
+  ActivityFilters,
+  ActivityModule,
+  ActivitySeverity,
+  ActivitySortField,
+  ActivityStatus,
+} from "./types";
+import {
+  ACTION_TYPE_OPTIONS,
+  DEFAULT_ACTIVITY_FILTERS,
+  MODULE_OPTIONS,
+  ROLE_OPTIONS,
+  SEVERITY_OPTIONS,
+  SORT_FIELD_OPTIONS,
+  STATUS_OPTIONS,
+} from "./types";
 
 interface ActivityFiltersProps {
   filters: ActivityFilters;
@@ -136,11 +138,12 @@ export function ActivityFilters({
 
   const toggleMultiSelect = useCallback(
     (key: keyof ActivityFilters, value: string) => {
+      const arr = filters[key] as string[];
       onFiltersChange({
         ...filters,
-        [key]: filters[key].includes(value)
-          ? filters[key].filter((v) => v !== value)
-          : [...filters[key], value],
+        [key]: arr.includes(value)
+          ? arr.filter((v) => v !== value)
+          : [...arr, value],
       } as ActivityFilters);
     },
     [filters, onFiltersChange],
@@ -247,56 +250,52 @@ export function ActivityFilters({
               <FilterSection
                 title="Module"
                 icon={Activity}
-                items={MODULE_OPTIONS}
+                items={MODULE_OPTIONS.map((m) => ({ value: m, label: m }))}
                 selected={filters.module}
                 onToggle={(v) => toggleMultiSelect("module", v)}
                 renderBadge={(m) => (
                   <ModuleBadge
                     module={m as ActivityModule}
                     size="sm"
-                    variant="soft"
                   />
                 )}
               />
               <FilterSection
                 title="Action"
                 icon={Activity}
-                items={ACTION_TYPE_OPTIONS}
+                items={ACTION_TYPE_OPTIONS.map((a) => ({ value: a, label: a }))}
                 selected={filters.action}
                 onToggle={(v) => toggleMultiSelect("action", v)}
                 renderBadge={(a) => (
                   <ActionBadge
                     action={a as ActivityActionType}
                     size="sm"
-                    variant="soft"
                   />
                 )}
               />
               <FilterSection
                 title="Severity"
                 icon={AlertTriangle}
-                items={SEVERITY_OPTIONS}
+                items={SEVERITY_OPTIONS.map((s) => ({ value: s, label: s }))}
                 selected={filters.severity}
                 onToggle={(v) => toggleMultiSelect("severity", v)}
                 renderBadge={(s) => (
                   <SeverityBadge
                     severity={s as ActivitySeverity}
                     size="sm"
-                    variant="soft"
                   />
                 )}
               />
               <FilterSection
                 title="Status"
                 icon={Shield}
-                items={STATUS_OPTIONS}
+                items={STATUS_OPTIONS.map((s) => ({ value: s, label: s }))}
                 selected={filters.status}
                 onToggle={(v) => toggleMultiSelect("status", v)}
                 renderBadge={(s) => (
                   <StatusBadge
                     status={s as ActivityStatus}
                     size="sm"
-                    variant="soft"
                   />
                 )}
               />
@@ -316,7 +315,7 @@ export function ActivityFilters({
                 <FilterSection
                   title="Role"
                   icon={Shield}
-                  items={ROLE_OPTIONS}
+                  items={ROLE_OPTIONS.map((r) => ({ value: r, label: r }))}
                   selected={filters.role}
                   onToggle={(v) => toggleMultiSelect("role", v)}
                   renderBadge={(r) => (
@@ -677,5 +676,3 @@ export function ActivityToolbar({
     </div>
   );
 }
-
-import { Table, List } from "lucide-react";

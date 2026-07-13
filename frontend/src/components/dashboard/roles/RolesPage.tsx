@@ -13,7 +13,7 @@ import {
   Loader2,
   Trash2,
 } from "lucide-react";
-import { cn, staggerContainer, staggerItem } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import {
   Role,
   RoleFilters,
@@ -58,7 +58,7 @@ export function RolesPage({
     permission: "all",
     userCountRange: [0, 100],
     sortBy: "name",
-    sortOrder: "asc",
+    sortAsc: true,
   });
   const [selectedRoles, setSelectedRoles] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(false);
@@ -82,11 +82,11 @@ export function RolesPage({
     return [...filteredRoles].sort((a, b) => {
       const aVal = a[filters.sortBy as keyof Role];
       const bVal = b[filters.sortBy as keyof Role];
-      if (aVal < bVal) return filters.sortOrder === "asc" ? -1 : 1;
-      if (aVal > bVal) return filters.sortOrder === "asc" ? 1 : -1;
+      if (aVal < bVal) return filters.sortAsc ? -1 : 1;
+      if (aVal > bVal) return filters.sortAsc ? 1 : -1;
       return 0;
     });
-  }, [filteredRoles, filters.sortBy, filters.sortOrder]);
+  }, [filteredRoles, filters.sortBy, filters.sortAsc]);
 
   const availableUsers = useMemo(
     () => getAvailableUsers(users, roles),
@@ -115,8 +115,8 @@ export function RolesPage({
     setFilters((prev) => ({
       ...prev,
       sortBy,
-      sortOrder:
-        prev.sortBy === sortBy && prev.sortOrder === "asc" ? "desc" : "asc",
+      sortAsc:
+        prev.sortBy === sortBy ? !prev.sortAsc : true,
     }));
   }, []);
 
@@ -380,7 +380,7 @@ export function RolesPage({
           onDelete={handleDeleteRole}
           isLoading={isLoading}
           sortBy={filters.sortBy}
-          sortOrder={filters.sortOrder}
+          sortOrder={filters.sortAsc ? "asc" : "desc"}
           onSort={handleSort}
         />
       </div>

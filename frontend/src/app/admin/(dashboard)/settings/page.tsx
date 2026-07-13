@@ -1,37 +1,37 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { SettingsSidebar } from "@/app/components/dashboard/settings/SettingsSidebar";
-import { GeneralSettings } from "@/app/components/dashboard/settings/GeneralSettings";
-import { AppearanceSettings } from "@/app/components/dashboard/settings/AppearanceSettings";
-import { NotificationsSettings } from "@/app/components/dashboard/settings/NotificationsSettings";
-import { AppointmentSettings } from "@/app/components/dashboard/settings/AppointmentSettings";
-import { SecuritySettings } from "@/app/components/dashboard/settings/SecuritySettings";
-import { IntegrationsSettings } from "@/app/components/dashboard/settings/IntegrationSettings";
-import { BackupSettings } from "@/app/components/dashboard/settings/BackupSettings";
 import { APISettings } from "@/app/components/dashboard/settings/APISettings";
+import { AppearanceSettings } from "@/app/components/dashboard/settings/AppearanceSettings";
+import { AppointmentSettings } from "@/app/components/dashboard/settings/AppointmentSettings";
+import { BackupSettings } from "@/app/components/dashboard/settings/BackupSettings";
 import { BillingSettings } from "@/app/components/dashboard/settings/BillingSettings";
 import { DangerZone } from "@/app/components/dashboard/settings/DangerZone";
-import { DashboardShell } from "../dashboard-shell";
+import { GeneralSettings } from "@/app/components/dashboard/settings/GeneralSettings";
+import { IntegrationsSettings } from "@/app/components/dashboard/settings/IntegrationSettings";
+import { NotificationsSettings } from "@/app/components/dashboard/settings/NotificationsSettings";
+import { SecuritySettings } from "@/app/components/dashboard/settings/SecuritySettings";
+import { SettingsSidebar } from "@/app/components/dashboard/settings/SettingsSidebar";
 import {
-  SettingsSection,
   MOCK_ALL_SETTINGS,
   SETTINGS_NAV,
+  SettingsSection,
 } from "@/app/components/dashboard/settings/types";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Settings,
-  Palette,
+  AlertTriangle,
   Bell,
   Calendar,
-  Shield,
-  Plug,
-  Database,
-  Terminal,
   CreditCard,
-  AlertTriangle,
+  Database,
   Globe,
+  Palette,
+  Plug,
+  Settings,
+  Shield,
+  Terminal,
 } from "lucide-react";
+import { useState } from "react";
+import { DashboardShell } from "../dashboard-shell";
 
 const SECTIONS: {
   id: SettingsSection;
@@ -135,7 +135,7 @@ export default function SettingsPage() {
             <AnimatePresence mode="wait">
               <ActiveComponent
                 key={activeSection}
-                initialData={settings[activeSection]}
+                initialData={settings[activeSection] as any}
                 onChange={(data) => handleSettingsChange(activeSection, data)}
               />
             </AnimatePresence>

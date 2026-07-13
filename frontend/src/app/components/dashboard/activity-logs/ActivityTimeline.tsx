@@ -1,69 +1,63 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { format } from "date-fns";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ChevronRight,
-  ChevronDown,
-  User,
-  Globe,
-  Smartphone,
-  Monitor,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
-  Clock,
-  Shield,
   Activity,
-  Database,
-  Mail,
-  Bell,
-  Settings,
-  Users,
-  Stethoscope,
-  Building2,
-  FileText,
-  MessageSquare,
-  CreditCard,
+  AlertCircle,
   BarChart3,
-  Server,
+  Bell,
+  Building2,
+  Calendar,
+  ChevronRight,
+  Clock,
+  Copy,
+  CreditCard,
+  Database,
+  Download,
+  Edit,
+  Eye,
+  FileText,
+  Globe,
+  Key,
   Lock,
-  Unlock,
   LogIn,
   LogOut,
-  UserPlus,
-  UserMinus,
-  UserCheck,
-  UserX,
-  Edit,
-  Trash2,
-  RefreshCw,
-  Zap,
-  Eye,
-  Copy,
-  Download,
-  MoreHorizontal,
-  Key,
-  Upload,
-  Calendar,
+  Mail,
   MapPin,
+  MessageSquare,
+  Monitor,
+  RefreshCw,
+  Server,
+  Settings,
+  Shield,
+  Smartphone,
+  Stethoscope,
   Tablet,
+  Trash2,
+  Upload,
+  User,
+  UserCheck,
+  UserMinus,
+  UserPlus,
+  Users,
+  UserX,
+  Zap,
 } from "lucide-react";
-import type {
-  ActivityLog,
-  ActivitySeverity,
-  ActivityStatus,
-  ActivityActionType,
-  ActivityModule,
-} from "./types";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  SeverityBadge,
-  StatusBadge,
   ActionBadge,
   ModuleBadge,
-  RoleBadge,
+  SeverityBadge,
+  StatusBadge,
 } from "./SeverityBadge";
-import { formatDistanceToNow, format } from "date-fns";
+import type {
+  ActivityActionType,
+  ActivityLog,
+  ActivityModule,
+  ActivitySeverity,
+} from "./types";
 
 interface ActivityTimelineProps {
   logs: ActivityLog[];
@@ -350,9 +344,11 @@ function TimelineGroup({
           </div>
           <div className="flex items-center gap-2 mt-1">
             <input
+              ref={(el) => {
+                if (el) el.indeterminate = someSelected;
+              }}
               type="checkbox"
               checked={allSelected}
-              indeterminate={someSelected}
               onChange={() => onSelectAll(group.logs)}
               className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
               aria-label={`Select all ${group.label} activities`}
@@ -461,20 +457,20 @@ function TimelineItem({
             checked={selected}
             onChange={() => onSelect(log.id)}
             className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 flex-shrink-0"
-            aria-label={`Select ${log.userName}`}
+            aria-label={`Select ${log.user.name}`}
           />
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 flex-wrap mb-2">
               <div className="flex items-center gap-1.5">
                 {getActionIcon(log.action)}
-                <ActionBadge action={log.action} size="sm" variant="soft" />
+                <ActionBadge action={log.action} size="sm" />
               </div>
               <div className="flex items-center gap-1.5">
                 {getModuleIcon(log.module)}
-                <ModuleBadge module={log.module} size="sm" variant="soft" />
+                <ModuleBadge module={log.module} size="sm" />
               </div>
-              <SeverityBadge severity={log.severity} size="sm" variant="dot" />
+              <SeverityBadge severity={log.severity} size="sm" />
               <StatusBadge status={log.status} size="sm" />
             </div>
 
@@ -485,11 +481,11 @@ function TimelineItem({
             <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <User className="h-3.5 w-3.5" />
-                <span>{log.userName}</span>
+                <span>{log.user.name}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Mail className="h-3.5 w-3.5" />
-                <span className="truncate max-w-[180px]">{log.userEmail}</span>
+                <span className="truncate max-w-[180px]">{log.user.email}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Globe className="h-3.5 w-3.5" />
@@ -498,12 +494,16 @@ function TimelineItem({
                 </code>
               </div>
               <div className="flex items-center gap-1.5">
-                {getBrowserIcon(log.browser)}
-                <span className="truncate max-w-[120px]">{log.browser}</span>
+                {getBrowserIcon(log.device?.browser || "")}
+                <span className="truncate max-w-[120px]">
+                  {log.device?.browser || "Unknown"}
+                </span>
               </div>
               <div className="flex items-center gap-1.5">
-                {getDeviceIcon(log.device)}
-                <span className="truncate max-w-[80px]">{log.device}</span>
+                {getDeviceIcon(log.device?.device || "desktop")}
+                <span className="truncate max-w-[80px]">
+                  {log.device?.device || "Unknown"}
+                </span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" />
@@ -522,7 +522,7 @@ function TimelineItem({
               </div>
             )}
 
-            {log.relatedEntities.length > 0 && (
+            {log.relatedEntities && log.relatedEntities.length > 0 && (
               <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                 <Database className="h-3.5 w-3.5" />
                 <span>
@@ -566,8 +566,6 @@ function TimelineItem({
     </motion.div>
   );
 }
-
-import { useState, useMemo } from "react";
 
 function ActivityTimelineSkeleton() {
   return (

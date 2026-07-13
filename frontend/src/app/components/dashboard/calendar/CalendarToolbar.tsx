@@ -23,12 +23,7 @@ interface CalendarToolbarProps {
   onDoctorChange: (doctor: string) => void;
   selectedDepartment: string;
   onDepartmentChange: (department: string) => void;
-  doctors: readonly {
-    id: string;
-    name: string;
-    initials: string;
-    department: string;
-  }[];
+  doctors: readonly { id: string; name: string; initials: string; department: string }[];
   departments: readonly string[];
 }
 

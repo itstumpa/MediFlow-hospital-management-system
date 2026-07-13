@@ -3,22 +3,21 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  Shield,
-  Lock,
-  Key,
-  Smartphone,
-  UserCheck,
   AlertTriangle,
-  Trash2,
   Eye,
   EyeOff,
+  Key,
+  Lock,
+  Shield,
+  Smartphone,
+  Trash2,
+  UserCheck,
 } from "lucide-react";
 import { useState } from "react";
 import {
-  SecuritySettings,
   MOCK_SECURITY,
-  PasswordPolicy,
-  TrustedDevice,
+  type PasswordPolicy,
+  type SecuritySettings,
 } from "./types";
 
 interface SecuritySettingsProps {
@@ -551,4 +550,4 @@ function getStrengthLabel(policy: PasswordPolicy): string {
 }
 
 // Missing imports
-import { PlusCircle, Clock } from "lucide-react";
+import { Clock, PlusCircle } from "lucide-react";

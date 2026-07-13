@@ -2,9 +2,18 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Palette, Sun, Moon, Monitor, Square, LayoutGrid, Minimize2, Sparkles } from "lucide-react";
+import {
+  LayoutGrid,
+  Minimize2,
+  Monitor,
+  Moon,
+  Palette,
+  Sparkles,
+  Square,
+  Sun,
+} from "lucide-react";
 import { useState } from "react";
-import { AppearanceSettings, MOCK_APPEARANCE } from "./types";
+import { type AppearanceSettings, MOCK_APPEARANCE } from "./types";
 
 interface AppearanceSettingsProps {
   initialData?: AppearanceSettings;
@@ -12,15 +21,45 @@ interface AppearanceSettingsProps {
 }
 
 const THEME_OPTIONS = [
-  { value: "light", label: "Light", icon: Sun, description: "Always use light mode" },
-  { value: "dark", label: "Dark", icon: Moon, description: "Always use dark mode" },
-  { value: "system", label: "System", icon: Monitor, description: "Match system preference" },
+  {
+    value: "light",
+    label: "Light",
+    icon: Sun,
+    description: "Always use light mode",
+  },
+  {
+    value: "dark",
+    label: "Dark",
+    icon: Moon,
+    description: "Always use dark mode",
+  },
+  {
+    value: "system",
+    label: "System",
+    icon: Monitor,
+    description: "Match system preference",
+  },
 ];
 
 const SIDEBAR_STYLES = [
-  { value: "default", label: "Default", icon: LayoutGrid, description: "Standard sidebar with labels" },
-  { value: "compact", label: "Compact", icon: Minimize2, description: "Condensed with smaller padding" },
-  { value: "minimal", label: "Minimal", icon: Square, description: "Icons only, expands on hover" },
+  {
+    value: "default",
+    label: "Default",
+    icon: LayoutGrid,
+    description: "Standard sidebar with labels",
+  },
+  {
+    value: "compact",
+    label: "Compact",
+    icon: Minimize2,
+    description: "Condensed with smaller padding",
+  },
+  {
+    value: "minimal",
+    label: "Minimal",
+    icon: Square,
+    description: "Icons only, expands on hover",
+  },
 ];
 
 const RADIUS_OPTIONS = [
@@ -53,12 +92,18 @@ const PRESET_COLORS = [
   "#6366f1", // indigo
 ];
 
-export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: AppearanceSettingsProps) {
+export function AppearanceSettings({
+  initialData = MOCK_APPEARANCE,
+  onChange,
+}: AppearanceSettingsProps) {
   const [data, setData] = useState<AppearanceSettings>(initialData);
   const [customPrimary, setCustomPrimary] = useState(data.primaryColor);
   const [customAccent, setCustomAccent] = useState(data.accentColor);
 
-  const handleChange = <K extends keyof AppearanceSettings>(field: K, value: AppearanceSettings[K]) => {
+  const handleChange = <K extends keyof AppearanceSettings>(
+    field: K,
+    value: AppearanceSettings[K],
+  ) => {
     setData((prev) => ({ ...prev, [field]: value }));
     onChange?.({ [field]: value });
   };
@@ -87,8 +132,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             <Palette className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Theme</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Choose your preferred color scheme</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Theme
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Choose your preferred color scheme
+            </p>
           </div>
         </div>
 
@@ -97,7 +146,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             {THEME_OPTIONS.map((option) => (
               <motion.button
                 key={option.value}
-                onClick={() => handleChange("theme", option.value as "light" | "dark" | "system")}
+                onClick={() =>
+                  handleChange(
+                    "theme",
+                    option.value as "light" | "dark" | "system",
+                  )
+                }
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={cn(
@@ -118,10 +172,19 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
                   <option.icon className="h-6 w-6" />
                 </div>
                 <div className="text-center">
-                  <span className={cn("font-medium", data.theme === option.value ? "text-blue-700 dark:text-blue-300" : "text-slate-900 dark:text-white")}>
+                  <span
+                    className={cn(
+                      "font-medium",
+                      data.theme === option.value
+                        ? "text-blue-700 dark:text-blue-300"
+                        : "text-slate-900 dark:text-white",
+                    )}
+                  >
                     {option.label}
                   </span>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">{option.description}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {option.description}
+                  </p>
                 </div>
                 {data.theme === option.value && (
                   <motion.div
@@ -145,14 +208,20 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             <Sparkles className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Brand Colors</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Primary and accent colors used throughout the app</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Brand Colors
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Primary and accent colors used throughout the app
+            </p>
           </div>
         </div>
 
         <div className="dash-card p-6 space-y-6">
           <div className="space-y-4">
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Primary Color</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+              Primary Color
+            </label>
             <div className="flex flex-wrap items-center gap-3">
               <div className="relative">
                 <input
@@ -178,7 +247,9 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
                   onClick={() => handleColorChange("primary", color)}
                   className={cn(
                     "h-8 w-8 rounded-lg border-2 transition-all",
-                    customPrimary === color ? "border-blue-500 scale-110" : "border-transparent hover:border-slate-300",
+                    customPrimary === color
+                      ? "border-blue-500 scale-110"
+                      : "border-transparent hover:border-slate-300",
                   )}
                   style={{ backgroundColor: color }}
                   aria-label={`Primary color ${color}`}
@@ -189,7 +260,9 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
           </div>
 
           <div className="space-y-4 pt-6 border-t border-slate-200 dark:border-slate-700">
-            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Accent Color</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+              Accent Color
+            </label>
             <div className="flex flex-wrap items-center gap-3">
               <div className="relative">
                 <input
@@ -215,7 +288,9 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
                   onClick={() => handleColorChange("accent", color)}
                   className={cn(
                     "h-8 w-8 rounded-lg border-2 transition-all",
-                    customAccent === color ? "border-blue-500 scale-110" : "border-transparent hover:border-slate-300",
+                    customAccent === color
+                      ? "border-blue-500 scale-110"
+                      : "border-transparent hover:border-slate-300",
                   )}
                   style={{ backgroundColor: color }}
                   aria-label={`Accent color ${color}`}
@@ -227,7 +302,9 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
 
           {/* Live Preview */}
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
-            <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Live Preview</p>
+            <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
+              Live Preview
+            </p>
             <div className="flex flex-wrap items-center gap-3">
               <button
                 className={cn(
@@ -265,8 +342,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             <LayoutGrid className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Sidebar Style</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Choose how the navigation sidebar appears</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Sidebar Style
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Choose how the navigation sidebar appears
+            </p>
           </div>
         </div>
 
@@ -275,7 +356,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             {SIDEBAR_STYLES.map((style) => (
               <motion.button
                 key={style.value}
-                onClick={() => handleChange("sidebarStyle", style.value as "default" | "compact" | "minimal")}
+                onClick={() =>
+                  handleChange(
+                    "sidebarStyle",
+                    style.value as "default" | "compact" | "minimal",
+                  )
+                }
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={cn(
@@ -296,10 +382,19 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
                   <style.icon className="h-6 w-6" />
                 </div>
                 <div className="text-center">
-                  <span className={cn("font-medium", data.sidebarStyle === style.value ? "text-blue-700 dark:text-blue-300" : "text-slate-900 dark:text-white")}>
+                  <span
+                    className={cn(
+                      "font-medium",
+                      data.sidebarStyle === style.value
+                        ? "text-blue-700 dark:text-blue-300"
+                        : "text-slate-900 dark:text-white",
+                    )}
+                  >
                     {style.label}
                   </span>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">{style.description}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {style.description}
+                  </p>
                 </div>
                 {data.sidebarStyle === style.value && (
                   <motion.div
@@ -323,8 +418,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             <Square className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Card Radius</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Border radius for cards and containers</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Card Radius
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Border radius for cards and containers
+            </p>
           </div>
         </div>
 
@@ -333,7 +432,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             {RADIUS_OPTIONS.map((radius) => (
               <motion.button
                 key={radius.value}
-                onClick={() => handleChange("cardRadius", radius.value as AppearanceSettings["cardRadius"])}
+                onClick={() =>
+                  handleChange(
+                    "cardRadius",
+                    radius.value as AppearanceSettings["cardRadius"],
+                  )
+                }
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={cn(
@@ -347,7 +451,9 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
                   className={cn(
                     "h-8 w-12 transition-all",
                     radius.preview,
-                    data.cardRadius === radius.value ? "bg-blue-100 dark:bg-blue-900/40" : "bg-white dark:bg-slate-800",
+                    data.cardRadius === radius.value
+                      ? "bg-blue-100 dark:bg-blue-900/40"
+                      : "bg-white dark:bg-slate-800",
                   )}
                 />
               </motion.button>
@@ -363,8 +469,12 @@ export function AppearanceSettings({ initialData = MOCK_APPEARANCE, onChange }: 
             <Sparkles className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Behavior</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Enable or disable interface behaviors</p>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Behavior
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Enable or disable interface behaviors
+            </p>
           </div>
         </div>
 
@@ -397,7 +507,13 @@ interface ToggleSettingProps {
   icon: React.ReactNode;
 }
 
-function ToggleSetting({ label, description, checked, onChange, icon }: ToggleSettingProps) {
+function ToggleSetting({
+  label,
+  description,
+  checked,
+  onChange,
+  icon,
+}: ToggleSettingProps) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -406,7 +522,9 @@ function ToggleSetting({ label, description, checked, onChange, icon }: ToggleSe
         </div>
         <div>
           <p className="font-medium text-slate-900 dark:text-white">{label}</p>
-          <p className="text-sm text-slate-500 dark:text-slate-400">{description}</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            {description}
+          </p>
         </div>
       </div>
       <button

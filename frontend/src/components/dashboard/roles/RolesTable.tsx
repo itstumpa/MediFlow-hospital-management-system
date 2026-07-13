@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronUp,
@@ -309,7 +309,9 @@ export function RolesTable({
                 <input
                   type="checkbox"
                   checked={allSelected}
-                  indeterminate={someSelected}
+                  ref={(el) => {
+                    if (el) el.indeterminate = someSelected;
+                  }}
                   onChange={(e) => onSelectAll(e.target.checked)}
                   className="size-4 rounded border-input"
                   aria-label="Select all roles"

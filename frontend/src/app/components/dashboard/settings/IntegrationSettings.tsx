@@ -2,30 +2,12 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import {
-  Plug,
-  Calendar,
-  Video,
-  CreditCard,
-  PayPal,
-  MessageSquare,
-  MapPin,
-  Image,
-  Wifi,
-  WifiOff,
-  RefreshCw,
-  Loader2,
-  CheckCircle,
-  XCircle,
-  AlertCircle,
-  Settings,
-  Key,
-} from "lucide-react";
+import { Key, Loader2, Plug, RefreshCw, WifiOff } from "lucide-react";
 import { useState } from "react";
 import {
+  IntegrationConfig,
   IntegrationSettings,
   MOCK_INTEGRATIONS,
-  IntegrationConfig,
 } from "./types";
 
 interface IntegrationsSettingsProps {

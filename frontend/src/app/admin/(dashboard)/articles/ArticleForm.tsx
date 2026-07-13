@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  ArticlePreview,
+  ConfirmDialog,
+  ImageUpload,
+  PublishingSection,
+  RelatedContent,
+  RichTextEditor,
+  SEOSection,
+} from "@/app/components/dashboard/article-editor";
 import { Breadcrumb } from "@/app/components/dashboard/Breadcrumb";
 import { pageFade } from "@/lib/animations/pageTransition";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
@@ -11,7 +20,6 @@ import {
   Eye,
   FileText,
   Globe,
-  ImageIcon,
   Layout,
   Link2,
   Save,
@@ -22,15 +30,6 @@ import {
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import {
-  ImageUpload,
-  RichTextEditor,
-  SEOSection,
-  PublishingSection,
-  RelatedContent,
-  ArticlePreview,
-  ConfirmDialog,
-} from "@/app/components/dashboard/article-editor";
 import {
   articleFormSchema,
   defaultFormValues,
@@ -161,7 +160,7 @@ export function ArticleForm({
 
   // Helper to update a single field
   const updateField = useCallback(
-    (field: keyof ArticleFormValues, value: unknown) => {
+    (field: string, value: unknown) => {
       setValue(field as any, value as any, { shouldDirty: true });
     },
     [setValue],

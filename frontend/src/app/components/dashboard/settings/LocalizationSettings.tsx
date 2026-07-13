@@ -2,15 +2,15 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Globe, Clock, Calendar, DollarSign, Ruler } from "lucide-react";
+import { Calendar, Clock, DollarSign, Globe, Ruler } from "lucide-react";
 import { useState } from "react";
 import {
-  LocalizationSettings,
+  CURRENCIES,
+  DATE_FORMATS,
+  LANGUAGES,
+  type LocalizationSettings,
   MOCK_LOCALIZATION,
   TIMEZONES,
-  LANGUAGES,
-  DATE_FORMATS,
-  CURRENCIES,
 } from "./types";
 
 interface LocalizationSettingsProps {

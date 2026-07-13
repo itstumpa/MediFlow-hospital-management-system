@@ -5,13 +5,17 @@ import { motion } from "framer-motion";
 import {
   CalendarCheck,
   Clock,
-  Shield,
   MinusCircle,
   PlusCircle,
   Settings,
+  Shield,
 } from "lucide-react";
 import { useState } from "react";
-import { AppointmentSettings, MOCK_APPOINTMENTS, BookingRule } from "./types";
+import {
+  MOCK_APPOINTMENTS,
+  type AppointmentSettings,
+  type BookingRule,
+} from "./types";
 
 interface AppointmentSettingsProps {
   initialData?: AppointmentSettings;

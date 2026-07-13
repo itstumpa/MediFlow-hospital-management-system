@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -380,7 +380,9 @@ function AvailableUsersList({
             <input
               type="checkbox"
               checked={selected.size === users.length && users.length > 0}
-              indeterminate={selected.size > 0 && selected.size < users.length}
+              ref={(el) => {
+                if (el) el.indeterminate = selected.size > 0 && selected.size < users.length;
+              }}
               onChange={() => {
                 if (selected.size === users.length) {
                   selected.clear();
@@ -524,7 +526,9 @@ function AssignedUsersList({
             <input
               type="checkbox"
               checked={selected.size === users.length && users.length > 0}
-              indeterminate={selected.size > 0 && selected.size < users.length}
+              ref={(el) => {
+                if (el) el.indeterminate = selected.size > 0 && selected.size < users.length;
+              }}
               onChange={() => {
                 if (selected.size === users.length) {
                   selected.clear();

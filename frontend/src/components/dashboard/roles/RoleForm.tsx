@@ -14,8 +14,6 @@ import {
   clonePermissions,
   mergePermissions,
   getModulePermissions,
-  isModuleFullyEnabled,
-  isModulePartiallyEnabled,
 } from "@/lib/data/rbac";
 import { PermissionMatrix } from "./PermissionMatrix";
 

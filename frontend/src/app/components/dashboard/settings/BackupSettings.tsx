@@ -3,26 +3,25 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
+  CheckCircle,
+  Clock,
+  Cloud,
   Database,
   Download,
-  Upload,
-  RotateCcw,
-  Trash2,
-  Clock,
-  AlertTriangle,
-  CheckCircle,
-  XCircle,
-  Loader2,
-  Shield,
   HardDrive,
-  Cloud,
+  Loader2,
+  RotateCcw,
+  Shield,
+  Trash2,
+  Upload,
+  XCircle,
 } from "lucide-react";
 import { useState } from "react";
 import {
-  BackupSettings,
   MOCK_BACKUP,
-  BackupSchedule,
-  BackupHistoryItem,
+  type BackupHistoryItem,
+  type BackupSchedule,
+  type BackupSettings,
 } from "./types";
 
 interface BackupSettingsProps {
@@ -125,7 +124,7 @@ export function BackupSettings({
             icon={Cloud}
             iconColor="purple"
             label="Cloud Storage Used"
-            value={formatSize(data.storageUsed)}
+            value={`${data.storageUsed} GB`}
             trend={`${((data.storageUsed / data.storageLimit) * 100).toFixed(1)}% of limit`}
             trendColor="slate"
           />
@@ -579,8 +578,7 @@ export function BackupSettings({
               </div>
               <div className="text-right">
                 <p className="font-mono text-lg font-semibold text-slate-900 dark:text-white">
-                  {formatSize(data.storageUsed)} /{" "}
-                  {formatSize(data.storageLimit)}
+                  {data.storageUsed} GB / {data.storageLimit} GB
                 </p>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
                   {((data.storageUsed / data.storageLimit) * 100).toFixed(1)}%

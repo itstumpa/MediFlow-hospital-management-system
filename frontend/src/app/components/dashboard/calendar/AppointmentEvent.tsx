@@ -2,15 +2,8 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import type {
-  CalendarAppointment,
-  AppointmentStatus,
-} from "@/lib/data/appointment-calendar";
-import {
-  statusEventBgMap,
-  statusBgMap,
-  statusDotMap,
-} from "@/lib/data/appointment-calendar";
+import type { CalendarAppointment, AppointmentStatus } from "@/lib/data/appointment-calendar";
+import { statusEventBgMap, statusBgMap, statusDotMap } from "@/lib/data/appointment-calendar";
 
 interface AppointmentEventProps {
   appointment: CalendarAppointment;
@@ -73,15 +66,11 @@ export function AppointmentEvent({
         <span className="text-[11px] font-semibold opacity-80">
           {appointment.time} — {appointment.endTime}
         </span>
-        <span
-          className={cn("h-1.5 w-1.5 rounded-full", statusDotMap[status])}
-        />
+        <span className={cn("h-1.5 w-1.5 rounded-full", statusDotMap[status])} />
       </div>
 
       {/* Patient name */}
-      <p className="truncate text-sm font-semibold">
-        {appointment.patientName}
-      </p>
+      <p className="truncate text-sm font-semibold">{appointment.patientName}</p>
 
       {/* Doctor + Department */}
       <div className="mt-0.5 flex items-center gap-1.5 text-[11px] opacity-75">

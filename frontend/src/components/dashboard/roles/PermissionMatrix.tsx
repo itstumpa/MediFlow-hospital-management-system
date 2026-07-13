@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Check,
@@ -585,7 +585,9 @@ export function PermissionMatrix({
                           <input
                             type="checkbox"
                             checked={isModuleFullyEnabled(module.key)}
-                            indeterminate={isModulePartiallyEnabled(module.key)}
+                            ref={(el) => {
+                              if (el) el.indeterminate = isModulePartiallyEnabled(module.key);
+                            }}
                             onChange={(e) =>
                               handleModuleToggle(module.key, e.target.checked)
                             }

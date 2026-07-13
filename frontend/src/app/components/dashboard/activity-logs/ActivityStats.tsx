@@ -1,15 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ActionBadge, SeverityBadge, StatusBadge } from "./SeverityBadge";
 import type {
+  ActivityActionType,
   ActivityLog,
   ActivitySeverity,
   ActivityStatus,
-  ActivityActionType,
 } from "./types";
-import { SeverityBadge, StatusBadge, ActionBadge } from "./SeverityBadge";
-import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 
 interface ActivityStatsProps {
   logs: ActivityLog[];
@@ -85,12 +85,12 @@ function getIcon(name: string) {
 }
 
 import {
-  Database,
   Activity,
   AlertTriangle,
-  Shield,
-  LogIn,
   Cpu,
+  Database,
+  LogIn,
+  Shield,
 } from "lucide-react";
 
 export function ActivityStats({ logs, className }: ActivityStatsProps) {
@@ -149,7 +149,7 @@ export function ActivityStats({ logs, className }: ActivityStatsProps) {
                 <span
                   className={cn(
                     "text-xs font-medium px-2 py-0.5 rounded-full",
-                    card.trendPositive === false
+                    "trendPositive" in card && card.trendPositive === false
                       ? "text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-900/30"
                       : "text-emerald-600 bg-emerald-100 dark:text-emerald-400 dark:bg-emerald-900/30",
                   )}

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import type { ActivitySeverity } from "./types";
 import { SEVERITY_CONFIG } from "./types";
 
@@ -98,14 +98,14 @@ export function SeverityDot({
   );
 }
 
-/** Status badge (success/failed/pending) */
+/** Status badge (success/failed/pending/blocked) */
 export function StatusBadge({
   status,
   size = "md",
   showLabel = true,
   className,
 }: {
-  status: "success" | "failed" | "pending";
+  status: "success" | "failed" | "pending" | "blocked";
   size?: "sm" | "md" | "lg";
   showLabel?: boolean;
   className?: string;
@@ -124,6 +124,11 @@ export function StatusBadge({
       label: "Pending",
       color:
         "text-amber-600 bg-amber-100 dark:text-amber-400 dark:bg-amber-900/30",
+    },
+    blocked: {
+      label: "Blocked",
+      color:
+        "text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-900/30",
     },
   }[status];
 
@@ -156,7 +161,7 @@ export function ActionBadge({
   className?: string;
 }) {
   // Import dynamically to avoid circular dependency
-  const config = {
+  const configMap: Record<string, { label: string; color: string }> = {
     login: { label: "Login", color: "text-emerald-600 bg-emerald-100" },
     logout: { label: "Logout", color: "text-slate-600 bg-slate-100" },
     create: { label: "Create", color: "text-blue-600 bg-blue-100" },
@@ -172,7 +177,8 @@ export function ActionBadge({
       color: "text-orange-600 bg-orange-100",
     },
     role_change: { label: "Role Change", color: "text-pink-600 bg-pink-100" },
-  }[action as keyof typeof config] || {
+  };
+  const config = configMap[action as keyof typeof configMap] || {
     label: action,
     color: "text-slate-600 bg-slate-100",
   };
@@ -205,7 +211,7 @@ export function ModuleBadge({
   showLabel?: boolean;
   className?: string;
 }) {
-  const config = {
+  const moduleConfigMap: Record<string, { label: string; color: string }> = {
     Authentication: { label: "Auth", color: "text-indigo-600 bg-indigo-100" },
     Users: { label: "Users", color: "text-blue-600 bg-blue-100" },
     Doctors: { label: "Doctors", color: "text-emerald-600 bg-emerald-100" },
@@ -220,7 +226,8 @@ export function ModuleBadge({
     Security: { label: "Security", color: "text-red-600 bg-red-100" },
     Reports: { label: "Reports", color: "text-violet-600 bg-violet-100" },
     Billing: { label: "Billing", color: "text-lime-600 bg-lime-100" },
-  }[module as keyof typeof config] || {
+  };
+  const config = moduleConfigMap[module as keyof typeof moduleConfigMap] || {
     label: module,
     color: "text-slate-600 bg-slate-100",
   };
@@ -232,6 +239,80 @@ export function ModuleBadge({
       className={cn(
         "inline-flex items-center font-medium rounded-full",
         config.color,
+        sizeClass,
+        className,
+      )}
+    >
+      {showLabel && <span>{config.label}</span>}
+    </span>
+  );
+}
+
+/** Role badge */
+export function RoleBadge({
+  role,
+  size = "md",
+  showLabel = true,
+  variant = "default",
+  className,
+}: {
+  role: string;
+  size?: "sm" | "md" | "lg";
+  showLabel?: boolean;
+  variant?: "default" | "soft";
+  className?: string;
+}) {
+  const roleConfigMap: Record<string, { label: string; color: string; softColor: string }> = {
+    "Super Admin": {
+      label: "Super Admin",
+      color: "text-red-600 bg-red-100",
+      softColor: "text-red-700 bg-red-100/50",
+    },
+    Admin: {
+      label: "Admin",
+      color: "text-purple-600 bg-purple-100",
+      softColor: "text-purple-700 bg-purple-100/50",
+    },
+    Doctor: {
+      label: "Doctor",
+      color: "text-emerald-600 bg-emerald-100",
+      softColor: "text-emerald-700 bg-emerald-100/50",
+    },
+    Nurse: {
+      label: "Nurse",
+      color: "text-blue-600 bg-blue-100",
+      softColor: "text-blue-700 bg-blue-100/50",
+    },
+    Receptionist: {
+      label: "Receptionist",
+      color: "text-amber-600 bg-amber-100",
+      softColor: "text-amber-700 bg-amber-100/50",
+    },
+    Patient: {
+      label: "Patient",
+      color: "text-cyan-600 bg-cyan-100",
+      softColor: "text-cyan-700 bg-cyan-100/50",
+    },
+    System: {
+      label: "System",
+      color: "text-slate-600 bg-slate-100",
+      softColor: "text-slate-700 bg-slate-100/50",
+    },
+  };
+  const config = roleConfigMap[role as keyof typeof roleConfigMap] || {
+    label: role,
+    color: "text-slate-600 bg-slate-100",
+    softColor: "text-slate-700 bg-slate-100/50",
+  };
+
+  const sizeClass = SIZE_CLASSES[size];
+  const color = variant === "soft" ? config.softColor : config.color;
+
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center font-medium rounded-full",
+        color,
         sizeClass,
         className,
       )}

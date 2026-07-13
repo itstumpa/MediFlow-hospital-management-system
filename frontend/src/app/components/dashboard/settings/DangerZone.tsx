@@ -3,22 +3,21 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
+  AlertCircle,
   AlertTriangle,
-  Trash2,
-  Shield,
+  CheckCircle,
   Database,
-  UserX,
+  Info,
   Key,
   Loader2,
-  CheckCircle,
-  XCircle,
-  AlertCircle,
-  Info,
   Settings,
-  Clock,
+  Shield,
+  Trash2,
+  UserX,
+  XCircle,
 } from "lucide-react";
 import { useState } from "react";
-import { DangerZoneActions, MOCK_DANGER, DangerAction } from "./types";
+import { DangerAction, DangerZoneActions, MOCK_DANGER } from "./types";
 
 interface DangerZoneProps {
   initialData?: DangerZoneActions;
@@ -167,7 +166,7 @@ export function DangerZone({
           message: `${action.label} completed successfully`,
         },
       }));
-      onAction?.(action.id, true);
+      onAction?.(action.id as keyof DangerZoneActions, true);
     } catch {
       setResults((prev) => ({
         ...prev,
@@ -312,7 +311,9 @@ export function DangerZone({
                   )}
 
                   <button
-                    onClick={() => openConfirm(action.id)}
+                    onClick={() =>
+                      openConfirm(action.id as keyof DangerZoneActions)
+                    }
                     disabled={isExecuting || result?.success}
                     className={cn(
                       "mt-4 inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors",
@@ -391,7 +392,7 @@ export function DangerZone({
 }
 
 interface DoubleConfirmDialogProps {
-  action: (typeof DANGER_ACTIONS)[0];
+  action: DangerAction;
   onConfirm: () => void;
   onCancel: () => void;
 }
@@ -440,7 +441,7 @@ function DoubleConfirmDialog({
 }
 
 interface FinalConfirmDialogProps {
-  action: (typeof DANGER_ACTIONS)[0];
+  action: DangerAction;
   input: string;
   onInputChange: (value: string) => void;
   onConfirm: () => void;

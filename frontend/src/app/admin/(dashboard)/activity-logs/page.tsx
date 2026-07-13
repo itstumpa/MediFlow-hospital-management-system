@@ -1,48 +1,32 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 import {
-  Search,
-  Filter,
-  X,
-  Download,
-  RefreshCw,
-  ChevronLeft,
-  ChevronRight,
-  Table,
-  List,
-  AlertTriangle,
-  Shield,
-  Activity,
-  Database,
-} from "lucide-react";
-import {
-  ActivityLog,
-  ActivityFilters,
-  DEFAULT_ACTIVITY_FILTERS,
-  ActivitySortField,
-  ActivityModule,
-  ActivityActionType,
-  ActivitySeverity,
-  ActivityStatus,
-  UserRole,
-} from "@/app/components/dashboard/activity-logs/types";
-import {
+  ActivityDrawer,
   ActivityStats,
-  ActivityToolbar,
   ActivityTable,
   ActivityTimeline,
-  ActivityDrawer,
-  ActivityFilters as ActivityFiltersComponent,
-  LoadingSkeleton,
-  StatsSkeleton,
-  FiltersSkeleton,
-  EmptyState,
+  ActivityToolbar,
 } from "@/app/components/dashboard/activity-logs";
-import { mockActivityLogs } from "@/app/components/dashboard/activity-logs/mock";
+import { ActivityFilters as ActivityFiltersComponent } from "@/app/components/dashboard/activity-logs/ActivityFilters";
+import { activityLogsData as mockActivityLogs } from "@/app/components/dashboard/activity-logs/mock";
+import {
+  ActivityFilters,
+  ActivityLog,
+  ActivitySortField,
+  DEFAULT_ACTIVITY_FILTERS,
+} from "@/app/components/dashboard/activity-logs/types";
+import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  Activity,
+  ChevronLeft,
+  ChevronRight,
+  Download,
+  RefreshCw,
+  X,
+} from "lucide-react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function ActivityLogsPage() {
   const [logs, setLogs] = useState<ActivityLog[]>([]);
@@ -80,8 +64,8 @@ export default function ActivityLogsPage() {
       const search = filters.search.toLowerCase();
       result = result.filter(
         (log) =>
-          log.userName.toLowerCase().includes(search) ||
-          log.userEmail.toLowerCase().includes(search) ||
+          log.user.name.toLowerCase().includes(search) ||
+          log.user.email.toLowerCase().includes(search) ||
           log.description.toLowerCase().includes(search) ||
           log.ipAddress.includes(search) ||
           log.module.toLowerCase().includes(search) ||
@@ -92,10 +76,10 @@ export default function ActivityLogsPage() {
 
     // Multi-select filters
     if (filters.user.length > 0) {
-      result = result.filter((log) => filters.user.includes(log.userName));
+      result = result.filter((log) => filters.user.includes(log.user.name));
     }
     if (filters.role.length > 0) {
-      result = result.filter((log) => filters.role.includes(log.userRole));
+      result = result.filter((log) => filters.role.includes(log.user.role));
     }
     if (filters.module.length > 0) {
       result = result.filter((log) => filters.module.includes(log.module));
@@ -131,17 +115,31 @@ export default function ActivityLogsPage() {
 
     // Sort
     result.sort((a, b) => {
-      let aVal: any = a[sortConfig.field];
-      let bVal: any = b[sortConfig.field];
+      let aVal: any;
+      let bVal: any;
 
-      if (sortConfig.field === "timestamp") {
-        aVal = new Date(aVal).getTime();
-        bVal = new Date(bVal).getTime();
+      // Map sort fields to actual ActivityLog properties
+      switch (sortConfig.field) {
+        case "user":
+          aVal = a.user.name;
+          bVal = b.user.name;
+          break;
+        case "role":
+          aVal = a.user.role;
+          bVal = b.user.role;
+          break;
+        case "timestamp":
+          aVal = new Date(a.timestamp).getTime();
+          bVal = new Date(b.timestamp).getTime();
+          break;
+        default:
+          aVal = a[sortConfig.field as keyof ActivityLog];
+          bVal = b[sortConfig.field as keyof ActivityLog];
       }
 
       if (typeof aVal === "string") {
         aVal = aVal.toLowerCase();
-        bVal = bVal.toLowerCase();
+        bVal = (bVal as string).toLowerCase();
       }
 
       if (aVal < bVal) return sortConfig.asc ? -1 : 1;
@@ -209,15 +207,15 @@ export default function ActivityLogsPage() {
       ...data.map((log) =>
         [
           format(new Date(log.timestamp), "yyyy-MM-dd HH:mm:ss"),
-          log.userName,
-          log.userEmail,
-          log.userRole,
+          log.user.name,
+          log.user.email,
+          log.user.role,
           log.module,
           log.action,
           `"${log.description.replace(/"/g, '""')}"`,
           log.ipAddress,
-          log.browser,
-          log.device,
+          log.device?.browser || "",
+          log.device?.device || "",
           log.status,
           log.severity,
         ].join(","),

@@ -1,11 +1,4 @@
-import type {
-  ActivityLog,
-  ActivityActionType,
-  ActivityModule,
-  ActivitySeverity,
-  ActivityStatus,
-  UserRole,
-} from "./types";
+import { type ActivityLog, type UserRole, ACTION_TYPE_OPTIONS, MODULE_OPTIONS, ROLE_OPTIONS, SEVERITY_OPTIONS, STATUS_OPTIONS } from "./types";
 
 /** Mock users for activity logs */
 export const mockUsers = [

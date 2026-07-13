@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Search, FilterX, Plus, Database, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Activity, Database, FilterX, Plus, Search } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface EmptyStateProps {

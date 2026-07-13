@@ -18,10 +18,20 @@ export type ActivityActionType =
   | "export"
   | "import"
   | "password_change"
-  | "role_change";
+  | "role_change"
+  | "read"
+  | "revoke"
+  | "backup"
+  | "restore"
+  | "config_change"
+  | "security_alert"
+  | "failed_login"
+  | "permission_change"
+  | "system_error"
+  | "api_call";
 
 /** Activity status */
-export type ActivityStatus = "success" | "failed" | "pending";
+export type ActivityStatus = "success" | "failed" | "pending" | "blocked";
 
 /** View mode for the activity logs */
 export type ActivityViewMode = "table" | "timeline";
@@ -211,6 +221,7 @@ export const STATUS_OPTIONS: readonly ActivityStatus[] = [
   "success",
   "failed",
   "pending",
+  "blocked",
 ] as const;
 
 /** Sort field options */
@@ -293,6 +304,56 @@ export const ACTION_TYPE_CONFIG: Record<
     icon: null as any,
     color: "text-pink-600 bg-pink-100",
   },
+  read: {
+    label: "Read",
+    icon: null as any,
+    color: "text-blue-600 bg-blue-100",
+  },
+  revoke: {
+    label: "Revoke",
+    icon: null as any,
+    color: "text-red-600 bg-red-100",
+  },
+  backup: {
+    label: "Backup",
+    icon: null as any,
+    color: "text-teal-600 bg-teal-100",
+  },
+  restore: {
+    label: "Restore",
+    icon: null as any,
+    color: "text-emerald-600 bg-emerald-100",
+  },
+  config_change: {
+    label: "Config Change",
+    icon: null as any,
+    color: "text-amber-600 bg-amber-100",
+  },
+  security_alert: {
+    label: "Security Alert",
+    icon: null as any,
+    color: "text-red-600 bg-red-100",
+  },
+  failed_login: {
+    label: "Failed Login",
+    icon: null as any,
+    color: "text-orange-600 bg-orange-100",
+  },
+  permission_change: {
+    label: "Permission Change",
+    icon: null as any,
+    color: "text-purple-600 bg-purple-100",
+  },
+  system_error: {
+    label: "System Error",
+    icon: null as any,
+    color: "text-red-600 bg-red-100",
+  },
+  api_call: {
+    label: "API Call",
+    icon: null as any,
+    color: "text-indigo-600 bg-indigo-100",
+  },
 };
 
 /** Severity display config */
@@ -344,6 +405,11 @@ export const STATUS_CONFIG: Record<
   pending: {
     label: "Pending",
     color: "text-amber-600 bg-amber-100",
+    icon: null as any,
+  },
+  blocked: {
+    label: "Blocked",
+    color: "text-red-600 bg-red-100",
     icon: null as any,
   },
 };
