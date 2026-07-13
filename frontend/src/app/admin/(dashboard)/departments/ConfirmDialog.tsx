@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, Save, Trash2, X } from "lucide-react";
@@ -38,7 +38,7 @@ const dialogConfig: Record<
       "Save the current form as a draft. You can continue editing later. The department will not be visible to patients until published.",
     confirmLabel: "Save Draft",
     confirmClass:
-      "bg-blue-500 hover:bg-blue-600 focus-visible:outline-blue-500",
+      "bg-dash-primary hover:bg-dash-primary-dark focus-visible:outline-dash-primary",
   },
   delete: {
     icon: Trash2,

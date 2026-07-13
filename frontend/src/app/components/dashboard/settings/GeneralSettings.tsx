@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -102,7 +102,7 @@ export function GeneralSettings({
       {/* Clinic Information */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <Building2 className="h-5 w-5" />
           </div>
           <div>
@@ -129,7 +129,7 @@ export function GeneralSettings({
                 type="text"
                 value={data.name}
                 onChange={(e) => handleChange("name", e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                 placeholder="MediFlow Medical Center"
               />
             </div>
@@ -152,7 +152,7 @@ export function GeneralSettings({
                   onChange={(e) =>
                     handleChange("website", `https://${e.target.value}`)
                   }
-                  className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                  className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                   placeholder="mediflow.example.com"
                 />
               </div>
@@ -171,7 +171,7 @@ export function GeneralSettings({
               value={data.description}
               onChange={(e) => handleChange("description", e.target.value)}
               rows={3}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 resize-none"
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 resize-none"
               placeholder="A brief description of your clinic..."
             />
           </div>
@@ -191,7 +191,7 @@ export function GeneralSettings({
                   type="tel"
                   value={data.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
@@ -211,7 +211,7 @@ export function GeneralSettings({
                   type="email"
                   value={data.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                   placeholder="info@mediflow.example.com"
                 />
               </div>
@@ -231,7 +231,7 @@ export function GeneralSettings({
                   type="text"
                   value={data.address}
                   onChange={(e) => handleChange("address", e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                   placeholder="123 Healthcare Avenue, Medical District, NY 10001"
                 />
               </div>
@@ -409,7 +409,7 @@ export function GeneralSettings({
                         e.target.checked,
                       )
                     }
-                    className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                    className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                   />
                   <label
                     htmlFor={`hours-${day}`}
@@ -438,7 +438,7 @@ export function GeneralSettings({
                       handleBusinessHoursChange(day, "open", e.target.value)
                     }
                     disabled={!data.businessHours[day].enabled}
-                    className="w-32 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                    className="w-32 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   />
                   <label
                     htmlFor={`close-${day}`}
@@ -454,7 +454,7 @@ export function GeneralSettings({
                       handleBusinessHoursChange(day, "close", e.target.value)
                     }
                     disabled={!data.businessHours[day].enabled}
-                    className="w-32 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                    className="w-32 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   />
                   {!data.businessHours[day].enabled && (
                     <span className="text-sm text-slate-400 dark:text-slate-500">

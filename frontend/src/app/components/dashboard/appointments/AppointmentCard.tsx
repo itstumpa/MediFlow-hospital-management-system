@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Calendar, Edit3, Eye, MoreHorizontal } from "lucide-react";
@@ -15,8 +15,8 @@ interface AppointmentCardProps {
 
 const statusConfig: Record<string, { class: string; dot: string }> = {
   Confirmed: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
+    dot: "bg-dash-primary",
   },
   Pending: {
     class:
@@ -62,7 +62,7 @@ const paymentConfig: Record<string, { class: string }> = {
       "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
   },
   Refunded: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
   },
   Waived: {
     class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
@@ -74,7 +74,7 @@ const paymentConfig: Record<string, { class: string }> = {
 };
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -85,10 +85,10 @@ const avatarColors = [
 ];
 
 const consultationIcons: Record<string, string> = {
-  Video: "🎥",
-  "In-Person": "🏥",
-  Phone: "📞",
-  Emergency: "🚨",
+  Video: "ðŸŽ¥",
+  "In-Person": "ðŸ¥",
+  Phone: "ðŸ“ž",
+  Emergency: "ðŸš¨",
 };
 
 export function AppointmentCard({
@@ -119,7 +119,7 @@ export function AppointmentCard({
       transition={{ duration: 0.35, delay: index * 0.04, ease: "easeOut" }}
       className={`dash-card relative overflow-hidden transition-all ${
         selected
-          ? "ring-2 ring-blue-500 shadow-blue-500/10"
+          ? "ring-2 ring-dash-primary shadow-dash-primary/10"
           : "hover:shadow-lg hover:-translate-y-0.5"
       }`}
     >
@@ -129,7 +129,7 @@ export function AppointmentCard({
           type="checkbox"
           checked={selected}
           onChange={() => onSelect(appointment.id)}
-          className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+          className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
           aria-label={`Select ${appointment.patientName}`}
         />
       </div>
@@ -210,7 +210,7 @@ export function AppointmentCard({
         {/* Consultation Type + Payment */}
         <div className="mt-3 flex items-center justify-between text-xs">
           <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
-            {consultationIcons[appointment.consultationType] ?? "📋"}
+            {consultationIcons[appointment.consultationType] ?? "ðŸ“‹"}
             {appointment.consultationType}
           </span>
           <span
@@ -224,7 +224,7 @@ export function AppointmentCard({
         <div className="mt-4 flex items-center justify-center gap-1 border-t border-slate-100 pt-3 dark:border-slate-700">
           <button
             onClick={() => onView(appointment)}
-            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
             title="View appointment"
           >
             <Eye className="h-4 w-4" />
@@ -237,7 +237,7 @@ export function AppointmentCard({
             <Edit3 className="h-4 w-4" />
           </button>
           <button
-            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
             title="Reschedule"
           >
             <Calendar className="h-4 w-4" />

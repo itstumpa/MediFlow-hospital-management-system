@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -103,8 +103,8 @@ export function DangerZone({
       icon: Key,
       color: "blue",
       bgColor:
-        "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
-      borderColor: "border-blue-200 dark:border-blue-900/30",
+        "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
+      borderColor: "border-dash-primary-light dark:border-dash-primary/30",
       confirmText: "REVOKE SESSIONS",
       destructive: false,
       requiresDoubleConfirm: false,
@@ -485,7 +485,7 @@ function FinalConfirmDialog({
         onChange={(e) => onInputChange(e.target.value)}
         placeholder={`Type "${action.confirmText}" to confirm`}
         className={cn(
-          "w-full rounded-lg border px-4 py-3 text-sm font-mono text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white",
+          "w-full rounded-lg border px-4 py-3 text-sm font-mono text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white",
           input &&
             !isValid &&
             "border-red-300 focus:border-red-500 focus:ring-red-500/20",

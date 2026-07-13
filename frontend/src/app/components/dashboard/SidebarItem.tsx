@@ -24,9 +24,9 @@ export function SidebarItem({
       href={href}
       className={cn(
         "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
-        "outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+        "outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
         isActive
-          ? "bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400"
+          ? "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-accent"
           : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200",
         collapsed && "justify-center px-0",
       )}
@@ -38,7 +38,7 @@ export function SidebarItem({
           variants={activeIndicatorVariants}
           initial="hidden"
           animate="visible"
-          className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-full bg-blue-600 dark:bg-blue-400"
+          className="absolute left-0 top-1/2 h-5 w-0.5 -translate-y-1/2 rounded-full bg-dash-primary dark:bg-accent"
         />
       )}
 
@@ -47,7 +47,7 @@ export function SidebarItem({
         className={cn(
           "flex shrink-0 items-center justify-center transition-transform duration-200",
           "group-hover:scale-110",
-          isActive && "text-blue-600 dark:text-blue-400",
+          isActive && "text-dash-primary dark:text-accent",
         )}
       >
         <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />
@@ -67,7 +67,7 @@ export function SidebarItem({
       {badge !== undefined && badge > 0 && (
         <span
           className={cn(
-            "ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-blue-600 px-1.5 text-[11px] font-semibold text-white",
+            "ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-dash-primary px-1.5 text-[11px] font-semibold text-white",
             collapsed && "hidden",
           )}
         >

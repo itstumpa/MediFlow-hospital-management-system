@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ExternalLink, MoreHorizontal, Star } from "lucide-react";
@@ -63,7 +63,7 @@ const doctors: TopDoctor[] = [
 ];
 
 const bgColors = [
-  "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+  "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
   "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
   "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
   "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
@@ -144,7 +144,7 @@ export function TopDoctors() {
             {/* Actions */}
             <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
               <button
-                className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+                className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
                 aria-label={`View ${doc.name} profile`}
               >
                 <ExternalLink className="h-4 w-4" />

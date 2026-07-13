@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import type { ArticleCategory } from "./types";
 import { CATEGORY_ICONS } from "./mock";
 
-/* ─── Icon resolver ─── */
+/* â”€â”€â”€ Icon resolver â”€â”€â”€ */
 import {
   Heart,
   Brain,
@@ -67,7 +67,7 @@ function resolveIcon(name: string): LucideIcon {
   return iconMap[name] || FolderOpen;
 }
 
-/* ─── Form data interface ─── */
+/* â”€â”€â”€ Form data interface â”€â”€â”€ */
 export interface CategoryFormData {
   name: string;
   slug: string;
@@ -213,7 +213,7 @@ export function CategoryForm({
                     value={form.name}
                     onChange={(e) => handleNameChange(e.target.value)}
                     placeholder="e.g., Heart Health"
-                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
                     required
                   />
                 </div>
@@ -231,7 +231,7 @@ export function CategoryForm({
                       setSlugTouched(true);
                     }}
                     placeholder="e.g., heart-health"
-                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 font-mono"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 font-mono"
                     required
                   />
                 </div>
@@ -247,7 +247,7 @@ export function CategoryForm({
                   onChange={(e) => updateField("description", e.target.value)}
                   placeholder="Describe what this category covers..."
                   rows={3}
-                  className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                  className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
                 />
               </div>
 
@@ -263,7 +263,7 @@ export function CategoryForm({
                   <button
                     type="button"
                     onClick={() => setIconPickerOpen(!iconPickerOpen)}
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm transition-all hover:border-slate-300 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-slate-600"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm transition-all hover:border-slate-300 focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-slate-600"
                   >
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400">
                       {React.createElement(resolveIcon(form.icon), {
@@ -305,7 +305,7 @@ export function CategoryForm({
                                 className={cn(
                                   "flex items-center justify-center rounded-lg p-2 transition-all",
                                   form.icon === iconName
-                                    ? "bg-blue-100 text-blue-600 ring-2 ring-blue-500/30 dark:bg-blue-950/40 dark:text-blue-400"
+                                    ? "bg-dash-primary-light text-dash-primary ring-2 ring-dash-primary/30 dark:bg-teal-950/40 dark:text-accent"
                                     : "text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700",
                                 )}
                                 title={iconName}
@@ -332,7 +332,7 @@ export function CategoryForm({
                     value={form.imageUrl}
                     onChange={(e) => updateField("imageUrl", e.target.value)}
                     placeholder="https://images.unsplash.com/... "
-                    className="flex-1 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                    className="flex-1 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
                   />
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-dashed border-slate-300 dark:border-slate-700">
                     <ImagePlus className="h-4 w-4 text-slate-400" />
@@ -375,7 +375,7 @@ export function CategoryForm({
                     value={form.seoTitle}
                     onChange={(e) => updateField("seoTitle", e.target.value)}
                     placeholder="e.g., Heart Health Articles | MediFlow"
-                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
                   />
                 </div>
 
@@ -390,7 +390,7 @@ export function CategoryForm({
                     }
                     placeholder="A brief description for search results..."
                     rows={2}
-                    className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+                    className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
                   />
                 </div>
               </div>
@@ -412,9 +412,9 @@ export function CategoryForm({
                   type="button"
                   onClick={() => updateField("featured", !form.featured)}
                   className={cn(
-                    "relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20",
+                    "relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary/20",
                     form.featured
-                      ? "bg-blue-600"
+                      ? "bg-dash-primary"
                       : "bg-slate-200 dark:bg-slate-700",
                   )}
                   role="switch"
@@ -441,7 +441,7 @@ export function CategoryForm({
                 <button
                   type="submit"
                   disabled={!isValid}
-                  className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <Save className="h-4 w-4" />
                   {isEditing ? "Save Changes" : "Create Category"}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, Trash2, X } from "lucide-react";
@@ -12,7 +12,7 @@ interface DeletePatientDialogProps {
 }
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",

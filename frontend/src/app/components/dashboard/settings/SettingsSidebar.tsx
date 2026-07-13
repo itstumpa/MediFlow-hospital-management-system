@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -230,9 +230,9 @@ export function SettingsSidebar({
                   onClick={() => onSelect(item.id)}
                   className={cn(
                     "relative w-full flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900",
                     activeSection === item.id
-                      ? "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                      ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-white",
                   )}
                   aria-current={activeSection === item.id ? "page" : undefined}
@@ -241,7 +241,7 @@ export function SettingsSidebar({
                     className={cn(
                       "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors",
                       activeSection === item.id
-                        ? "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
+                        ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent"
                         : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-300",
                     )}
                     aria-hidden="true"
@@ -262,7 +262,7 @@ export function SettingsSidebar({
                     <motion.div
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-1 bg-blue-500 rounded-r-lg"
+                      className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-1 bg-dash-primary rounded-r-lg"
                       aria-hidden="true"
                     />
                   )}

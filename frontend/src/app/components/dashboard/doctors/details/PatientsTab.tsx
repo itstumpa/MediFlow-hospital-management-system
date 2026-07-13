@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { DoctorPatient } from "@/lib/data/admin-doctors";
@@ -86,7 +86,7 @@ export function PatientsTab({ patients }: PatientsTabProps) {
                   <span
                     className={cn(
                       "inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium",
-                      "bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400",
+                      "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
                     )}
                   >
                     {patient.condition}

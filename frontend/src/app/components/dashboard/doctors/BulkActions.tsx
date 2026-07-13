@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, MessageSquare, Trash2, UserX, X } from "lucide-react";
@@ -32,7 +32,7 @@ export function BulkActions({
         >
           <div className="flex items-center gap-2 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-xl backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-800/95">
             <span className="mr-2 text-sm font-medium text-slate-700 dark:text-slate-300">
-              <span className="font-bold text-blue-600 dark:text-blue-400">
+              <span className="font-bold text-dash-primary dark:text-accent">
                 {selectedCount}
               </span>{" "}
               selected

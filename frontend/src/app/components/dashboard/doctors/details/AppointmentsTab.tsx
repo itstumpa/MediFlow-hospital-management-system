@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { DoctorAppointment } from "@/lib/data/admin-doctors";
@@ -24,8 +24,8 @@ const statusStyles: Record<
 > = {
   scheduled: {
     label: "Scheduled",
-    class: "bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
+    dot: "bg-dash-primary",
   },
   completed: {
     label: "Completed",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
@@ -35,7 +35,7 @@ function SectionCard({
       className="dash-card overflow-hidden p-5"
     >
       <div className="mb-4 flex items-center gap-2.5">
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent">
           <Icon className="h-4 w-4" />
         </span>
         <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
@@ -143,7 +143,7 @@ export function OverviewTab({ doctor }: OverviewTabProps) {
             {doctor.expertise.map((area) => (
               <span
                 key={area}
-                className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950/30 dark:text-blue-400"
+                className="inline-flex items-center rounded-full bg-dash-primary-light px-3 py-1 text-xs font-medium text-dash-primary dark:bg-teal-950/30 dark:text-accent"
               >
                 {area}
               </span>

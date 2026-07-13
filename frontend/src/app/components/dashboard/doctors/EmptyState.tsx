@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { SearchX, UserPlus } from "lucide-react";
@@ -48,7 +48,7 @@ export function EmptyState({
         {!hasFilters && (
           <button
             onClick={onAddDoctor}
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg"
+            className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-lg"
           >
             <UserPlus className="h-4 w-4" />
             Add Doctor

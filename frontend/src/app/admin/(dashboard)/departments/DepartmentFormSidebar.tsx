@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
@@ -40,7 +40,7 @@ export function DepartmentFormSidebar() {
               transition={{ delay: 0.3 + i * 0.08 }}
               className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400"
             >
-              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-100 text-[10px] font-bold text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-dash-primary-light text-[10px] font-bold text-dash-primary dark:bg-teal-500/20 dark:text-accent">
                 {i + 1}
               </span>
               {tip}
@@ -68,7 +68,7 @@ export function DepartmentFormSidebar() {
             "SEO",
           ].map((section, i) => (
             <div key={i} className="flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+              <div className="h-1.5 w-1.5 rounded-full bg-dash-primary" />
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {section}
               </span>

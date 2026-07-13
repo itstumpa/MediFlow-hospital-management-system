@@ -7,6 +7,15 @@ export * from "./EmptyState";
 export * from "./LoadingSkeleton";
 export * from "./mock";
 export * from "./SeverityBadge";
+export {
+  ACTION_TYPE_OPTIONS,
+  DEFAULT_ACTIVITY_FILTERS,
+  MODULE_OPTIONS,
+  ROLE_OPTIONS,
+  SEVERITY_OPTIONS,
+  SORT_FIELD_OPTIONS,
+  STATUS_OPTIONS,
+} from "./types";
 export type {
   ActivityActionType,
   ActivityFilters,
@@ -17,13 +26,4 @@ export type {
   ActivityStatus,
   ActivityViewMode,
   UserRole,
-} from "./types";
-export {
-  DEFAULT_ACTIVITY_FILTERS,
-  ACTION_TYPE_OPTIONS,
-  MODULE_OPTIONS,
-  ROLE_OPTIONS,
-  SEVERITY_OPTIONS,
-  STATUS_OPTIONS,
-  SORT_FIELD_OPTIONS,
 } from "./types";

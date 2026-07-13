@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -28,14 +28,14 @@ export function UserDropdown() {
         className={cn(
           "group flex items-center gap-2 rounded-xl px-2 py-1.5 transition-colors",
           "hover:bg-slate-100 dark:hover:bg-slate-800",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2",
           isOpen && "bg-slate-100 dark:bg-slate-800",
         )}
         aria-label="User menu"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-sm font-semibold text-white shadow-sm transition-transform group-hover:scale-105">
+        <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm transition-transform group-hover:scale-105">
           AD
         </div>
         <div className="hidden text-left md:block">

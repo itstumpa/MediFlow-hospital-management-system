@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   staggerContainer,
@@ -17,8 +17,8 @@ interface AppointmentsTabProps {
 const statusConfig = {
   scheduled: {
     label: "Scheduled",
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
+    dot: "bg-dash-primary",
   },
   completed: {
     label: "Completed",
@@ -56,7 +56,7 @@ export function AppointmentsTab({ appointments }: AppointmentsTabProps) {
       animate="visible"
       className="dash-card overflow-hidden"
     >
-      {/* Table — hidden on very small screens */}
+      {/* Table â€” hidden on very small screens */}
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>

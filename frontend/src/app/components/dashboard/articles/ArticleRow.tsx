@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -91,7 +91,7 @@ export function ArticleRow({
       }}
       className={`group transition-colors ${
         selected
-          ? "bg-blue-50/50 dark:bg-blue-900/20"
+          ? "bg-dash-primary-light/50 dark:bg-teal-900/20"
           : "hover:bg-slate-50 dark:hover:bg-slate-800/50"
       }`}
     >
@@ -102,7 +102,7 @@ export function ArticleRow({
             type="checkbox"
             checked={selected}
             onChange={() => onSelect(article.id)}
-            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+            className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
             aria-label={`Select ${article.title}`}
           />
         </div>
@@ -180,7 +180,7 @@ export function ArticleRow({
             ? article.views >= 1000
               ? `${(article.views / 1000).toFixed(1)}k`
               : article.views
-            : "—"}
+            : "â€”"}
         </span>
       </td>
 
@@ -200,7 +200,7 @@ export function ArticleRow({
                 month: "short",
                 day: "numeric",
               })
-            : "—"}
+            : "â€”"}
         </span>
       </td>
 

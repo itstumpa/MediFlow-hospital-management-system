@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, Trash2, X } from "lucide-react";
@@ -12,7 +12,7 @@ interface DeleteAppointmentDialogProps {
 }
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -24,7 +24,7 @@ const avatarColors = [
 
 const statusConfig: Record<string, { class: string }> = {
   Confirmed: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
   },
   Pending: {
     class:

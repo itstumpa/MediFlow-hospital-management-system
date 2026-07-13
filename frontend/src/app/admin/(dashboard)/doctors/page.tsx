@@ -1,5 +1,7 @@
-"use client";
+﻿"use client";
 
+import { Button } from "@/app/components/dashboard/Button";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import { BulkActions } from "@/app/components/dashboard/doctors/BulkActions";
 import { DeleteDoctorDialog } from "@/app/components/dashboard/doctors/DeleteDoctorDialog";
@@ -21,7 +23,7 @@ import type {
 } from "@/app/components/dashboard/doctors/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/doctors/types";
 import { motion } from "framer-motion";
-import { Plus, Upload } from "lucide-react";
+import { Download, Plus, Upload } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 
@@ -201,49 +203,38 @@ export default function DoctorsPage() {
     filters.consultationType.length > 0;
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="space-y-6"
+    >
       {/* Page Header */}
       <PageHeader
         title="Manage Doctors"
         subtitle="View, add, edit, and manage all doctors in your hospital network."
         actions={
           <div className="flex items-center gap-2">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Button
+              variant="outline"
+              icon={Upload}
               onClick={() => setImportOpen(true)}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              size="sm"
             >
-              <Upload className="h-4 w-4" />
               Import
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </Button>
+            <Button
+              variant="outline"
+              icon={Download}
               onClick={() => setExportOpen(true)}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              size="sm"
             >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
               Export
-            </motion.button>
-            <Link
-              href="/admin/doctors/new"
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg"
-            >
-              <Plus className="h-4 w-4" />
-              Add Doctor
+            </Button>
+            <Link href="/admin/doctors/new">
+              <Button variant="primary" icon={Plus} size="sm">
+                Add Doctor
+              </Button>
             </Link>
           </div>
         }
@@ -254,9 +245,9 @@ export default function DoctorsPage() {
         <LoadingSkeleton />
       ) : (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
           className="space-y-6"
         >
           {/* Stats Cards */}
@@ -358,7 +349,7 @@ export default function DoctorsPage() {
                             setRowsPerPage(Number(e.target.value));
                             setCurrentPage(1);
                           }}
-                          className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                          className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                         >
                           {[5, 10, 20, 50].map((n) => (
                             <option key={n} value={n}>
@@ -411,7 +402,7 @@ export default function DoctorsPage() {
                                 onClick={() => setCurrentPage(pageNum)}
                                 className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-medium transition-all ${
                                   currentPage === pageNum
-                                    ? "bg-blue-600 text-white shadow-sm"
+                                    ? "bg-dash-primary text-white shadow-sm"
                                     : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
                                 }`}
                               >
@@ -488,6 +479,6 @@ export default function DoctorsPage() {
         onClose={() => setImportOpen(false)}
         onImport={handleImport}
       />
-    </div>
+    </motion.div>
   );
 }

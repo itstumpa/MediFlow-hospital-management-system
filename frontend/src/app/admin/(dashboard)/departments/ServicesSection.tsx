@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -50,7 +50,7 @@ function ChipGroup({
               className={cn(
                 "rounded-xl border-2 px-3.5 py-2 text-xs font-medium transition-all",
                 isSelected
-                  ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-300"
+                  ? "border-dash-primary bg-dash-primary-light text-dash-primary dark:border-teal-400 dark:bg-teal-500/10 dark:text-accent"
                   : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-500",
               )}
               whileHover={{ scale: 1.03 }}
@@ -92,7 +92,7 @@ export function ServicesSection() {
             placeholder="The department's mission statement"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all resize-none",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
             )}
@@ -110,7 +110,7 @@ export function ServicesSection() {
             placeholder="The department's vision for the future"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all resize-none",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
             )}
@@ -147,7 +147,7 @@ export function ServicesSection() {
             {...register("emergencyServices")}
             className="peer sr-only"
           />
-          <span className="h-6 w-11 rounded-full bg-slate-200 transition-colors after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500/20" />
+          <span className="h-6 w-11 rounded-full bg-slate-200 transition-colors after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-dash-primary peer-checked:after:translate-x-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-dash-primary/20" />
         </label>
         <div>
           <p className="text-sm font-medium text-slate-700 dark:text-slate-300">

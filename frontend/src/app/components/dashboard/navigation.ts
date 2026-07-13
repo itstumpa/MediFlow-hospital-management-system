@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   MessageSquare,
   Settings,
+  Shield,
   Stethoscope,
   Users,
   type LucideIcon,
@@ -92,6 +93,11 @@ export const navigationGroups: NavGroupDef[] = [
     label: "System",
     items: [
       {
+        icon: Shield as LucideIcon,
+        label: "Roles & Permissions",
+        href: "/admin/roles",
+      },
+      {
         icon: Settings as LucideIcon,
         label: "Settings",
         href: "/admin/settings",
@@ -116,6 +122,7 @@ const autoLabels = Object.fromEntries(
 /** Map of href → label for breadcrumb resolution */
 export const breadcrumbLabels: Record<string, string> = {
   ...autoLabels,
+  "/admin/roles": "Roles & Permissions",
   "/admin/doctors/new": "New Doctor",
   "/admin/doctors/[id]/edit": "Edit Doctor",
   "/admin/departments/new": "New Department",

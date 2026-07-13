@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Paperclip, Send, X } from "lucide-react";
@@ -141,7 +141,7 @@ export const ReplyDialog = forwardRef<ReplyDialogHandle, ReplyDialogProps>(
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type your reply..."
                     rows={6}
-                    className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700/50 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-blue-500 dark:focus:ring-blue-900/30"
+                    className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary-light dark:border-slate-600 dark:bg-slate-700/50 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-dash-primary dark:focus:ring-teal-900/30"
                   />
                 </div>
 
@@ -165,7 +165,7 @@ export const ReplyDialog = forwardRef<ReplyDialogHandle, ReplyDialogProps>(
                   whileTap={{ scale: 0.98 }}
                   onClick={handleSend}
                   disabled={!message.trim()}
-                  className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-dash-primary-dark disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <Send className="h-4 w-4" />
                   Send Reply

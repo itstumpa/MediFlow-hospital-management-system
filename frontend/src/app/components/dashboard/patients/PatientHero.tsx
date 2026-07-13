@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/app/components/dashboard/MotionVariants";
 import type { PatientDetail } from "@/lib/data/patient-detail";
@@ -44,8 +44,8 @@ const statusConfig = {
   },
   discharged: {
     label: "Discharged",
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
+    dot: "bg-dash-primary",
   },
 };
 
@@ -81,7 +81,7 @@ export function PatientHero({ patient }: PatientHeroProps) {
   return (
     <motion.div variants={staggerItem} className="dash-card overflow-hidden">
       {/* Top gradient accent */}
-      <div className="h-1.5 bg-gradient-to-r from-dash-primary via-blue-500 to-dash-primary" />
+      <div className="h-1.5 bg-gradient-to-r from-dash-primary via-dash-primary to-dash-primary" />
 
       <div className="p-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
@@ -99,7 +99,7 @@ export function PatientHero({ patient }: PatientHeroProps) {
               }}
               className="relative shrink-0"
             >
-              <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-dash-primary to-blue-600 shadow-lg shadow-dash-primary/20 ring-4 ring-white dark:ring-slate-800">
+              <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-lg shadow-dash-primary/20 ring-4 ring-white dark:ring-slate-800">
                 {patient.avatar ? (
                   <img
                     src={patient.avatar}
@@ -154,7 +154,7 @@ export function PatientHero({ patient }: PatientHeroProps) {
                 </span>
               </div>
               <p className="text-xs text-slate-400 dark:text-slate-500">
-                Registered {formatDate(patient.registrationDate)} •{" "}
+                Registered {formatDate(patient.registrationDate)} â€¢{" "}
                 {patient.occupation}
               </p>
             </div>

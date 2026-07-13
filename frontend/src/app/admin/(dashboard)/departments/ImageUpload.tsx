@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -87,7 +87,7 @@ export function ImageUpload({
         className={cn(
           "relative flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-6 transition-all",
           isDragOver
-            ? "border-blue-400 bg-blue-50 dark:border-blue-500 dark:bg-blue-500/10"
+            ? "border-dash-primary bg-dash-primary-light dark:border-teal-500 dark:bg-teal-500/10"
             : preview
               ? "border-transparent"
               : "border-slate-300 bg-slate-50 hover:border-slate-400 dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-slate-500",

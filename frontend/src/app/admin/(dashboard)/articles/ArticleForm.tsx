@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   ArticlePreview,
@@ -276,8 +276,8 @@ export function ArticleForm({
                 className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800"
               >
                 <div className="mb-5 flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                    <FileText className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-dash-primary-light dark:bg-teal-900/30">
+                    <FileText className="h-4 w-4 text-dash-primary dark:text-accent" />
                   </div>
                   <div>
                     <h2 className="text-base font-semibold text-slate-900 dark:text-white">
@@ -300,7 +300,7 @@ export function ArticleForm({
                         value={formValues.title}
                         onChange={(e) => updateField("title", e.target.value)}
                         placeholder="Enter an attention-grabbing title..."
-                        className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 group-focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.15)] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+                        className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 group-focus-within:shadow-[0_0_0_3px_rgba(14,124,123,0.15)] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
                       />
                     </div>
                     {errors.title && (
@@ -320,7 +320,7 @@ export function ArticleForm({
                         value={formValues.slug}
                         onChange={(e) => updateField("slug", e.target.value)}
                         placeholder="article-url-slug"
-                        className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-44 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+                        className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-44 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
                       />
                       <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 dark:text-slate-500">
                         mediflow.com/articles/
@@ -354,7 +354,7 @@ export function ArticleForm({
                       onChange={(e) => updateField("excerpt", e.target.value)}
                       placeholder="Write a brief summary of your article..."
                       rows={3}
-                      className="dash-input w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+                      className="dash-input w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
                     />
                     {errors.excerpt && (
                       <p className="text-xs text-red-500">
@@ -504,7 +504,7 @@ export function ArticleForm({
                 className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                  <Sparkles className="h-4 w-4 text-blue-500" />
+                  <Sparkles className="h-4 w-4 text-dash-primary" />
                   {isEdit
                     ? "Update the article to save changes"
                     : "Fill in all required fields to create a new article"}
@@ -526,8 +526,8 @@ export function ArticleForm({
                     disabled={isSubmitting}
                     className={cn(
                       "inline-flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-all",
-                      "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800",
-                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+                      "bg-gradient-to-r from-dash-primary to-dash-primary-dark hover:from-dash-primary-dark hover:to-dash-primary-dark",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dash-primary",
                       "disabled:cursor-not-allowed disabled:opacity-60",
                     )}
                     whileHover={isSubmitting ? {} : { scale: 1.02 }}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -79,7 +79,7 @@ export function NotificationsSettings({
       {/* Email Alerts */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <Mail className="h-5 w-5" />
           </div>
           <div>
@@ -271,8 +271,8 @@ function ToggleSwitch({ checked, onChange, disabled }: ToggleSwitchProps) {
       role="switch"
       aria-checked={checked}
       className={cn(
-        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-        checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+        checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
         disabled && "opacity-50 cursor-not-allowed",
       )}
     >

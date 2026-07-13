@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -27,7 +27,7 @@ const actions: QuickAction[] = [
     description: "Onboard a new physician",
     href: "/admin/doctors",
     colorClass:
-      "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400",
+      "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
   },
   {
     icon: UserPlus,

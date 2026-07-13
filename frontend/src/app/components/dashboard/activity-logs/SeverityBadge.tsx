@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -127,8 +127,7 @@ export function StatusBadge({
     },
     blocked: {
       label: "Blocked",
-      color:
-        "text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-900/30",
+      color: "text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-900/30",
     },
   }[status];
 
@@ -164,7 +163,7 @@ export function ActionBadge({
   const configMap: Record<string, { label: string; color: string }> = {
     login: { label: "Login", color: "text-emerald-600 bg-emerald-100" },
     logout: { label: "Logout", color: "text-slate-600 bg-slate-100" },
-    create: { label: "Create", color: "text-blue-600 bg-blue-100" },
+    create: { label: "Create", color: "text-dash-primary bg-dash-primary-light" },
     update: { label: "Update", color: "text-amber-600 bg-amber-100" },
     delete: { label: "Delete", color: "text-red-600 bg-red-100" },
     assign: { label: "Assign", color: "text-purple-600 bg-purple-100" },
@@ -213,7 +212,7 @@ export function ModuleBadge({
 }) {
   const moduleConfigMap: Record<string, { label: string; color: string }> = {
     Authentication: { label: "Auth", color: "text-indigo-600 bg-indigo-100" },
-    Users: { label: "Users", color: "text-blue-600 bg-blue-100" },
+    Users: { label: "Users", color: "text-dash-primary bg-dash-primary-light" },
     Doctors: { label: "Doctors", color: "text-emerald-600 bg-emerald-100" },
     Patients: { label: "Patients", color: "text-purple-600 bg-purple-100" },
     Appointments: { label: "Appts", color: "text-amber-600 bg-amber-100" },
@@ -262,7 +261,10 @@ export function RoleBadge({
   variant?: "default" | "soft";
   className?: string;
 }) {
-  const roleConfigMap: Record<string, { label: string; color: string; softColor: string }> = {
+  const roleConfigMap: Record<
+    string,
+    { label: string; color: string; softColor: string }
+  > = {
     "Super Admin": {
       label: "Super Admin",
       color: "text-red-600 bg-red-100",
@@ -280,8 +282,8 @@ export function RoleBadge({
     },
     Nurse: {
       label: "Nurse",
-      color: "text-blue-600 bg-blue-100",
-      softColor: "text-blue-700 bg-blue-100/50",
+      color: "text-dash-primary bg-dash-primary-light",
+      softColor: "text-dash-primary bg-dash-primary-light/50",
     },
     Receptionist: {
       label: "Receptionist",

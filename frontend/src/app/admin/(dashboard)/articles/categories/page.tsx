@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 
 export default function ArticleCategoriesPage() {
-  /* ─── State ─── */
+  /* â”€â”€â”€ State â”€â”€â”€ */
   const [categories, setCategories] =
     useState<ArticleCategory[]>(categoriesData);
   const [filters, setFilters] = useState<CategoryFiltersType>(DEFAULT_FILTERS);
@@ -40,7 +40,7 @@ export default function ArticleCategoriesPage() {
   );
   const [deleteOpen, setDeleteOpen] = useState(false);
 
-  /* ─── Filtering & Sorting ─── */
+  /* â”€â”€â”€ Filtering & Sorting â”€â”€â”€ */
   const filteredCategories = useMemo(() => {
     let result = [...categories];
 
@@ -88,7 +88,7 @@ export default function ArticleCategoriesPage() {
     return result;
   }, [categories, filters]);
 
-  /* ─── Pagination ─── */
+  /* â”€â”€â”€ Pagination â”€â”€â”€ */
   const totalPages = Math.max(
     1,
     Math.ceil(filteredCategories.length / rowsPerPage),
@@ -98,7 +98,7 @@ export default function ArticleCategoriesPage() {
     return filteredCategories.slice(start, start + rowsPerPage);
   }, [filteredCategories, currentPage, rowsPerPage]);
 
-  /* ─── Selection ─── */
+  /* â”€â”€â”€ Selection â”€â”€â”€ */
   const handleSelectId = useCallback((id: string) => {
     setSelectedIds((prev) => {
       const next = new Set(prev);
@@ -124,7 +124,7 @@ export default function ArticleCategoriesPage() {
 
   const clearSelection = useCallback(() => setSelectedIds(new Set()), []);
 
-  /* ─── Sort handler ─── */
+  /* â”€â”€â”€ Sort handler â”€â”€â”€ */
   const handleSort = useCallback((key: string) => {
     setFilters((prev) => {
       if (prev.sortBy === key) {
@@ -141,7 +141,7 @@ export default function ArticleCategoriesPage() {
     });
   }, []);
 
-  /* ─── CRUD Handlers ─── */
+  /* â”€â”€â”€ CRUD Handlers â”€â”€â”€ */
   const handleCreate = useCallback(() => {
     setEditingCategory(null);
     setFormOpen(true);
@@ -230,7 +230,7 @@ export default function ArticleCategoriesPage() {
     setCurrentPage(1);
   }, []);
 
-  /* ─── Search handler ─── */
+  /* â”€â”€â”€ Search handler â”€â”€â”€ */
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setFilters((prev) => ({ ...prev, search: e.target.value }));
@@ -246,7 +246,7 @@ export default function ArticleCategoriesPage() {
   const showEmptyState = filteredCategories.length === 0;
   const showContent = !showEmptyState;
 
-  /* ─── Page numbers for pagination ─── */
+  /* â”€â”€â”€ Page numbers for pagination â”€â”€â”€ */
   const getPageNumbers = useCallback(() => {
     const pages: (number | "...")[] = [];
     const maxVisible = 5;
@@ -272,14 +272,14 @@ export default function ArticleCategoriesPage() {
 
   return (
     <div className="space-y-6">
-      {/* ── Page Header ── */}
+      {/* â”€â”€ Page Header â”€â”€ */}
       <PageHeader
         title="Categories"
         subtitle="Organize your healthcare articles into categories."
         actions={
           <button
             onClick={handleCreate}
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg"
+            className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-lg"
           >
             <Plus className="h-4 w-4" />
             Create Category
@@ -287,10 +287,10 @@ export default function ArticleCategoriesPage() {
         }
       />
 
-      {/* ── Stats Cards ── */}
+      {/* â”€â”€ Stats Cards â”€â”€ */}
       <StatsCards categories={categories} />
 
-      {/* ── Toolbar ── */}
+      {/* â”€â”€ Toolbar â”€â”€ */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         {/* Search */}
         <div className="relative min-w-0 flex-1 max-w-md">
@@ -314,7 +314,7 @@ export default function ArticleCategoriesPage() {
             value={filters.search}
             onChange={handleSearchChange}
             placeholder="Search categories by name, slug, or description..."
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
+            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500"
           />
         </div>
 
@@ -330,7 +330,7 @@ export default function ArticleCategoriesPage() {
               }));
               setCurrentPage(1);
             }}
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+            className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -347,7 +347,7 @@ export default function ArticleCategoriesPage() {
               }));
               setCurrentPage(1);
             }}
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+            className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
           >
             <option value="all">All Categories</option>
             <option value="featured">Featured</option>
@@ -361,7 +361,7 @@ export default function ArticleCategoriesPage() {
               className={cn(
                 "p-2.5 transition-all",
                 viewMode === "table"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-dash-primary text-white"
                   : "bg-white text-slate-500 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800",
               )}
               aria-label="Table view"
@@ -373,7 +373,7 @@ export default function ArticleCategoriesPage() {
               className={cn(
                 "p-2.5 transition-all",
                 viewMode === "grid"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-dash-primary text-white"
                   : "bg-white text-slate-500 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800",
               )}
               aria-label="Grid view"
@@ -384,7 +384,7 @@ export default function ArticleCategoriesPage() {
         </div>
       </div>
 
-      {/* ── Results info ── */}
+      {/* â”€â”€ Results info â”€â”€ */}
       {showContent && (
         <div className="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
           <span>
@@ -406,7 +406,7 @@ export default function ArticleCategoriesPage() {
           {hasFilters && (
             <button
               onClick={handleClearFilters}
-              className="text-sm text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400"
+              className="text-sm text-dash-primary transition-colors hover:text-dash-primary dark:text-accent"
             >
               Clear all filters
             </button>
@@ -414,7 +414,7 @@ export default function ArticleCategoriesPage() {
         </div>
       )}
 
-      {/* ── Content ── */}
+      {/* â”€â”€ Content â”€â”€ */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -443,7 +443,7 @@ export default function ArticleCategoriesPage() {
               onSort={handleSort}
             />
 
-            {/* ── Pagination ── */}
+            {/* â”€â”€ Pagination â”€â”€ */}
             {totalPages > 1 && (
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -490,7 +490,7 @@ export default function ArticleCategoriesPage() {
                         className={cn(
                           "flex h-8 w-8 items-center justify-center rounded-lg text-sm font-medium transition-all",
                           currentPage === page
-                            ? "bg-blue-600 text-white shadow-sm"
+                            ? "bg-dash-primary text-white shadow-sm"
                             : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800",
                         )}
                       >
@@ -523,7 +523,7 @@ export default function ArticleCategoriesPage() {
         )}
       </motion.div>
 
-      {/* ── Modals ── */}
+      {/* â”€â”€ Modals â”€â”€ */}
       <CategoryForm
         open={formOpen}
         onClose={() => {

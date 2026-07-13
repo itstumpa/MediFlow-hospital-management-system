@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { DayScheduleDetailed, LeaveDate } from "@/lib/data/admin-doctors";
@@ -33,7 +33,7 @@ export function ScheduleTab({ schedule, leaveDates }: ScheduleTabProps) {
         className="dash-card overflow-hidden p-5"
       >
         <div className="mb-4 flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent">
             <Clock className="h-4 w-4" />
           </span>
           <h3 className="text-sm font-semibold text-slate-900 dark:text-white">

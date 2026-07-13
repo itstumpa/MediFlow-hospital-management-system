@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { X, AlertTriangle, Shield, Users, Trash2, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Role } from "@/lib/data/rbac";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { AlertTriangle, Loader2, Shield, Trash2, Users, X } from "lucide-react";
 
 interface DeleteDialogProps {
   role: Role | null;
@@ -53,7 +53,7 @@ export function DeleteDialog({
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
           className={cn(
-            "bg-background rounded-2xl border shadow-xl max-w-md w-full",
+            "bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl max-w-md w-full",
             isProtected && "border-rose-200 dark:border-rose-800",
           )}
         >
@@ -61,7 +61,9 @@ export function DeleteDialog({
           <div
             className={cn(
               "flex items-center justify-between p-4 border-b",
-              isProtected ? "bg-rose-50 dark:bg-rose-900/20" : "bg-muted/30",
+              isProtected
+                ? "bg-rose-50 dark:bg-rose-900/20"
+                : "bg-slate-50/50 dark:bg-slate-800/50",
             )}
           >
             <div className="flex items-center gap-3">
@@ -85,7 +87,7 @@ export function DeleteDialog({
                 </h2>
                 <p
                   id="delete-dialog-description"
-                  className="text-sm text-muted-foreground"
+                  className="text-sm text-slate-500 dark:text-slate-400"
                 >
                   {isProtected
                     ? "System roles are protected and cannot be deleted"
@@ -96,7 +98,7 @@ export function DeleteDialog({
             <button
               onClick={!isLoading ? onClose : undefined}
               disabled={isLoading}
-              className="p-2 rounded-lg hover:bg-accent text-muted-foreground transition-colors disabled:opacity-50"
+              className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors disabled:opacity-50"
               aria-label="Close dialog"
             >
               <X className="size-5" />
@@ -124,18 +126,20 @@ export function DeleteDialog({
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="text-sm font-medium text-muted-foreground">
+                  <h4 className="text-sm font-medium text-slate-500 dark:text-slate-400">
                     Role Details
                   </h4>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Type</span>
+                      <span className="text-slate-500 dark:text-slate-400">
+                        Type
+                      </span>
                       <span className="font-medium capitalize">
                         {role.type}
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">
+                      <span className="text-slate-500 dark:text-slate-400">
                         Users Assigned
                       </span>
                       <span className="font-medium flex items-center gap-1.5">
@@ -144,14 +148,18 @@ export function DeleteDialog({
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Permissions</span>
+                      <span className="text-slate-500 dark:text-slate-400">
+                        Permissions
+                      </span>
                       <span className="font-medium">
                         {role.permissions.filter((p) => p.enabled).length}{" "}
                         enabled
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Created</span>
+                      <span className="text-slate-500 dark:text-slate-400">
+                        Created
+                      </span>
                       <span className="font-medium">
                         {new Date(role.createdAt).toLocaleDateString()}
                       </span>
@@ -189,12 +197,12 @@ export function DeleteDialog({
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="text-sm font-medium text-muted-foreground">
+                  <h4 className="text-sm font-medium text-slate-500 dark:text-slate-400">
                     Impact Summary
                   </h4>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">
+                      <span className="text-slate-500 dark:text-slate-400">
                         Users Affected
                       </span>
                       <span className="font-medium text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
@@ -203,7 +211,7 @@ export function DeleteDialog({
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">
+                      <span className="text-slate-500 dark:text-slate-400">
                         Permissions to Remove
                       </span>
                       <span className="font-medium">
@@ -212,7 +220,9 @@ export function DeleteDialog({
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Role Type</span>
+                      <span className="text-slate-500 dark:text-slate-400">
+                        Role Type
+                      </span>
                       <span className="font-medium capitalize">
                         {role.type}
                       </span>
@@ -249,11 +259,11 @@ export function DeleteDialog({
                     id="delete-confirmation"
                     type="text"
                     placeholder={`Type "${role.name}" to confirm`}
-                    className="w-full px-3 py-2 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-rose-500"
+                    className="w-full px-3 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
                     autoFocus
                     disabled={isLoading}
                   />
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     This confirmation is required to prevent accidental
                     deletions.
                   </p>
@@ -265,14 +275,16 @@ export function DeleteDialog({
           {/* Footer */}
           <div
             className={cn(
-              "flex items-center justify-end gap-3 p-4 border-t",
-              isProtected ? "bg-rose-50/50 dark:bg-rose-900/10" : "bg-muted/30",
+              "flex items-center justify-end gap-3 p-4 border-t border-slate-200 dark:border-slate-700",
+              isProtected
+                ? "bg-rose-50/50 dark:bg-rose-900/10"
+                : "bg-slate-50/50 dark:bg-slate-800/50",
             )}
           >
             <button
               onClick={!isLoading ? onClose : undefined}
               disabled={isLoading}
-              className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
             >
               Cancel
             </button>

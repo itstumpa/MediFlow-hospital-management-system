@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Database, Globe, HardDrive, Mail, Server } from "lucide-react";
@@ -71,7 +71,7 @@ const statusConfig = {
 };
 
 const iconColors = [
-  "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400",
+  "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
   "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
   "bg-violet-50 text-violet-600 dark:bg-violet-950/30 dark:text-violet-400",
   "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400",

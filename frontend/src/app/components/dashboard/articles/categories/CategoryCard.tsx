@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { FolderOpen, Star, Eye, Edit3, Trash2, FileText } from "lucide-react";
@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import type { ArticleCategory } from "./types";
 import { staggerItem } from "../../MotionVariants";
 
-/* ─── Icon resolver ─── */
+/* â”€â”€â”€ Icon resolver â”€â”€â”€ */
 import {
   Heart,
   Brain,
@@ -68,10 +68,10 @@ function resolveIcon(name: string): LucideIcon {
 
 const colorVariants = [
   {
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    text: "text-blue-600 dark:text-blue-400",
-    ring: "ring-blue-200 dark:ring-blue-800",
-    gradient: "from-blue-500/10 to-transparent",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    text: "text-dash-primary dark:text-accent",
+    ring: "ring-dash-primary dark:ring-teal-800",
+    gradient: "from-dash-primary/10 to-transparent",
   },
   {
     bg: "bg-emerald-50 dark:bg-emerald-950/30",
@@ -167,7 +167,7 @@ export function CategoryCard({
 
             {/* Content */}
             <div className="mt-4 space-y-2">
-              <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-dash-primary dark:group-hover:text-dash-primary transition-colors">
                 {category.name}
               </h3>
               <p className="line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">

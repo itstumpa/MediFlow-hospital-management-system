@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
@@ -34,7 +34,7 @@ export function BiographySection() {
           {...register("biography")}
           rows={8}
           placeholder="Write a professional biography covering background, clinical focus, and key expertise areas..."
-          className={`w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)] dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${
+          className={`w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary focus:shadow-[0_0_0_4px_rgba(14,124,123,0.1)] dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${
             errors.biography
               ? "border-red-400 focus:border-red-400 focus:ring-red-500/20"
               : "border-slate-300 dark:border-slate-600"

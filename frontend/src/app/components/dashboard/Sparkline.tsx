@@ -17,7 +17,7 @@ export function Sparkline({
   data,
   width = 64,
   height = 28,
-  color = "#2563eb",
+  color = "#0e7c7b",
   className,
 }: SparklineProps) {
   const id = useId();

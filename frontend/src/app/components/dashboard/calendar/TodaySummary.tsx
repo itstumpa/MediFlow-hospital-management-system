@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CalendarCheck, Clock, XCircle, HelpCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
 import type { DaySummary } from "@/lib/data/appointment-calendar";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { CalendarCheck, Clock, HelpCircle, XCircle } from "lucide-react";
 
 interface TodaySummaryProps {
   summary: DaySummary;

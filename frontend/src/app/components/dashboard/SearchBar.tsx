@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
@@ -15,7 +15,7 @@ export function SearchBar({ onOpen }: SearchBarProps) {
         "group flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white/60 px-3.5 py-2",
         "text-sm text-slate-400 transition-all duration-200",
         "hover:border-slate-300 hover:bg-white hover:text-slate-500 hover:shadow-sm",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2",
         "dark:border-slate-700/60 dark:bg-slate-800/40 dark:text-slate-500",
         "dark:hover:border-slate-600 dark:hover:bg-slate-800/80 dark:hover:text-slate-400",
         "w-full max-w-[320px] lg:max-w-[400px]",
@@ -34,7 +34,7 @@ export function SearchBar({ onOpen }: SearchBarProps) {
           "sm:flex",
         )}
       >
-        <span className="text-[10px]">⌘</span>K
+        <span className="text-[10px]">âŒ˜</span>K
       </kbd>
     </button>
   );

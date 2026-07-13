@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -76,7 +76,7 @@ export function ArticleCard({
       layout
       className={`group relative overflow-hidden rounded-2xl border bg-white transition-all dark:bg-slate-900 ${
         selected
-          ? "border-blue-400 shadow-lg shadow-blue-500/10 ring-2 ring-blue-500"
+          ? "border-dash-primary shadow-lg shadow-dash-primary/10 ring-2 ring-dash-primary"
           : "border-slate-200 hover:shadow-xl hover:-translate-y-1 dark:border-slate-700"
       }`}
     >
@@ -86,7 +86,7 @@ export function ArticleCard({
           type="checkbox"
           checked={selected}
           onChange={() => onSelect(article.id)}
-          className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+          className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
           aria-label={`Select ${article.title}`}
         />
       </div>
@@ -168,7 +168,7 @@ export function ArticleCard({
                 ? article.views >= 1000
                   ? `${(article.views / 1000).toFixed(1)}k`
                   : article.views
-                : "—"}
+                : "â€”"}
             </span>
           </div>
         </div>
@@ -177,7 +177,7 @@ export function ArticleCard({
         <div className="mt-3 flex items-center justify-end gap-1 border-t border-slate-100 pt-2 dark:border-slate-700">
           <button
             onClick={() => onView(article)}
-            className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+            className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
             title="View"
           >
             <Eye className="h-4 w-4" />

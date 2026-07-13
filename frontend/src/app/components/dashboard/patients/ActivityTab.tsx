@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   staggerContainer,
@@ -47,8 +47,8 @@ function timeAgo(dateStr: string): string {
 const activityConfig = {
   registration: {
     icon: UserPlus,
-    color: "text-blue-600",
-    bg: "bg-blue-100 dark:bg-blue-900/30",
+    color: "text-dash-primary",
+    bg: "bg-dash-primary-light dark:bg-teal-900/30",
   },
   appointment: {
     icon: CalendarCheck,

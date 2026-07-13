@@ -1,9 +1,8 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { format, formatDistanceToNow } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState, useMemo } from "react";
 import {
   Activity,
   AlertCircle,
@@ -48,6 +47,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { useMemo, useState } from "react";
 import {
   ActionBadge,
   ModuleBadge,
@@ -74,7 +74,7 @@ interface ActivityDrawerProps {
 function getActionIcon(action: ActivityActionType) {
   const icons: Record<ActivityActionType, React.ReactNode> = {
     create: <UserPlus className="h-5 w-5 text-emerald-600" />,
-    read: <Eye className="h-5 w-5 text-blue-600" />,
+    read: <Eye className="h-5 w-5 text-dash-primary" />,
     update: <Edit className="h-5 w-5 text-amber-600" />,
     delete: <Trash2 className="h-5 w-5 text-red-600" />,
     login: <LogIn className="h-5 w-5 text-purple-600" />,
@@ -83,7 +83,7 @@ function getActionIcon(action: ActivityActionType) {
     import: <Upload className="h-5 w-5 text-teal-600" />,
     approve: <UserCheck className="h-5 w-5 text-emerald-600" />,
     reject: <UserX className="h-5 w-5 text-red-600" />,
-    assign: <UserPlus className="h-5 w-5 text-blue-600" />,
+    assign: <UserPlus className="h-5 w-5 text-dash-primary" />,
     revoke: <UserMinus className="h-5 w-5 text-amber-600" />,
     backup: <Database className="h-5 w-5 text-slate-600" />,
     restore: <RefreshCw className="h-5 w-5 text-purple-600" />,
@@ -94,7 +94,7 @@ function getActionIcon(action: ActivityActionType) {
     role_change: <Users className="h-5 w-5 text-purple-600" />,
     permission_change: <Shield className="h-5 w-5 text-indigo-600" />,
     system_error: <AlertCircle className="h-5 w-5 text-red-600" />,
-    api_call: <Zap className="h-5 w-5 text-blue-600" />,
+    api_call: <Zap className="h-5 w-5 text-dash-primary" />,
   };
   return icons[action] || <Activity className="h-5 w-5 text-slate-600" />;
 }
@@ -122,7 +122,7 @@ function getModuleIcon(module: ActivityModule) {
 function getBrowserIcon(browser: string) {
   const b = browser.toLowerCase();
   if (b.includes("chrome"))
-    return <Monitor className="h-4 w-4 text-blue-600" />;
+    return <Monitor className="h-4 w-4 text-dash-primary" />;
   if (b.includes("firefox"))
     return <Monitor className="h-4 w-4 text-orange-600" />;
   if (b.includes("safari"))
@@ -143,7 +143,7 @@ function getDeviceIcon(device: string) {
 
 function getSeverityColor(severity: ActivitySeverity) {
   const colors: Record<ActivitySeverity, string> = {
-    info: "bg-blue-500",
+    info: "bg-dash-primary",
     warning: "bg-amber-500",
     error: "bg-red-500",
     critical: "bg-red-700",
@@ -355,7 +355,7 @@ export function ActivityDrawer({
                   <StatusBadge status={log.status} size="md" />
                 </div>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  {log.user.name} • {log.user.email} • {log.module} /{" "}
+                  {log.user.name} â€¢ {log.user.email} â€¢ {log.module} /{" "}
                   {log.action.replace("_", " ")}
                 </p>
               </div>
@@ -456,7 +456,7 @@ export function ActivityDrawer({
                     <Mail className="h-4 w-4 text-slate-400" />
                     <a
                       href={`mailto:${log.user.email}`}
-                      className="text-blue-600 hover:underline"
+                      className="text-dash-primary hover:underline"
                     >
                       {log.user.email}
                     </a>
@@ -577,7 +577,7 @@ export function ActivityDrawer({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onClose}
-              className="px-4 py-2 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 rounded-xl bg-dash-primary text-white font-medium text-sm hover:bg-dash-primary-dark transition-colors"
             >
               Close
             </motion.button>

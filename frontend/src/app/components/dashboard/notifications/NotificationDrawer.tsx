@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type {
   Notification,
@@ -34,7 +34,7 @@ const categoryIcons: Record<NotificationCategory, LucideIcon> = {
 
 const categoryBg: Record<NotificationCategory, string> = {
   appointments:
-    "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
+    "bg-dash-primary-light text-dash-primary dark:bg-teal-500/10 dark:text-accent",
   doctors:
     "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400",
   patients:
@@ -165,7 +165,7 @@ export function NotificationDrawer({
                           },
                         )}
                       </span>
-                      <span aria-hidden="true">·</span>
+                      <span aria-hidden="true">Â·</span>
                       <span>{notification.read ? "Read" : "Unread"}</span>
                     </div>
                   </div>
@@ -213,7 +213,7 @@ export function NotificationDrawer({
                               <a
                                 key={i}
                                 href={link.href}
-                                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-950/30"
+                                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-dash-primary transition-colors hover:bg-dash-primary-light dark:text-accent dark:hover:bg-teal-950/30"
                               >
                                 <ExternalLink className="h-3.5 w-3.5" />
                                 {link.label}
@@ -239,7 +239,7 @@ export function NotificationDrawer({
                                 key={i}
                                 className="relative flex items-start gap-3 pl-6"
                               >
-                                <div className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-blue-400 bg-white dark:border-blue-500 dark:bg-slate-900" />
+                                <div className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-dash-primary bg-white dark:border-teal-500 dark:bg-slate-900" />
                                 <div>
                                   <p className="text-sm text-slate-700 dark:text-slate-300">
                                     {entry.action}
@@ -266,7 +266,7 @@ export function NotificationDrawer({
                       onMarkRead(notification.id);
                       onClose();
                     }}
-                    className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-md"
+                    className="inline-flex items-center gap-2 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-md"
                   >
                     <Check className="h-4 w-4" />
                     Mark Read

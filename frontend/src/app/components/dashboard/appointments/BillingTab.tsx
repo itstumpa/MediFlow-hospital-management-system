@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { AppointmentDetail } from "@/lib/data/appointment-detail";
@@ -41,7 +41,7 @@ export function BillingTab({ appointment }: BillingTabProps) {
       >
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-500/20 dark:text-accent">
               <Receipt className="h-5 w-5" />
             </div>
             <div>
@@ -114,7 +114,7 @@ export function BillingTab({ appointment }: BillingTabProps) {
           <div className="border-t border-slate-200 pt-3 dark:border-slate-600">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <CreditCard className="h-4 w-4 text-blue-500" />
+                <CreditCard className="h-4 w-4 text-dash-primary" />
                 <span className="text-sm font-semibold text-slate-900 dark:text-white">
                   Total Amount
                 </span>

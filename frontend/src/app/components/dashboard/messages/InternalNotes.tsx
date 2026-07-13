@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageSquarePlus, Send } from "lucide-react";
@@ -119,14 +119,14 @@ export function InternalNotes({ notes, onAddNote }: InternalNotesProps) {
             onKeyDown={handleKeyDown}
             placeholder="Add an internal note..."
             rows={2}
-            className="min-h-[36px] flex-1 resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700/50 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-blue-500 dark:focus:ring-blue-900/30"
+            className="min-h-[36px] flex-1 resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary-light dark:border-slate-600 dark:bg-slate-700/50 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-dash-primary dark:focus:ring-teal-900/30"
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleSubmit}
             disabled={!newNote.trim()}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white transition-all hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-dash-primary text-white transition-all hover:bg-dash-primary-dark disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Add note"
           >
             <Send className="h-4 w-4" />

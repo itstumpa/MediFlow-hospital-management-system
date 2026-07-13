@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { AppointmentDetail } from "@/lib/data/appointment-detail";
 import {
@@ -39,7 +39,7 @@ export function AppointmentHero({ appointment }: AppointmentHeroProps) {
       className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800"
     >
       {/* Top gradient bar */}
-      <div className="h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500" />
+      <div className="h-1.5 bg-gradient-to-r from-dash-primary via-teal-600 to-teal-700" />
 
       <div className="p-6">
         {/* ID and status row */}
@@ -62,7 +62,7 @@ export function AppointmentHero({ appointment }: AppointmentHeroProps) {
               <span
                 className={cn(
                   "h-1.5 w-1.5 rounded-full",
-                  appointment.status === "scheduled" && "bg-blue-500",
+                  appointment.status === "scheduled" && "bg-dash-primary",
                   appointment.status === "confirmed" && "bg-indigo-500",
                   appointment.status === "in-progress" && "bg-amber-500",
                   appointment.status === "completed" && "bg-emerald-500",
@@ -90,7 +90,7 @@ export function AppointmentHero({ appointment }: AppointmentHeroProps) {
             whileHover={{ y: -2 }}
             className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 transition-colors dark:bg-slate-700/50"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-500/20 dark:text-accent">
               <User className="h-5 w-5" />
             </div>
             <div className="min-w-0">
@@ -101,7 +101,7 @@ export function AppointmentHero({ appointment }: AppointmentHeroProps) {
                 {appointment.patient.name}
               </p>
               <p className="text-xs text-slate-400 dark:text-slate-500">
-                {appointment.patient.age} yrs · {appointment.patient.gender}
+                {appointment.patient.age} yrs Â· {appointment.patient.gender}
               </p>
             </div>
           </motion.div>
@@ -149,7 +149,7 @@ export function AppointmentHero({ appointment }: AppointmentHeroProps) {
               </p>
               <p className="flex items-center gap-1 text-xs text-slate-400 dark:text-slate-500">
                 <Clock className="h-3 w-3" />
-                {appointment.time} · {appointment.duration} min
+                {appointment.time} Â· {appointment.duration} min
               </p>
             </div>
           </motion.div>

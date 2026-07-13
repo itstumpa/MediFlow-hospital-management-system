@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer } from "@/lib/animations/stagger";
 import type {
@@ -128,7 +128,7 @@ export function NotificationList({ className }: NotificationListProps) {
             className={cn(
               "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-all",
               stats.unread > 0
-                ? "text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-950/30"
+                ? "text-dash-primary hover:bg-dash-primary-light dark:text-accent dark:hover:bg-teal-950/30"
                 : "text-slate-300 dark:text-slate-600 cursor-not-allowed",
             )}
             aria-label="Mark all notifications as read"
@@ -189,7 +189,7 @@ export function NotificationList({ className }: NotificationListProps) {
               <button
                 type="button"
                 onClick={() => setFilters(defaultNotificationFilters)}
-                className="mt-4 rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 transition-all hover:bg-blue-100 dark:bg-blue-950/30 dark:text-blue-400 dark:hover:bg-blue-950/50"
+                className="mt-4 rounded-lg bg-dash-primary-light px-4 py-2 text-sm font-medium text-dash-primary transition-all hover:bg-dash-primary-light dark:bg-teal-950/30 dark:text-accent dark:hover:bg-dash-primary-dark/50"
               >
                 Clear Filters
               </button>

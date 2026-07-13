@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Inbox } from "lucide-react";
@@ -21,8 +21,8 @@ type SortOption = "newest" | "oldest" | "priority-high" | "priority-low";
 const sortOptions: { value: SortOption; label: string }[] = [
   { value: "newest", label: "Newest" },
   { value: "oldest", label: "Oldest" },
-  { value: "priority-high", label: "Priority ↑" },
-  { value: "priority-low", label: "Priority ↓" },
+  { value: "priority-high", label: "Priority â†‘" },
+  { value: "priority-low", label: "Priority â†“" },
 ];
 
 const priorityRank: Record<string, number> = {
@@ -134,7 +134,7 @@ export function MessageList({
             {unreadCount > 0 && (
               <button
                 onClick={onMarkAllRead}
-                className="text-xs font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                className="text-xs font-medium text-dash-primary hover:text-dash-primary dark:text-accent dark:hover:text-accent"
               >
                 Mark all read
               </button>
@@ -164,7 +164,7 @@ export function MessageList({
                         }}
                         className={`block w-full px-3 py-2 text-left text-xs transition-colors hover:bg-slate-50 dark:hover:bg-slate-700 ${
                           sortBy === opt.value
-                            ? "font-semibold text-blue-600 dark:text-blue-400"
+                            ? "font-semibold text-dash-primary dark:text-accent"
                             : "text-slate-600 dark:text-slate-300"
                         }`}
                       >
@@ -198,7 +198,7 @@ export function MessageList({
             {hasFilters && (
               <button
                 onClick={() => setFilters(DEFAULT_MESSAGE_FILTERS)}
-                className="mt-2 text-xs text-blue-600 hover:underline dark:text-blue-400"
+                className="mt-2 text-xs text-dash-primary hover:underline dark:text-accent"
               >
                 Clear filters
               </button>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -37,8 +37,8 @@ const statusConfig: Record<string, { class: string; dot: string }> = {
     dot: "bg-slate-400",
   },
   Admitted: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
+    dot: "bg-dash-primary",
   },
   Discharged: {
     class:
@@ -53,7 +53,7 @@ const statusConfig: Record<string, { class: string; dot: string }> = {
 };
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -96,7 +96,7 @@ export function PatientRow({
   const statusStyle = statusConfig[patient.status] ?? statusConfig.Pending;
 
   const formatDate = (date: string | null) => {
-    if (!date) return "—";
+    if (!date) return "â€”";
     const d = new Date(date);
     return d.toLocaleDateString("en-US", {
       month: "short",
@@ -112,7 +112,7 @@ export function PatientRow({
       transition={{ duration: 0.3, delay: index * 0.03, ease: "easeOut" }}
       className={`group transition-colors ${
         selected
-          ? "bg-blue-50/50 dark:bg-blue-900/20"
+          ? "bg-dash-primary-light/50 dark:bg-teal-900/20"
           : "hover:bg-slate-50 dark:hover:bg-slate-800/50"
       }`}
     >
@@ -123,7 +123,7 @@ export function PatientRow({
             type="checkbox"
             checked={selected}
             onChange={() => onSelect(patient.id)}
-            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+            className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
             aria-label={`Select ${patient.name}`}
           />
         </div>
@@ -219,7 +219,7 @@ export function PatientRow({
           <div className="flex items-center gap-0.5 opacity-0 transition-opacity group-hover:opacity-100">
             <button
               onClick={() => onView(patient)}
-              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
               title="View Patient"
             >
               <Eye className="h-4 w-4" />

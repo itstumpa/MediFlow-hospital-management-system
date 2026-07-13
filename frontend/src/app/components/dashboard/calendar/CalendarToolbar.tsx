@@ -1,16 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Plus,
-  CalendarDays,
-  Printer,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
 import type { CalendarView } from "@/lib/data/appointment-calendar";
 import { formatMonthYear } from "@/lib/data/appointment-calendar";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Plus, Printer } from "lucide-react";
 
 interface CalendarToolbarProps {
   currentDate: Date;
@@ -23,7 +17,12 @@ interface CalendarToolbarProps {
   onDoctorChange: (doctor: string) => void;
   selectedDepartment: string;
   onDepartmentChange: (department: string) => void;
-  doctors: readonly { id: string; name: string; initials: string; department: string }[];
+  doctors: readonly {
+    id: string;
+    name: string;
+    initials: string;
+    department: string;
+  }[];
   departments: readonly string[];
 }
 

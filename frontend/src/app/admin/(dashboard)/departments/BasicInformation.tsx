@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -76,7 +76,7 @@ export function BasicInformation() {
             placeholder="e.g., Cardiology"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               errors.name
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -100,7 +100,7 @@ export function BasicInformation() {
             placeholder="e.g., CARD"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               errors.code
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -134,7 +134,7 @@ export function BasicInformation() {
                 className={cn(
                   "flex flex-col items-center gap-1 rounded-xl border-2 p-2.5 transition-all",
                   isSelected
-                    ? "border-blue-500 bg-blue-50 dark:border-blue-400 dark:bg-blue-500/10"
+                    ? "border-dash-primary bg-dash-primary-light dark:border-teal-400 dark:bg-teal-500/10"
                     : "border-slate-200 hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-500",
                 )}
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -180,7 +180,7 @@ export function BasicInformation() {
           placeholder="Brief overview of the department (max 200 characters)"
           className={cn(
             "w-full rounded-xl border px-4 py-2.5 text-sm transition-all resize-none",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+            "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
             "placeholder:text-slate-400",
             errors.shortDescription
               ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -205,7 +205,7 @@ export function BasicInformation() {
           placeholder="Detailed description of the department, its services, and specialties"
           className={cn(
             "w-full rounded-xl border px-4 py-2.5 text-sm transition-all resize-none",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+            "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
             "placeholder:text-slate-400",
             errors.fullDescription
               ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"

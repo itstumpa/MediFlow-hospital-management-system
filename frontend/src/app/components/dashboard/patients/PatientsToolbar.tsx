@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -46,7 +46,7 @@ function FilterChip({
       onClick={onClick}
       className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
         active
-          ? "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-800 dark:bg-blue-900/40 dark:text-blue-300"
+          ? "border-dash-primary-light bg-dash-primary-light text-dash-primary dark:border-teal-800 dark:bg-teal-900/40 dark:text-accent"
           : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
       }`}
       whileHover={{ scale: 1.03 }}
@@ -59,7 +59,7 @@ function FilterChip({
             e.stopPropagation();
             onRemove();
           }}
-          className="ml-0.5 rounded-full p-0.5 hover:bg-blue-200/50 dark:hover:bg-blue-800/50"
+          className="ml-0.5 rounded-full p-0.5 hover:bg-dash-primary-light dark:hover:bg-teal-800/50"
         >
           <X className="h-3 w-3" />
         </span>
@@ -105,13 +105,13 @@ function DropdownFilter<T extends string>({
         onClick={() => setOpen(!open)}
         className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-all ${
           selected.length > 0
-            ? "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-800 dark:bg-blue-900/40 dark:text-blue-300"
+            ? "border-dash-primary-light bg-dash-primary-light text-dash-primary dark:border-teal-800 dark:bg-teal-900/40 dark:text-accent"
             : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600"
         }`}
       >
         {label}
         {selected.length > 0 && (
-          <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] font-bold text-white">
+          <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-dash-primary px-1 text-[10px] font-bold text-white">
             {selected.length}
           </span>
         )}
@@ -134,14 +134,14 @@ function DropdownFilter<T extends string>({
                 onClick={() => toggle(opt)}
                 className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700 ${
                   selected.includes(opt)
-                    ? "text-blue-700 dark:text-blue-300"
+                    ? "text-dash-primary dark:text-accent"
                     : "text-slate-600 dark:text-slate-400"
                 }`}
               >
                 <div
                   className={`flex h-4 w-4 items-center justify-center rounded border transition-colors ${
                     selected.includes(opt)
-                      ? "border-blue-600 bg-blue-600"
+                      ? "border-dash-primary bg-dash-primary"
                       : "border-slate-300 dark:border-slate-600"
                   }`}
                 >
@@ -237,7 +237,7 @@ export function PatientsToolbar({
               value={filters.search}
               onChange={(e) => updateSearch(e.target.value)}
               placeholder="Search patients by name, email, phone, ID..."
-              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm placeholder-slate-400 transition-all focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:placeholder-slate-500 dark:focus:border-blue-700 dark:focus:ring-blue-500/30"
+              className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:placeholder-slate-500 dark:focus:border-teal-700 dark:focus:ring-dash-primary/30"
               aria-label="Search patients"
             />
             {filters.search && (
@@ -314,14 +314,14 @@ export function PatientsToolbar({
             onClick={onToggleFilterPanel}
             className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-all ${
               filterPanelOpen
-                ? "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-800 dark:bg-blue-900/40 dark:text-blue-300"
+                ? "border-dash-primary-light bg-dash-primary-light text-dash-primary dark:border-teal-800 dark:bg-teal-900/40 dark:text-accent"
                 : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
             }`}
           >
             <SlidersHorizontal className="h-4 w-4" />
             Filters
             {activeFilterCount > 0 && (
-              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-blue-600 px-1.5 text-[10px] font-bold text-white">
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-dash-primary px-1.5 text-[10px] font-bold text-white">
                 {activeFilterCount}
               </span>
             )}
@@ -333,7 +333,7 @@ export function PatientsToolbar({
               onClick={() => onViewModeChange("table")}
               className={`rounded-lg p-2 transition-all ${
                 viewMode === "table"
-                  ? "bg-blue-50 text-blue-700 shadow-sm dark:bg-blue-900/40 dark:text-blue-300"
+                  ? "bg-dash-primary-light text-dash-primary shadow-sm dark:bg-teal-900/40 dark:text-accent"
                   : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
               }`}
               aria-label="Table view"
@@ -344,7 +344,7 @@ export function PatientsToolbar({
               onClick={() => onViewModeChange("card")}
               className={`rounded-lg p-2 transition-all ${
                 viewMode === "card"
-                  ? "bg-blue-50 text-blue-700 shadow-sm dark:bg-blue-900/40 dark:text-blue-300"
+                  ? "bg-dash-primary-light text-dash-primary shadow-sm dark:bg-teal-900/40 dark:text-accent"
                   : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
               }`}
               aria-label="Card view"

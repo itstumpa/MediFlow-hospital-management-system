@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Search, SlidersHorizontal, X } from "lucide-react";
@@ -86,7 +86,7 @@ export function Filters({
           placeholder="Search messages by name, subject, or email..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-blue-500 dark:focus:ring-blue-900/30"
+          className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary-light dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-dash-primary dark:focus:ring-teal-900/30"
           aria-label="Search messages"
         />
         {search && (
@@ -106,7 +106,7 @@ export function Filters({
           onClick={() => setShowAdvanced(!showAdvanced)}
           className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
             showAdvanced || hasAnyFilter
-              ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+              ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent"
               : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
           }`}
           aria-label="Toggle advanced filters"
@@ -114,7 +114,7 @@ export function Filters({
           <SlidersHorizontal className="h-3.5 w-3.5" />
           Filters
           {hasAnyFilter && (
-            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-[10px] font-bold text-white dark:bg-blue-500">
+            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-dash-primary text-[10px] font-bold text-white dark:bg-dash-primary">
               {statusFilter.length +
                 priorityFilter.length +
                 departmentFilter.length}
@@ -262,7 +262,7 @@ export function Filters({
                     }
                     className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all ${
                       active
-                        ? "bg-blue-100 text-blue-700 ring-1 ring-blue-300 dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-600"
+                        ? "bg-dash-primary-light text-dash-primary ring-1 ring-dash-primary dark:bg-teal-900/30 dark:text-accent dark:ring-dash-primary"
                         : "bg-slate-50 text-slate-500 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
                     }`}
                   >

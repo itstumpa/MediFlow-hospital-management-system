@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -92,7 +92,7 @@ export function AppointmentSettings({
       {/* Working Days */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <CalendarCheck className="h-5 w-5" />
           </div>
           <div>
@@ -116,7 +116,7 @@ export function AppointmentSettings({
                 className={cn(
                   "flex h-12 w-12 items-center justify-center rounded-xl border-2 font-medium transition-all",
                   data.workingDays.includes(day.value)
-                    ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-500 dark:bg-blue-900/30 dark:text-blue-300"
+                    ? "border-dash-primary bg-dash-primary-light text-dash-primary dark:border-teal-500 dark:bg-teal-900/30 dark:text-accent"
                     : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:border-slate-700 dark:hover:border-slate-600 dark:text-slate-400",
                 )}
                 aria-pressed={data.workingDays.includes(day.value)}
@@ -163,7 +163,7 @@ export function AppointmentSettings({
                   className={cn(
                     "flex h-10 min-w-[60px] items-center justify-center rounded-lg border-2 font-medium transition-all",
                     data.slotDuration === duration
-                      ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-500 dark:bg-blue-900/30 dark:text-blue-300"
+                      ? "border-dash-primary bg-dash-primary-light text-dash-primary dark:border-teal-500 dark:bg-teal-900/30 dark:text-accent"
                       : "border-slate-200 text-slate-600 hover:border-slate-300 dark:border-slate-700 dark:text-slate-400",
                   )}
                 >
@@ -187,7 +187,7 @@ export function AppointmentSettings({
                   className={cn(
                     "flex h-10 min-w-[60px] items-center justify-center rounded-lg border-2 font-medium transition-all",
                     data.defaultConsultationTime === time
-                      ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-500 dark:bg-blue-900/30 dark:text-blue-300"
+                      ? "border-dash-primary bg-dash-primary-light text-dash-primary dark:border-teal-500 dark:bg-teal-900/30 dark:text-accent"
                       : "border-slate-200 text-slate-600 hover:border-slate-300 dark:border-slate-700 dark:text-slate-400",
                   )}
                 >
@@ -226,7 +226,7 @@ export function AppointmentSettings({
                 className={cn(
                   "flex h-10 min-w-[80px] items-center justify-center rounded-lg border-2 font-medium transition-all",
                   data.cancellationWindow === hours
-                    ? "border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-500 dark:bg-blue-900/30 dark:text-blue-300"
+                    ? "border-dash-primary bg-dash-primary-light text-dash-primary dark:border-teal-500 dark:bg-teal-900/30 dark:text-accent"
                     : "border-slate-200 text-slate-600 hover:border-slate-300 dark:border-slate-700 dark:text-slate-400",
                 )}
               >
@@ -289,7 +289,7 @@ export function AppointmentSettings({
                     );
                     setRules(newRules);
                   }}
-                  className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 />
               </div>
               <button
@@ -319,8 +319,8 @@ function ToggleSwitch({ checked, onChange }: ToggleSwitchProps) {
       role="switch"
       aria-checked={checked}
       className={cn(
-        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-        checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+        checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
       )}
     >
       <motion.span

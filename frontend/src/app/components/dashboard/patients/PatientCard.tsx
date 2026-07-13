@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -32,8 +32,8 @@ const statusConfig: Record<string, { class: string; dot: string }> = {
     dot: "bg-slate-400",
   },
   Admitted: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
+    dot: "bg-dash-primary",
   },
   Discharged: {
     class:
@@ -48,7 +48,7 @@ const statusConfig: Record<string, { class: string; dot: string }> = {
 };
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -87,7 +87,7 @@ export function PatientCard({
       transition={{ duration: 0.35, delay: index * 0.04, ease: "easeOut" }}
       className={`dash-card relative overflow-hidden transition-all ${
         selected
-          ? "ring-2 ring-blue-500 shadow-blue-500/10"
+          ? "ring-2 ring-dash-primary shadow-dash-primary/10"
           : "hover:shadow-lg hover:-translate-y-0.5"
       }`}
     >
@@ -97,7 +97,7 @@ export function PatientCard({
           type="checkbox"
           checked={selected}
           onChange={() => onSelect(patient.id)}
-          className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+          className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
           aria-label={`Select ${patient.name}`}
         />
       </div>
@@ -192,7 +192,7 @@ export function PatientCard({
         <div className="mt-4 flex items-center justify-center gap-1 border-t border-slate-100 pt-3 dark:border-slate-700">
           <button
             onClick={() => onView(patient)}
-            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
             title="View patient"
           >
             <Eye className="h-4 w-4" />

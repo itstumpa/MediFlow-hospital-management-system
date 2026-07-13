@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { AppointmentDetail } from "@/lib/data/appointment-detail";
@@ -48,7 +48,7 @@ export function AppointmentSidebar({ appointment }: AppointmentSidebarProps) {
               <span
                 className={cn(
                   "h-1.5 w-1.5 rounded-full",
-                  appointment.status === "scheduled" && "bg-blue-500",
+                  appointment.status === "scheduled" && "bg-dash-primary",
                   appointment.status === "confirmed" && "bg-indigo-500",
                   appointment.status === "in-progress" && "bg-amber-500",
                   appointment.status === "completed" && "bg-emerald-500",
@@ -98,14 +98,14 @@ export function AppointmentSidebar({ appointment }: AppointmentSidebarProps) {
       {appointment.nextAppointment && (
         <motion.div
           variants={staggerItem}
-          className="rounded-xl border border-slate-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-5 shadow-sm dark:border-slate-700 dark:from-blue-950/30 dark:to-indigo-950/30"
+          className="rounded-xl border border-slate-200 bg-gradient-to-br from-dash-primary-light to-dash-primary-light p-5 shadow-sm dark:border-slate-700 dark:from-teal-950/30 dark:to-teal-950/30"
         >
           <h3 className="mb-3 text-sm font-semibold text-slate-900 dark:text-white">
             Next Appointment
           </h3>
           <div className="space-y-2.5">
             <div className="flex items-center gap-2.5 text-sm">
-              <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <Calendar className="h-4 w-4 text-dash-primary dark:text-accent" />
               <span className="text-slate-700 dark:text-slate-300">
                 {new Date(appointment.nextAppointment.date).toLocaleDateString(
                   "en-US",
@@ -119,13 +119,13 @@ export function AppointmentSidebar({ appointment }: AppointmentSidebarProps) {
               </span>
             </div>
             <div className="flex items-center gap-2.5 text-sm">
-              <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <Clock className="h-4 w-4 text-dash-primary dark:text-accent" />
               <span className="text-slate-700 dark:text-slate-300">
                 {appointment.nextAppointment.time}
               </span>
             </div>
             <div className="flex items-center gap-2.5 text-sm">
-              <Stethoscope className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <Stethoscope className="h-4 w-4 text-dash-primary dark:text-accent" />
               <span className="text-slate-700 dark:text-slate-300">
                 {appointment.nextAppointment.doctor}
               </span>
@@ -148,7 +148,7 @@ export function AppointmentSidebar({ appointment }: AppointmentSidebarProps) {
               label: "Edit Appointment",
               icon: Edit,
               color:
-                "text-blue-600 bg-blue-50 dark:bg-blue-500/10 dark:text-blue-400",
+                "text-dash-primary bg-dash-primary-light dark:bg-teal-500/10 dark:text-accent",
             },
             {
               label: "Print Details",

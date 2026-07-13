@@ -15,7 +15,7 @@ export function ThemeToggle() {
         "relative flex h-9 w-9 items-center justify-center rounded-xl",
         "text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600",
         "dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-slate-300",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2",
       )}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -88,8 +88,8 @@ export function AppointmentChart() {
             Monthly registrations this year
           </p>
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950/30 dark:text-blue-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-dash-primary-light px-2.5 py-1 text-xs font-medium text-dash-primary dark:bg-teal-950/30 dark:text-accent">
+          <span className="h-1.5 w-1.5 rounded-full bg-dash-primary" />
           +72% YTD
         </span>
       </div>
@@ -122,7 +122,7 @@ export function AppointmentChart() {
                 <Tooltip content={<CustomTooltip />} />
                 <Bar
                   dataKey="patients"
-                  fill="#2563eb"
+                  fill="#0e7c7b"
                   radius={[6, 6, 0, 0]}
                   maxBarSize={40}
                 />

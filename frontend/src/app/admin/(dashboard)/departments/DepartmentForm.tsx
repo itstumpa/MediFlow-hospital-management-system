@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Breadcrumb } from "@/app/components/dashboard/Breadcrumb";
 import { pageFade } from "@/lib/animations/pageTransition";
@@ -317,7 +317,7 @@ export function DepartmentForm({
                 className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                  <Sparkles className="h-4 w-4 text-blue-500" />
+                  <Sparkles className="h-4 w-4 text-dash-primary" />
                   {isEdit
                     ? "Update the department information to save changes"
                     : "Fill in all required fields to create a new department"}
@@ -339,8 +339,8 @@ export function DepartmentForm({
                     disabled={isSubmitting}
                     className={cn(
                       "inline-flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-all",
-                      "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800",
-                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+                      "bg-gradient-to-r from-dash-primary to-dash-primary-dark hover:from-dash-primary-dark hover:to-dash-primary-dark",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dash-primary",
                       "disabled:cursor-not-allowed disabled:opacity-60",
                     )}
                     whileHover={isSubmitting ? {} : { scale: 1.02 }}

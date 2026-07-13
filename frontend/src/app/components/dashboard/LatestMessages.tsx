@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Eye, Mail } from "lucide-react";
@@ -57,7 +57,7 @@ const messages: Message[] = [
 ];
 
 const bgColors = [
-  "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+  "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
   "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
   "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
   "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
@@ -83,11 +83,11 @@ export function LatestMessages() {
               Recent contact inquiries
             </p>
           </div>
-          <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-950/30 dark:text-blue-400">
+          <span className="inline-flex items-center rounded-full bg-dash-primary-light px-2 py-0.5 text-xs font-medium text-dash-primary dark:bg-teal-950/30 dark:text-accent">
             {messages.filter((m) => m.unread).length} new
           </span>
         </div>
-        <button className="text-xs font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
+        <button className="text-xs font-medium text-dash-primary hover:text-dash-primary dark:text-accent">
           View all
         </button>
       </div>
@@ -98,7 +98,7 @@ export function LatestMessages() {
           <motion.div
             key={i}
             variants={staggerItem}
-            className={`group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/20 ${msg.unread ? "bg-blue-50/30 dark:bg-blue-950/10" : ""}`}
+            className={`group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/20 ${msg.unread ? "bg-dash-primary-light/30 dark:bg-teal-950/10" : ""}`}
           >
             {/* Avatar */}
             <span
@@ -117,7 +117,7 @@ export function LatestMessages() {
                 </span>
                 {msg.unread && (
                   <span
-                    className="h-2 w-2 rounded-full bg-blue-500"
+                    className="h-2 w-2 rounded-full bg-dash-primary"
                     aria-label="Unread message"
                   />
                 )}

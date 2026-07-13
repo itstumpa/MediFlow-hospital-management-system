@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { RotateCcw, X } from "lucide-react";
@@ -49,14 +49,14 @@ function CheckboxGroup<T extends string>({
             onClick={() => toggle(opt)}
             className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700 ${
               selected.includes(opt)
-                ? "text-blue-700 dark:text-blue-300"
+                ? "text-dash-primary dark:text-accent"
                 : "text-slate-600 dark:text-slate-400"
             }`}
           >
             <div
               className={`flex h-4 w-4 items-center justify-center rounded border transition-colors ${
                 selected.includes(opt)
-                  ? "border-blue-600 bg-blue-600"
+                  ? "border-dash-primary bg-dash-primary"
                   : "border-slate-300 dark:border-slate-600"
               }`}
             >
@@ -195,7 +195,7 @@ export function AppointmentFilters({
                       dateRange: [e.target.value, filters.dateRange[1]],
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                   aria-label="Start date"
                 />
                 <input
@@ -207,7 +207,7 @@ export function AppointmentFilters({
                       dateRange: [filters.dateRange[0], e.target.value],
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                   aria-label="End date"
                 />
               </div>
@@ -228,7 +228,7 @@ export function AppointmentFilters({
                       timeRange: [e.target.value, filters.timeRange[1]],
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                   aria-label="Start time"
                 />
                 <input
@@ -240,7 +240,7 @@ export function AppointmentFilters({
                       timeRange: [filters.timeRange[0], e.target.value],
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 transition-colors focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                   aria-label="End time"
                 />
               </div>

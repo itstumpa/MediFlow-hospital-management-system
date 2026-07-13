@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -26,9 +26,9 @@ interface StatsCardProps {
 
 const colorMap: Record<string, { bg: string; text: string; glow: string }> = {
   blue: {
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    text: "text-blue-600 dark:text-blue-400",
-    glow: "group-hover:shadow-blue-500/10",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    text: "text-dash-primary dark:text-accent",
+    glow: "group-hover:shadow-dash-primary/10",
   },
   emerald: {
     bg: "bg-emerald-50 dark:bg-emerald-950/30",

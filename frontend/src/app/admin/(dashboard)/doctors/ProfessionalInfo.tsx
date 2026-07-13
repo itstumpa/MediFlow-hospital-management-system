@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
@@ -14,7 +14,7 @@ import { departments, designations, specializations } from "./form-mock";
 import type { DoctorFormValues } from "./form-schema";
 
 const inputGlow =
-  "transition-all duration-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]";
+  "transition-all duration-200 focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary focus:shadow-[0_0_0_4px_rgba(14,124,123,0.1)]";
 
 const inputClass = (hasError: boolean) =>
   `w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 ${inputGlow} ${
@@ -280,7 +280,7 @@ export function ProfessionalInfo() {
           ).map((statusOption) => (
             <label
               key={statusOption}
-              className="relative flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm transition-all hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-500 has-checked:border-blue-500 has-checked:bg-blue-50 has-checked:text-blue-700 dark:has-checked:border-blue-400 dark:has-checked:bg-blue-500/10 dark:has-checked:text-blue-300"
+              className="relative flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm transition-all hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-500 has-checked:border-dash-primary has-checked:bg-dash-primary-light has-checked:text-dash-primary dark:has-checked:border-dash-primary dark:has-checked:bg-dash-primary/10 dark:has-checked:text-accent"
             >
               <input
                 type="radio"
@@ -293,7 +293,7 @@ export function ProfessionalInfo() {
                 initial={false}
                 animate={
                   watch("status") === statusOption
-                    ? { borderColor: "#3b82f6", backgroundColor: "#3b82f6" }
+                    ? { borderColor: "#0e7c7b", backgroundColor: "#0e7c7b" }
                     : {}
                 }
               >

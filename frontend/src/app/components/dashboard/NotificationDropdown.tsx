@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn, timeAgo } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -59,7 +59,7 @@ const typeIcons = {
 };
 
 const typeStyles = {
-  info: "bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400",
+  info: "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-accent",
   success:
     "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
   warning:
@@ -84,7 +84,7 @@ export function NotificationDropdown() {
           "relative flex h-9 w-9 items-center justify-center rounded-xl",
           "text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600",
           "dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-slate-300",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2",
           isOpen &&
             "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300",
         )}
@@ -130,7 +130,7 @@ export function NotificationDropdown() {
                   Notifications
                 </h3>
                 <button
-                  className="text-xs font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                  className="text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary dark:text-accent dark:hover:text-accent"
                   onClick={() => {} /* mark all as read */}
                 >
                   Mark all read
@@ -154,7 +154,7 @@ export function NotificationDropdown() {
                         key={notif.id}
                         className={cn(
                           "flex w-full gap-3 px-4 py-3 text-left transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/40",
-                          !notif.read && "bg-blue-50/40 dark:bg-blue-950/20",
+                          !notif.read && "bg-dash-primary-light/40 dark:bg-teal-950/20",
                         )}
                         onClick={() => {} /* mark as read + navigate */}
                       >
@@ -185,7 +185,7 @@ export function NotificationDropdown() {
                           </p>
                         </div>
                         {!notif.read && (
-                          <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+                          <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-dash-primary dark:bg-dash-primary-light" />
                         )}
                       </button>
                     );

@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/app/components/dashboard/Button";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import { MessageDetails } from "@/app/components/dashboard/messages/MessageDetails";
 import { MessageList } from "@/app/components/dashboard/messages/MessageList";
@@ -178,32 +180,35 @@ export default function MessagesPage() {
   }, [showToast]);
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="space-y-6"
+    >
       {/* Page Header */}
       <PageHeader
         title="Messages"
         subtitle="Manage patient inquiries and website contact requests."
         actions={
           <div className="flex items-center gap-2">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <Button
+              variant="outline"
+              icon={Download}
               onClick={handleExport}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              size="sm"
             >
-              <Download className="h-4 w-4" />
               Export
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </Button>
+            <Button
+              variant="outline"
+              icon={CheckCheck}
               onClick={handleMarkAllRead}
               disabled={unreadCount === 0}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              size="sm"
             >
-              <CheckCheck className="h-4 w-4" />
               Mark All Read
-            </motion.button>
+            </Button>
           </div>
         }
       />
@@ -298,6 +303,6 @@ export default function MessagesPage() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

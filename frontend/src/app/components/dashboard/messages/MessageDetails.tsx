@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -150,7 +150,7 @@ export function MessageDetails({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onReply}
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20"
+            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-dash-primary hover:bg-dash-primary-light dark:text-accent dark:hover:bg-dash-primary-dark/20"
             aria-label="Reply"
           >
             <Reply className="h-3.5 w-3.5" />
@@ -294,7 +294,7 @@ export function MessageDetails({
 
             {/* Sender info */}
             <div className="flex items-start gap-3.5">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-500 text-sm font-semibold text-white">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-dash-primary text-sm font-semibold text-white">
                 {message.name
                   .split(" ")
                   .map((n) => n[0])
@@ -363,7 +363,7 @@ export function MessageDetails({
                       className={`flex h-8 w-8 items-center justify-center rounded-lg ${
                         att.type === "pdf"
                           ? "bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400"
-                          : "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
+                          : "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent"
                       }`}
                     >
                       {att.type === "pdf" ? (
@@ -391,7 +391,7 @@ export function MessageDetails({
             <div className="flex items-center gap-2">
               <button
                 onClick={onReply}
-                className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-blue-700"
+                className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark"
               >
                 <Reply className="h-4 w-4" />
                 Reply

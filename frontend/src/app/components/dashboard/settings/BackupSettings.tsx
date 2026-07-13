@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -98,7 +98,7 @@ export function BackupSettings({
       {/* Backup Overview */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <Database className="h-5 w-5" />
           </div>
           <div>
@@ -215,7 +215,7 @@ export function BackupSettings({
                       e.target.value as BackupSchedule["frequency"],
                     )
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 >
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
@@ -231,7 +231,7 @@ export function BackupSettings({
                   type="time"
                   value={data.schedule.time}
                   onChange={(e) => handleScheduleChange("time", e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 />
               </div>
 
@@ -244,7 +244,7 @@ export function BackupSettings({
                   onChange={(e) =>
                     handleScheduleChange("retention", parseInt(e.target.value))
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 >
                   <option value={7}>7 days</option>
                   <option value={14}>14 days</option>
@@ -266,7 +266,7 @@ export function BackupSettings({
                       e.target.value as BackupSchedule["compression"],
                     )
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 >
                   <option value="none">None</option>
                   <option value="gzip">GZIP</option>
@@ -304,7 +304,7 @@ export function BackupSettings({
                         [item.id]: e.target.checked,
                       })
                     }
-                    className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                    className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                   />
                   <span className="text-sm text-slate-700 dark:text-slate-300">
                     {item.label}
@@ -345,7 +345,7 @@ export function BackupSettings({
             <button
               onClick={createBackup}
               disabled={creatingBackup}
-              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white hover:bg-dash-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {creatingBackup ? (
                 <>
@@ -365,10 +365,10 @@ export function BackupSettings({
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
-              className="mt-4 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20"
+              className="mt-4 p-4 rounded-xl bg-dash-primary-light dark:bg-teal-900/20"
             >
               <div className="flex items-center gap-3">
-                <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
+                <Loader2 className="h-6 w-6 animate-spin text-dash-primary" />
                 <div>
                   <p className="font-medium text-slate-900 dark:text-white">
                     Creating backup...
@@ -383,7 +383,7 @@ export function BackupSettings({
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 2000, ease: "easeInOut" }}
-                  className="h-full bg-blue-600"
+                  className="h-full bg-dash-primary"
                 />
               </div>
             </motion.div>
@@ -442,7 +442,7 @@ export function BackupSettings({
                         backup.status === "failed" &&
                           "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400",
                         backup.status === "in_progress" &&
-                          "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
+                          "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
                       )}
                     >
                       {backup.status === "completed" && (
@@ -470,17 +470,17 @@ export function BackupSettings({
                             backup.status === "failed" &&
                               "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
                             backup.status === "in_progress" &&
-                              "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+                              "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
                           )}
                         >
                           {backup.status.replace("_", " ")}
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
-                        {new Date(backup.startedAt).toLocaleString()} ·{" "}
+                        {new Date(backup.startedAt).toLocaleString()} Â·{" "}
                         {backup.size}
                         {backup.completedAt &&
-                          ` · Completed ${new Date(backup.completedAt).toLocaleString()}`}
+                          ` Â· Completed ${new Date(backup.completedAt).toLocaleString()}`}
                       </p>
                     </div>
                   </div>
@@ -557,7 +557,7 @@ export function BackupSettings({
                   e.target.value as BackupSettings["storageProvider"],
                 )
               }
-              className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             >
               <option value="local">Local Storage</option>
               <option value="s3">Amazon S3</option>
@@ -594,7 +594,7 @@ export function BackupSettings({
                     ? "bg-red-500"
                     : data.storageUsed / data.storageLimit > 0.7
                       ? "bg-amber-500"
-                      : "bg-blue-500",
+                      : "bg-dash-primary",
                 )}
                 style={{
                   width: `${(data.storageUsed / data.storageLimit) * 100}%`,
@@ -611,7 +611,7 @@ export function BackupSettings({
                 onChange={(e) =>
                   handleChange("encryptBackups", e.target.checked)
                 }
-                className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
               />
               <span className="text-sm text-slate-700 dark:text-slate-300">
                 Encrypt backups at rest (AES-256)
@@ -624,7 +624,7 @@ export function BackupSettings({
                 onChange={(e) =>
                   handleChange("verifyBackups", e.target.checked)
                 }
-                className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
               />
               <span className="text-sm text-slate-700 dark:text-slate-300">
                 Verify backup integrity after creation
@@ -655,7 +655,7 @@ function StatCard({
   trendColor,
 }: StatCardProps) {
   const colorMap: Record<string, string> = {
-    blue: "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
+    blue: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
     purple:
       "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
     emerald:
@@ -671,7 +671,7 @@ function StatCard({
     red: "text-red-600 dark:text-red-400",
     amber: "text-amber-600 dark:text-amber-400",
     slate: "text-slate-500 dark:text-slate-400",
-    blue: "text-blue-600 dark:text-blue-400",
+    blue: "text-dash-primary dark:text-accent",
   };
 
   return (
@@ -716,8 +716,8 @@ function ToggleSwitch({ checked, onChange }: ToggleSwitchProps) {
       role="switch"
       aria-checked={checked}
       className={cn(
-        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-        checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+        checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
       )}
     >
       <motion.span

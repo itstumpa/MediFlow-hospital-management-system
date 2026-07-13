@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -190,9 +190,9 @@ export function ArticlesStats({ articles }: ArticlesStatsProps) {
       value: totalArticles,
       icon: BookOpen,
       color: {
-        bg: "bg-blue-50 dark:bg-blue-950/30",
-        text: "text-blue-600 dark:text-blue-400",
-        glow: "shadow-blue-500/10",
+        bg: "bg-dash-primary-light dark:bg-teal-950/30",
+        text: "text-dash-primary dark:text-accent",
+        glow: "shadow-dash-primary/10",
       },
       sparkline: [8, 10, 9, 12, 11, 14, 13, 16, 16],
       trend: 12,

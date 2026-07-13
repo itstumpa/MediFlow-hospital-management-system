@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -235,7 +235,7 @@ export function BillingSettings({
           {/* Current Plan */}
           <section className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                 <CreditCard className="h-5 w-5" />
               </div>
               <div>
@@ -252,7 +252,7 @@ export function BillingSettings({
               className={cn(
                 "relative rounded-2xl p-6 overflow-hidden",
                 currentPlan.popular
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                  ? "bg-gradient-to-r from-dash-primary to-purple-600 text-white"
                   : "bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700",
               )}
             >
@@ -277,7 +277,7 @@ export function BillingSettings({
                     className={cn(
                       "mt-1 text-sm",
                       currentPlan.popular
-                        ? "text-blue-100"
+                        ? "text-dash-primary"
                         : "text-slate-500 dark:text-slate-400",
                     )}
                   >
@@ -285,7 +285,7 @@ export function BillingSettings({
                       ? "Active"
                       : data.subscription.status}
                     {data.subscription.cancelAtPeriodEnd &&
-                      " • Cancels at period end"}
+                      " â€¢ Cancels at period end"}
                   </p>
                 </div>
                 <div className="text-right">
@@ -302,7 +302,7 @@ export function BillingSettings({
                       className={cn(
                         "text-lg font-normal",
                         currentPlan.popular
-                          ? "text-blue-100"
+                          ? "text-dash-primary"
                           : "text-slate-500 dark:text-slate-400",
                       )}
                     >
@@ -313,7 +313,7 @@ export function BillingSettings({
                     className={cn(
                       "text-sm",
                       currentPlan.popular
-                        ? "text-blue-100"
+                        ? "text-dash-primary"
                         : "text-slate-500 dark:text-slate-400",
                     )}
                   >
@@ -429,14 +429,14 @@ export function BillingSettings({
                   className={cn(
                     "relative rounded-2xl p-6 transition-all",
                     plan.popular
-                      ? "bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-xl"
-                      : "bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-700",
+                      ? "bg-gradient-to-br from-dash-primary to-purple-600 text-white shadow-xl"
+                      : "bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 hover:border-dash-primary dark:hover:border-teal-700",
                     data.subscription.plan === plan.id &&
-                      "ring-2 ring-blue-500 dark:ring-blue-400",
+                      "ring-2 ring-dash-primary dark:ring-dash-primary",
                   )}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white text-blue-600 text-xs font-medium">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white text-dash-primary text-xs font-medium">
                       Most Popular
                     </div>
                   )}
@@ -465,7 +465,7 @@ export function BillingSettings({
                         className={cn(
                           "text-lg font-normal",
                           plan.popular
-                            ? "text-blue-100"
+                            ? "text-dash-primary"
                             : "text-slate-500 dark:text-slate-400",
                         )}
                       >
@@ -481,7 +481,7 @@ export function BillingSettings({
                         className={cn(
                           "flex items-start gap-2 text-sm",
                           plan.popular
-                            ? "text-blue-100"
+                            ? "text-dash-primary"
                             : "text-slate-600 dark:text-slate-400",
                         )}
                       >
@@ -511,8 +511,8 @@ export function BillingSettings({
                     className={cn(
                       "w-full rounded-lg px-4 py-3 text-sm font-medium transition-colors",
                       plan.popular
-                        ? "bg-white text-blue-600 hover:bg-blue-50"
-                        : "bg-blue-600 text-white hover:bg-blue-700",
+                        ? "bg-white text-dash-primary hover:bg-dash-primary-light"
+                        : "bg-dash-primary text-white hover:bg-dash-primary-dark",
                       data.subscription.plan === plan.id &&
                         "bg-slate-100 text-slate-500 cursor-not-allowed dark:bg-slate-700",
                       changingPlan === plan.id && "opacity-75 cursor-wait",
@@ -620,7 +620,7 @@ export function BillingSettings({
               </div>
               <button
                 onClick={addPaymentMethod}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white hover:bg-dash-primary-dark"
               >
                 <Plus className="h-4 w-4" />
                 Add Payment Method
@@ -648,7 +648,7 @@ export function BillingSettings({
                       className={cn(
                         "flex items-center justify-between p-4 rounded-xl border transition-colors",
                         method.isDefault
-                          ? "border-blue-200 bg-blue-50/50 dark:border-blue-900/30 dark:bg-blue-900/20"
+                          ? "border-dash-primary-light bg-dash-primary-light/50 dark:border-dash-primary/30 dark:bg-teal-900/20"
                           : "border-slate-200 bg-slate-50/50 dark:border-slate-700 dark:bg-slate-800/50",
                       )}
                     >
@@ -657,7 +657,7 @@ export function BillingSettings({
                           className={cn(
                             "flex h-12 w-12 items-center justify-center rounded-xl",
                             method.isDefault
-                              ? "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
+                              ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent"
                               : "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
                           )}
                         >
@@ -672,10 +672,10 @@ export function BillingSettings({
                               {method.brand}
                             </span>
                             <span className="font-mono text-slate-900 dark:text-white">
-                              •••• {method.last4}
+                              â€¢â€¢â€¢â€¢ {method.last4}
                             </span>
                             {method.isDefault && (
-                              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                              <span className="text-xs px-2 py-0.5 rounded-full bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                                 Default
                               </span>
                             )}
@@ -760,7 +760,7 @@ export function BillingSettings({
                         parseInt(e.target.value),
                       )
                     }
-                    className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                    className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   >
                     <option value={0}>Don't retry</option>
                     <option value={1}>1 retry</option>
@@ -781,7 +781,7 @@ export function BillingSettings({
                         parseInt(e.target.value),
                       )
                     }
-                    className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                    className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   >
                     <option value={1}>1 day</option>
                     <option value={3}>3 days</option>
@@ -796,7 +796,7 @@ export function BillingSettings({
                     onChange={(e) =>
                       handleChange("sendPaymentReceipts", e.target.checked)
                     }
-                    className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                    className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                   />
                   <span className="text-sm text-slate-700 dark:text-slate-300">
                     Send payment receipts via email
@@ -908,7 +908,7 @@ export function BillingSettings({
                             </span>
                           </div>
                           <p className="text-sm text-slate-500 dark:text-slate-400">
-                            {new Date(invoice.date).toLocaleDateString()} •{" "}
+                            {new Date(invoice.date).toLocaleDateString()} â€¢{" "}
                             {invoice.plan} Plan
                           </p>
                         </div>
@@ -960,7 +960,7 @@ export function BillingSettings({
               </div>
               <button
                 onClick={addBillingContact}
-                className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white hover:bg-dash-primary-dark"
               >
                 <Plus className="h-4 w-4" />
                 Add Contact
@@ -1025,7 +1025,7 @@ export function BillingSettings({
                               role: e.target.value as BillingContact["role"],
                             })
                           }
-                          className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         >
                           <option value="owner">Owner</option>
                           <option value="admin">Admin</option>
@@ -1048,7 +1048,7 @@ export function BillingSettings({
                             className={cn(
                               "w-11 h-6 rounded-full transition-colors",
                               contact.notifications
-                                ? "bg-blue-600"
+                                ? "bg-dash-primary"
                                 : "bg-slate-300 dark:bg-slate-600",
                             )}
                           />
@@ -1091,7 +1091,7 @@ interface LimitCardProps {
 
 function LimitCard({ label, value, icon: Icon, color }: LimitCardProps) {
   const colorMap: Record<string, string> = {
-    blue: "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
+    blue: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
     purple:
       "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
     emerald:
@@ -1142,8 +1142,8 @@ function BillingCycleOption({
       className={cn(
         "relative p-4 rounded-xl border-2 transition-all text-left",
         selected
-          ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-          : "border-slate-200 hover:border-blue-300 dark:border-slate-700 dark:hover:border-blue-700",
+          ? "border-dash-primary bg-dash-primary-light dark:bg-teal-900/20"
+          : "border-slate-200 hover:border-dash-primary dark:border-slate-700 dark:hover:border-teal-700",
       )}
     >
       {savings && selected && (
@@ -1170,7 +1170,7 @@ function BillingCycleOption({
         </div>
       </div>
       {selected && (
-        <div className="absolute inset-0 border-2 border-blue-500 rounded-xl pointer-events-none" />
+        <div className="absolute inset-0 border-2 border-dash-primary rounded-xl pointer-events-none" />
       )}
     </button>
   );
@@ -1188,8 +1188,8 @@ function ToggleSwitch({ checked, onChange }: ToggleSwitchProps) {
       role="switch"
       aria-checked={checked}
       className={cn(
-        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-        checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+        checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
       )}
     >
       <motion.span

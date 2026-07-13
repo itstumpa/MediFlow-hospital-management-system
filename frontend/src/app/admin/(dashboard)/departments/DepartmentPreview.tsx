@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -80,8 +80,8 @@ export function DepartmentPreview() {
       className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800"
     >
       {/* Preview Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3">
-        <p className="text-xs font-medium text-blue-100">Preview</p>
+      <div className="bg-gradient-to-r from-dash-primary to-dash-primary-dark px-4 py-3">
+        <p className="text-xs font-medium text-dash-primary">Preview</p>
         <p className="text-sm font-semibold text-white">Department Card</p>
       </div>
 
@@ -162,7 +162,7 @@ export function DepartmentPreview() {
           <div className="w-full space-y-2 text-left">
             {departmentHead && (
               <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                <Stethoscope className="h-3.5 w-3.5 text-blue-500 shrink-0" />
+                <Stethoscope className="h-3.5 w-3.5 text-dash-primary shrink-0" />
                 <span className="truncate">{departmentHead}</span>
               </div>
             )}

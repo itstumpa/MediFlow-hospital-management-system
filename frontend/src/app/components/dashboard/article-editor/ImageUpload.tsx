@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { CropIcon, ImageIcon, Replace, Trash2, Upload } from "lucide-react";
@@ -151,13 +151,13 @@ export function ImageUpload({
             onClick={handleClick}
             className={`group relative flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed p-8 transition-all ${previewHeight} ${
               dragOver
-                ? "border-blue-400 bg-blue-50 dark:border-blue-500 dark:bg-blue-950/30"
+                ? "border-dash-primary bg-dash-primary-light dark:border-teal-500 dark:bg-teal-950/30"
                 : "border-slate-300 bg-slate-50 hover:border-slate-400 hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-slate-500 dark:hover:bg-slate-800"
             }`}
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
-              className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-slate-400 transition-colors group-hover:bg-blue-100 group-hover:text-blue-500 dark:bg-slate-700 dark:text-slate-500 dark:group-hover:bg-blue-900/40 dark:group-hover:text-blue-400"
+              className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-slate-400 transition-colors group-hover:bg-dash-primary-light group-hover:text-dash-primary dark:bg-slate-700 dark:text-slate-500 dark:group-hover:bg-teal-900/40 dark:group-hover:text-dash-primary"
             >
               {dragOver ? (
                 <Upload className="h-6 w-6" />
@@ -167,7 +167,7 @@ export function ImageUpload({
             </motion.div>
             <div className="text-center">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                <span className="text-blue-600 dark:text-blue-400">
+                <span className="text-dash-primary dark:text-accent">
                   Click to upload
                 </span>{" "}
                 or drag and drop

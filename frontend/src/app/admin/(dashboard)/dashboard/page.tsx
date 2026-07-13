@@ -1,19 +1,115 @@
 "use client";
 
-import { ActivityTimeline } from "@/app/components/dashboard/ActivityTimeline";
-import { AppointmentChart } from "@/app/components/dashboard/AppointmentChart";
-import { AppointmentTable } from "@/app/components/dashboard/AppointmentTable";
-import { LatestMessages } from "@/app/components/dashboard/LatestMessages";
+import { Button } from "@/app/components/dashboard/Button";
 import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
-import { QuickActions } from "@/app/components/dashboard/QuickActions";
-import { RecentPatients } from "@/app/components/dashboard/RecentPatients";
-import { RevenueChart } from "@/app/components/dashboard/RevenueChart";
-import { StatsGrid } from "@/app/components/dashboard/StatsGrid";
-import { SystemStatus } from "@/app/components/dashboard/SystemStatus";
-import { TopDoctors } from "@/app/components/dashboard/TopDoctors";
 import { motion } from "framer-motion";
 import { CalendarCheck, Download, Plus } from "lucide-react";
+import dynamic from "next/dynamic";
+
+// Dynamic imports for heavier components with skeleton fallbacks
+const ActivityTimeline = dynamic(
+  () =>
+    import("@/app/components/dashboard/ActivityTimeline").then(
+      (m) => m.ActivityTimeline,
+    ),
+  {
+    loading: () => <div className="dash-card h-[300px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const AppointmentChart = dynamic(
+  () =>
+    import("@/app/components/dashboard/AppointmentChart").then(
+      (m) => m.AppointmentChart,
+    ),
+  {
+    loading: () => <div className="dash-card h-[350px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const AppointmentTable = dynamic(
+  () =>
+    import("@/app/components/dashboard/AppointmentTable").then(
+      (m) => m.AppointmentTable,
+    ),
+  {
+    loading: () => <div className="dash-card h-[300px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const LatestMessages = dynamic(
+  () =>
+    import("@/app/components/dashboard/LatestMessages").then(
+      (m) => m.LatestMessages,
+    ),
+  {
+    loading: () => <div className="dash-card h-[300px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const QuickActions = dynamic(
+  () =>
+    import("@/app/components/dashboard/QuickActions").then(
+      (m) => m.QuickActions,
+    ),
+  {
+    loading: () => <div className="dash-card h-[300px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const RecentPatients = dynamic(
+  () =>
+    import("@/app/components/dashboard/RecentPatients").then(
+      (m) => m.RecentPatients,
+    ),
+  {
+    loading: () => <div className="dash-card h-[300px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const RevenueChart = dynamic(
+  () =>
+    import("@/app/components/dashboard/RevenueChart").then(
+      (m) => m.RevenueChart,
+    ),
+  {
+    loading: () => <div className="dash-card h-[350px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const StatsGrid = dynamic(
+  () => import("@/app/components/dashboard/StatsGrid").then((m) => m.StatsGrid),
+  {
+    loading: () => (
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div key={i} className="dash-card h-[120px] animate-pulse" />
+        ))}
+        {}
+      </div>
+    ),
+    ssr: false,
+  },
+);
+const SystemStatus = dynamic(
+  () =>
+    import("@/app/components/dashboard/SystemStatus").then(
+      (m) => m.SystemStatus,
+    ),
+  {
+    loading: () => <div className="dash-card h-[200px] animate-pulse" />,
+    ssr: false,
+  },
+);
+const TopDoctors = dynamic(
+  () =>
+    import("@/app/components/dashboard/TopDoctors").then((m) => m.TopDoctors),
+  {
+    loading: () => <div className="dash-card h-[300px] animate-pulse" />,
+    ssr: false,
+  },
+);
 
 export default function DashboardPage() {
   return (
@@ -29,18 +125,15 @@ export default function DashboardPage() {
         subtitle="Welcome back, Admin. Here's what's happening today."
         actions={
           <div className="flex items-center gap-2">
-            <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700">
-              <Download className="h-4 w-4" />
+            <Button variant="outline" icon={Download} size="sm">
               Export Report
-            </button>
-            <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 hover:shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700">
-              <CalendarCheck className="h-4 w-4" />
+            </Button>
+            <Button variant="outline" icon={CalendarCheck} size="sm">
               Create Appointment
-            </button>
-            <button className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-md">
-              <Plus className="h-4 w-4" />
+            </Button>
+            <Button variant="primary" icon={Plus} size="sm">
               Add Doctor
-            </button>
+            </Button>
           </div>
         }
       />

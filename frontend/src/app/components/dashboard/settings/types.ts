@@ -1,4 +1,4 @@
-import {
+﻿import {
   AlertTriangle,
   Database,
   Key,
@@ -452,7 +452,7 @@ export const MOCK_CLINIC_INFO: ClinicInfo = {
 
 export const MOCK_APPEARANCE: AppearanceSettings = {
   theme: "system",
-  primaryColor: "#2563eb",
+  primaryColor: "#0e7c7b",
   accentColor: "#0ea5e9",
   sidebarStyle: "default",
   cardRadius: "lg",
@@ -975,8 +975,8 @@ export const MOCK_DANGER: DangerZoneActions = {
       "Force logout all users across all devices. All active sessions will be terminated immediately.",
     icon: Key,
     color: "blue",
-    bgColor: "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
-    borderColor: "border-blue-200 dark:border-blue-900/30",
+    bgColor: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
+    borderColor: "border-dash-primary-light dark:border-dash-primary/30",
     confirmText: "REVOKE SESSIONS",
     destructive: false,
     requiresDoubleConfirm: false,
@@ -1057,18 +1057,18 @@ export const DATE_FORMATS = [
 // Currency options
 export const CURRENCIES = [
   { code: "USD", symbol: "$", name: "US Dollar" },
-  { code: "EUR", symbol: "€", name: "Euro" },
-  { code: "GBP", symbol: "£", name: "British Pound" },
+  { code: "EUR", symbol: "â‚¬", name: "Euro" },
+  { code: "GBP", symbol: "Â£", name: "British Pound" },
   { code: "CAD", symbol: "CA$", name: "Canadian Dollar" },
   { code: "AUD", symbol: "A$", name: "Australian Dollar" },
-  { code: "JPY", symbol: "¥", name: "Japanese Yen" },
-  { code: "CNY", symbol: "¥", name: "Chinese Yuan" },
-  { code: "INR", symbol: "₹", name: "Indian Rupee" },
+  { code: "JPY", symbol: "Â¥", name: "Japanese Yen" },
+  { code: "CNY", symbol: "Â¥", name: "Chinese Yuan" },
+  { code: "INR", symbol: "â‚¹", name: "Indian Rupee" },
 ];
 
 // Color presets
 export const COLOR_PRESETS = [
-  { name: "Blue", primary: "#2563eb", accent: "#0ea5e9" },
+  { name: "Blue", primary: "#0e7c7b", accent: "#0ea5e9" },
   { name: "Emerald", primary: "#059669", accent: "#10b981" },
   { name: "Violet", primary: "#7c3aed", accent: "#a855f7" },
   { name: "Rose", primary: "#e11d48", accent: "#f43f5e" },

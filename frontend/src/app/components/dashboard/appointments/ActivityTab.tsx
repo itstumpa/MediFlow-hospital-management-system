@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { ActivityEntry } from "@/lib/data/appointment-detail";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ interface ActivityTabProps {
 }
 
 const activityIcons: Record<string, string> = {
-  created: "bg-blue-500",
+  created: "bg-dash-primary",
   confirmed: "bg-indigo-500",
   "checked-in": "bg-amber-500",
   started: "bg-violet-500",
@@ -19,7 +19,7 @@ const activityIcons: Record<string, string> = {
 };
 
 const activityDotColors: Record<string, string> = {
-  created: "border-blue-500",
+  created: "border-dash-primary",
   confirmed: "border-indigo-500",
   "checked-in": "border-amber-500",
   started: "border-violet-500",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/lib/animations/stagger";
 import { cn } from "@/lib/utils";
@@ -86,9 +86,9 @@ export function AvailabilitySchedule() {
                 onClick={() => toggleDay(day)}
                 className={cn(
                   "relative inline-flex h-6 w-10 shrink-0 items-center rounded-full transition-all",
-                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dash-primary",
                   dayData.available
-                    ? "bg-blue-500"
+                    ? "bg-dash-primary"
                     : "bg-slate-200 dark:bg-slate-700",
                 )}
               >
@@ -122,7 +122,7 @@ export function AvailabilitySchedule() {
                   onChange={(e) => updateTime(day, "startTime", e.target.value)}
                   disabled={!dayData.available}
                   className={cn(
-                    "rounded-lg border bg-white px-2.5 py-1.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:bg-slate-800 dark:text-white",
+                    "rounded-lg border bg-white px-2.5 py-1.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:bg-slate-800 dark:text-white",
                     dayData.available
                       ? "border-slate-300 dark:border-slate-600"
                       : "border-slate-200 text-slate-300 dark:border-slate-700 dark:text-slate-600",
@@ -145,7 +145,7 @@ export function AvailabilitySchedule() {
                   onChange={(e) => updateTime(day, "endTime", e.target.value)}
                   disabled={!dayData.available}
                   className={cn(
-                    "rounded-lg border bg-white px-2.5 py-1.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:bg-slate-800 dark:text-white",
+                    "rounded-lg border bg-white px-2.5 py-1.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:bg-slate-800 dark:text-white",
                     dayData.available
                       ? "border-slate-300 dark:border-slate-600"
                       : "border-slate-200 text-slate-300 dark:border-slate-700 dark:text-slate-600",

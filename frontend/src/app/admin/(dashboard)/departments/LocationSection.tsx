@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
@@ -40,7 +40,7 @@ export function LocationSection() {
             }
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               errors.building
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
                 : "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
@@ -72,7 +72,7 @@ export function LocationSection() {
             }
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               errors.floor
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
                 : "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
@@ -102,7 +102,7 @@ export function LocationSection() {
             placeholder="e.g., 301-325, 401-410"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
             )}
@@ -119,7 +119,7 @@ export function LocationSection() {
             placeholder="e.g., +1 (555) 0200"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               errors.receptionContact
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -143,7 +143,7 @@ export function LocationSection() {
             placeholder="e.g., +1 (555) 0299"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               errors.emergencyContact
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"

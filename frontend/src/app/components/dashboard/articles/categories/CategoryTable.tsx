@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import type { ArticleCategory, ViewMode } from "./types";
 import { staggerItem } from "../../MotionVariants";
 
-/* ─── Icon resolver ─── */
+/* â”€â”€â”€ Icon resolver â”€â”€â”€ */
 import {
   Heart,
   Brain,
@@ -80,7 +80,7 @@ function resolveIcon(name: string): LucideIcon {
   return iconMap[name] || FolderOpen;
 }
 
-/* ─── Columns ─── */
+/* â”€â”€â”€ Columns â”€â”€â”€ */
 interface ColumnDef {
   key: string;
   label: string;
@@ -105,7 +105,7 @@ const COLUMNS: ColumnDef[] = [
   { key: "actions", label: "Actions", sortable: false },
 ];
 
-/* ─── Action dropdown ─── */
+/* â”€â”€â”€ Action dropdown â”€â”€â”€ */
 interface ActionMenuProps {
   category: ArticleCategory;
   onView: (cat: ArticleCategory) => void;
@@ -210,7 +210,7 @@ function ActionMenu({
   );
 }
 
-/* ─── Row ─── */
+/* â”€â”€â”€ Row â”€â”€â”€ */
 interface CategoryRowProps {
   category: ArticleCategory;
   selected: boolean;
@@ -237,7 +237,7 @@ function CategoryRow({
       variants={staggerItem}
       className={cn(
         "group border-b border-slate-100 transition-colors last:border-0 hover:bg-slate-50/50 dark:border-slate-800 dark:hover:bg-slate-800/50",
-        selected && "bg-blue-50/50 dark:bg-blue-950/20",
+        selected && "bg-dash-primary-light/50 dark:bg-teal-950/20",
       )}
     >
       {/* Checkbox */}
@@ -246,7 +246,7 @@ function CategoryRow({
           type="checkbox"
           checked={selected}
           onChange={() => onSelect(category.id)}
-          className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-600 dark:bg-slate-800"
+          className="h-4 w-4 rounded border-slate-300 text-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-800"
         />
       </td>
 
@@ -279,7 +279,7 @@ function CategoryRow({
       <td className="max-w-[180px] px-4 py-3.5">
         <button
           onClick={() => onView(category)}
-          className="text-sm font-semibold text-slate-900 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+          className="text-sm font-semibold text-slate-900 transition-colors hover:text-dash-primary dark:text-white dark:hover:text-dash-primary"
         >
           {category.name}
         </button>
@@ -317,7 +317,7 @@ function CategoryRow({
             Featured
           </span>
         ) : (
-          <span className="text-xs text-slate-400 dark:text-slate-500">—</span>
+          <span className="text-xs text-slate-400 dark:text-slate-500">â€”</span>
         )}
       </td>
 
@@ -338,7 +338,7 @@ function CategoryRow({
         <div className="flex items-center gap-1">
           <button
             onClick={() => onView(category)}
-            className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+            className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
             aria-label={`View ${category.name}`}
           >
             <Eye className="h-4 w-4" />
@@ -363,7 +363,7 @@ function CategoryRow({
   );
 }
 
-/* ─── Table ─── */
+/* â”€â”€â”€ Table â”€â”€â”€ */
 interface CategoryTableProps {
   categories: ArticleCategory[];
   selectedIds: Set<string>;
@@ -419,7 +419,7 @@ export function CategoryTable({
                     if (el) el.indeterminate = someSelected;
                   }}
                   onChange={handleSelectAll}
-                  className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-600 dark:bg-slate-800"
+                  className="h-4 w-4 rounded border-slate-300 text-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-800"
                 />
               </th>
               {COLUMNS.map((col) => (

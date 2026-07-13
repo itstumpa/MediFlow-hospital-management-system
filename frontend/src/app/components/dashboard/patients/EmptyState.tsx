@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Plus, Users } from "lucide-react";
@@ -51,7 +51,7 @@ export function EmptyState({ onAddPatient }: EmptyStateProps) {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={onAddPatient}
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-dash-primary px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-dash-primary-dark hover:shadow-md"
         >
           <Plus className="h-4 w-4" />
           Add Patient

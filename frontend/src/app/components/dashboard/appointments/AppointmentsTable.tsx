@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -93,8 +93,8 @@ const COLUMNS: {
 
 const statusConfig: Record<string, { class: string; dot: string }> = {
   Confirmed: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    dot: "bg-blue-500",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
+    dot: "bg-dash-primary",
   },
   Pending: {
     class:
@@ -140,7 +140,7 @@ const paymentConfig: Record<string, { class: string }> = {
       "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
   },
   Refunded: {
-    class: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+    class: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent",
   },
   Waived: {
     class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
@@ -152,7 +152,7 @@ const paymentConfig: Record<string, { class: string }> = {
 };
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -224,7 +224,7 @@ function AppointmentRow({
       transition={{ duration: 0.3, delay: index * 0.03, ease: "easeOut" }}
       className={`group transition-colors ${
         selected
-          ? "bg-blue-50/50 dark:bg-blue-900/20"
+          ? "bg-dash-primary-light/50 dark:bg-teal-900/20"
           : "hover:bg-slate-50 dark:hover:bg-slate-800/50"
       }`}
     >
@@ -235,7 +235,7 @@ function AppointmentRow({
             type="checkbox"
             checked={selected}
             onChange={() => onSelect(appointment.id)}
-            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+            className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
             aria-label={`Select ${appointment.patientName}`}
           />
         </div>
@@ -336,7 +336,7 @@ function AppointmentRow({
           <div className="flex items-center gap-0.5 opacity-0 transition-opacity group-hover:opacity-100">
             <button
               onClick={() => onView(appointment)}
-              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+              className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
               title="View"
             >
               <Eye className="h-4 w-4" />
@@ -524,9 +524,9 @@ export function AppointmentsTable({
       return <ChevronsUpDown className="h-3.5 w-3.5 text-slate-400" />;
     }
     return filters.sortAsc ? (
-      <ChevronUp className="h-3.5 w-3.5 text-blue-600" />
+      <ChevronUp className="h-3.5 w-3.5 text-dash-primary" />
     ) : (
-      <ChevronDown className="h-3.5 w-3.5 text-blue-600" />
+      <ChevronDown className="h-3.5 w-3.5 text-dash-primary" />
     );
   };
 
@@ -572,7 +572,7 @@ export function AppointmentsTable({
                         type="checkbox"
                         checked={allSelected}
                         onChange={onSelectAll}
-                        className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+                        className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
                         aria-label="Select all appointments"
                       />
                     </div>

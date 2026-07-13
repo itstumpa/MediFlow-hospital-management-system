@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import { useFieldArray, useFormContext } from "react-hook-form";
 import type { DoctorFormValues } from "./form-schema";
 
 const inputGlow =
-  "transition-all duration-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]";
+  "transition-all duration-200 focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary focus:shadow-[0_0_0_4px_rgba(14,124,123,0.1)]";
 
 export function CertificationsForm() {
   const {
@@ -139,7 +139,7 @@ export function CertificationsForm() {
                 <input
                   {...register(`certifications.${index}.expiryYear`)}
                   placeholder="e.g. 2031"
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary focus:shadow-[0_0_0_4px_rgba(14,124,123,0.1)] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
                 />
               </div>
             </div>
@@ -158,7 +158,7 @@ export function CertificationsForm() {
             expiryYear: "",
           })
         }
-        className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed border-slate-300 px-4 py-3 text-sm font-medium text-slate-500 transition-all hover:border-blue-400 hover:text-blue-600 dark:border-slate-600 dark:text-slate-400 dark:hover:border-blue-500 dark:hover:text-blue-400"
+        className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed border-slate-300 px-4 py-3 text-sm font-medium text-slate-500 transition-all hover:border-dash-primary hover:text-dash-primary dark:border-slate-600 dark:text-slate-400 dark:hover:border-dash-primary dark:hover:text-dash-primary"
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.99 }}
       >

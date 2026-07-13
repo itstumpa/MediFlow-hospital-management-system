@@ -1,20 +1,16 @@
-"use client";
+﻿"use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, Shield, Copy, Loader2, AlertTriangle } from "lucide-react";
-import { cn } from "@/lib/utils";
 import {
+  clonePermissions,
+  createDefaultPermissions,
+  Permission,
   Role,
   RoleType,
-  Permission,
-  PERMISSION_MODULES,
-  PERMISSION_ACTIONS,
-  createDefaultPermissions,
-  clonePermissions,
-  mergePermissions,
-  getModulePermissions,
 } from "@/lib/data/rbac";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { AlertTriangle, Copy, Loader2, Shield, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { PermissionMatrix } from "./PermissionMatrix";
 
 interface RoleFormProps {
@@ -140,15 +136,15 @@ export function RoleForm({
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-4xl max-h-[90vh] bg-background rounded-2xl border shadow-xl overflow-hidden flex flex-col"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden flex flex-col"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b bg-muted/30">
+        <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
           <div>
             <h2 id="role-form-title" className="text-xl font-semibold">
               {isEditing ? `Edit Role: ${role?.name}` : "Create New Role"}
             </h2>
-            <p className="text-sm text-muted-foreground mt-0.5">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
               {isEditing
                 ? "Modify role details and permissions"
                 : "Define a new role with custom permissions"}
@@ -157,7 +153,7 @@ export function RoleForm({
           <button
             onClick={onCancel}
             disabled={isLoading}
-            className="p-2 rounded-lg hover:bg-accent text-muted-foreground transition-colors"
+            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors"
             aria-label="Close dialog"
           >
             <X className="size-5" />
@@ -171,7 +167,7 @@ export function RoleForm({
         >
           {/* Basic Info Section */}
           <section className="space-y-4">
-            <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Basic Information
             </h3>
 
@@ -190,7 +186,7 @@ export function RoleForm({
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g., Clinical Coordinator"
                   className={cn(
-                    "w-full px-3 py-2.5 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-ring",
+                    "w-full px-3 py-2.5 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500",
                     errors.name &&
                       "border-rose-500 focus-visible:ring-rose-500",
                   )}
@@ -223,7 +219,7 @@ export function RoleForm({
                   placeholder="Describe the purpose and scope of this role..."
                   rows={3}
                   className={cn(
-                    "w-full px-3 py-2.5 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-ring resize-none",
+                    "w-full px-3 py-2.5 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50 resize-none text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500",
                     errors.description &&
                       "border-rose-500 focus-visible:ring-rose-500",
                   )}
@@ -260,8 +256,8 @@ export function RoleForm({
                     className={cn(
                       "relative p-4 rounded-xl border-2 text-left transition-all",
                       type === option.value
-                        ? "border-primary bg-primary/5"
-                        : "border-input hover:border-primary/50",
+                        ? "border-dash-primary bg-dash-primary/5"
+                        : "border-slate-200 dark:border-slate-700 hover:border-dash-primary/50",
                     )}
                     aria-pressed={type === option.value}
                   >
@@ -270,8 +266,8 @@ export function RoleForm({
                         className={cn(
                           "size-10 rounded-lg flex items-center justify-center",
                           type === option.value
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted",
+                            ? "bg-dash-primary text-white"
+                            : "bg-slate-100 dark:bg-slate-700",
                         )}
                       >
                         {option.value === "system" ? (
@@ -282,13 +278,13 @@ export function RoleForm({
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="font-medium truncate">{option.label}</p>
-                        <p className="text-xs text-muted-foreground truncate">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
                           {option.description}
                         </p>
                       </div>
                     </div>
                     {type === option.value && (
-                      <div className="absolute top-2 right-2 size-5 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
+                      <div className="absolute top-2 right-2 size-5 rounded-full bg-dash-primary text-white flex items-center justify-center">
                         <Shield className="size-3" />
                       </div>
                     )}
@@ -305,13 +301,13 @@ export function RoleForm({
           </section>
 
           {/* Permissions Section */}
-          <section className="space-y-4 border-t pt-6">
+          <section className="space-y-4 border-t border-slate-200 dark:border-slate-700 pt-6">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+              <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 Permissions
               </h3>
               <div className="flex items-center gap-3">
-                <span className="text-sm font-mono text-muted-foreground">
+                <span className="text-sm font-mono text-slate-500 dark:text-slate-400">
                   {getEnabledCount()} / {permissions.length} enabled
                 </span>
                 <div className="flex gap-2">
@@ -325,7 +321,7 @@ export function RoleForm({
                     disabled={
                       isLoading || getEnabledCount() === permissions.length
                     }
-                    className="px-3 py-1.5 text-xs font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
                   >
                     Enable All
                   </button>
@@ -337,7 +333,7 @@ export function RoleForm({
                       )
                     }
                     disabled={isLoading || getEnabledCount() === 0}
-                    className="px-3 py-1.5 text-xs font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
                   >
                     Disable All
                   </button>
@@ -354,11 +350,11 @@ export function RoleForm({
           </section>
 
           {/* Clone from Existing Role */}
-          <section className="space-y-4 border-t pt-6">
-            <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+          <section className="space-y-4 border-t border-slate-200 dark:border-slate-700 pt-6">
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Clone from Existing Role
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-slate-500 dark:text-slate-400">
               Start with permissions from another role and customize from there.
             </p>
             <div className="relative">
@@ -366,7 +362,7 @@ export function RoleForm({
                 value={cloneFromId}
                 onChange={(e) => setCloneFromId(e.target.value)}
                 disabled={isLoading}
-                className="w-full sm:w-64 px-3 py-2.5 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-ring appearance-none"
+                className="w-full sm:w-64 px-3 py-2.5 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50 appearance-none text-slate-900 dark:text-white"
               >
                 <option value="">Select a role to clone...</option>
                 {/* In a real app, this would be populated from available roles */}
@@ -375,18 +371,18 @@ export function RoleForm({
                 <option value="role-nurse">Nurse</option>
                 <option value="role-content-manager">Content Manager</option>
               </select>
-              <Copy className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground size-4 pointer-events-none" />
+              <Copy className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 size-4 pointer-events-none" />
             </div>
           </section>
         </form>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-3 p-4 border-t bg-muted/30">
+        <div className="flex items-center justify-end gap-3 p-4 border-t border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
           <button
             type="button"
             onClick={onCancel}
             disabled={isLoading}
-            className="px-4 py-2.5 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+            className="px-4 py-2.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
           >
             Cancel
           </button>
@@ -397,8 +393,8 @@ export function RoleForm({
             className={cn(
               "px-4 py-2.5 text-sm font-medium rounded-lg transition-colors",
               isLoading
-                ? "bg-primary/50 text-primary-foreground cursor-wait"
-                : "bg-primary text-primary-foreground hover:bg-primary/90",
+                ? "bg-dash-primary/50 text-white cursor-wait"
+                : "bg-dash-primary text-white hover:bg-dash-primary/90",
             )}
           >
             {isLoading ? (
@@ -428,17 +424,17 @@ export function RoleForm({
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-background rounded-2xl border shadow-xl p-6 max-w-md w-full"
+              className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl p-6 max-w-md w-full"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="size-10 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                <div className="size-10 rounded-full bg-dash-primary-light dark:bg-teal-900/30 text-dash-primary dark:text-accent flex items-center justify-center">
                   <Copy className="size-5" />
                 </div>
                 <h3 className="text-lg font-semibold">
                   Clone Role Permissions
                 </h3>
               </div>
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
                 This will replace the current permission configuration with the
                 selected role's permissions. You can still modify them before
                 saving.
@@ -446,13 +442,13 @@ export function RoleForm({
               <div className="flex justify-end gap-3">
                 <button
                   onClick={() => setShowCloneConfirm(false)}
-                  className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-accent transition-colors"
+                  className="px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleCloneConfirm}
-                  className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="px-4 py-2 text-sm font-medium rounded-lg bg-dash-primary text-white hover:bg-dash-primary/90 transition-colors"
                 >
                   Clone Permissions
                 </button>

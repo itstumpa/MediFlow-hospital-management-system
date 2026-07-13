@@ -1,19 +1,5 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Plus,
-  Search,
-  Filter,
-  Download,
-  Upload,
-  ChevronDown,
-  ChevronUp,
-  Loader2,
-  Trash2,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
 import {
   Role,
   RoleFilters,
@@ -22,22 +8,17 @@ import {
   calculateStats,
   filterRoles,
   getAvailableUsers,
-  formatDate,
-  formatDateTime,
-  getPermissionCount,
-  clonePermissions,
-  mergePermissions,
-  createDefaultPermissions,
-  RoleType,
 } from "@/lib/data/rbac";
+import { AnimatePresence, motion } from "framer-motion";
+import { Download, Plus, Trash2, Upload } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 import {
+  AssignUsersDialog,
+  DeleteDialog,
+  RoleForm,
   RoleStats as RoleStatsComponent,
   RolesTable,
   SearchFilters,
-  RoleForm,
-  AssignUsersDialog,
-  DeleteDialog,
-  PermissionMatrix,
 } from "./index";
 
 interface RolesPageProps {
@@ -80,8 +61,8 @@ export function RolesPage({
   );
   const sortedRoles = useMemo(() => {
     return [...filteredRoles].sort((a, b) => {
-      const aVal = a[filters.sortBy as keyof Role];
-      const bVal = b[filters.sortBy as keyof Role];
+      const aVal = a[filters.sortBy as keyof Role] as string | number;
+      const bVal = b[filters.sortBy as keyof Role] as string | number;
       if (aVal < bVal) return filters.sortAsc ? -1 : 1;
       if (aVal > bVal) return filters.sortAsc ? 1 : -1;
       return 0;
@@ -89,8 +70,8 @@ export function RolesPage({
   }, [filteredRoles, filters.sortBy, filters.sortAsc]);
 
   const availableUsers = useMemo(
-    () => getAvailableUsers(users, roles),
-    [users, roles],
+    () => getAvailableUsers(users.map((u) => u.id)),
+    [users],
   );
 
   // Update stats when roles change
@@ -99,24 +80,16 @@ export function RolesPage({
   }, [roles]);
 
   // Handlers
-  const handleFilterChange = useCallback((newFilters: Partial<RoleFilters>) => {
-    setFilters((prev) => ({ ...prev, ...newFilters }));
+  const handleFilterChange = useCallback((newFilters: RoleFilters) => {
+    setFilters(newFilters);
     setSelectedRoles(new Set());
   }, []);
 
-  const handleSearch = useCallback(
-    (search: string) => {
-      handleFilterChange({ search });
-    },
-    [handleFilterChange],
-  );
-
-  const handleSort = useCallback((sortBy: RoleFilters["sortBy"]) => {
+  const handleSort = useCallback((sortBy: string) => {
     setFilters((prev) => ({
       ...prev,
-      sortBy,
-      sortAsc:
-        prev.sortBy === sortBy ? !prev.sortAsc : true,
+      sortBy: sortBy as RoleFilters["sortBy"],
+      sortAsc: prev.sortBy === sortBy ? !prev.sortAsc : true,
     }));
   }, []);
 
@@ -323,7 +296,7 @@ export function RolesPage({
           <h1 className="text-3xl font-bold tracking-tight">
             Roles & Permissions
           </h1>
-          <p className="text-muted-foreground mt-1">
+          <p className="text-slate-500 dark:text-slate-400 mt-1">
             Manage role-based access control for your organization
           </p>
         </div>
@@ -331,7 +304,7 @@ export function RolesPage({
           <button
             onClick={handleExport}
             disabled={isLoading}
-            className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50 flex items-center gap-2"
+            className="px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-2 text-slate-700 dark:text-slate-300"
           >
             <Download className="size-4" />
             Export
@@ -339,7 +312,7 @@ export function RolesPage({
           <button
             onClick={handleImport}
             disabled={isLoading}
-            className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50 flex items-center gap-2"
+            className="px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-2 text-slate-700 dark:text-slate-300"
           >
             <Upload className="size-4" />
             Import
@@ -347,7 +320,7 @@ export function RolesPage({
           <button
             onClick={handleCreateRole}
             disabled={isLoading}
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center gap-2"
+            className="px-4 py-2 text-sm font-medium rounded-lg bg-dash-primary text-white hover:bg-dash-primary/90 transition-colors disabled:opacity-50 flex items-center gap-2"
           >
             <Plus className="size-4" />
             Create Role
@@ -362,9 +335,38 @@ export function RolesPage({
       <SearchFilters
         filters={filters}
         onChange={handleFilterChange}
-        onSearch={handleSearch}
-        onSort={handleSort}
-        roles={roles}
+        onClear={() =>
+          setFilters({
+            ...filters,
+            search: "",
+            type: "all",
+            permission: "all",
+            userCountRange: [0, 100],
+            sortBy: "name",
+            sortAsc: true,
+          })
+        }
+        hasActiveFilters={
+          filters.search !== "" ||
+          filters.type !== "all" ||
+          filters.permission !== "all"
+        }
+        roleTypes={[
+          { value: "all", label: "All Types" },
+          { value: "system", label: "System" },
+          { value: "custom", label: "Custom" },
+        ]}
+        permissions={[
+          { value: "all", label: "All Permissions" },
+          { value: "view", label: "View" },
+          { value: "create", label: "Create" },
+          { value: "update", label: "Update" },
+          { value: "delete", label: "Delete" },
+          { value: "export", label: "Export" },
+          { value: "approve", label: "Approve" },
+          { value: "assign", label: "Assign" },
+          { value: "manage", label: "Manage" },
+        ]}
         className="animate-stagger"
       />
 
@@ -395,7 +397,7 @@ export function RolesPage({
             transition={{ duration: 0.2 }}
             className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-4 sm:px-0"
           >
-            <div className="bg-background border shadow-xl rounded-xl p-4 flex items-center justify-between gap-4 min-w-[400px] max-w-md">
+            <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl rounded-xl p-4 flex items-center justify-between gap-4 min-w-[400px] max-w-md">
               <div className="flex items-center gap-3">
                 <span className="font-medium">
                   {selectedRoles.size} role{selectedRoles.size !== 1 ? "s" : ""}{" "}
@@ -413,7 +415,7 @@ export function RolesPage({
                 </button>
                 <button
                   onClick={() => setSelectedRoles(new Set())}
-                  className="px-3 py-1.5 text-sm font-medium rounded-lg border hover:bg-accent transition-colors"
+                  className="px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300"
                 >
                   Clear
                 </button>

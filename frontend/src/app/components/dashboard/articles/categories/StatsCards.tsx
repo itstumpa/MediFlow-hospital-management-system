@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { FolderOpen, FileText, FileX2, Star } from "lucide-react";
@@ -53,9 +53,9 @@ const statsConfig = [
 
 const colorMap: Record<string, { bg: string; text: string; ring: string }> = {
   blue: {
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    text: "text-blue-600 dark:text-blue-400",
-    ring: "ring-blue-500/20",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    text: "text-dash-primary dark:text-accent",
+    ring: "ring-dash-primary/20",
   },
   emerald: {
     bg: "bg-emerald-50 dark:bg-emerald-950/30",

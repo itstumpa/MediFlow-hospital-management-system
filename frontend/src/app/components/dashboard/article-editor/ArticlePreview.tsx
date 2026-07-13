@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -75,7 +75,7 @@ export function ArticlePreview({ values }: ArticlePreviewProps) {
 
           <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             {category && (
-              <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+              <span className="rounded-full bg-dash-primary-light px-2 py-0.5 text-xs font-medium text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                 {category.name}
               </span>
             )}

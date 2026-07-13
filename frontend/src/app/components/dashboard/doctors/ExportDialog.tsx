@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -39,7 +39,7 @@ const formatOptions: {
     icon: FileSpreadsheet,
     label: "Excel",
     desc: "Microsoft Excel (.xlsx)",
-    color: "text-blue-600 bg-blue-100 dark:bg-blue-900/40 dark:text-blue-400",
+    color: "text-dash-primary bg-dash-primary-light dark:bg-teal-900/40 dark:text-accent",
   },
   {
     format: "pdf",
@@ -92,8 +92,8 @@ export function ExportDialog({
               <X className="h-4 w-4" />
             </button>
 
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900/40">
-              <Download className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-dash-primary-light dark:bg-teal-900/40">
+              <Download className="h-6 w-6 text-dash-primary dark:text-accent" />
             </div>
 
             <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">
@@ -111,7 +111,7 @@ export function ExportDialog({
                   onClick={() => setSelectedFormat(opt.format)}
                   className={`flex items-center gap-4 rounded-xl border p-4 text-left transition-all ${
                     selectedFormat === opt.format
-                      ? "border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/30"
+                      ? "border-dash-primary-light bg-dash-primary-light dark:border-teal-800 dark:bg-teal-900/30"
                       : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600"
                   }`}
                 >
@@ -129,7 +129,7 @@ export function ExportDialog({
                     </p>
                   </div>
                   {selectedFormat === opt.format && (
-                    <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                    <CheckCircle2 className="h-5 w-5 text-dash-primary" />
                   )}
                 </button>
               ))}
@@ -145,7 +145,7 @@ export function ExportDialog({
               <button
                 onClick={handleExport}
                 disabled={!selectedFormat}
-                className="flex-1 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex-1 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Export
               </button>

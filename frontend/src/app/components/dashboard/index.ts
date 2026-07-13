@@ -1,4 +1,8 @@
+export { AnimatedBadge, Badge } from "./Badge";
+export type { BadgeProps, BadgeVariant } from "./Badge";
 export { Breadcrumb } from "./Breadcrumb";
+export { Button } from "./Button";
+export type { ButtonProps, ButtonSize, ButtonVariant } from "./Button";
 export { DashboardContainer } from "./DashboardContainer";
 export { DashboardContent } from "./DashboardContent";
 export {
@@ -12,15 +16,31 @@ export {
 export { Header } from "./Header";
 export { MobileSidebar } from "./MobileSidebar";
 export {
+  badgePulse,
   buttonPress,
+  counterEntrance,
   fadeDown,
   fadeIn,
+  fadeInBackdrop,
   fadeUp,
+  fastEase,
+  hoverGlow,
   hoverLift,
+  iconHover,
+  pageTransition,
   scaleFade,
+  scaleUp,
+  shimmerAnimation,
   slideLeft,
+  slideRight,
+  slideUp,
+  smoothEase,
+  springBounce,
+  springGentle,
   staggerContainer,
   staggerItem,
+  staggerTable,
+  tableRowFade,
 } from "./MotionVariants";
 export { allNavItems, breadcrumbLabels, navigationGroups } from "./navigation";
 export { NotificationDropdown } from "./NotificationDropdown";
@@ -90,14 +110,14 @@ export {
    Roles & Permissions (RBAC) components
    ============================================ */
 export {
-  PermissionMatrix,
-  SearchFilters,
-  RoleForm,
-  RolesTable,
-  RoleStats,
   AssignUsersDialog,
   DeleteDialog,
+  PermissionMatrix,
+  RoleForm,
   RolesPage,
+  RolesTable,
+  RoleStats,
+  SearchFilters,
 } from "./roles";
 
 /* ============================================
@@ -141,3 +161,16 @@ export type {
   CategoryStatus,
   ViewMode as CategoryViewMode,
 } from "./articles/categories/types";
+
+/* ============================================
+   Command Palette (Global Search)
+   ============================================ */
+export {
+  CommandPalette,
+  CommandPaletteProvider,
+  useCommandPalette,
+} from "./command-palette";
+export type {
+  CommandPaletteContextValue,
+  CommandPaletteItem,
+} from "./command-palette";

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { AppointmentStats as AppointmentStatsType } from "@/lib/data/appointment-detail";
@@ -51,9 +51,9 @@ const statCards = [
 
 const colorMap = {
   blue: {
-    bg: "bg-blue-50 dark:bg-blue-500/10",
-    icon: "text-blue-600 dark:text-blue-400",
-    text: "text-blue-700 dark:text-blue-300",
+    bg: "bg-dash-primary-light dark:bg-teal-500/10",
+    icon: "text-dash-primary dark:text-accent",
+    text: "text-dash-primary dark:text-accent",
   },
   amber: {
     bg: "bg-amber-50 dark:bg-amber-500/10",

@@ -17,17 +17,17 @@
   --color-info: #3b82f6;
 
   /* Dashboard-specific tokens */
-  --color-dash-primary: #2563eb;
-  --color-dash-primary-dark: #1d4ed8;
-  --color-dash-primary-light: #dbeafe;
-  --color-dash-bg: #f1f5f9;
+  --color-dash-primary: #0e7c7b;
+  --color-dash-primary-dark: #0a5f5e;
+  --color-dash-primary-light: #e0f2f1;
+  --color-dash-bg: #f8fafa;
   --color-dash-surface: #ffffff;
   --color-dash-border: #e2e8f0;
-  --color-dash-text: #0f172a;
-  --color-dash-text-secondary: #64748b;
+  --color-dash-text: #1a2e2e;
+  --color-dash-text-secondary: #5c7373;
   --color-dash-sidebar: #ffffff;
   --color-dash-sidebar-hover: #f1f5f9;
-  --color-dash-sidebar-active: #eff6ff;
+  --color-dash-sidebar-active: #e0f2f1;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --container-page: 1440px;
@@ -42,8 +42,8 @@
   --color-dash-text-secondary: #94a3b8;
   --color-dash-sidebar: #1e293b;
   --color-dash-sidebar-hover: #334155;
-  --color-dash-sidebar-active: #1e3a5f;
-  --color-dash-primary-light: #1e3a5f;
+  --color-dash-sidebar-active: #134e4a;
+  --color-dash-primary-light: #134e4a;
 }
 
 body {
@@ -186,6 +186,20 @@ html {
 }
 
 /* ============================================
+   Ripple animation (for Button component)
+   ============================================ */
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
    Skeleton shimmer utility
    ============================================ */
 @utility skeleton-shimmer {
@@ -197,6 +211,64 @@ html {
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   Focus ring utility
+   ============================================ */
+@utility focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-dash-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Glass morphism utility
+   ============================================ */
+@utility glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark .glass {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   Subtle gradient utility
+   ============================================ */
+@utility gradient-subtle {
+  background: linear-gradient(
+    135deg,
+    var(--color-dash-surface) 0%,
+    var(--color-dash-bg) 100%
+  );
+}
+
+/* ============================================
+   Text truncation utilities
+   ============================================ */
+@utility truncate-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@utility truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@utility truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ============================================

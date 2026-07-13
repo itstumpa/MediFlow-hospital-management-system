@@ -1,15 +1,15 @@
 "use client";
 
-import { useMemo } from "react";
+import {
+  formatMonthYear,
+  getMonthDays,
+  isSameDay,
+  isToday,
+} from "@/lib/data/appointment-calendar";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import {
-  getMonthDays,
-  isToday,
-  isSameDay,
-  formatMonthYear,
-} from "@/lib/data/appointment-calendar";
+import { useMemo } from "react";
 
 interface MiniCalendarProps {
   currentDate: Date;

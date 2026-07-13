@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -165,7 +165,7 @@ function HeadingBlock({
       <select
         value={block.level}
         onChange={(e) => onChange({ ...block, level: Number(e.target.value) })}
-        className="mt-1 rounded-lg border border-slate-200 bg-white px-1.5 py-0.5 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
+        className="mt-1 rounded-lg border border-slate-200 bg-white px-1.5 py-0.5 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
       >
         {[1, 2, 3, 4, 5, 6].map((l) => (
           <option key={l} value={l}>
@@ -245,7 +245,7 @@ function ListBlock({
         {block.items.map((item, i) => (
           <div key={i} className="flex items-center gap-2">
             <span className="mt-0.5 shrink-0 text-xs font-medium text-slate-400">
-              {block.listType === "ordered" ? `${i + 1}.` : "•"}
+              {block.listType === "ordered" ? `${i + 1}.` : "â€¢"}
             </span>
             <input
               value={item}
@@ -268,7 +268,7 @@ function ListBlock({
       <button
         type="button"
         onClick={addItem}
-        className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        className="inline-flex items-center gap-1 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary dark:text-accent dark:hover:text-accent"
       >
         <Plus className="h-3 w-3" /> Add item
       </button>
@@ -284,8 +284,8 @@ function QuoteBlock({
   onChange: (b: ContentBlock) => void;
 }) {
   return (
-    <div className="relative border-l-4 border-blue-400 bg-blue-50/50 pl-4 dark:border-blue-600 dark:bg-blue-950/20">
-      <Quote className="mb-1 h-5 w-5 text-blue-300 dark:text-blue-600" />
+    <div className="relative border-l-4 border-dash-primary bg-dash-primary-light/50 pl-4 dark:border-teal-600 dark:bg-teal-950/20">
+      <Quote className="mb-1 h-5 w-5 text-dash-primary dark:text-dash-primary" />
       <textarea
         value={block.content}
         onChange={(e) => onChange({ ...block, content: e.target.value })}
@@ -296,7 +296,7 @@ function QuoteBlock({
       <input
         value={block.caption || ""}
         onChange={(e) => onChange({ ...block, caption: e.target.value })}
-        placeholder="— Attribution (optional)"
+        placeholder="â€” Attribution (optional)"
         className="mt-1 w-full border-none bg-transparent text-xs font-medium text-slate-500 placeholder-slate-400 focus:outline-none focus:ring-0 dark:text-slate-400"
       />
     </div>
@@ -311,7 +311,7 @@ function CalloutBlock({
   onChange: (b: ContentBlock) => void;
 }) {
   const variantStyles: Record<string, string> = {
-    info: "border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30",
+    info: "border-dash-primary-light bg-dash-primary-light dark:border-teal-800 dark:bg-teal-950/30",
     success:
       "border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/30",
     warning:
@@ -351,7 +351,7 @@ function CalloutBlock({
                 | "danger",
             })
           }
-          className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
+          className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
         >
           <option value="info">Info</option>
           <option value="success">Success</option>
@@ -377,7 +377,7 @@ function CodeBlock({
         <input
           value={block.language}
           onChange={(e) => onChange({ ...block, language: e.target.value })}
-          className="rounded border border-slate-700 bg-slate-800 px-2 py-0.5 text-xs text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+          className="rounded border border-slate-700 bg-slate-800 px-2 py-0.5 text-xs text-slate-300 focus:outline-none focus:ring-2 focus:ring-dash-primary/30"
           placeholder="language"
         />
       </div>
@@ -411,13 +411,13 @@ function ImageBlock({
             value={block.src}
             onChange={(e) => onChange({ ...block, src: e.target.value })}
             placeholder="Paste image URL or upload..."
-            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
           />
           <input
             value={block.alt}
             onChange={(e) => onChange({ ...block, alt: e.target.value })}
             placeholder="Alt text"
-            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-500 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:placeholder-slate-500"
+            className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-500 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:placeholder-slate-500"
           />
         </div>
       </div>
@@ -457,7 +457,7 @@ function VideoBlock({
           value={block.src}
           onChange={(e) => onChange({ ...block, src: e.target.value })}
           placeholder="Paste video URL (YouTube, Vimeo)..."
-          className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+          className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
         />
       </div>
       <input
@@ -553,7 +553,7 @@ function TableBlock({
       <button
         type="button"
         onClick={addRow}
-        className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        className="inline-flex items-center gap-1 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary dark:text-accent dark:hover:text-accent"
       >
         <Plus className="h-3 w-3" /> Add row
       </button>
@@ -569,7 +569,7 @@ function MedicalWarningBlock({
   onChange: (b: ContentBlock) => void;
 }) {
   const severityStyles: Record<string, string> = {
-    info: "border-blue-300 bg-blue-50 dark:border-blue-700 dark:bg-blue-950/30",
+    info: "border-dash-primary bg-dash-primary-light dark:border-teal-700 dark:bg-teal-950/30",
     warning:
       "border-amber-300 bg-amber-50 dark:border-amber-700 dark:bg-amber-950/30",
     critical: "border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-950/30",
@@ -606,7 +606,7 @@ function MedicalWarningBlock({
                 severity: e.target.value as "info" | "warning" | "critical",
               })
             }
-            className="rounded-lg border border-slate-200 bg-white px-2 py-0.5 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
+            className="rounded-lg border border-slate-200 bg-white px-2 py-0.5 text-xs text-slate-500 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
           >
             <option value="info">Info</option>
             <option value="warning">Warning</option>
@@ -664,7 +664,7 @@ function FAQBlock({
           value={block.title || ""}
           onChange={(e) => onChange({ ...block, title: e.target.value })}
           placeholder="FAQ title (optional)"
-          className="ml-2 rounded-lg border border-slate-200 bg-white px-2 py-0.5 text-xs text-slate-600 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+          className="ml-2 rounded-lg border border-slate-200 bg-white px-2 py-0.5 text-xs text-slate-600 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-dash-primary/30 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
         />
       </div>
       <div className="space-y-2">
@@ -732,7 +732,7 @@ function FAQBlock({
       <button
         type="button"
         onClick={addItem}
-        className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        className="inline-flex items-center gap-1 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary dark:text-accent dark:hover:text-accent"
       >
         <Plus className="h-3 w-3" /> Add FAQ item
       </button>

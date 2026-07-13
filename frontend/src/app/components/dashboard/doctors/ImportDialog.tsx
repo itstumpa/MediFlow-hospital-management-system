@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertCircle, File, Upload, X } from "lucide-react";
@@ -129,20 +129,20 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
                 onClick={() => inputRef.current?.click()}
                 className={`mt-5 cursor-pointer rounded-2xl border-2 border-dashed p-10 text-center transition-all ${
                   dragOver
-                    ? "border-blue-400 bg-blue-50 dark:border-blue-600 dark:bg-blue-900/20"
+                    ? "border-dash-primary bg-dash-primary-light dark:border-teal-600 dark:bg-teal-900/20"
                     : "border-slate-300 hover:border-slate-400 dark:border-slate-600 dark:hover:border-slate-500"
                 }`}
               >
                 <Upload
-                  className={`mx-auto h-10 w-10 ${dragOver ? "text-blue-500" : "text-slate-400"}`}
+                  className={`mx-auto h-10 w-10 ${dragOver ? "text-dash-primary" : "text-slate-400"}`}
                 />
                 <p
-                  className={`mt-3 text-sm font-medium ${dragOver ? "text-blue-600" : "text-slate-600 dark:text-slate-400"}`}
+                  className={`mt-3 text-sm font-medium ${dragOver ? "text-dash-primary" : "text-slate-600 dark:text-slate-400"}`}
                 >
                   {dragOver ? "Drop file here" : "Drag & drop file here"}
                 </p>
                 <p className="mt-1 text-xs text-slate-400">
-                  or click to browse — CSV, Excel, or JSON (max 10MB)
+                  or click to browse â€” CSV, Excel, or JSON (max 10MB)
                 </p>
                 <input
                   ref={inputRef}
@@ -158,7 +158,7 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
             {file && !importing && (
               <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-700/50">
                 <div className="flex items-center gap-3">
-                  <File className="h-8 w-8 text-blue-500" />
+                  <File className="h-8 w-8 text-dash-primary" />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-slate-900 dark:text-white truncate">
                       {file.name}
@@ -192,7 +192,7 @@ export function ImportDialog({ open, onClose, onImport }: ImportDialogProps) {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
-                    className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-500"
+                    className="h-full rounded-full bg-gradient-to-r from-dash-primary to-violet-500"
                   />
                 </div>
                 <p className="text-xs text-slate-400 text-center">

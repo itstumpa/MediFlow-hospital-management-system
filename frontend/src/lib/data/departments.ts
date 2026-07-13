@@ -354,7 +354,7 @@ export const departments: Department[] = [
     recoverySupport:
       "Post-surgical vision therapy and rehabilitation with regular follow-up care.",
     successRate: 99,
-    color: "#2563eb",
+    color: "#0e7c7b",
   },
   {
     id: "pulmonology",
@@ -577,7 +577,7 @@ export const departments: Department[] = [
     recoverySupport:
       "Detailed imaging reports with rapid turnaround for timely treatment decisions.",
     successRate: 99,
-    color: "#2563eb",
+    color: "#0e7c7b",
   },
   {
     id: "emergency-medicine",

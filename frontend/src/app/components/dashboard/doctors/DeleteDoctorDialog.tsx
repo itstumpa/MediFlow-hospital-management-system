@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, X } from "lucide-react";
@@ -66,7 +66,7 @@ export function DeleteDoctorDialog({
 
             <div className="mt-2 rounded-xl bg-slate-50 p-3 dark:bg-slate-700/50">
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-dash-primary text-xs font-bold text-white">
                   {doctor.initials}
                 </div>
                 <div>
@@ -74,7 +74,7 @@ export function DeleteDoctorDialog({
                     {doctor.name}
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {doctor.department} — {doctor.specialization}
+                    {doctor.department} â€” {doctor.specialization}
                   </p>
                 </div>
               </div>

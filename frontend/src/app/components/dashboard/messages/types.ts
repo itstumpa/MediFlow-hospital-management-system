@@ -1,4 +1,4 @@
-export type MessageStatus =
+﻿export type MessageStatus =
   | "new"
   | "in-progress"
   | "resolved"
@@ -68,9 +68,9 @@ export const STATUS_COLORS: Record<
   { bg: string; text: string; dot: string }
 > = {
   new: {
-    bg: "bg-blue-100 dark:bg-blue-900/30",
-    text: "text-blue-700 dark:text-blue-300",
-    dot: "bg-blue-500",
+    bg: "bg-dash-primary-light dark:bg-teal-900/30",
+    text: "text-dash-primary dark:text-accent",
+    dot: "bg-dash-primary",
   },
   "in-progress": {
     bg: "bg-amber-100 dark:bg-amber-900/30",
@@ -104,9 +104,9 @@ export const PRIORITY_COLORS: Record<
     ring: "ring-slate-300 dark:ring-slate-600",
   },
   medium: {
-    bg: "bg-blue-100 dark:bg-blue-900/30",
-    text: "text-blue-700 dark:text-blue-300",
-    ring: "ring-blue-300 dark:ring-blue-600",
+    bg: "bg-dash-primary-light dark:bg-teal-900/30",
+    text: "text-dash-primary dark:text-accent",
+    ring: "ring-dash-primary dark:ring-dash-primary",
   },
   high: {
     bg: "bg-orange-100 dark:bg-orange-900/30",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -137,7 +137,7 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                 onClick={() => fileInputRef.current?.click()}
                 className={`mt-5 cursor-pointer rounded-xl border-2 border-dashed p-10 text-center transition-all ${
                   dragOver
-                    ? "border-blue-400 bg-blue-50 dark:border-blue-600 dark:bg-blue-900/20"
+                    ? "border-dash-primary bg-dash-primary-light dark:border-teal-600 dark:bg-teal-900/20"
                     : "border-slate-300 hover:border-slate-400 dark:border-slate-600 dark:hover:border-slate-500"
                 }`}
               >
@@ -175,7 +175,7 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
               <div className="mt-5 space-y-4">
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-900/50">
                   <div className="flex items-center gap-3">
-                    <FileText className="h-8 w-8 text-blue-500" />
+                    <FileText className="h-8 w-8 text-dash-primary" />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-slate-900 truncate dark:text-white">
                         {fileName}
@@ -188,7 +188,7 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                     </div>
                     {step === "validating" && (
                       <svg
-                        className="h-5 w-5 animate-spin text-blue-500"
+                        className="h-5 w-5 animate-spin text-dash-primary"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
@@ -224,7 +224,7 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                       animate={{ width: `${progress}%` }}
                       transition={{ duration: 0.3 }}
                       className={`h-full rounded-full ${
-                        step === "uploading" ? "bg-blue-500" : "bg-amber-500"
+                        step === "uploading" ? "bg-dash-primary" : "bg-amber-500"
                       }`}
                     />
                   </div>
@@ -302,7 +302,7 @@ export function ImportDialog({ open, onClose }: ImportDialogProps) {
                   </button>
                   <button
                     onClick={handleClose}
-                    className="flex-1 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700"
+                    className="flex-1 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark"
                   >
                     Done
                   </button>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import {
@@ -23,7 +23,7 @@ const statsConfig = [
     label: "Total Patients",
     icon: Users,
     colorClass: "blue",
-    sparklineColor: "#2563eb",
+    sparklineColor: "#0e7c7b",
     getValue: (p: Patient[]) => p.length,
     getTrend: () => 12.5,
     getSparkline: () => [820, 835, 842, 856, 868, 872, 885],
@@ -93,9 +93,9 @@ const statsConfig = [
 
 const colorMap: Record<string, { bg: string; text: string; bar: string }> = {
   blue: {
-    bg: "bg-blue-100 dark:bg-blue-900/30",
-    text: "text-blue-600 dark:text-blue-400",
-    bar: "bg-blue-500",
+    bg: "bg-dash-primary-light dark:bg-teal-900/30",
+    text: "text-dash-primary dark:text-accent",
+    bar: "bg-dash-primary",
   },
   emerald: {
     bg: "bg-emerald-100 dark:bg-emerald-900/30",

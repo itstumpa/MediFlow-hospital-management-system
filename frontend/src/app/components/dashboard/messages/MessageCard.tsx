@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Paperclip } from "lucide-react";
@@ -59,7 +59,7 @@ export function MessageCard({ message, selected, onSelect }: MessageCardProps) {
       whileTap={{ scale: 0.995 }}
       className={`group relative flex w-full gap-3 border-b border-slate-100 px-4 py-3.5 text-left transition-colors dark:border-slate-700/50 ${
         selected
-          ? "bg-blue-50 dark:bg-blue-900/20"
+          ? "bg-dash-primary-light dark:bg-teal-900/20"
           : isUnread
             ? "bg-white dark:bg-slate-800"
             : "bg-white/50 dark:bg-slate-800/30"
@@ -69,7 +69,7 @@ export function MessageCard({ message, selected, onSelect }: MessageCardProps) {
     >
       {/* Unread indicator */}
       {isUnread && (
-        <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-500" />
+        <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-dash-primary" />
       )}
 
       {/* Avatar */}
@@ -80,7 +80,7 @@ export function MessageCard({ message, selected, onSelect }: MessageCardProps) {
               ? "bg-rose-500"
               : priorityLabel[message.priority] === "High"
                 ? "bg-orange-500"
-                : "bg-blue-500"
+                : "bg-dash-primary"
           }`}
         >
           {message.name
@@ -94,7 +94,7 @@ export function MessageCard({ message, selected, onSelect }: MessageCardProps) {
           <motion.span
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-blue-500 dark:border-slate-800"
+            className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-dash-primary dark:border-slate-800"
           />
         )}
       </div>

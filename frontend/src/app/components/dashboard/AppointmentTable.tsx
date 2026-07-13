@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Edit3, Eye, MoreHorizontal } from "lucide-react";
@@ -70,7 +70,7 @@ const statusStyles: Record<string, string> = {
   Pending:
     "bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400",
   Cancelled: "bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400",
-  Completed: "bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400",
+  Completed: "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
 };
 
 export function AppointmentTable() {
@@ -91,7 +91,7 @@ export function AppointmentTable() {
             {appointments.length} appointments scheduled
           </p>
         </div>
-        <button className="text-xs font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400">
+        <button className="text-xs font-medium text-dash-primary hover:text-dash-primary dark:text-accent">
           View all
         </button>
       </div>

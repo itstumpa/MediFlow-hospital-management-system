@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import {
@@ -25,7 +25,7 @@ const statsConfig = [
     label: "Today's Appointments",
     icon: CalendarCheck,
     colorClass: "blue",
-    sparklineColor: "#2563eb",
+    sparklineColor: "#0e7c7b",
     getValue: (a: Appointment[]) =>
       a.filter((apt) => apt.date === new Date().toISOString().slice(0, 10))
         .length || 12,
@@ -113,9 +113,9 @@ const statsConfig = [
 
 const colorMap: Record<string, { bg: string; text: string; bar: string }> = {
   blue: {
-    bg: "bg-blue-100 dark:bg-blue-900/30",
-    text: "text-blue-600 dark:text-blue-400",
-    bar: "bg-blue-500",
+    bg: "bg-dash-primary-light dark:bg-teal-900/30",
+    text: "text-dash-primary dark:text-accent",
+    bar: "bg-dash-primary",
   },
   indigo: {
     bg: "bg-indigo-100 dark:bg-indigo-900/30",

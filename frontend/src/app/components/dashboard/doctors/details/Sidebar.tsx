@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
 import { cn } from "@/lib/utils";
@@ -106,7 +106,7 @@ export function Sidebar({ doctor }: SidebarProps) {
               Department
             </span>
             <span className="flex items-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300">
-              <Stethoscope className="h-3.5 w-3.5 text-blue-500" />
+              <Stethoscope className="h-3.5 w-3.5 text-dash-primary" />
               {doctor.department}
             </span>
           </div>

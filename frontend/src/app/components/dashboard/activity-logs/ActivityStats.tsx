@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ const STAT_CARDS = [
     key: "total",
     label: "Total Logs",
     icon: "Database",
-    color: "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-blue-900/30",
+    color: "text-dash-primary bg-dash-primary-light dark:text-accent dark:bg-teal-900/30",
     trend: "+12%",
     trendLabel: "vs last week",
   },
@@ -278,7 +278,7 @@ function StatGroup({
                 initial={{ width: 0 }}
                 animate={{ width: `${total > 0 ? (value / total) * 100 : 0}%` }}
                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                className="h-full bg-blue-600 rounded-full"
+                className="h-full bg-dash-primary rounded-full"
               />
             </div>
             <span className="text-sm font-mono text-slate-600 dark:text-slate-400 w-12 text-right">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -21,7 +21,7 @@ interface Activity {
 const activities: Activity[] = [
   {
     icon: Stethoscope,
-    color: "bg-blue-500",
+    color: "bg-dash-primary",
     title: "New Doctor Added",
     description: "Dr. Emily Watson joined Cardiology department",
     time: "10 min ago",

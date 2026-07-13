@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -70,7 +70,7 @@ export function SecuritySettings({
       {/* Two-Factor Authentication */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <Shield className="h-5 w-5" />
           </div>
           <div>
@@ -86,7 +86,7 @@ export function SecuritySettings({
         <div className="dash-card p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                 <Lock className="h-6 w-6" />
               </div>
               <div>
@@ -145,7 +145,7 @@ export function SecuritySettings({
             </h4>
             <button
               onClick={() => setShowPasswordPolicy(!showPasswordPolicy)}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-dash-primary hover:text-dash-primary dark:text-accent"
             >
               {showPasswordPolicy ? (
                 <EyeOff className="h-4 w-4" />
@@ -272,7 +272,7 @@ export function SecuritySettings({
                 onChange={(e) =>
                   handleChange("sessionTimeout", parseInt(e.target.value))
                 }
-                className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               >
                 {[15, 30, 60, 120, 240, 480].map((min) => (
                   <option key={min} value={min}>
@@ -299,7 +299,7 @@ export function SecuritySettings({
                 onChange={(e) =>
                   handleChange("maxLoginAttempts", parseInt(e.target.value))
                 }
-                className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               >
                 {[3, 5, 10, 15].map((attempts) => (
                   <option key={attempts} value={attempts}>
@@ -323,7 +323,7 @@ export function SecuritySettings({
                 onChange={(e) =>
                   handleChange("lockoutDuration", parseInt(e.target.value))
                 }
-                className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                className="w-full max-w-xs rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
               >
                 {[5, 15, 30, 60].map((min) => (
                   <option key={min} value={min}>
@@ -394,14 +394,14 @@ export function SecuritySettings({
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
                         Last active:{" "}
-                        {new Date(device.lastActive).toLocaleString()} · IP:{" "}
+                        {new Date(device.lastActive).toLocaleString()} Â· IP:{" "}
                         {device.ip}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     {device.current && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-dash-primary-light px-2 py-0.5 text-xs font-medium text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                         Current
                       </span>
                     )}
@@ -445,8 +445,8 @@ function ToggleSwitch({ checked, onChange }: ToggleSwitchProps) {
       role="switch"
       aria-checked={checked}
       className={cn(
-        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-        checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+        checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
       )}
     >
       <motion.span
@@ -491,7 +491,7 @@ function PolicyItem({
           }
           min={min}
           max={max}
-          className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+          className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
         />
         <span className="text-sm text-slate-500 dark:text-slate-400">
           {suffix}
@@ -514,7 +514,7 @@ function CheckboxPolicy({ label, checked, onChange }: CheckboxPolicyProps) {
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+        className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
       />
       <span className="text-sm text-slate-700 dark:text-slate-300">
         {label}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -118,14 +118,14 @@ export function ExportDialog({
                   onClick={() => setSelectedFormat(fmt.key)}
                   className={`flex w-full items-center gap-4 rounded-xl border p-4 text-left transition-all ${
                     selectedFormat === fmt.key
-                      ? "border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/30"
+                      ? "border-dash-primary-light bg-dash-primary-light dark:border-teal-800 dark:bg-teal-900/30"
                       : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600"
                   }`}
                 >
                   <div
                     className={`flex h-10 w-10 items-center justify-center rounded-lg ${
                       selectedFormat === fmt.key
-                        ? "bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400"
+                        ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/50 dark:text-accent"
                         : "bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400"
                     }`}
                   >
@@ -140,7 +140,7 @@ export function ExportDialog({
                     </p>
                   </div>
                   {selectedFormat === fmt.key && (
-                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-600">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-dash-primary">
                       <Check className="h-3 w-3 text-white" />
                     </div>
                   )}
@@ -159,7 +159,7 @@ export function ExportDialog({
               <button
                 onClick={handleExport}
                 disabled={exporting || exported}
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 disabled:opacity-50"
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark disabled:opacity-50"
               >
                 {exporting ? (
                   <>

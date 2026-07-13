@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { ChevronDown, ChevronUp, ChevronsUpDown } from "lucide-react";
 import { DoctorRow } from "./DoctorRow";
@@ -72,9 +72,9 @@ export function DoctorsTable({
     if (filters.sortBy !== field)
       return <ChevronsUpDown className="h-3.5 w-3.5 text-slate-400" />;
     return filters.sortAsc ? (
-      <ChevronUp className="h-3.5 w-3.5 text-blue-600" />
+      <ChevronUp className="h-3.5 w-3.5 text-dash-primary" />
     ) : (
-      <ChevronDown className="h-3.5 w-3.5 text-blue-600" />
+      <ChevronDown className="h-3.5 w-3.5 text-dash-primary" />
     );
   };
 
@@ -100,7 +100,7 @@ export function DoctorsTable({
                         type="checkbox"
                         checked={allSelected}
                         onChange={onSelectAll}
-                        className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+                        className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
                       />
                     </div>
                   ) : col.sortable ? (

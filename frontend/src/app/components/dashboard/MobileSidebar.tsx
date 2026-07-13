@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { HeartPulse, X } from "lucide-react";
@@ -55,7 +55,7 @@ export function MobileSidebar() {
             {/* Header */}
             <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-5 dark:border-slate-800/60">
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 shadow-sm">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-sm">
                   <HeartPulse className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">

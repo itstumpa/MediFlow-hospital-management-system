@@ -135,9 +135,9 @@ export function RevenueChart() {
                 <Line
                   type="monotone"
                   dataKey="appointments"
-                  stroke="#2563eb"
+                  stroke="#0e7c7b"
                   strokeWidth={2.5}
-                  dot={{ fill: "#2563eb", strokeWidth: 2, r: 4 }}
+                  dot={{ fill: "#0e7c7b", strokeWidth: 2, r: 4 }}
                   activeDot={{ r: 6, strokeWidth: 2, stroke: "#fff" }}
                 />
                 <Line

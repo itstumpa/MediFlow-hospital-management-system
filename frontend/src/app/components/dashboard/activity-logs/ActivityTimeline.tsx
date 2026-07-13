@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
@@ -45,7 +45,7 @@ import {
   UserX,
   Zap,
 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ActionBadge,
   ModuleBadge,
@@ -71,7 +71,7 @@ interface ActivityTimelineProps {
 function getActionIcon(action: ActivityActionType) {
   const icons: Record<ActivityActionType, React.ReactNode> = {
     create: <UserPlus className="h-4 w-4 text-emerald-600" />,
-    read: <Eye className="h-4 w-4 text-blue-600" />,
+    read: <Eye className="h-4 w-4 text-dash-primary" />,
     update: <Edit className="h-4 w-4 text-amber-600" />,
     delete: <Trash2 className="h-4 w-4 text-red-600" />,
     login: <LogIn className="h-4 w-4 text-purple-600" />,
@@ -80,7 +80,7 @@ function getActionIcon(action: ActivityActionType) {
     import: <Upload className="h-4 w-4 text-teal-600" />,
     approve: <UserCheck className="h-4 w-4 text-emerald-600" />,
     reject: <UserX className="h-4 w-4 text-red-600" />,
-    assign: <UserPlus className="h-4 w-4 text-blue-600" />,
+    assign: <UserPlus className="h-4 w-4 text-dash-primary" />,
     revoke: <UserMinus className="h-4 w-4 text-amber-600" />,
     backup: <Database className="h-4 w-4 text-slate-600" />,
     restore: <RefreshCw className="h-4 w-4 text-purple-600" />,
@@ -91,7 +91,7 @@ function getActionIcon(action: ActivityActionType) {
     role_change: <Users className="h-4 w-4 text-purple-600" />,
     permission_change: <Shield className="h-4 w-4 text-indigo-600" />,
     system_error: <AlertCircle className="h-4 w-4 text-red-600" />,
-    api_call: <Zap className="h-4 w-4 text-blue-600" />,
+    api_call: <Zap className="h-4 w-4 text-dash-primary" />,
   };
   return icons[action] || <Activity className="h-4 w-4 text-slate-600" />;
 }
@@ -133,7 +133,7 @@ function getDeviceIcon(device: string) {
 
 function getSeverityColor(severity: ActivitySeverity) {
   const colors: Record<ActivitySeverity, string> = {
-    info: "text-blue-500",
+    info: "text-dash-primary",
     warning: "text-amber-500",
     error: "text-red-500",
     critical: "text-red-700",
@@ -143,7 +143,7 @@ function getSeverityColor(severity: ActivitySeverity) {
 
 function getSeverityBg(severity: ActivitySeverity) {
   const colors: Record<ActivitySeverity, string> = {
-    info: "bg-blue-500/10 border-blue-500/20",
+    info: "bg-dash-primary/10 border-dash-primary/20",
     warning: "bg-amber-500/10 border-amber-500/20",
     error: "bg-red-500/10 border-red-500/20",
     critical: "bg-red-700/10 border-red-700/20",
@@ -337,7 +337,7 @@ function TimelineGroup({
               {group.logs.length}
             </span>
             {groupSelectedCount > 0 && (
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                 {groupSelectedCount} selected
               </span>
             )}
@@ -350,7 +350,7 @@ function TimelineGroup({
               type="checkbox"
               checked={allSelected}
               onChange={() => onSelectAll(group.logs)}
-              className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+              className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
               aria-label={`Select all ${group.label} activities`}
             />
             <span className="text-xs text-slate-500 dark:text-slate-400">
@@ -365,7 +365,7 @@ function TimelineGroup({
               ? format(new Date(group.logs[0].timestamp), "HH:mm")
               : ""}
           </span>
-          <span className="text-xs">–</span>
+          <span className="text-xs">â€“</span>
           <span className="text-xs font-mono">
             {group.logs[group.logs.length - 1]?.timestamp
               ? format(
@@ -445,7 +445,7 @@ function TimelineItem({
         className={cn(
           "pl-6 pb-6 last:pb-0 rounded-xl transition-all",
           selected &&
-            "bg-blue-50 dark:bg-blue-900/20 border-l-4 border-l-blue-500",
+            "bg-dash-primary-light dark:bg-teal-900/20 border-l-4 border-l-dash-primary",
           log.severity === "critical" &&
             "border-l-4 border-l-red-500 bg-red-50/50 dark:bg-red-900/10",
         )}
@@ -456,7 +456,7 @@ function TimelineItem({
             type="checkbox"
             checked={selected}
             onChange={() => onSelect(log.id)}
-            className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 flex-shrink-0"
+            className="mt-1 h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary flex-shrink-0"
             aria-label={`Select ${log.user.name}`}
           />
 
@@ -595,7 +595,7 @@ function ActivityTimelineSkeleton() {
                     className="absolute left-[-34px] top-2 w-0.5 h-full bg-slate-200 dark:bg-slate-700"
                     style={{ height: itemIndex === 2 ? "1.5rem" : "100%" }}
                   />
-                  <div className="absolute left-[-38px] top-2 w-3 h-3 rounded-full border-2 border-white dark:border-slate-900 bg-blue-500 animate-pulse" />
+                  <div className="absolute left-[-38px] top-2 w-3 h-3 rounded-full border-2 border-white dark:border-slate-900 bg-dash-primary animate-pulse" />
                   <div className="p-4 space-y-3">
                     <div className="h-6 w-48 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                     <div className="h-4 w-full bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />

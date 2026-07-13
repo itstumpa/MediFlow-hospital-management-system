@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   ActivityDrawer,
@@ -15,6 +15,7 @@ import {
   ActivitySortField,
   DEFAULT_ACTIVITY_FILTERS,
 } from "@/app/components/dashboard/activity-logs/types";
+import { Button } from "@/app/components/dashboard/Button";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
@@ -283,7 +284,7 @@ export default function ActivityLogsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
             <h1 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
-              <Activity className="h-7 w-7 text-blue-600" />
+              <Activity className="h-7 w-7 text-dash-primary" />
               Activity Logs
             </h1>
             <p className="text-slate-500 dark:text-slate-400 mt-1">
@@ -291,28 +292,24 @@ export default function ActivityLogsPage() {
               actions
             </p>
           </div>
-          <div className="flex items-center gap-3">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              icon={RefreshCw}
+              size="sm"
               onClick={handleRefresh}
-              disabled={isLoading}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700 disabled:opacity-50"
+              loading={isLoading}
             >
-              <RefreshCw
-                className={cn("h-4 w-4", isLoading && "animate-spin")}
-              />
               Refresh
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </Button>
+            <Button
+              variant="primary"
+              icon={Download}
+              size="sm"
               onClick={handleExport}
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
             >
-              <Download className="h-4 w-4" />
               Export CSV
-            </motion.button>
+            </Button>
           </div>
         </div>
 
@@ -459,7 +456,7 @@ export default function ActivityLogsPage() {
                       className={cn(
                         "w-10 h-10 rounded-xl font-medium text-sm transition-colors",
                         currentPage === pageNum
-                          ? "bg-blue-600 text-white shadow-sm"
+                          ? "bg-dash-primary text-white shadow-sm"
                           : "text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800",
                       )}
                     >

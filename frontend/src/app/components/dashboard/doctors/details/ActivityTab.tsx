@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { ActivityLog } from "@/lib/data/admin-doctors";
@@ -30,7 +30,7 @@ const activityColors: Record<string, string> = {
   created:
     "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400 ring-emerald-200 dark:ring-emerald-800",
   updated:
-    "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400 ring-blue-200 dark:ring-blue-800",
+    "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent ring-dash-primary dark:ring-teal-800",
   changed:
     "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400 ring-amber-200 dark:ring-amber-800",
   status:

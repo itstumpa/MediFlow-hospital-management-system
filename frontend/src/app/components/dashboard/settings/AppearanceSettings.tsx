@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -72,7 +72,7 @@ const RADIUS_OPTIONS = [
 ];
 
 const PRESET_COLORS = [
-  "#2563eb", // blue
+  "#0e7c7b", // blue
   "#1d4ed8", // blue-700
   "#0ea5e9", // sky
   "#06b6d4", // cyan
@@ -128,7 +128,7 @@ export function AppearanceSettings({
       {/* Theme */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <Palette className="h-5 w-5" />
           </div>
           <div>
@@ -157,7 +157,7 @@ export function AppearanceSettings({
                 className={cn(
                   "relative flex flex-col items-center gap-3 rounded-2xl border-2 p-6 transition-all duration-200",
                   data.theme === option.value
-                    ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                    ? "border-dash-primary bg-dash-primary-light dark:bg-teal-900/20"
                     : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
                 )}
               >
@@ -165,7 +165,7 @@ export function AppearanceSettings({
                   className={cn(
                     "flex h-12 w-12 items-center justify-center rounded-xl",
                     data.theme === option.value
-                      ? "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
+                      ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent"
                       : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500",
                   )}
                 >
@@ -176,7 +176,7 @@ export function AppearanceSettings({
                     className={cn(
                       "font-medium",
                       data.theme === option.value
-                        ? "text-blue-700 dark:text-blue-300"
+                        ? "text-dash-primary dark:text-accent"
                         : "text-slate-900 dark:text-white",
                     )}
                   >
@@ -190,9 +190,9 @@ export function AppearanceSettings({
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-white text-xs"
+                    className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-dash-primary text-white text-xs"
                   >
-                    ✓
+                    âœ“
                   </motion.div>
                 )}
               </motion.button>
@@ -236,8 +236,8 @@ export function AppearanceSettings({
                 type="text"
                 value={customPrimary}
                 onChange={(e) => handleColorChange("primary", e.target.value)}
-                className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-                placeholder="#2563eb"
+                className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                placeholder="#0e7c7b"
               />
             </div>
             <div className="flex flex-wrap gap-2">
@@ -248,7 +248,7 @@ export function AppearanceSettings({
                   className={cn(
                     "h-8 w-8 rounded-lg border-2 transition-all",
                     customPrimary === color
-                      ? "border-blue-500 scale-110"
+                      ? "border-dash-primary scale-110"
                       : "border-transparent hover:border-slate-300",
                   )}
                   style={{ backgroundColor: color }}
@@ -277,7 +277,7 @@ export function AppearanceSettings({
                 type="text"
                 value={customAccent}
                 onChange={(e) => handleColorChange("accent", e.target.value)}
-                className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 placeholder="#0ea5e9"
               />
             </div>
@@ -289,7 +289,7 @@ export function AppearanceSettings({
                   className={cn(
                     "h-8 w-8 rounded-lg border-2 transition-all",
                     customAccent === color
-                      ? "border-blue-500 scale-110"
+                      ? "border-dash-primary scale-110"
                       : "border-transparent hover:border-slate-300",
                   )}
                   style={{ backgroundColor: color }}
@@ -367,7 +367,7 @@ export function AppearanceSettings({
                 className={cn(
                   "relative flex flex-col items-center gap-3 rounded-2xl border-2 p-6 transition-all duration-200",
                   data.sidebarStyle === style.value
-                    ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                    ? "border-dash-primary bg-dash-primary-light dark:bg-teal-900/20"
                     : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
                 )}
               >
@@ -375,7 +375,7 @@ export function AppearanceSettings({
                   className={cn(
                     "flex h-12 w-12 items-center justify-center rounded-xl",
                     data.sidebarStyle === style.value
-                      ? "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
+                      ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/40 dark:text-accent"
                       : "bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500",
                   )}
                 >
@@ -386,7 +386,7 @@ export function AppearanceSettings({
                     className={cn(
                       "font-medium",
                       data.sidebarStyle === style.value
-                        ? "text-blue-700 dark:text-blue-300"
+                        ? "text-dash-primary dark:text-accent"
                         : "text-slate-900 dark:text-white",
                     )}
                   >
@@ -400,9 +400,9 @@ export function AppearanceSettings({
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-white text-xs"
+                    className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-dash-primary text-white text-xs"
                   >
-                    ✓
+                    âœ“
                   </motion.div>
                 )}
               </motion.button>
@@ -443,7 +443,7 @@ export function AppearanceSettings({
                 className={cn(
                   "flex h-14 w-20 items-center justify-center rounded-lg border-2 transition-all",
                   data.cardRadius === radius.value
-                    ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                    ? "border-dash-primary bg-dash-primary-light dark:bg-teal-900/20"
                     : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
                 )}
               >
@@ -452,7 +452,7 @@ export function AppearanceSettings({
                     "h-8 w-12 transition-all",
                     radius.preview,
                     data.cardRadius === radius.value
-                      ? "bg-blue-100 dark:bg-blue-900/40"
+                      ? "bg-dash-primary-light dark:bg-teal-900/40"
                       : "bg-white dark:bg-slate-800",
                   )}
                 />
@@ -532,8 +532,8 @@ function ToggleSetting({
         role="switch"
         aria-checked={checked}
         className={cn(
-          "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-          checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+          "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+          checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
         )}
       >
         <motion.span

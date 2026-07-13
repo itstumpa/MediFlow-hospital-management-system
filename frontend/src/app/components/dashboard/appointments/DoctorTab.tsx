@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { AppointmentDetail } from "@/lib/data/appointment-detail";
@@ -40,7 +40,7 @@ export function DoctorTab({ appointment }: DoctorTabProps) {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 text-white shadow-sm">
+            <div className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-dash-primary text-white shadow-sm">
               <Award className="h-3.5 w-3.5" />
             </div>
           </div>
@@ -48,7 +48,7 @@ export function DoctorTab({ appointment }: DoctorTabProps) {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               {doctor.name}
             </h3>
-            <p className="text-sm text-blue-600 dark:text-blue-400">
+            <p className="text-sm text-dash-primary dark:text-accent">
               {doctor.specialization}
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400">

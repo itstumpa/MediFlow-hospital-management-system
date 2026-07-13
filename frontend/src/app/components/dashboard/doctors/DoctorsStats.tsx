@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import {
@@ -92,9 +92,9 @@ function AnimatedStat({
 
 const colorMap = [
   {
-    bg: "bg-blue-100 dark:bg-blue-900/30",
-    text: "text-blue-600 dark:text-blue-400",
-    bar: "bg-blue-500",
+    bg: "bg-dash-primary-light dark:bg-teal-900/30",
+    text: "text-dash-primary dark:text-accent",
+    bar: "bg-dash-primary",
   },
   {
     bg: "bg-emerald-100 dark:bg-emerald-900/30",

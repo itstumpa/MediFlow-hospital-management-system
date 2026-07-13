@@ -1,25 +1,30 @@
-"use client";
+﻿"use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
-  Check,
-  ChevronRight,
-  ChevronDown,
-  Minus,
-  Plus,
-  Search,
-  Filter,
-  X,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import {
-  PERMISSION_MODULES,
-  PERMISSION_ACTIONS,
-  PermissionModule,
-  PermissionAction,
   Permission,
+  PERMISSION_ACTIONS,
+  PERMISSION_MODULES,
+  PermissionAction,
+  PermissionModule,
 } from "@/lib/data/rbac";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  BarChart3,
+  Building2,
+  CalendarCheck,
+  Check,
+  ChevronDown,
+  ChevronRight,
+  FileText,
+  LayoutDashboard,
+  MessageSquare,
+  Search,
+  Settings,
+  Stethoscope,
+  Users,
+} from "lucide-react";
+import { useState } from "react";
 
 interface PermissionMatrixProps {
   permissions: Permission[];
@@ -30,7 +35,7 @@ interface PermissionMatrixProps {
 }
 
 const actionColors: Record<PermissionAction, string> = {
-  view: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+  view: "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
   create:
     "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300",
   update:
@@ -43,17 +48,6 @@ const actionColors: Record<PermissionAction, string> = {
     "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300",
   manage:
     "bg-slate-100 text-slate-700 dark:bg-slate-900/30 dark:text-slate-300",
-};
-
-const actionIcons: Record<PermissionAction, string> = {
-  view: "Eye",
-  create: "Plus",
-  update: "Edit",
-  delete: "Trash2",
-  export: "Download",
-  approve: "CheckCheck",
-  assign: "UserPlus",
-  manage: "Settings",
 };
 
 export function PermissionMatrix({
@@ -161,19 +155,19 @@ export function PermissionMatrix({
       {/* Toolbar */}
       <div
         className={cn(
-          "flex flex-col sm:flex-row gap-3 mb-4 p-3 bg-muted/30 rounded-xl border",
+          "flex flex-col sm:flex-row gap-3 mb-4 p-3 bg-slate-50/50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700",
           compact && "mb-2 p-2",
         )}
       >
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground size-4" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 size-4" />
           <input
             type="text"
             placeholder="Search modules or permissions..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className={cn(
-              "w-full pl-9 pr-4 py-2 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-ring",
+              "w-full pl-9 pr-4 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500",
               compact && "py-1.5 text-xs",
             )}
           />
@@ -186,7 +180,7 @@ export function PermissionMatrix({
               setFilterAction(e.target.value as PermissionAction | "all")
             }
             className={cn(
-              "px-3 py-2 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-ring",
+              "px-3 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50 text-slate-900 dark:text-white",
               compact && "py-1.5 text-xs",
             )}
             disabled={readOnly}
@@ -204,7 +198,7 @@ export function PermissionMatrix({
               <button
                 onClick={handleExpandAll}
                 disabled={readOnly}
-                className="px-3 py-2 text-sm bg-background border rounded-lg hover:bg-accent transition-colors"
+                className="px-3 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300"
                 aria-label="Expand all modules"
               >
                 <ChevronDown className="size-4" />
@@ -212,7 +206,7 @@ export function PermissionMatrix({
               <button
                 onClick={handleCollapseAll}
                 disabled={readOnly}
-                className="px-3 py-2 text-sm bg-background border rounded-lg hover:bg-accent transition-colors"
+                className="px-3 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300"
                 aria-label="Collapse all modules"
               >
                 <ChevronRight className="size-4" />
@@ -223,14 +217,14 @@ export function PermissionMatrix({
       </div>
 
       {/* Matrix Table */}
-      <div className="overflow-x-auto rounded-xl border">
+      <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
         <table className="w-full" role="grid">
           <thead>
-            <tr className="bg-muted/50 border-b">
+            <tr className="bg-slate-50/80 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700">
               <th
                 scope="col"
                 className={cn(
-                  "sticky left-0 z-10 px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider",
+                  "sticky left-0 z-10 px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-white dark:bg-slate-800",
                   compact && "px-3 py-2",
                 )}
               >
@@ -241,7 +235,7 @@ export function PermissionMatrix({
                   key={action.key}
                   scope="col"
                   className={cn(
-                    "px-4 py-3 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider whitespace-nowrap",
+                    "px-4 py-3 text-center text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap",
                     compact && "px-2 py-2",
                   )}
                 >
@@ -258,7 +252,7 @@ export function PermissionMatrix({
               <th
                 scope="col"
                 className={cn(
-                  "sticky right-0 z-10 px-4 py-3 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider",
+                  "sticky right-0 z-10 px-4 py-3 text-center text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-white dark:bg-slate-800",
                   compact && "px-3 py-2",
                 )}
               >
@@ -275,12 +269,12 @@ export function PermissionMatrix({
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.03 }}
-                  className="border-b last:border-b-0 hover:bg-muted/30 transition-colors"
+                  className="border-b border-slate-200 dark:border-slate-700 last:border-b-0 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors"
                 >
                   {/* Module Header Row */}
                   <td
                     className={cn(
-                      "sticky left-0 z-10 px-4 py-3 font-medium bg-background",
+                      "sticky left-0 z-10 px-4 py-3 font-medium bg-white dark:bg-slate-800",
                       compact && "px-3 py-2",
                     )}
                     colSpan={showModuleLabels ? 1 : undefined}
@@ -288,7 +282,7 @@ export function PermissionMatrix({
                     <button
                       onClick={() => handleToggleModule(module.key)}
                       className={cn(
-                        "w-full flex items-center gap-3 text-left hover:text-foreground transition-colors",
+                        "w-full flex items-center gap-3 text-left hover:text-slate-900 dark:hover:text-white transition-colors",
                         readOnly && "cursor-default",
                       )}
                       disabled={readOnly}
@@ -299,16 +293,13 @@ export function PermissionMatrix({
                           rotate: expandedModules.has(module.key) ? 90 : 0,
                         }}
                         transition={{ duration: 0.2 }}
-                        className="text-muted-foreground size-4 flex-shrink-0"
+                        className="text-slate-400 dark:text-slate-500 size-4 flex-shrink-0"
                       >
                         <ChevronRight className="size-4" />
                       </motion.span>
 
                       <span
-                        className={cn(
-                          "flex items-center gap-2 flex-1 min-w-0",
-                          module.icon,
-                        )}
+                        className={cn("flex items-center gap-2 flex-1 min-w-0")}
                       >
                         <span
                           className={cn(
@@ -316,264 +307,37 @@ export function PermissionMatrix({
                             moduleDisplayConfig[module.key].bgColor,
                           )}
                         >
-                          {module.icon === "LayoutDashboard" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <rect x="3" y="3" width="7" height="7" rx="1" />
-                              <rect x="14" y="3" width="7" height="7" rx="1" />
-                              <rect x="3" y="14" width="7" height="7" rx="1" />
-                              <rect x="14" y="14" width="7" height="7" rx="1" />
-                            </svg>
-                          )}
-                          {module.icon === "Stethoscope" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M11 2v2"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M5.27 7.27a6.5 6.5 0 0 1 9.46 0"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M13 16H11"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M13 21H11"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M8.5 16.5 11 14"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M15.5 16.5 13 14"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "Users" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <circle cx="9" cy="7" r="4" strokeWidth="2" />
-                              <path
-                                d="M23 21v-2a4 4 0 0 0-3-3.87"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M16 3.13a4 4 0 0 1 0 7.75"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "Building2" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M6 12H4a2 2 0 0 0-2 2v8"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M18 9v11"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M10 9v11"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="M14 9v11"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "CalendarCheck" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <rect
-                                x="3"
-                                y="4"
-                                width="18"
-                                height="18"
-                                rx="2"
-                                ry="2"
-                                strokeWidth="2"
-                              />
-                              <line
-                                x1="16"
-                                y1="2"
-                                x2="16"
-                                y2="6"
-                                strokeWidth="2"
-                              />
-                              <line
-                                x1="8"
-                                y1="2"
-                                x2="8"
-                                y2="6"
-                                strokeWidth="2"
-                              />
-                              <line
-                                x1="3"
-                                y1="10"
-                                x2="21"
-                                y2="10"
-                                strokeWidth="2"
-                              />
-                              <path
-                                d="m8 14 2 2 4-4"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "FileText" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                              <polyline
-                                points="14 2 14 8 20 8"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                              <line
-                                x1="16"
-                                y1="13"
-                                x2="8"
-                                y2="13"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <line
-                                x1="16"
-                                y1="17"
-                                x2="8"
-                                y2="17"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <line
-                                x1="10"
-                                y1="9"
-                                x2="8"
-                                y2="9"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "MessageSquare" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "BarChart3" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M3 3v18h18"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                              />
-                              <path
-                                d="m19 9-5 5-4-4-3 3"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          )}
-                          {module.icon === "Settings" && (
-                            <svg
-                              className="size-5 text-current"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <circle cx="12" cy="12" r="3" strokeWidth="2" />
-                              <path
-                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          )}
+                          {(() => {
+                            const iconProps = { className: "size-5" };
+                            switch (module.icon) {
+                              case "LayoutDashboard":
+                                return <LayoutDashboard {...iconProps} />;
+                              case "Stethoscope":
+                                return <Stethoscope {...iconProps} />;
+                              case "Users":
+                                return <Users {...iconProps} />;
+                              case "Building2":
+                                return <Building2 {...iconProps} />;
+                              case "CalendarCheck":
+                                return <CalendarCheck {...iconProps} />;
+                              case "FileText":
+                                return <FileText {...iconProps} />;
+                              case "MessageSquare":
+                                return <MessageSquare {...iconProps} />;
+                              case "BarChart3":
+                                return <BarChart3 {...iconProps} />;
+                              case "Settings":
+                                return <Settings {...iconProps} />;
+                              default:
+                                return null;
+                            }
+                          })()}
                         </span>
                         <div className="min-w-0 flex-1">
                           <span className="font-medium truncate block">
                             {module.label}
                           </span>
-                          <span className="text-xs text-muted-foreground truncate block">
+                          <span className="text-xs text-slate-500 dark:text-slate-400 truncate block">
                             {module.description}
                           </span>
                         </div>
@@ -586,20 +350,23 @@ export function PermissionMatrix({
                             type="checkbox"
                             checked={isModuleFullyEnabled(module.key)}
                             ref={(el) => {
-                              if (el) el.indeterminate = isModulePartiallyEnabled(module.key);
+                              if (el)
+                                el.indeterminate = isModulePartiallyEnabled(
+                                  module.key,
+                                );
                             }}
                             onChange={(e) =>
                               handleModuleToggle(module.key, e.target.checked)
                             }
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-6 bg-muted peer-focus-visible:ring-2 peer-focus-visible:ring-ring rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                          <div className="w-10 h-6 bg-slate-200 dark:bg-slate-600 peer-focus-visible:ring-2 peer-focus-visible:ring-dash-primary/50 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 dark:after:border-slate-500 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dash-primary"></div>
                         </label>
                       )}
 
                       <span
                         className={cn(
-                          "text-sm font-mono text-muted-foreground px-2 py-0.5 rounded bg-muted",
+                          "text-sm font-mono text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700",
                           compact && "text-xs px-1.5",
                         )}
                       >
@@ -630,7 +397,7 @@ export function PermissionMatrix({
                                   p.enabled,
                               )
                                 ? actionColors[action.key]
-                                : "text-muted-foreground bg-transparent",
+                                : "text-slate-400 dark:text-slate-500 bg-transparent",
                             )}
                           >
                             {permissions.some(
@@ -641,7 +408,9 @@ export function PermissionMatrix({
                             ) ? (
                               <Check className="size-3" />
                             ) : (
-                              <span className="text-muted-foreground">—</span>
+                              <span className="text-slate-400 dark:text-slate-500">
+                                â€”
+                              </span>
                             )}
                           </span>
                         </td>
@@ -672,7 +441,7 @@ export function PermissionMatrix({
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2, delay: moduleIndex * 0.03 }}
-                    className="bg-muted/30"
+                    className="bg-slate-50/50 dark:bg-slate-800/50"
                   >
                     <td className="px-4 py-2" />
                     {PERMISSION_ACTIONS.map((action) => {
@@ -704,10 +473,7 @@ export function PermissionMatrix({
                               }
                               disabled={readOnly}
                               className={cn(
-                                "size-4 rounded border-input bg-background focus-visible:ring-2 focus-visible:ring-ring",
-                                actionColors[action.key]
-                                  .replace("bg-", "peer-checked:bg-")
-                                  .replace("text-", "peer-checked:text-"),
+                                "size-4 rounded border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50",
                               )}
                               aria-label={`${action.label} for ${module.label}`}
                             />
@@ -717,7 +483,7 @@ export function PermissionMatrix({
                                   "text-xs font-medium hidden sm:inline",
                                   isEnabled
                                     ? actionColors[action.key]
-                                    : "text-muted-foreground",
+                                    : "text-slate-400 dark:text-slate-500",
                                 )}
                               >
                                 {action.label}
@@ -743,7 +509,7 @@ export function PermissionMatrix({
               <tr>
                 <td
                   colSpan={PERMISSION_ACTIONS.length + 2}
-                  className="px-4 py-8 text-center text-muted-foreground"
+                  className="px-4 py-8 text-center text-slate-500 dark:text-slate-400"
                 >
                   No modules match your search/filter criteria.
                 </td>
@@ -754,21 +520,21 @@ export function PermissionMatrix({
       </div>
 
       {/* Summary */}
-      <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+      <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
         <span>
           Total:{" "}
-          <span className="font-mono font-medium text-foreground">
+          <span className="font-mono font-medium text-slate-900 dark:text-white">
             {permissions.filter((p) => p.enabled).length}
           </span>{" "}
           / {permissions.length} permissions enabled
         </span>
         <span className="flex items-center gap-1">
           Modules:{" "}
-          <span className="font-mono font-medium text-foreground">
+          <span className="font-mono font-medium text-slate-900 dark:text-white">
             {filteredModules.filter((m) => isModuleFullyEnabled(m.key)).length}
           </span>{" "}
           full,{" "}
-          <span className="font-mono font-medium text-foreground">
+          <span className="font-mono font-medium text-slate-900 dark:text-white">
             {
               filteredModules.filter((m) => isModulePartiallyEnabled(m.key))
                 .length
@@ -783,7 +549,7 @@ export function PermissionMatrix({
 
 // Module display config for icons
 const moduleDisplayConfig: Record<PermissionModule, { bgColor: string }> = {
-  dashboard: { bgColor: "bg-blue-100 dark:bg-blue-900/30" },
+  dashboard: { bgColor: "bg-dash-primary-light dark:bg-teal-900/30" },
   doctors: { bgColor: "bg-emerald-100 dark:bg-emerald-900/30" },
   patients: { bgColor: "bg-violet-100 dark:bg-violet-900/30" },
   departments: { bgColor: "bg-amber-100 dark:bg-amber-900/30" },

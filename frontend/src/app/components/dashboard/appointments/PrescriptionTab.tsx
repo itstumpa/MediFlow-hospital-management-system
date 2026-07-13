@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { AppointmentDetail } from "@/lib/data/appointment-detail";
@@ -38,7 +38,7 @@ export function PrescriptionTab({ appointment }: PrescriptionTabProps) {
                 </p>
               </div>
             </div>
-            <span className="shrink-0 rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-500/10 dark:text-blue-400">
+            <span className="shrink-0 rounded-full bg-dash-primary-light px-2.5 py-0.5 text-xs font-medium text-dash-primary dark:bg-teal-500/10 dark:text-accent">
               #{i + 1}
             </span>
           </div>

@@ -1,4 +1,4 @@
-import type { Department } from "./types";
+﻿import type { Department } from "./types";
 
 export const departmentsData: Department[] = [
   {
@@ -245,7 +245,7 @@ export const departmentsData: Department[] = [
     id: "DEPT-013",
     name: "Radiology",
     icon: "Scan",
-    iconBg: "bg-blue-100 dark:bg-blue-900/30",
+    iconBg: "bg-dash-primary-light dark:bg-teal-900/30",
     description:
       "Advanced diagnostic imaging services including MRI, CT, ultrasound, and X-ray examinations.",
     head: "Dr. John Davis",
@@ -259,7 +259,7 @@ export const departmentsData: Department[] = [
     status: "Active",
     createdAt: "2016-09-01",
     satisfaction: 89,
-    color: "#2563eb",
+    color: "#0e7c7b",
   },
   {
     id: "DEPT-014",

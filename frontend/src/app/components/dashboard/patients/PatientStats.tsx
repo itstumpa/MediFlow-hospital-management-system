@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/app/components/dashboard/MotionVariants";
 import type { PatientDetail } from "@/lib/data/patient-detail";
@@ -107,8 +107,8 @@ export function PatientStats({ patient }: PatientStatsProps) {
       icon: CalendarCheck,
       label: "Total Visits",
       value: patient.totalVisits,
-      color: "text-blue-600",
-      bgColor: "bg-blue-100 dark:bg-blue-900/30",
+      color: "text-dash-primary",
+      bgColor: "bg-dash-primary-light dark:bg-teal-900/30",
     },
     {
       icon: Activity,

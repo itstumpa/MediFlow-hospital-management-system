@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { RotateCcw, X } from "lucide-react";
@@ -44,14 +44,14 @@ function CheckboxGroup<T extends string>({
             onClick={() => toggle(opt)}
             className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700 ${
               selected.includes(opt)
-                ? "text-blue-700 dark:text-blue-300"
+                ? "text-dash-primary dark:text-accent"
                 : "text-slate-600 dark:text-slate-400"
             }`}
           >
             <div
               className={`flex h-4 w-4 items-center justify-center rounded border transition-colors ${
                 selected.includes(opt)
-                  ? "border-blue-600 bg-blue-600"
+                  ? "border-dash-primary bg-dash-primary"
                   : "border-slate-300 dark:border-slate-600"
               }`}
             >
@@ -102,19 +102,19 @@ function RadioGroup({
             onClick={() => onChange(opt.value)}
             className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700 ${
               value === opt.value
-                ? "text-blue-700 dark:text-blue-300"
+                ? "text-dash-primary dark:text-accent"
                 : "text-slate-600 dark:text-slate-400"
             }`}
           >
             <div
               className={`flex h-4 w-4 items-center justify-center rounded-full border-2 transition-colors ${
                 value === opt.value
-                  ? "border-blue-600"
+                  ? "border-dash-primary"
                   : "border-slate-300 dark:border-slate-600"
               }`}
             >
               {value === opt.value && (
-                <div className="h-2 w-2 rounded-full bg-blue-600" />
+                <div className="h-2 w-2 rounded-full bg-dash-primary" />
               )}
             </div>
             {opt.label}
@@ -249,7 +249,7 @@ export function ArticlesFilters({
                           dateFrom: e.target.value,
                         })
                       }
-                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                     />
                   </div>
                   <div>
@@ -266,7 +266,7 @@ export function ArticlesFilters({
                       onChange={(e) =>
                         onFiltersChange({ ...filters, dateTo: e.target.value })
                       }
-                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-700 focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                     />
                   </div>
                 </div>

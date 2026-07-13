@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -91,7 +91,7 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
         className={cn(
           "relative flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-6 transition-all",
           isDragOver
-            ? "border-blue-400 bg-blue-50 dark:border-blue-500 dark:bg-blue-500/10"
+            ? "border-dash-primary bg-dash-primary-light dark:border-teal-500 dark:bg-teal-500/10"
             : preview
               ? "border-transparent"
               : "border-slate-300 bg-slate-50 hover:border-slate-400 dark:border-slate-600 dark:bg-slate-800/50 dark:hover:border-slate-500",
@@ -163,7 +163,7 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
                 e.stopPropagation();
                 handleClick();
               }}
-              className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600 transition-colors"
+              className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-dash-primary text-white shadow-lg hover:bg-dash-primary-dark transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Change photo"
@@ -181,7 +181,7 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
               className={cn(
                 "flex h-16 w-16 items-center justify-center rounded-full transition-colors",
                 isDragOver
-                  ? "bg-blue-100 text-blue-500 dark:bg-blue-500/20"
+                  ? "bg-dash-primary-light text-dash-primary dark:bg-teal-500/20"
                   : "bg-slate-100 text-slate-400 dark:bg-slate-700 dark:text-slate-500",
               )}
             >
@@ -193,7 +193,7 @@ export function UploadPhoto({ value, onChange, error }: UploadPhotoProps) {
             </div>
             <div>
               <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                <span className="text-blue-600 dark:text-blue-400">
+                <span className="text-dash-primary dark:text-accent">
                   Click to upload
                 </span>{" "}
                 or drag and drop

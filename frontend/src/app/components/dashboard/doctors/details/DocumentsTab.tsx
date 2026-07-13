@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { DoctorDocument } from "@/lib/data/admin-doctors";
@@ -25,8 +25,8 @@ const categoryConfig: Record<
   license: {
     label: "Medical License",
     icon: FileBadge,
-    color: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-50 dark:bg-blue-950/30",
+    color: "text-dash-primary dark:text-accent",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
   },
   certificate: {
     label: "Certificate",
@@ -154,7 +154,7 @@ export function DocumentsTab({ documents }: DocumentsTabProps) {
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="ml-3 rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700 dark:hover:text-blue-400"
+                        className="ml-3 rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-700 dark:hover:text-dash-primary"
                         aria-label={`Download ${doc.name}`}
                       >
                         <Download className="h-4 w-4" />

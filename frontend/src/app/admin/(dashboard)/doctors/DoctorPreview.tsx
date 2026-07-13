@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ const statusColors: Record<string, string> = {
 };
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -53,8 +53,8 @@ export function DoctorPreview() {
       className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800"
     >
       {/* Preview Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3">
-        <p className="text-xs font-medium text-blue-100">Preview</p>
+      <div className="bg-gradient-to-r from-dash-primary to-dash-primary-dark px-4 py-3">
+        <p className="text-xs font-medium text-dash-primary">Preview</p>
         <p className="text-sm font-semibold text-white">Doctor Profile</p>
       </div>
 
@@ -79,7 +79,7 @@ export function DoctorPreview() {
             ) : (
               <>
                 {initials || <User className="h-8 w-8" />}
-                <BadgeCheck className="absolute -bottom-1 -right-1 h-5 w-5 fill-blue-500 text-white drop-shadow-sm" />
+                <BadgeCheck className="absolute -bottom-1 -right-1 h-5 w-5 fill-dash-primary text-white drop-shadow-sm" />
               </>
             )}
           </motion.div>
@@ -91,7 +91,7 @@ export function DoctorPreview() {
 
           {/* Department & Specialization */}
           {department && (
-            <p className="mt-0.5 text-sm font-medium text-blue-600 dark:text-blue-400">
+            <p className="mt-0.5 text-sm font-medium text-dash-primary dark:text-accent">
               {department}
             </p>
           )}
@@ -172,7 +172,7 @@ export function DoctorPreview() {
         <div className="mt-4 space-y-2">
           <motion.button
             type="button"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-100 dark:bg-blue-500/10 dark:text-blue-400 dark:hover:bg-blue-500/20"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-dash-primary-light px-4 py-2 text-sm font-medium text-dash-primary transition-colors hover:bg-dash-primary-light dark:bg-teal-500/10 dark:text-accent dark:hover:bg-dash-primary/20"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

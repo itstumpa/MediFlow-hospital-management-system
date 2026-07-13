@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/lib/animations/stagger";
 import { cn } from "@/lib/utils";
@@ -58,9 +58,9 @@ export function LanguagesSection() {
               onClick={() => toggleLanguage(lang)}
               className={cn(
                 "relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-all",
-                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dash-primary",
                 isSelected
-                  ? "bg-blue-500 text-white shadow-sm shadow-blue-500/30"
+                  ? "bg-dash-primary text-white shadow-sm shadow-dash-primary/30"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600",
               )}
               whileHover={{ scale: 1.05 }}

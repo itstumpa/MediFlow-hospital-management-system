@@ -57,7 +57,7 @@ function TabLoader() {
   return (
     <div className="flex items-center justify-center rounded-xl border border-slate-200 bg-white py-20 shadow-sm dark:border-slate-700 dark:bg-slate-800">
       <div className="flex flex-col items-center gap-3">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-dash-primary border-t-transparent" />
         <p className="text-sm text-slate-500 dark:text-slate-400">Loading...</p>
       </div>
     </div>
@@ -160,7 +160,7 @@ export default function AppointmentDetailPage({
           subtitle={`Full details for appointment ${appointment.appointmentId}`}
           actions={
             <div className="flex flex-wrap items-center gap-2">
-              <button className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-md">
+              <button className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-md">
                 <Edit className="h-4 w-4" />
                 Edit
               </button>
@@ -211,9 +211,9 @@ export default function AppointmentDetailPage({
                   id={`tab-${tab.id}`}
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
-                    "relative shrink-0 px-4 py-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-500",
+                    "relative shrink-0 px-4 py-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-dash-primary",
                     activeTab === tab.id
-                      ? "text-blue-600 dark:text-blue-400"
+                      ? "text-dash-primary dark:text-accent"
                       : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300",
                   )}
                 >
@@ -221,7 +221,7 @@ export default function AppointmentDetailPage({
                   {activeTab === tab.id && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full bg-blue-600 dark:bg-blue-400"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full bg-dash-primary dark:bg-dash-primary-light"
                       transition={{
                         type: "spring",
                         stiffness: 500,

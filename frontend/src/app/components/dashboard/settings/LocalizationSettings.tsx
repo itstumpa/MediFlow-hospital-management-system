@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -42,7 +42,7 @@ export function LocalizationSettings({
       {/* Timezone */}
       <section className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
             <Globe className="h-5 w-5" />
           </div>
           <div>
@@ -62,7 +62,7 @@ export function LocalizationSettings({
           <select
             value={data.timezone}
             onChange={(e) => handleChange("timezone", e.target.value)}
-            className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             {TIMEZONES.map((tz) => (
               <option key={tz} value={tz}>
@@ -106,7 +106,7 @@ export function LocalizationSettings({
           <select
             value={data.language}
             onChange={(e) => handleChange("language", e.target.value)}
-            className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             {LANGUAGES.map((lang) => (
               <option key={lang.code} value={lang.code}>
@@ -141,7 +141,7 @@ export function LocalizationSettings({
             <select
               value={data.dateFormat}
               onChange={(e) => handleChange("dateFormat", e.target.value)}
-              className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+              className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             >
               {DATE_FORMATS.map((fmt) => (
                 <option key={fmt.value} value={fmt.value}>
@@ -177,7 +177,7 @@ export function LocalizationSettings({
                   className={cn(
                     "flex-1 flex items-center justify-center gap-2 rounded-xl border-2 p-4 transition-all",
                     data.timeFormat === format
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                      ? "border-dash-primary bg-dash-primary-light dark:bg-teal-900/20"
                       : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
                   )}
                 >
@@ -221,7 +221,7 @@ export function LocalizationSettings({
           <select
             value={data.currency}
             onChange={(e) => handleChange("currency", e.target.value)}
-            className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="w-full max-w-md rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           >
             {CURRENCIES.map((curr) => (
               <option key={curr.code} value={curr.code}>
@@ -273,7 +273,7 @@ export function LocalizationSettings({
                 className={cn(
                   "flex-1 flex flex-col items-center gap-2 rounded-xl border-2 p-6 transition-all",
                   data.measurementUnits === unit
-                    ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                    ? "border-dash-primary bg-dash-primary-light dark:bg-teal-900/20"
                     : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
                 )}
               >

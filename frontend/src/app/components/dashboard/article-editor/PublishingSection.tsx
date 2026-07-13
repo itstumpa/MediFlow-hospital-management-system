@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -54,7 +54,7 @@ export function PublishingSection({
           <select
             value={status}
             onChange={(e) => onChange("status", e.target.value)}
-            className="dash-input w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            className="dash-input w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
           >
             <option value="draft">Draft</option>
             <option value="published">Published</option>
@@ -73,7 +73,7 @@ export function PublishingSection({
           <select
             value={author}
             onChange={(e) => onChange("author", e.target.value)}
-            className="dash-input w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            className="dash-input w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
           >
             <option value="">Select author...</option>
             {mockAuthors.map((a) => (
@@ -95,7 +95,7 @@ export function PublishingSection({
           <select
             value={category}
             onChange={(e) => onChange("category", e.target.value)}
-            className="dash-input w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            className="dash-input w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
           >
             <option value="">Select category...</option>
             {mockCategories.map((c) => (
@@ -126,7 +126,7 @@ export function PublishingSection({
             value={readingTime}
             onChange={(e) => onChange("readingTime", e.target.value)}
             placeholder="e.g. 5 min read"
-            className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-10 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+            className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-10 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
           />
           <Clock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         </div>
@@ -168,7 +168,7 @@ export function PublishingSection({
             type="button"
             onClick={() => onChange("allowComments", !allowComments)}
             className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-              allowComments ? "bg-blue-500" : "bg-slate-300 dark:bg-slate-600"
+              allowComments ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600"
             }`}
           >
             <motion.div
@@ -180,7 +180,7 @@ export function PublishingSection({
           </button>
           <div className="flex items-center gap-2">
             {allowComments ? (
-              <ToggleRight className="h-4 w-4 text-blue-500" />
+              <ToggleRight className="h-4 w-4 text-dash-primary" />
             ) : (
               <ToggleLeft className="h-4 w-4 text-slate-400" />
             )}
@@ -201,7 +201,7 @@ export function PublishingSection({
             type="datetime-local"
             value={publishDate}
             onChange={(e) => onChange("publishDate", e.target.value)}
-            className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-10 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-10 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
           />
           <Calendar className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         </div>
@@ -217,7 +217,7 @@ export function PublishingSection({
             type="datetime-local"
             value={scheduleDate}
             onChange={(e) => onChange("scheduleDate", e.target.value)}
-            className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-10 text-sm text-slate-700 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pl-10 text-sm text-slate-700 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
           />
           <Calendar className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         </div>
@@ -258,7 +258,7 @@ function TagsInput({
                 onClick={() => onChange(value.filter((v) => v !== tagId))}
                 className="text-emerald-400 hover:text-emerald-700 dark:text-emerald-500 dark:hover:text-emerald-300"
               >
-                ✕
+                âœ•
               </button>
             </span>
           );

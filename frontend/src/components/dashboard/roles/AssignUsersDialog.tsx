@@ -1,19 +1,10 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Search,
-  X,
-  Check,
-  UserPlus,
-  UserMinus,
-  Users,
-  MoreVertical,
-  Loader2,
-} from "lucide-react";
+import { Role, User } from "@/lib/data/rbac";
 import { cn } from "@/lib/utils";
-import { User, Role } from "@/lib/data/rbac";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, Search, UserMinus, UserPlus, Users, X } from "lucide-react";
+import { useMemo, useState } from "react";
 
 interface AssignUsersDialogProps {
   role: Role;
@@ -161,19 +152,19 @@ export function AssignUsersDialog({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="bg-background rounded-2xl border shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden"
+          className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b bg-muted/30">
+          <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
             <div className="flex items-center gap-3">
-              <div className="size-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+              <div className="size-10 rounded-xl bg-dash-primary/10 text-dash-primary flex items-center justify-center">
                 <Users className="size-5" />
               </div>
               <div>
                 <h2 id="assign-users-title" className="text-lg font-semibold">
                   Assign Users to {role.name}
                 </h2>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-slate-500 dark:text-slate-400">
                   {role.type === "system" ? "System Role" : "Custom Role"} •{" "}
                   {role.userCount} user{role.userCount !== 1 ? "s" : ""}{" "}
                   currently assigned
@@ -183,7 +174,7 @@ export function AssignUsersDialog({
             <button
               onClick={onClose}
               disabled={isLoading}
-              className="p-2 rounded-lg hover:bg-accent text-muted-foreground transition-colors disabled:opacity-50"
+              className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors disabled:opacity-50"
               aria-label="Close dialog"
             >
               <X className="size-5" />
@@ -193,14 +184,14 @@ export function AssignUsersDialog({
           {/* Content */}
           <div className="flex-1 overflow-hidden flex flex-col">
             {/* Tab Navigation */}
-            <div className="flex border-b bg-muted/30 px-4">
+            <div className="flex border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 px-4">
               <button
                 onClick={() => setActiveTab("available")}
                 className={cn(
                   "flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors",
                   activeTab === "available"
-                    ? "border-primary text-primary"
-                    : "border-transparent text-muted-foreground hover:text-foreground",
+                    ? "border-dash-primary text-dash-primary"
+                    : "border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white",
                 )}
               >
                 <UserPlus className="size-4" />
@@ -209,8 +200,8 @@ export function AssignUsersDialog({
                   className={cn(
                     "px-2 py-0.5 text-xs font-medium rounded-full",
                     activeTab === "available"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground",
+                      ? "bg-dash-primary text-white"
+                      : "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400",
                   )}
                 >
                   {filteredAvailable.length}
@@ -221,8 +212,8 @@ export function AssignUsersDialog({
                 className={cn(
                   "flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors",
                   activeTab === "assigned"
-                    ? "border-primary text-primary"
-                    : "border-transparent text-muted-foreground hover:text-foreground",
+                    ? "border-dash-primary text-dash-primary"
+                    : "border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white",
                 )}
               >
                 <UserMinus className="size-4" />
@@ -231,8 +222,8 @@ export function AssignUsersDialog({
                   className={cn(
                     "px-2 py-0.5 text-xs font-medium rounded-full",
                     activeTab === "assigned"
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground",
+                      ? "bg-dash-primary text-white"
+                      : "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400",
                   )}
                 >
                   {filteredAssigned.length}
@@ -241,21 +232,21 @@ export function AssignUsersDialog({
             </div>
 
             {/* Search */}
-            <div className="p-4 border-b bg-muted/20">
+            <div className="p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50/30 dark:bg-slate-800/30">
               <div className="relative max-w-md">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground size-4" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 size-4" />
                 <input
                   type="text"
                   placeholder="Search users by name, email, or role..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 text-sm bg-background border rounded-lg focus-visible:ring-2 focus-visible:ring-ring"
+                  className="w-full pl-10 pr-4 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
                   aria-label="Search users"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white"
                     aria-label="Clear search"
                   >
                     <X className="size-4" />
@@ -293,7 +284,7 @@ export function AssignUsersDialog({
               )}
 
               {filteredAvailable.length === 0 && activeTab === "available" && (
-                <div className="flex flex-col items-center justify-center py-12 text-center text-muted-foreground">
+                <div className="flex flex-col items-center justify-center py-12 text-center text-slate-500 dark:text-slate-400">
                   <Users className="size-12 mb-4 opacity-50" />
                   <p className="font-medium">No available users found</p>
                   <p className="text-sm">
@@ -305,7 +296,7 @@ export function AssignUsersDialog({
               )}
 
               {filteredAssigned.length === 0 && activeTab === "assigned" && (
-                <div className="flex flex-col items-center justify-center py-12 text-center text-muted-foreground">
+                <div className="flex flex-col items-center justify-center py-12 text-center text-slate-500 dark:text-slate-400">
                   <UserMinus className="size-12 mb-4 opacity-50" />
                   <p className="font-medium">No users assigned to this role</p>
                   <p className="text-sm">
@@ -317,10 +308,10 @@ export function AssignUsersDialog({
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between p-4 border-t bg-muted/30">
-            <div className="text-sm text-muted-foreground">
+          <div className="flex items-center justify-between p-4 border-t border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+            <div className="text-sm text-slate-500 dark:text-slate-400">
               {selectedAvailable.size > 0 && activeTab === "available" && (
-                <span className="text-primary font-medium">
+                <span className="text-dash-primary font-medium">
                   {selectedAvailable.size} selected for assignment
                 </span>
               )}
@@ -337,7 +328,7 @@ export function AssignUsersDialog({
               <button
                 onClick={onClose}
                 disabled={isLoading}
-                className="px-4 py-2 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+                className="px-4 py-2 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
               >
                 Done
               </button>
@@ -381,7 +372,9 @@ function AvailableUsersList({
               type="checkbox"
               checked={selected.size === users.length && users.length > 0}
               ref={(el) => {
-                if (el) el.indeterminate = selected.size > 0 && selected.size < users.length;
+                if (el)
+                  el.indeterminate =
+                    selected.size > 0 && selected.size < users.length;
               }}
               onChange={() => {
                 if (selected.size === users.length) {
@@ -390,10 +383,10 @@ function AvailableUsersList({
                   users.forEach((u) => selected.add(u.id));
                 }
               }}
-              className="size-4 rounded border-input"
+              className="size-4 rounded border-slate-300 dark:border-slate-600"
               aria-label="Select all users"
             />
-            <span className="text-sm font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
               {users.length} user{users.length !== 1 ? "s" : ""} available
             </span>
           </div>
@@ -402,7 +395,7 @@ function AvailableUsersList({
               <button
                 onClick={onAssignSelected}
                 disabled={isLoading}
-                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
+                className="px-3 py-1.5 text-sm font-medium rounded-lg bg-dash-primary text-white hover:bg-dash-primary/90 transition-colors disabled:opacity-50"
               >
                 <UserPlus className="size-3.5 mr-1.5" />
                 Assign Selected
@@ -411,7 +404,7 @@ function AvailableUsersList({
             <button
               onClick={onAssignAll}
               disabled={isLoading || users.length === 0}
-              className="px-3 py-1.5 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
             >
               Assign All
             </button>
@@ -429,21 +422,23 @@ function AvailableUsersList({
             className={cn(
               "flex items-center gap-3 p-3 rounded-xl border transition-all",
               selected.has(user.id)
-                ? "bg-primary/5 border-primary/20"
-                : "hover:bg-muted/30",
+                ? "bg-dash-primary/5 border-dash-primary/20"
+                : "hover:bg-slate-50/50 dark:hover:bg-slate-800/30",
             )}
           >
             <input
               type="checkbox"
               checked={selected.has(user.id)}
               onChange={() => onToggle(user.id)}
-              className="size-4 rounded border-input bg-background focus-visible:ring-2 focus-visible:ring-ring"
+              className="size-4 rounded border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50"
               aria-label={`Select ${user.name}`}
             />
             <div
               className={cn(
                 "size-10 rounded-xl flex items-center justify-center flex-shrink-0 font-medium",
-                user.avatar ? "" : "bg-muted text-muted-foreground",
+                user.avatar
+                  ? ""
+                  : "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400",
               )}
             >
               {user.avatar ? (
@@ -468,9 +463,11 @@ function AvailableUsersList({
                   {user.status}
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                 <span className="truncate">{user.email}</span>
-                <span className="text-muted-foreground/50">•</span>
+                <span className="text-slate-400/50 dark:text-slate-500/50">
+                  •
+                </span>
                 <span>{user.role}</span>
               </div>
             </div>
@@ -479,8 +476,8 @@ function AvailableUsersList({
               className={cn(
                 "p-2 rounded-lg transition-colors",
                 selected.has(user.id)
-                  ? "bg-primary/10 text-primary hover:bg-primary/20"
-                  : "text-muted-foreground hover:bg-accent",
+                  ? "bg-dash-primary/10 text-dash-primary hover:bg-dash-primary/20"
+                  : "text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700",
               )}
               aria-label={
                 selected.has(user.id) ? "Deselect" : "Select for assignment"
@@ -527,7 +524,9 @@ function AssignedUsersList({
               type="checkbox"
               checked={selected.size === users.length && users.length > 0}
               ref={(el) => {
-                if (el) el.indeterminate = selected.size > 0 && selected.size < users.length;
+                if (el)
+                  el.indeterminate =
+                    selected.size > 0 && selected.size < users.length;
               }}
               onChange={() => {
                 if (selected.size === users.length) {
@@ -536,10 +535,10 @@ function AssignedUsersList({
                   users.forEach((u) => selected.add(u.id));
                 }
               }}
-              className="size-4 rounded border-input"
+              className="size-4 rounded border-slate-300 dark:border-slate-600"
               aria-label="Select all assigned users"
             />
-            <span className="text-sm font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
               {users.length} user{users.length !== 1 ? "s" : ""} assigned
             </span>
           </div>
@@ -557,7 +556,7 @@ function AssignedUsersList({
             <button
               onClick={onRemoveAll}
               disabled={isLoading || users.length === 0}
-              className="px-3 py-1.5 text-sm font-medium rounded-lg border hover:bg-accent transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 text-slate-700 dark:text-slate-300"
             >
               Remove All
             </button>
@@ -576,20 +575,22 @@ function AssignedUsersList({
               "flex items-center gap-3 p-3 rounded-xl border transition-all",
               selected.has(user.id)
                 ? "bg-rose-50 dark:bg-rose-900/20 border-rose-200 dark:border-rose-800"
-                : "hover:bg-muted/30",
+                : "hover:bg-slate-50/50 dark:hover:bg-slate-800/30",
             )}
           >
             <input
               type="checkbox"
               checked={selected.has(user.id)}
               onChange={() => onToggle(user.id)}
-              className="size-4 rounded border-input bg-background focus-visible:ring-2 focus-visible:ring-ring"
+              className="size-4 rounded border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary/50"
               aria-label={`Select ${user.name} for removal`}
             />
             <div
               className={cn(
                 "size-10 rounded-xl flex items-center justify-center flex-shrink-0 font-medium",
-                user.avatar ? "" : "bg-muted text-muted-foreground",
+                user.avatar
+                  ? ""
+                  : "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400",
               )}
             >
               {user.avatar ? (
@@ -614,9 +615,11 @@ function AssignedUsersList({
                   {user.status}
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                 <span className="truncate">{user.email}</span>
-                <span className="text-muted-foreground/50">•</span>
+                <span className="text-slate-400/50 dark:text-slate-500/50">
+                  •
+                </span>
                 <span>{user.role}</span>
               </div>
             </div>
@@ -626,7 +629,7 @@ function AssignedUsersList({
                 "p-2 rounded-lg transition-colors",
                 selected.has(user.id)
                   ? "bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 hover:bg-rose-200 dark:hover:bg-rose-900/50"
-                  : "text-muted-foreground hover:bg-accent",
+                  : "text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700",
               )}
               aria-label={
                 selected.has(user.id) ? "Deselect" : "Select for removal"

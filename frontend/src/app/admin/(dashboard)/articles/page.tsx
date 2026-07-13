@@ -1,5 +1,7 @@
-"use client";
+﻿"use client";
 
+import { Button } from "@/app/components/dashboard/Button";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import {
   ArticleCard,
@@ -251,19 +253,22 @@ export default function ArticlesPage() {
     !!filters.dateTo;
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="space-y-6"
+    >
       {/* Page Header */}
       <PageHeader
         title="Articles"
         subtitle="Manage all published and draft health articles."
         actions={
           <div className="flex items-center gap-2">
-            <Link
-              href="/admin/articles/new"
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg"
-            >
-              <Plus className="h-4 w-4" />
-              Create Article
+            <Link href="/admin/articles/new">
+              <Button variant="primary" icon={Plus} size="sm">
+                Create Article
+              </Button>
             </Link>
           </div>
         }
@@ -383,7 +388,7 @@ export default function ArticlesPage() {
                             setRowsPerPage(Number(e.target.value));
                             setCurrentPage(1);
                           }}
-                          className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                          className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                         >
                           {[5, 10, 20, 50].map((n) => (
                             <option key={n} value={n}>
@@ -437,7 +442,7 @@ export default function ArticlesPage() {
                                 onClick={() => setCurrentPage(pageNum)}
                                 className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-medium transition-all ${
                                   currentPage === pageNum
-                                    ? "bg-blue-600 text-white shadow-sm"
+                                    ? "bg-dash-primary text-white shadow-sm"
                                     : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
                                 }`}
                               >
@@ -500,6 +505,6 @@ export default function ArticlesPage() {
         }}
         onConfirm={handleDeleteConfirm}
       />
-    </div>
+    </motion.div>
   );
 }

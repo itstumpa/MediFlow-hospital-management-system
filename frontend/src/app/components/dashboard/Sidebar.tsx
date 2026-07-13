@@ -27,7 +27,7 @@ export function Sidebar() {
           sidebarCollapsed ? "justify-center px-4" : "gap-3 px-5",
         )}
       >
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 shadow-sm">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-sm">
           <HeartPulse className="h-5 w-5 text-white" />
         </div>
 
@@ -113,7 +113,7 @@ export function Sidebar() {
           </>
         ) : (
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-sm font-semibold text-white shadow-sm">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm">
               AD
             </div>
             <div className="flex-1 overflow-hidden">

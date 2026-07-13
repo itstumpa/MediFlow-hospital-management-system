@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -179,7 +179,7 @@ export function APISettings({
       <section className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
               <Key className="h-5 w-5" />
             </div>
             <div>
@@ -193,7 +193,7 @@ export function APISettings({
           </div>
           <button
             onClick={() => setNewKeyName("")}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white hover:bg-dash-primary-dark"
           >
             <Plus className="h-4 w-4" />
             Create API Key
@@ -237,7 +237,7 @@ export function APISettings({
                     value={newKeyName}
                     onChange={(e) => setNewKeyName(e.target.value)}
                     placeholder="e.g., Mobile App, Third-party Integration"
-                    className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                    className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                     autoFocus
                   />
                 </div>
@@ -253,7 +253,7 @@ export function APISettings({
                         className={cn(
                           "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs cursor-pointer transition-colors",
                           newKeyScopes.includes(scope)
-                            ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                            ? "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent"
                             : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700",
                         )}
                       >
@@ -267,7 +267,7 @@ export function APISettings({
                                 : newKeyScopes.filter((s) => s !== scope),
                             )
                           }
-                          className="h-3 w-3 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                          className="h-3 w-3 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                         />
                         {scope}
                       </label>
@@ -290,7 +290,7 @@ export function APISettings({
                     !newKeyName?.trim() ||
                     newKeyScopes.length === 0
                   }
-                  className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white hover:bg-dash-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {creatingKey ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -345,7 +345,7 @@ export function APISettings({
               <div className="flex justify-end">
                 <button
                   onClick={() => setShowKey(null)}
-                  className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                  className="rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white hover:bg-dash-primary-dark"
                 >
                   I've Copied It
                 </button>
@@ -416,10 +416,10 @@ export function APISettings({
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
-                        Prefix: {key.prefix} • Created:{" "}
+                        Prefix: {key.prefix} â€¢ Created:{" "}
                         {new Date(key.createdAt).toLocaleDateString()}
                         {key.lastUsed &&
-                          ` • Last used: ${new Date(key.lastUsed).toLocaleDateString()}`}
+                          ` â€¢ Last used: ${new Date(key.lastUsed).toLocaleDateString()}`}
                       </p>
                       <div className="mt-1 flex flex-wrap gap-1">
                         {key.scopes.map((scope) => (
@@ -544,7 +544,7 @@ export function APISettings({
                             className="font-medium text-slate-900 dark:text-white bg-transparent border-none focus:outline-none focus:ring-0 text-sm"
                           />
                           <p className="text-xs text-slate-500 dark:text-slate-400">
-                            {webhook.events.length} events •{" "}
+                            {webhook.events.length} events â€¢{" "}
                             {webhook.active ? "Active" : "Inactive"}
                           </p>
                         </div>
@@ -565,7 +565,7 @@ export function APISettings({
                             className={cn(
                               "w-11 h-6 rounded-full transition-colors",
                               webhook.active
-                                ? "bg-blue-600"
+                                ? "bg-dash-primary"
                                 : "bg-slate-300 dark:bg-slate-600",
                             )}
                           />
@@ -613,7 +613,7 @@ export function APISettings({
                           updateWebhook(webhook.id, { url: e.target.value })
                         }
                         placeholder="https://your-app.com/webhook"
-                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                        className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       />
                     </div>
 
@@ -728,7 +728,7 @@ export function APISettings({
                       requestsPerMinute: parseInt(e.target.value),
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   min="1"
                 />
               </div>
@@ -745,7 +745,7 @@ export function APISettings({
                       requestsPerHour: parseInt(e.target.value),
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   min="1"
                 />
               </div>
@@ -762,7 +762,7 @@ export function APISettings({
                       requestsPerDay: parseInt(e.target.value),
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   min="1"
                 />
               </div>
@@ -808,7 +808,7 @@ export function APISettings({
                             })
                           }
                           placeholder="/api/*"
-                          className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          className="flex-1 min-w-[150px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         />
                         <select
                           value={rule.method}
@@ -817,7 +817,7 @@ export function APISettings({
                               method: e.target.value as RateLimitRule["method"],
                             })
                           }
-                          className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         >
                           <option value="ALL">ALL</option>
                           <option value="GET">GET</option>
@@ -853,7 +853,7 @@ export function APISettings({
                         }
                         min="1"
                         max="10000"
-                        className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                        className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 text-center focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       />
                       <input
                         type="number"
@@ -865,7 +865,7 @@ export function APISettings({
                         }
                         min="1"
                         max="3600"
-                        className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                        className="w-20 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 text-center focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       />
                       <select
                         value={rule.action}
@@ -874,7 +874,7 @@ export function APISettings({
                             action: e.target.value as "throttle" | "block",
                           })
                         }
-                        className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                        className="w-auto rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       >
                         <option value="throttle">Throttle</option>
                         <option value="block">Block</option>
@@ -912,9 +912,9 @@ export function APISettings({
         </div>
 
         <div className="dash-card p-6 space-y-4">
-          <div className="flex items-center justify-between p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20">
+          <div className="flex items-center justify-between p-4 rounded-xl bg-dash-primary-light dark:bg-teal-900/20">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
                 <Terminal className="h-6 w-6" />
               </div>
               <div>
@@ -975,8 +975,8 @@ function ToggleSwitch({ checked, onChange }: ToggleSwitchProps) {
       role="switch"
       aria-checked={checked}
       className={cn(
-        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900",
-        checked ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600",
+        "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-dash-primary focus:ring-offset-2 dark:focus:ring-offset-slate-900",
+        checked ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600",
       )}
     >
       <motion.span

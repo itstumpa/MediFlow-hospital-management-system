@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/app/components/dashboard/MotionVariants";
 import type { PatientDetail } from "@/lib/data/patient-detail";
@@ -97,7 +97,7 @@ function StatusBadge({ status }: { status: string }) {
     Managed:
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
     "Under Treatment":
-      "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+      "bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent",
   };
   return (
     <span
@@ -264,7 +264,7 @@ export function OverviewTab({ patient }: OverviewTabProps) {
                   </span>
                 </div>
                 <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
-                  {med.frequency} — Prescribed by {med.prescribedBy}
+                  {med.frequency} â€” Prescribed by {med.prescribedBy}
                 </p>
               </div>
             ))}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -71,7 +71,7 @@ const availabilityColors: Record<string, string> = {
 };
 
 const avatarColors = [
-  "bg-blue-500",
+  "bg-dash-primary",
   "bg-emerald-500",
   "bg-violet-500",
   "bg-amber-500",
@@ -119,7 +119,7 @@ export function DoctorRow({
       transition={{ duration: 0.3, delay: index * 0.03, ease: "easeOut" }}
       className={`group transition-colors ${
         selected
-          ? "bg-blue-50/50 dark:bg-blue-900/20"
+          ? "bg-dash-primary-light/50 dark:bg-teal-900/20"
           : "hover:bg-slate-50 dark:hover:bg-slate-800/50"
       }`}
     >
@@ -130,7 +130,7 @@ export function DoctorRow({
             type="checkbox"
             checked={selected}
             onChange={() => onSelect(doctor.id)}
-            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+            className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary dark:border-slate-600"
           />
         </div>
       </td>
@@ -149,7 +149,7 @@ export function DoctorRow({
                 {doctor.name}
               </span>
               {doctor.verified && (
-                <span className="text-blue-500" title="Verified">
+                <span className="text-dash-primary" title="Verified">
                   <svg
                     className="h-3.5 w-3.5"
                     viewBox="0 0 24 24"

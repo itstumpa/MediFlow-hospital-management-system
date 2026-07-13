@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -53,7 +53,7 @@ export function WorkingHours() {
               {...register("openingTime")}
               className={cn(
                 "w-full rounded-xl border py-2.5 pl-10 pr-4 text-sm transition-all",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+                "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
                 errors.openingTime
                   ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
                   : "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
@@ -79,7 +79,7 @@ export function WorkingHours() {
               {...register("closingTime")}
               className={cn(
                 "w-full rounded-xl border py-2.5 pl-10 pr-4 text-sm transition-all",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+                "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
                 errors.closingTime
                   ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
                   : "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
@@ -102,7 +102,7 @@ export function WorkingHours() {
             {...register("emergencyAvailable")}
             className="peer sr-only"
           />
-          <span className="h-6 w-11 rounded-full bg-slate-200 transition-colors after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500/20" />
+          <span className="h-6 w-11 rounded-full bg-slate-200 transition-colors after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-dash-primary peer-checked:after:translate-x-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-dash-primary/20" />
         </label>
         <div>
           <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
@@ -124,7 +124,7 @@ export function WorkingHours() {
           placeholder="e.g., Limited emergency services only"
           className={cn(
             "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+            "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
             "placeholder:text-slate-400",
             "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
           )}
@@ -164,7 +164,7 @@ export function WorkingHours() {
                     onChange={() => toggleDay(day, schedule)}
                     className="peer sr-only"
                   />
-                  <span className="h-5 w-9 rounded-full bg-slate-200 transition-colors after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-blue-500 peer-checked:after:translate-x-full" />
+                  <span className="h-5 w-9 rounded-full bg-slate-200 transition-colors after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-dash-primary peer-checked:after:translate-x-full" />
                 </label>
 
                 {/* Day name */}
@@ -192,7 +192,7 @@ export function WorkingHours() {
                           { shouldValidate: true },
                         )
                       }
-                      className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-600 dark:bg-slate-700"
+                      className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-700"
                     />
                     <span className="text-xs text-slate-400">to</span>
                     <input
@@ -205,7 +205,7 @@ export function WorkingHours() {
                           { shouldValidate: true },
                         )
                       }
-                      className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-600 dark:bg-slate-700"
+                      className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-700"
                     />
                   </div>
                 )}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
@@ -194,9 +194,9 @@ export function DepartmentStats({ departments }: DepartmentStatsProps) {
       value: totalDepartments,
       icon: Building2,
       color: {
-        bg: "bg-blue-50 dark:bg-blue-950/30",
-        text: "text-blue-600 dark:text-blue-400",
-        glow: "shadow-blue-500/10",
+        bg: "bg-dash-primary-light dark:bg-teal-950/30",
+        text: "text-dash-primary dark:text-accent",
+        glow: "shadow-dash-primary/10",
       },
       sparkline: [2, 4, 3, 6, 5, 8, 10, 12, 14, 16, 16],
       trend: 12,

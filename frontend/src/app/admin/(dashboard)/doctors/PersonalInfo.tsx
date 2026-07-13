@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { motion } from "framer-motion";
@@ -19,7 +19,7 @@ export function PersonalInfo() {
   const photo = watch("photo");
 
   const inputGlow =
-    "transition-all duration-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:shadow-[0_0_0_4px_rgba(59,130,246,0.1)]";
+    "transition-all duration-200 focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary focus:shadow-[0_0_0_4px_rgba(14,124,123,0.1)]";
 
   return (
     <motion.div
@@ -31,7 +31,7 @@ export function PersonalInfo() {
       {/* Section Header */}
       <motion.div variants={staggerItem}>
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-500/20 dark:text-accent">
             <UserIcon className="h-4 w-4" />
           </div>
           <div>
@@ -160,7 +160,7 @@ export function PersonalInfo() {
           </label>
           <select
             {...register("gender")}
-            className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
+            className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
               errors.gender ? "border-red-400" : ""
             }`}
             aria-invalid={!!errors.gender}
@@ -184,7 +184,7 @@ export function PersonalInfo() {
             <input
               {...register("dateOfBirth")}
               type="date"
-              className={`w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
+              className={`w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
                 errors.dateOfBirth ? "border-red-400" : ""
               }`}
               aria-invalid={!!errors.dateOfBirth}
@@ -203,7 +203,7 @@ export function PersonalInfo() {
             <Droplets className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <select
               {...register("bloodGroup")}
-              className={`w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
+              className={`w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
                 errors.bloodGroup ? "border-red-400" : ""
               }`}
               aria-invalid={!!errors.bloodGroup}
@@ -229,7 +229,7 @@ export function PersonalInfo() {
             <Globe className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <select
               {...register("nationality")}
-              className={`w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
+              className={`w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-600 dark:bg-slate-800 dark:text-white ${inputGlow} ${
                 errors.nationality ? "border-red-400" : ""
               }`}
               aria-invalid={!!errors.nationality}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -215,7 +215,7 @@ export function ActivityFilters({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleReset}
-              className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 font-medium flex items-center gap-1"
+              className="text-xs text-dash-primary hover:text-dash-primary dark:text-accent font-medium flex items-center gap-1"
             >
               <X className="h-3.5 w-3.5" />
               Clear all
@@ -231,7 +231,7 @@ export function ActivityFilters({
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             placeholder="Search activities..."
-            className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+            className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
           />
         </form>
       </div>
@@ -254,10 +254,7 @@ export function ActivityFilters({
                 selected={filters.module}
                 onToggle={(v) => toggleMultiSelect("module", v)}
                 renderBadge={(m) => (
-                  <ModuleBadge
-                    module={m as ActivityModule}
-                    size="sm"
-                  />
+                  <ModuleBadge module={m as ActivityModule} size="sm" />
                 )}
               />
               <FilterSection
@@ -267,10 +264,7 @@ export function ActivityFilters({
                 selected={filters.action}
                 onToggle={(v) => toggleMultiSelect("action", v)}
                 renderBadge={(a) => (
-                  <ActionBadge
-                    action={a as ActivityActionType}
-                    size="sm"
-                  />
+                  <ActionBadge action={a as ActivityActionType} size="sm" />
                 )}
               />
               <FilterSection
@@ -280,10 +274,7 @@ export function ActivityFilters({
                 selected={filters.severity}
                 onToggle={(v) => toggleMultiSelect("severity", v)}
                 renderBadge={(s) => (
-                  <SeverityBadge
-                    severity={s as ActivitySeverity}
-                    size="sm"
-                  />
+                  <SeverityBadge severity={s as ActivitySeverity} size="sm" />
                 )}
               />
               <FilterSection
@@ -293,10 +284,7 @@ export function ActivityFilters({
                 selected={filters.status}
                 onToggle={(v) => toggleMultiSelect("status", v)}
                 renderBadge={(s) => (
-                  <StatusBadge
-                    status={s as ActivityStatus}
-                    size="sm"
-                  />
+                  <StatusBadge status={s as ActivityStatus} size="sm" />
                 )}
               />
             </motion.div>
@@ -339,7 +327,7 @@ export function ActivityFilters({
                         type="checkbox"
                         checked={filters.user.includes(item.value)}
                         onChange={() => toggleMultiSelect("user", item.value)}
-                        className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                        className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                       />
                       <span className="text-sm text-slate-700 dark:text-slate-300">
                         {item.label}
@@ -372,7 +360,7 @@ export function ActivityFilters({
                   type="date"
                   value={filters.dateFrom}
                   onChange={(e) => handleDateChange("dateFrom", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 />
               </div>
               <div>
@@ -383,7 +371,7 @@ export function ActivityFilters({
                   type="date"
                   value={filters.dateTo}
                   onChange={(e) => handleDateChange("dateTo", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                 />
               </div>
             </div>
@@ -406,7 +394,7 @@ export function ActivityFilters({
               value={filters.ipAddress}
               onChange={(e) => handleIpChange(e.target.value)}
               placeholder="e.g., 192.168.1.1"
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+              className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
             />
           </motion.div>
         </AnimatePresence>
@@ -430,7 +418,7 @@ export function ActivityFilters({
           whileTap={{ scale: 0.98 }}
           onClick={handleReset}
           disabled={!hasActiveFilters}
-          className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
+          className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-dash-primary px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-dash-primary-dark hover:shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <RefreshCw className="h-4 w-4" />
           Reset Filters
@@ -469,7 +457,7 @@ function FilterSection({
           <Icon className="h-3.5 w-3.5" />
           {title}
           {selected.length > 0 && (
-            <span className="text-xs px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+            <span className="text-xs px-1.5 py-0.5 rounded-full bg-dash-primary-light text-dash-primary dark:bg-teal-900/30 dark:text-accent">
               {selected.length}
             </span>
           )}
@@ -597,17 +585,17 @@ export function ActivityToolbar({
                 sortAsc: dir === "asc",
               });
             }}
-            className="appearance-none pl-10 pr-8 py-2 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 cursor-pointer"
+            className="appearance-none pl-10 pr-8 py-2 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 cursor-pointer"
           >
             <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
             {SORT_FIELD_OPTIONS.map((opt) => (
               <option key={opt.value} value={`${opt.value},asc`}>
-                {opt.label} ↑
+                {opt.label} â†‘
               </option>
             ))}
             {SORT_FIELD_OPTIONS.map((opt) => (
               <option key={`${opt.value}-desc`} value={`${opt.value},desc`}>
-                {opt.label} ↓
+                {opt.label} â†“
               </option>
             ))}
           </select>
@@ -651,7 +639,7 @@ export function ActivityToolbar({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onExport}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-dash-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-dash-primary-dark hover:shadow-md"
           >
             <Download className="h-3.5 w-3.5" />
             Export
@@ -665,7 +653,7 @@ export function ActivityToolbar({
           className={cn(
             "inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-medium transition-all lg:hidden",
             filterPanelOpen
-              ? "bg-blue-600 text-white shadow-sm"
+              ? "bg-dash-primary text-white shadow-sm"
               : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700",
           )}
         >

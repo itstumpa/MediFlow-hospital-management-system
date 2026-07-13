@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import type { NotificationStats } from "@/lib/data/notifications";
@@ -30,9 +30,9 @@ const statCards: {
     key: "total",
     label: "Total",
     icon: Bell,
-    color: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-50",
-    darkBg: "dark:bg-blue-500/10",
+    color: "text-dash-primary dark:text-accent",
+    bg: "bg-dash-primary-light",
+    darkBg: "dark:bg-teal-500/10",
   },
   {
     key: "unread",

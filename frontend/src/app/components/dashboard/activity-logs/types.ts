@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { LucideIcon } from "lucide-react";
 
@@ -257,7 +257,7 @@ export const ACTION_TYPE_CONFIG: Record<
   create: {
     label: "Create",
     icon: null as any,
-    color: "text-blue-600 bg-blue-100",
+    color: "text-dash-primary bg-dash-primary-light",
   },
   update: {
     label: "Update",
@@ -307,7 +307,7 @@ export const ACTION_TYPE_CONFIG: Record<
   read: {
     label: "Read",
     icon: null as any,
-    color: "text-blue-600 bg-blue-100",
+    color: "text-dash-primary bg-dash-primary-light",
   },
   revoke: {
     label: "Revoke",
@@ -363,8 +363,8 @@ export const SEVERITY_CONFIG: Record<
 > = {
   info: {
     label: "Info",
-    color: "text-blue-600 bg-blue-100",
-    pulseColor: "bg-blue-500",
+    color: "text-dash-primary bg-dash-primary-light",
+    pulseColor: "bg-dash-primary",
     icon: null as any,
   },
   warning: {
@@ -426,7 +426,7 @@ export const MODULE_CONFIG: Record<
   },
   Users: {
     label: "Users",
-    color: "text-blue-600 bg-blue-100",
+    color: "text-dash-primary bg-dash-primary-light",
     icon: null as any,
   },
   Doctors: {

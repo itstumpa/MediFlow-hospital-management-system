@@ -1,9 +1,5 @@
-import { EmergencyBanner } from "@/app/components/home/EmergencyBanner";
-import { Navbar } from "@/app/components/home/Navbar";
-import { ScrollProgress } from "@/app/components/ui/ScrollProgress";
-import { LazyMotion, MotionConfig, domMax } from "framer-motion";
+import { RootLayoutContent } from "@/app/components/layout/RootLayoutContent";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -12,16 +8,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
-
-const Footer = dynamic(
-  () =>
-    import("@/app/components/home/footer/Footer").then((m) => ({
-      default: m.Footer,
-    })),
-  {
-    loading: () => <div className="bg-[#0f1a1a] h-64" aria-hidden="true" />,
-  },
-);
 
 const siteUrl = "https://mediflow.com";
 
@@ -103,19 +89,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <LazyMotion features={domMax}>
-          <MotionConfig reducedMotion="user">
-            <ScrollProgress />
-            <aside aria-label="Emergency announcement">
-              <EmergencyBanner />
-            </aside>
-            <Navbar />
-            <main id="main-content" className="flex-1" tabIndex={-1}>
-              {children}
-            </main>
-            <Footer />
-          </MotionConfig>
-        </LazyMotion>
+        <RootLayoutContent>{children}</RootLayoutContent>
       </body>
     </html>
   );

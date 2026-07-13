@@ -1,6 +1,5 @@
-"use client";
+﻿"use client";
 
-import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import { AppointmentFilters } from "@/app/components/dashboard/appointments/AppointmentFilters";
 import { AppointmentsStats } from "@/app/components/dashboard/appointments/AppointmentsStats";
 import { AppointmentsTable } from "@/app/components/dashboard/appointments/AppointmentsTable";
@@ -16,6 +15,9 @@ import type {
   ViewMode,
 } from "@/app/components/dashboard/appointments/types";
 import { DEFAULT_FILTERS } from "@/app/components/dashboard/appointments/types";
+import { Button } from "@/app/components/dashboard/Button";
+import { staggerContainer } from "@/app/components/dashboard/MotionVariants";
+import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import { AnimatePresence, motion } from "framer-motion";
 import { Calendar, Download, Plus } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
@@ -165,24 +167,26 @@ export default function AppointmentsPage() {
   }, []);
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="space-y-6"
+    >
       <PageHeader
         title="Appointment Management"
         subtitle="View, schedule, and manage all patient appointments."
         actions={
           <div className="flex items-center gap-2">
-            <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700">
-              <Calendar className="h-4 w-4" />
-              <span className="hidden sm:inline">Calendar View</span>
-            </button>
-            <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-700">
-              <Download className="h-4 w-4" />
-              <span className="hidden sm:inline">Export</span>
-            </button>
-            <button className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md">
-              <Plus className="h-4 w-4" />
+            <Button variant="outline" icon={Calendar} size="sm">
+              Calendar View
+            </Button>
+            <Button variant="outline" icon={Download} size="sm">
+              Export
+            </Button>
+            <Button variant="primary" icon={Plus} size="sm">
               New Appointment
-            </button>
+            </Button>
           </div>
         }
       />
@@ -280,7 +284,7 @@ export default function AppointmentsPage() {
                       </span>
                       {selectedIds.size > 0 && (
                         <span>
-                          <span className="font-medium text-blue-600 dark:text-blue-400">
+                          <span className="font-medium text-dash-primary dark:text-accent">
                             {selectedIds.size}
                           </span>{" "}
                           selected
@@ -321,6 +325,6 @@ export default function AppointmentsPage() {
           />
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

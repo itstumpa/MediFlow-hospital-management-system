@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { NotificationSettings } from "@/lib/data/notifications";
 import { cn } from "@/lib/utils";
@@ -134,9 +134,9 @@ export function SettingsDialog({
                       })
                     }
                     className={cn(
-                      "relative inline-flex h-6 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                      "relative inline-flex h-6 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dash-primary focus-visible:ring-offset-2",
                       settings[item.key]
-                        ? "bg-blue-600"
+                        ? "bg-dash-primary"
                         : "bg-slate-200 dark:bg-slate-700",
                     )}
                   >
@@ -166,7 +166,7 @@ export function SettingsDialog({
                   onSave();
                   onClose();
                 }}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-md"
+                className="rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-dash-primary-dark hover:shadow-md"
               >
                 Save Changes
               </button>

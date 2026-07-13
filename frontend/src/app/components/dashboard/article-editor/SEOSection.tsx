@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Search, X } from "lucide-react";
@@ -25,7 +25,7 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
         className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800"
       >
         <div className="flex items-center gap-2 border-b border-slate-100 px-4 py-2 dark:border-slate-700">
-          <Search className="h-4 w-4 text-blue-500" />
+          <Search className="h-4 w-4 text-dash-primary" />
           <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
             Google Preview
           </span>
@@ -34,7 +34,7 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
           <p className="text-xs text-slate-500 dark:text-slate-400">
             {values.canonicalUrl || "https://mediflow.com/articles/..."}
           </p>
-          <p className="text-sm font-medium text-blue-700 hover:underline dark:text-blue-400">
+          <p className="text-sm font-medium text-dash-primary hover:underline dark:text-accent">
             {metaTitleFull || "Title"}
           </p>
           <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
@@ -66,7 +66,7 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
               value={values.metaTitle || ""}
               onChange={(e) => onChange("metaTitle", e.target.value)}
               placeholder="SEO title (leave blank to use article title)"
-              className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+              className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
             />
           </div>
         </div>
@@ -92,7 +92,7 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
             onChange={(e) => onChange("metaDescription", e.target.value)}
             placeholder="SEO description (leave blank to use excerpt)"
             rows={3}
-            className="dash-input w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+            className="dash-input w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
           />
         </div>
 
@@ -117,7 +117,7 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
               value={values.canonicalUrl || ""}
               onChange={(e) => onChange("canonicalUrl", e.target.value)}
               placeholder="https://..."
-              className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+              className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
             />
           </div>
 
@@ -130,7 +130,7 @@ export function SEOSection({ values, onChange }: SEOSectionProps) {
               value={values.ogImage || ""}
               onChange={(e) => onChange("ogImage", e.target.value)}
               placeholder="https://..."
-              className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
+              className="dash-input w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 transition-all focus:border-dash-primary focus:outline-none focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder-slate-500"
             />
           </div>
         </div>
@@ -158,17 +158,17 @@ function KeywordsInput({
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 transition-all focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-800 dark:focus-within:border-blue-500">
+    <div className="flex flex-wrap items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 transition-all focus-within:border-dash-primary focus-within:ring-2 focus-within:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:focus-within:border-dash-primary">
       {value.map((kw) => (
         <span
           key={kw}
-          className="inline-flex items-center gap-1 rounded-lg bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
+          className="inline-flex items-center gap-1 rounded-lg bg-dash-primary-light px-2 py-0.5 text-xs font-medium text-dash-primary dark:bg-teal-900/30 dark:text-accent"
         >
           {kw}
           <button
             type="button"
             onClick={() => onChange(value.filter((k) => k !== kw))}
-            className="text-blue-400 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-300"
+            className="text-dash-primary hover:text-dash-primary dark:text-dash-primary dark:hover:text-accent"
           >
             <X className="h-3 w-3" />
           </button>

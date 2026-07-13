@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/app/components/dashboard/MotionVariants";
 import type { PatientDetail } from "@/lib/data/patient-detail";
@@ -74,7 +74,7 @@ export function PatientSidebar({ patient }: PatientSidebarProps) {
       <SidebarSection title="Patient Summary">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-dash-primary to-blue-600 shadow-sm">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-sm">
               {patient.avatar ? (
                 <img
                   src={patient.avatar}
@@ -132,8 +132,8 @@ export function PatientSidebar({ patient }: PatientSidebarProps) {
       {/* Next Appointment */}
       <SidebarSection title="Next Appointment">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30">
-            <Calendar className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dash-primary-light dark:bg-teal-900/30">
+            <Calendar className="h-5 w-5 text-dash-primary dark:text-accent" />
           </div>
           <div>
             <p className="text-sm font-medium text-slate-900 dark:text-white">

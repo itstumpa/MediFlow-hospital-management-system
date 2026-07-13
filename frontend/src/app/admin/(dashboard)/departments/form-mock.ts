@@ -10,7 +10,7 @@ export const departmentIconOptions = [
   { value: "Ambulance", label: "Ambulance", color: "#ea580c" },
   { value: "HeartPulse", label: "HeartPulse", color: "#6366f1" },
   { value: "Wind", label: "Lungs", color: "#06b6d4" },
-  { value: "Stethoscope", label: "Stethoscope", color: "#2563eb" },
+  { value: "Stethoscope", label: "Stethoscope", color: "#0e7c7b" },
   { value: "Microscope", label: "Microscope", color: "#8b5cf6" },
   { value: "Syringe", label: "Syringe", color: "#0891b2" },
   { value: "Pill", label: "Pill", color: "#059669" },

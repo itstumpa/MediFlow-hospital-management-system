@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
@@ -48,7 +48,7 @@ export function SEOSection() {
               placeholder="cardiology"
               className={cn(
                 "w-full rounded-xl border py-2.5 pl-7 pr-4 text-sm transition-all",
-                "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+                "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
                 "placeholder:text-slate-400",
                 errors.slug
                   ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -76,7 +76,7 @@ export function SEOSection() {
             placeholder="Cardiology Department | MediFlow Hospital"
             className={cn(
               "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+              "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
               "placeholder:text-slate-400",
               errors.metaTitle
                 ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -105,7 +105,7 @@ export function SEOSection() {
           placeholder="World-class cardiology care at MediFlow Hospital..."
           className={cn(
             "w-full rounded-xl border px-4 py-2.5 text-sm transition-all resize-none",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+            "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
             "placeholder:text-slate-400",
             errors.metaDescription
               ? "border-red-300 bg-red-50 dark:border-red-500 dark:bg-red-500/10"
@@ -132,7 +132,7 @@ export function SEOSection() {
           placeholder="cardiology, heart care, cardiac surgery, cardiologist"
           className={cn(
             "w-full rounded-xl border px-4 py-2.5 text-sm transition-all",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400",
+            "focus:outline-none focus:ring-2 focus:ring-dash-primary/20 focus:border-dash-primary",
             "placeholder:text-slate-400",
             "border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-800",
           )}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 import { getRelatedDoctors } from "@/lib/data/admin-doctors";
@@ -20,7 +20,7 @@ export function RelatedDoctors({ currentId, department }: RelatedDoctorsProps) {
   return (
     <section>
       <div className="mb-4 flex items-center gap-2.5">
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent">
           <Users className="h-4 w-4" />
         </span>
         <div>
@@ -56,7 +56,7 @@ export function RelatedDoctors({ currentId, department }: RelatedDoctorsProps) {
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="truncate text-sm font-medium text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                  <h4 className="truncate text-sm font-medium text-slate-900 transition-colors group-hover:text-dash-primary dark:text-white dark:group-hover:text-dash-primary">
                     {doc.name}
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400">

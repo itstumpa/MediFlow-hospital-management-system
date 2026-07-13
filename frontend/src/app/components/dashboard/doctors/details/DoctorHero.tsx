@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { AdminDoctorDetail } from "@/lib/data/admin-doctors";
 import { motion } from "framer-motion";
@@ -45,11 +45,11 @@ export function DoctorHero({ doctor }: DoctorHeroProps) {
     >
       <div className="relative">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-blue-500/5 to-purple-600/5 dark:from-blue-600/10 dark:via-blue-500/10 dark:to-purple-600/10" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dash-primary/5 via-dash-primary/5 to-purple-600/5 dark:from-dash-primary/10 dark:via-dash-primary/10 dark:to-purple-600/10" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-dash-primary/20 to-transparent" />
 
         <div className="relative flex flex-col gap-6 p-6 sm:flex-row sm:items-start">
-          {/* ─── Avatar ─── */}
+          {/* â”€â”€â”€ Avatar â”€â”€â”€ */}
           <motion.div
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
@@ -66,12 +66,12 @@ export function DoctorHero({ doctor }: DoctorHeroProps) {
             </div>
             {doctor.isVerified && (
               <div className="absolute -right-1.5 -top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-md dark:bg-slate-800">
-                <BadgeCheck className="h-5 w-5 text-blue-500" />
+                <BadgeCheck className="h-5 w-5 text-dash-primary" />
               </div>
             )}
           </motion.div>
 
-          {/* ─── Info ─── */}
+          {/* â”€â”€â”€ Info â”€â”€â”€ */}
           <div className="flex-1 space-y-3">
             <div className="flex flex-wrap items-center gap-3">
               <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -87,7 +87,7 @@ export function DoctorHero({ doctor }: DoctorHeroProps) {
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-slate-500 dark:text-slate-400">
               <span className="flex items-center gap-1.5">
-                <HeartPulse className="h-4 w-4 text-blue-500" />
+                <HeartPulse className="h-4 w-4 text-dash-primary" />
                 {doctor.department}
               </span>
               <span className="flex items-center gap-1.5">
@@ -117,12 +117,12 @@ export function DoctorHero({ doctor }: DoctorHeroProps) {
             </div>
           </div>
 
-          {/* ─── Action Buttons ─── */}
+          {/* â”€â”€â”€ Action Buttons â”€â”€â”€ */}
           <div className="flex shrink-0 flex-col gap-2 sm:items-end">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
+              className="inline-flex items-center gap-2 rounded-xl bg-dash-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-dash-primary-dark hover:shadow-md"
             >
               <Edit className="h-4 w-4" />
               Edit

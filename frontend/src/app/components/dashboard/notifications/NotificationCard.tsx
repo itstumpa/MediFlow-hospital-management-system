@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { staggerItem } from "@/lib/animations/stagger";
 import type {
@@ -33,7 +33,7 @@ const categoryIcons: Record<NotificationCategory, LucideIcon> = {
 
 const categoryBg: Record<NotificationCategory, string> = {
   appointments:
-    "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
+    "bg-dash-primary-light text-dash-primary dark:bg-teal-500/10 dark:text-accent",
   doctors:
     "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400",
   patients:
@@ -72,7 +72,7 @@ export function NotificationCard({
       className={cn(
         "group relative cursor-pointer rounded-xl border px-5 py-4 shadow-sm transition-all duration-200",
         isUnread
-          ? "border-blue-200/60 bg-blue-50/30 shadow-blue-900/5 dark:border-blue-800/40 dark:bg-blue-950/20"
+          ? "border-dash-primary-light/60 bg-dash-primary-light/30 shadow-dash-primary-dark/5 dark:border-teal-800/40 dark:bg-teal-950/20"
           : "border-slate-200 bg-white hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-slate-600",
       )}
       onClick={() => onViewDetails(notification)}
@@ -88,7 +88,7 @@ export function NotificationCard({
     >
       {/* Unread glow bar */}
       {isUnread && (
-        <div className="absolute left-0 top-2 h-8 w-1 rounded-r-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
+        <div className="absolute left-0 top-2 h-8 w-1 rounded-r-full bg-dash-primary shadow-[0_0_8px_rgba(14,124,123,0.4)]" />
       )}
 
       <div className="flex items-start gap-3.5">
@@ -97,7 +97,7 @@ export function NotificationCard({
           className={cn(
             "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
             categoryBg[notification.category],
-            isUnread && "ring-2 ring-blue-200 dark:ring-blue-800",
+            isUnread && "ring-2 ring-dash-primary dark:ring-teal-800",
           )}
         >
           <Icon className="h-5 w-5" />
@@ -140,7 +140,7 @@ export function NotificationCard({
               <span>{timeAgo(notification.timestamp)}</span>
               {notification.relatedUser && (
                 <>
-                  <span aria-hidden="true">·</span>
+                  <span aria-hidden="true">Â·</span>
                   <span className="truncate max-w-[120px]">
                     {notification.relatedUser.name}
                   </span>
@@ -148,7 +148,7 @@ export function NotificationCard({
               )}
             </div>
 
-            {/* Quick actions — visible on hover */}
+            {/* Quick actions â€” visible on hover */}
             <div className="flex items-center gap-0.5 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
               {isUnread && (
                 <button
@@ -157,7 +157,7 @@ export function NotificationCard({
                     e.stopPropagation();
                     onMarkRead(notification.id);
                   }}
-                  className="flex h-7 w-7 items-center justify-center rounded-md text-slate-400 transition-colors hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-950/30 dark:hover:text-blue-400"
+                  className="flex h-7 w-7 items-center justify-center rounded-md text-slate-400 transition-colors hover:bg-dash-primary-light hover:text-dash-primary dark:hover:bg-teal-950/30 dark:hover:text-dash-primary"
                   aria-label="Mark as read"
                 >
                   <Check className="h-3.5 w-3.5" />

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, X } from "lucide-react";
@@ -47,8 +47,8 @@ export function ConfirmDialog({
       button: "bg-amber-600 hover:bg-amber-700 focus:ring-amber-500 text-white",
     },
     info: {
-      icon: "text-blue-500 bg-blue-100 dark:bg-blue-900/30",
-      button: "bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 text-white",
+      icon: "text-dash-primary bg-dash-primary-light dark:bg-teal-900/30",
+      button: "bg-dash-primary hover:bg-dash-primary-dark focus:ring-dash-primary text-white",
     },
   };
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { cn } from "@/lib/utils";
 import { format, formatDistanceToNow } from "date-fns";
@@ -90,7 +90,7 @@ const COLUMN_DEFS = [
 function getActionIcon(action: ActivityActionType) {
   const icons: Record<ActivityActionType, React.ReactNode> = {
     create: <UserPlus className="h-4 w-4 text-emerald-600" />,
-    read: <Eye className="h-4 w-4 text-blue-600" />,
+    read: <Eye className="h-4 w-4 text-dash-primary" />,
     update: <Edit className="h-4 w-4 text-amber-600" />,
     delete: <Trash2 className="h-4 w-4 text-red-600" />,
     login: <LogIn className="h-4 w-4 text-purple-600" />,
@@ -99,7 +99,7 @@ function getActionIcon(action: ActivityActionType) {
     import: <Upload className="h-4 w-4 text-teal-600" />,
     approve: <UserCheck className="h-4 w-4 text-emerald-600" />,
     reject: <UserX className="h-4 w-4 text-red-600" />,
-    assign: <UserPlus className="h-4 w-4 text-blue-600" />,
+    assign: <UserPlus className="h-4 w-4 text-dash-primary" />,
     revoke: <UserMinus className="h-4 w-4 text-amber-600" />,
     backup: <Database className="h-4 w-4 text-slate-600" />,
     restore: <RefreshCw className="h-4 w-4 text-purple-600" />,
@@ -110,7 +110,7 @@ function getActionIcon(action: ActivityActionType) {
     role_change: <Users className="h-4 w-4 text-purple-600" />,
     permission_change: <Shield className="h-4 w-4 text-indigo-600" />,
     system_error: <AlertCircle className="h-4 w-4 text-red-600" />,
-    api_call: <Zap className="h-4 w-4 text-blue-600" />,
+    api_call: <Zap className="h-4 w-4 text-dash-primary" />,
   };
   return icons[action] || <Activity className="h-4 w-4 text-slate-600" />;
 }
@@ -138,7 +138,7 @@ function getModuleIcon(module: ActivityModule) {
 function getBrowserIcon(browser: string) {
   const b = browser.toLowerCase();
   if (b.includes("chrome"))
-    return <Monitor className="h-4 w-4 text-blue-600" />;
+    return <Monitor className="h-4 w-4 text-dash-primary" />;
   if (b.includes("firefox"))
     return <Monitor className="h-4 w-4 text-orange-600" />;
   if (b.includes("safari"))
@@ -253,7 +253,7 @@ export function ActivityTable({
                   type="checkbox"
                   checked={selectedIds.size === logs.length && logs.length > 0}
                   onChange={handleSelectAll}
-                  className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                  className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                   aria-label="Select all rows"
                 />
               </th>
@@ -289,7 +289,7 @@ export function ActivityTable({
                           rotate: sortConfig.asc ? -90 : 90,
                         }}
                         animate={{ opacity: 1, rotate: 0 }}
-                        className="text-blue-600 dark:text-blue-400"
+                        className="text-dash-primary dark:text-accent"
                       >
                         {sortConfig.asc ? (
                           <ChevronUp className="h-3.5 w-3.5" />
@@ -314,7 +314,7 @@ export function ActivityTable({
                   transition={{ duration: 0.2, delay: index * 0.02 }}
                   className={cn(
                     "hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer",
-                    selectedIds.has(log.id) && "bg-blue-50 dark:bg-blue-900/20",
+                    selectedIds.has(log.id) && "bg-dash-primary-light dark:bg-teal-900/20",
                     log.severity === "critical" &&
                       "border-l-4 border-l-red-500",
                   )}
@@ -325,7 +325,7 @@ export function ActivityTable({
                       type="checkbox"
                       checked={selectedIds.has(log.id)}
                       onChange={(e) => handleSelectOne(log.id, e as any)}
-                      className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                      className="h-4 w-4 rounded border-slate-300 accent-dash-primary focus:ring-dash-primary"
                       aria-label={`Select ${log.user.name}`}
                     />
                   </td>
@@ -348,8 +348,8 @@ export function ActivityTable({
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2 min-w-0">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                        <User className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                      <div className="w-8 h-8 rounded-full bg-dash-primary-light dark:bg-teal-900/30 flex items-center justify-center flex-shrink-0">
+                        <User className="h-4 w-4 text-dash-primary dark:text-accent" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-sm font-medium text-slate-900 dark:text-white truncate">
@@ -369,19 +369,13 @@ export function ActivityTable({
                       <span className="text-slate-400 dark:text-slate-500">
                         {getModuleIcon(log.module)}
                       </span>
-                      <ModuleBadge
-                        module={log.module}
-                        size="sm"
-                      />
+                      <ModuleBadge module={log.module} size="sm" />
                     </div>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
                       {getActionIcon(log.action)}
-                      <ActionBadge
-                        action={log.action}
-                        size="sm"
-                      />
+                      <ActionBadge action={log.action} size="sm" />
                     </div>
                   </td>
                   <td className="px-4 py-3">
@@ -462,7 +456,7 @@ export function ActivityTable({
           <button className="p-2 rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800 disabled:opacity-40">
             <ChevronLeft className="h-4 w-4" />
           </button>
-          <button className="p-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+          <button className="p-2 rounded-lg bg-dash-primary text-white hover:bg-dash-primary-dark">
             1
           </button>
           <button className="p-2 rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800 disabled:opacity-40">
