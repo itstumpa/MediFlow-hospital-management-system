@@ -15,7 +15,7 @@ import {
   Tablet,
   Video,
 } from "lucide-react";
-import type { ContentBlock } from "../../../admin/(dashboard)/articles/form-schema";
+import type { ContentBlock } from "../../../dashboard/admin/articles/form-schema";
 
 interface EditorToolbarProps {
   onAddBlock: (block: ContentBlock) => void;
@@ -216,3 +216,4 @@ export function EditorToolbar({ onAddBlock }: EditorToolbarProps) {
     </div>
   );
 }
+

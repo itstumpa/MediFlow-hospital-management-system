@@ -18,17 +18,17 @@ const Footer = dynamic(
 );
 
 /** Routes where the global navbar, footer, and banner should be hidden. */
-const DASHBOARD_PATTERNS = [/^\/admin(\/|$)/, /^\/patient(\/|$)/, /^\/doctor(\/|$)/];
+const DASHBOARD_PATTERNS = [
+  /^\/admin(\/|$)/,
+  /^\/patient(\/|$)/,
+  /^\/doctor(\/|$)/,
+];
 
 function isDashboardRoute(pathname: string): boolean {
   return DASHBOARD_PATTERNS.some((pattern) => pattern.test(pathname));
 }
 
-export function RootLayoutContent({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function RootLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isDashboard = isDashboardRoute(pathname);
 

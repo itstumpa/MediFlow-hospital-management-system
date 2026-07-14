@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { CropIcon, ImageIcon, Replace, Trash2, Upload } from "lucide-react";
@@ -189,3 +189,4 @@ export function ImageUpload({
     </div>
   );
 }
+

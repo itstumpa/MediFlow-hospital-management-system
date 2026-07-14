@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -21,7 +21,7 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
-import type { ContentBlock } from "../../../admin/(dashboard)/articles/form-schema";
+import type { ContentBlock } from "../../../dashboard/admin/articles/form-schema";
 import { EditorToolbar } from "./EditorToolbar";
 
 interface RichTextEditorProps {
@@ -245,7 +245,7 @@ function ListBlock({
         {block.items.map((item, i) => (
           <div key={i} className="flex items-center gap-2">
             <span className="mt-0.5 shrink-0 text-xs font-medium text-slate-400">
-              {block.listType === "ordered" ? `${i + 1}.` : "â€¢"}
+              {block.listType === "ordered" ? `${i + 1}.` : "•"}
             </span>
             <input
               value={item}
@@ -296,7 +296,7 @@ function QuoteBlock({
       <input
         value={block.caption || ""}
         onChange={(e) => onChange({ ...block, caption: e.target.value })}
-        placeholder="â€” Attribution (optional)"
+        placeholder="— Attribution (optional)"
         className="mt-1 w-full border-none bg-transparent text-xs font-medium text-slate-500 placeholder-slate-400 focus:outline-none focus:ring-0 dark:text-slate-400"
       />
     </div>
@@ -807,3 +807,4 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
     </div>
   );
 }
+

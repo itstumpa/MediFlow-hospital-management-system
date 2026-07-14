@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { HeartPulse, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect } from "react";
 import { fadeIn, slideLeft } from "./MotionVariants";
 import { navigationGroups } from "./navigation";
@@ -54,14 +55,18 @@ export function MobileSidebar() {
           >
             {/* Header */}
             <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-5 dark:border-slate-800/60">
-              <div className="flex items-center gap-3">
+              <Link
+                href="/"
+                className="flex items-center gap-3"
+                onClick={() => setMobileSidebarOpen(false)}
+              >
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-sm">
                   <HeartPulse className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                   MediFlow
                 </span>
-              </div>
+              </Link>
               <button
                 onClick={() => setMobileSidebarOpen(false)}
                 className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"

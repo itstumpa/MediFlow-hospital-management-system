@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -16,7 +16,7 @@ import {
   mockAuthors,
   mockCategories,
   mockTags,
-} from "../../../admin/(dashboard)/articles/mock";
+} from "../../../dashboard/admin/articles/mock";
 
 interface PublishingSectionProps {
   status: string;
@@ -258,7 +258,7 @@ function TagsInput({
                 onClick={() => onChange(value.filter((v) => v !== tagId))}
                 className="text-emerald-400 hover:text-emerald-700 dark:text-emerald-500 dark:hover:text-emerald-300"
               >
-                âœ•
+                ✕
               </button>
             </span>
           );
@@ -284,3 +284,4 @@ function TagsInput({
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, X } from "lucide-react";
@@ -119,3 +119,4 @@ export function ConfirmDialog({
     </AnimatePresence>
   );
 }
+

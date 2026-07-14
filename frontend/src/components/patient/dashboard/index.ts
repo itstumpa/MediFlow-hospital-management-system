@@ -1,0 +1,10 @@
+export { DashboardHero } from "./DashboardHero";
+export { HealthSummary } from "./HealthSummary";
+export { HealthTips } from "./HealthTips";
+export { NotificationsPreview } from "./NotificationsPreview";
+export { QuickActions } from "./QuickActions";
+export { QuickStats } from "./QuickStats";
+export { RecentActivity } from "./RecentActivity";
+export { RecentPrescriptions } from "./RecentPrescriptions";
+export { RecentReports } from "./RecentReports";
+export { UpcomingAppointment } from "./UpcomingAppointment";

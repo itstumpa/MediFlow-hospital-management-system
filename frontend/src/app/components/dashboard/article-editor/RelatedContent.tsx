@@ -5,7 +5,7 @@ import {
   mockDepartments,
   mockDoctors,
   mockRelatedArticles,
-} from "../../../admin/(dashboard)/articles/mock";
+} from "../../../dashboard/admin/articles/mock";
 
 interface RelatedContentProps {
   relatedArticles: string[];
@@ -155,3 +155,4 @@ function MultiSelect<T extends { id: string }>({
     </div>
   );
 }
+

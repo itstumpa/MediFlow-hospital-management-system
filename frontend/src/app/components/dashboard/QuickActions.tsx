@@ -25,7 +25,7 @@ const actions: QuickAction[] = [
     icon: Stethoscope,
     label: "Add Doctor",
     description: "Onboard a new physician",
-    href: "/admin/doctors",
+    href: "/dashboard/admin/doctors",
     colorClass:
       "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
   },
@@ -33,7 +33,7 @@ const actions: QuickAction[] = [
     icon: UserPlus,
     label: "New Patient",
     description: "Register a patient",
-    href: "/admin/patients",
+    href: "/dashboard/admin/patients",
     colorClass:
       "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
   },
@@ -41,7 +41,7 @@ const actions: QuickAction[] = [
     icon: FileText,
     label: "Create Article",
     description: "Write a health article",
-    href: "/admin/articles",
+    href: "/dashboard/admin/articles",
     colorClass:
       "bg-violet-50 text-violet-600 dark:bg-violet-950/30 dark:text-violet-400",
   },
@@ -49,7 +49,7 @@ const actions: QuickAction[] = [
     icon: BarChart3,
     label: "View Reports",
     description: "Analytics & insights",
-    href: "/admin/analytics",
+    href: "/dashboard/admin/analytics",
     colorClass:
       "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400",
   },
@@ -57,7 +57,7 @@ const actions: QuickAction[] = [
     icon: Building2,
     label: "Manage Departments",
     description: "Organize departments",
-    href: "/admin/departments",
+    href: "/dashboard/admin/departments",
     colorClass:
       "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
   },
@@ -65,7 +65,7 @@ const actions: QuickAction[] = [
     icon: CalendarCheck,
     label: "Appointments",
     description: "Schedule management",
-    href: "/admin/appointments",
+    href: "/dashboard/admin/appointments",
     colorClass:
       "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/30 dark:text-cyan-400",
   },

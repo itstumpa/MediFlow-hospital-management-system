@@ -21,7 +21,8 @@ export function Sidebar() {
       )}
     >
       {/* ========== Logo ========== */}
-      <div
+      <Link
+        href="/"
         className={cn(
           "flex h-16 shrink-0 items-center border-b border-slate-100 dark:border-slate-800/60",
           sidebarCollapsed ? "justify-center px-4" : "gap-3 px-5",
@@ -41,7 +42,7 @@ export function Sidebar() {
             MediFlow
           </motion.span>
         )}
-      </div>
+      </Link>
 
       {/* ========== Navigation ========== */}
       <nav className="flex-1 overflow-y-auto py-4 dash-scrollbar">
@@ -97,7 +98,7 @@ export function Sidebar() {
             </button>
             <div className="mt-2 flex flex-col items-center gap-1.5">
               <Link
-                href="/settings"
+                href="/dashboard/admin/settings"
                 className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
                 aria-label="Settings"
               >
@@ -126,7 +127,7 @@ export function Sidebar() {
             </div>
             <div className="flex gap-0.5">
               <Link
-                href="/settings"
+                href="/dashboard/admin/settings"
                 className="flex h-7 w-7 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
                 aria-label="Settings"
               >

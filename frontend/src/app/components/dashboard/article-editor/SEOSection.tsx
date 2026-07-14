@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { Search, X } from "lucide-react";
-import type { ArticleFormValues } from "../../../admin/(dashboard)/articles/form-schema";
+import type { ArticleFormValues } from "../../../dashboard/admin/articles/form-schema";
 
 interface SEOSectionProps {
   values: ArticleFormValues;
@@ -182,3 +182,4 @@ function KeywordsInput({
     </div>
   );
 }
+
