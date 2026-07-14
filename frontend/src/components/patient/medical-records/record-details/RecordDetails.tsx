@@ -191,7 +191,7 @@ export function RecordDetails({ data }: RecordDetailsProps) {
             aria-hidden="true"
           />
           <Link
-            href="/dashboard/patient/medical-records"
+            href="/patient/medical-records"
             className="rounded-lg px-1.5 py-1 text-slate-500 transition-colors hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
           >
             Medical Records

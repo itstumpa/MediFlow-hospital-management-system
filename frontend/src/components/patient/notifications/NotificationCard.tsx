@@ -1,12 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Calendar, Check, ChevronRight, Clock, MoreVertical, Trash2, User, Paperclip, ExternalLink } from "lucide-react";
-import type { CSSProperties } from "react";
-import { cn } from "@/lib/utils";
 import { staggerItem } from "@/components/patient/MotionVariants";
-import type { Notification, NotificationType } from "./types";
-import { notificationTypeIcons, notificationTypeColors, priorityConfig } from "./types";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  Check,
+  ExternalLink,
+  MoreVertical,
+  Paperclip,
+  Trash2,
+  User,
+} from "lucide-react";
+import type { CSSProperties } from "react";
+import type { Notification } from "./types";
+import {
+  notificationTypeColors,
+  notificationTypeIcons,
+  priorityConfig,
+} from "./types";
 
 interface NotificationCardProps {
   notification: Notification;
@@ -96,7 +108,7 @@ export function NotificationCard({
         className={cn(
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
           typeColors.iconBg,
-          typeColors.text
+          typeColors.text,
         )}
       >
         <TypeIcon className="h-5 w-5" strokeWidth={1.8} />
@@ -113,12 +125,17 @@ export function NotificationCard({
                   "text-sm font-semibold truncate",
                   !notification.read
                     ? "text-slate-900 dark:text-white"
-                    : "text-slate-600 dark:text-slate-400"
+                    : "text-slate-600 dark:text-slate-400",
                 )}
               >
                 {notification.title}
               </h3>
-              <span className={cn("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold", priority.className)}>
+              <span
+                className={cn(
+                  "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                  priority.className,
+                )}
+              >
                 <priority.icon className="h-2.5 w-2.5" />
                 {priority.label}
               </span>
@@ -233,5 +250,9 @@ function timeAgo(date: Date): string {
   if (diffMins < 60) return `${diffMins}m ago`;
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }

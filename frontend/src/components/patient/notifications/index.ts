@@ -22,8 +22,8 @@ export type {
 } from "./types";
 
 export {
-  DEFAULT_NOTIFICATION_FILTERS,
   computeNotificationStats,
+  DEFAULT_NOTIFICATION_FILTERS,
   filterNotifications,
   formatNotificationTime,
   getNotificationGroupLabel,

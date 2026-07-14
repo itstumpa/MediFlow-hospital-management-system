@@ -21,7 +21,7 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
-import type { ContentBlock } from "../../../dashboard/admin/articles/form-schema";
+import type { ContentBlock } from "../../../(dashboard)/admin/articles/form-schema";
 import { EditorToolbar } from "./EditorToolbar";
 
 interface RichTextEditorProps {
@@ -807,4 +807,3 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
     </div>
   );
 }
-

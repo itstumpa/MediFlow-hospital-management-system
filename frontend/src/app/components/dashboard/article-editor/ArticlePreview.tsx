@@ -11,12 +11,12 @@ import {
   Star,
   User,
 } from "lucide-react";
-import type { ArticleFormValues } from "../../../dashboard/admin/articles/form-schema";
+import type { ArticleFormValues } from "../../../(dashboard)/admin/articles/form-schema";
 import {
   mockAuthors,
   mockCategories,
   mockTags,
-} from "../../../dashboard/admin/articles/mock";
+} from "../../../(dashboard)/admin/articles/mock";
 
 interface ArticlePreviewProps {
   values: ArticleFormValues;
@@ -210,4 +210,3 @@ function formatContentLength(bytes: number): string {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
-

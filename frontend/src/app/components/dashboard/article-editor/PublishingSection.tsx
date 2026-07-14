@@ -16,7 +16,7 @@ import {
   mockAuthors,
   mockCategories,
   mockTags,
-} from "../../../dashboard/admin/articles/mock";
+} from "../../../(dashboard)/admin/articles/mock";
 
 interface PublishingSectionProps {
   status: string;
@@ -168,7 +168,9 @@ export function PublishingSection({
             type="button"
             onClick={() => onChange("allowComments", !allowComments)}
             className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-              allowComments ? "bg-dash-primary" : "bg-slate-300 dark:bg-slate-600"
+              allowComments
+                ? "bg-dash-primary"
+                : "bg-slate-300 dark:bg-slate-600"
             }`}
           >
             <motion.div
@@ -284,4 +286,3 @@ function TagsInput({
     </div>
   );
 }
-

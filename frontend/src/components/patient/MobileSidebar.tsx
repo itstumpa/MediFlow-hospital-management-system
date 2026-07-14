@@ -56,7 +56,7 @@ export function MobileSidebar() {
             {/* Header */}
             <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-5 dark:border-slate-800/60">
               <Link
-                href="/dashboard/patient/dashboard"
+                href="/patient/dashboard"
                 className="flex items-center gap-3"
                 onClick={() => setMobileSidebarOpen(false)}
               >
