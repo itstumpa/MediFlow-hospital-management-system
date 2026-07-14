@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { LogOut, Stethoscope, X } from "lucide-react";
+import { HeartPulse, LogOut, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDoctorContext } from "./DoctorProvider";
@@ -58,18 +58,18 @@ export function MobileSidebar() {
             {/* Header */}
             <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-5 dark:border-slate-800/60">
               <Link
-                href="/doctor"
+                href="/"
                 className="flex items-center gap-3"
                 onClick={closeSidebar}
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-600 to-blue-600 shadow-sm">
-                  <Stethoscope className="h-5 w-5 text-white" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-sm">
+                  <HeartPulse className="h-5 w-5 text-white" />
                 </div>
                 <div>
                   <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                     MediFlow
                   </span>
-                  <p className="text-[10px] font-medium text-cyan-600 dark:text-cyan-400">
+                  <p className="text-[10px] font-medium text-dash-primary dark:text-accent">
                     Doctor Portal
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export function MobileSidebar() {
             {/* User footer */}
             <div className="shrink-0 border-t border-slate-100 p-4 dark:border-slate-800/60">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 text-sm font-semibold text-white shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm">
                   DR
                 </div>
                 <div className="flex-1 overflow-hidden">

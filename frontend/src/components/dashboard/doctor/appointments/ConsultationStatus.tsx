@@ -66,7 +66,7 @@ export function ConsultationStatusBadge({ status }: ConsultationStatusProps) {
                           : step === "In Progress"
                             ? "text-indigo-500"
                             : step === "Checked In"
-                              ? "text-cyan-500"
+                              ? "text-dash-primary"
                               : "text-amber-500",
                       )}
                     />
@@ -93,7 +93,7 @@ export function ConsultationStatusBadge({ status }: ConsultationStatusProps) {
                     className={cn(
                       "h-0.5 rounded-full transition-colors",
                       idx < currentIdx
-                        ? "bg-cyan-400 dark:bg-cyan-600"
+                        ? "bg-dash-primary dark:bg-dash-primary-dark"
                         : "bg-slate-200 dark:bg-slate-700",
                     )}
                   />

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
-import { scaleFade } from "./MotionVariants";
+import { notificationPulse, scaleFade } from "./MotionVariants";
 import type { DoctorNotificationItem } from "./types";
 
 /* Mock notifications */
@@ -87,9 +87,12 @@ export function NotificationDropdown() {
 
   return (
     <div className="relative">
-      <button
+      <motion.button
         ref={triggerRef}
         onClick={handleToggle}
+        variants={notificationPulse}
+        initial="idle"
+        whileHover="hover"
         className={cn(
           "relative flex h-9 w-9 items-center justify-center rounded-xl",
           "text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600",
@@ -108,7 +111,7 @@ export function NotificationDropdown() {
             {unreadCount}
           </span>
         )}
-      </button>
+      </motion.button>
 
       <AnimatePresence>
         {isOpen && (
@@ -203,7 +206,7 @@ export function NotificationDropdown() {
                 <Link
                   href="/doctor/notifications"
                   onClick={handleClose}
-                  className="flex items-center justify-center gap-1.5 text-sm font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+                  className="flex items-center justify-center gap-1.5 text-sm font-medium text-dash-primary transition-colors hover:text-dash-primary-dark dark:text-accent dark:hover:text-accent"
                 >
                   <span>View all notifications</span>
                   <ExternalLink className="h-3.5 w-3.5" />

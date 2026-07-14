@@ -12,7 +12,7 @@ const quickActionButtons = [
     icon: CalendarPlus,
     label: "Add Prescription",
     href: "/doctor/prescriptions",
-    color: "from-cyan-500 to-blue-500",
+    color: "from-dash-primary to-dash-primary-dark",
   },
   {
     icon: Clock,
@@ -62,9 +62,9 @@ export function DashboardHero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-700 p-6 sm:p-8",
-        "dark:from-cyan-900/80 dark:via-blue-900/80 dark:to-indigo-900/80",
-        "shadow-lg shadow-cyan-200/30 dark:shadow-cyan-900/20",
+        "relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-dash-primary via-dash-primary-dark to-indigo-700 p-6 sm:p-8",
+        "dark:from-dash-primary/80 dark:via-dash-primary-dark/80 dark:to-indigo-900/80",
+        "shadow-lg shadow-dash-primary-light/30 dark:shadow-dash-primary-light/20",
       )}
     >
       {/* Background pattern */}

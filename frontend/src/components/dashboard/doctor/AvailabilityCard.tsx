@@ -101,7 +101,7 @@ export function AvailabilityCard() {
                 className={cn(
                   "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[11px] font-medium transition-all",
                   isActive
-                    ? "border-cyan-200 bg-cyan-50 text-cyan-700 shadow-sm dark:border-cyan-800 dark:bg-cyan-950/30 dark:text-cyan-300"
+                    ? "border-dash-primary-light bg-dash-primary-light text-dash-primary-dark shadow-sm dark:border-teal-800/40 dark:bg-teal-950/30 dark:text-accent"
                     : "border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800",
                 )}
               >

@@ -10,9 +10,7 @@ interface ProfileLabReportsTabProps {
   patient: PatientProfile;
 }
 
-export function ProfileLabReportsTab({
-  patient,
-}: ProfileLabReportsTabProps) {
+export function ProfileLabReportsTab({ patient }: ProfileLabReportsTabProps) {
   return (
     <motion.div
       variants={staggerContainer}
@@ -46,7 +44,7 @@ export function ProfileLabReportsTab({
             <LabStatusBadge status={lab.status} />
           </div>
           <div className="mt-3 flex items-center gap-2 border-t border-slate-100 pt-2.5 dark:border-slate-800">
-            <button className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-cyan-50 py-1.5 text-[10px] font-medium text-cyan-600 transition-colors hover:bg-cyan-100 dark:bg-cyan-950/30 dark:text-cyan-400 dark:hover:bg-cyan-950/50">
+            <button className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-dash-primary-light py-1.5 text-[10px] font-medium text-dash-primary transition-colors hover:bg-dash-primary-light/80 dark:bg-teal-950/30 dark:text-accent dark:hover:bg-teal-950/50">
               <Eye className="h-3 w-3" />
               View Result
             </button>
@@ -71,8 +69,7 @@ function LabStatusBadge({
       "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
     Pending:
       "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400",
-    Reviewed:
-      "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400",
+    Reviewed: "bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400",
   };
   return (
     <span

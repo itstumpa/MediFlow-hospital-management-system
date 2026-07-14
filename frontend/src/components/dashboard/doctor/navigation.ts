@@ -2,9 +2,11 @@ import {
   CalendarCheck,
   CalendarDays,
   Clock,
+  ExternalLink,
   FileText,
   LayoutDashboard,
   Settings,
+  Shield,
   Stethoscope,
   User,
   UserRound,
@@ -67,6 +69,16 @@ export const doctorNavigationGroups: DoctorNavGroupDef[] = [
         label: "Settings",
         href: "/doctor/settings",
       },
+      {
+        icon: Shield as LucideIcon,
+        label: "Security & Privacy",
+        href: "/doctor/settings/security",
+      },
+      {
+        icon: ExternalLink as LucideIcon,
+        label: "Go to Homepage",
+        href: "/",
+      },
     ],
   },
 ];
@@ -76,6 +88,7 @@ export interface DoctorQuickActionItem {
   icon: LucideIcon;
   label: string;
   actionLabel: string;
+  href: string;
   shortcut?: string;
 }
 
@@ -84,16 +97,19 @@ export const doctorQuickActions: DoctorQuickActionItem[] = [
     icon: FileText as LucideIcon,
     label: "New Prescription",
     actionLabel: "Create prescription",
+    href: "/doctor/prescriptions",
   },
   {
     icon: CalendarCheck as LucideIcon,
     label: "Today's Schedule",
     actionLabel: "View schedule",
+    href: "/doctor/schedule",
   },
   {
     icon: User as LucideIcon,
     label: "Search Patient",
     actionLabel: "Find patient",
+    href: "/doctor/patients",
   },
 ];
 
@@ -115,6 +131,8 @@ export const doctorBreadcrumbLabels: Record<string, string> = {
   "/doctor/schedule": "Schedule",
   "/doctor/profile": "Profile",
   "/doctor/settings": "Settings",
+  "/doctor/settings/security": "Security & Privacy",
+  "/": "Homepage",
 };
 
 /** Command palette items for the doctor portal */

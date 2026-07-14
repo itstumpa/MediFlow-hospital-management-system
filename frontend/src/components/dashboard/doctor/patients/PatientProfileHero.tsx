@@ -35,7 +35,7 @@ export function PatientProfileHero({ patient }: PatientProfileHeroProps) {
       )}
     >
       {/* Decorative gradient bar */}
-      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-cyan-400 via-emerald-400 to-blue-400" />
+      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-dash-primary via-emerald-400 to-dash-primary-dark" />
 
       <div className="flex flex-col gap-5 sm:flex-row">
         {/* Avatar Section */}

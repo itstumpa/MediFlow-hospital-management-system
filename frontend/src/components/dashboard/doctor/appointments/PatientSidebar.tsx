@@ -58,7 +58,7 @@ export function PatientSidebar({
       <SidebarCard
         title="Upcoming Appointments"
         action={
-          <button className="text-[10px] font-medium text-cyan-500 hover:text-cyan-600 dark:text-cyan-400">
+          <button className="text-[10px] font-medium text-dash-primary hover:text-dash-primary-dark dark:text-accent">
             View All
           </button>
         }
@@ -72,8 +72,8 @@ export function PatientSidebar({
                 "dark:border-slate-800 dark:bg-slate-900/60 dark:hover:bg-slate-800/40",
               )}
             >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/30">
-                <Calendar className="h-4 w-4 text-cyan-500" />
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-dash-primary-light dark:bg-teal-950/30">
+                <Calendar className="h-4 w-4 text-dash-primary" />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-xs font-medium text-slate-900 dark:text-white">
@@ -104,7 +104,7 @@ export function PatientSidebar({
             </p>
             <a
               href={`tel:${emergencyContact.phone}`}
-              className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-cyan-500 hover:text-cyan-600 dark:text-cyan-400"
+              className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-dash-primary hover:text-dash-primary-dark dark:text-accent"
             >
               <Phone className="h-3 w-3" />
               {emergencyContact.phone}

@@ -135,9 +135,9 @@ export const statusStyleMap: Record<
     label: "Waiting",
   },
   "Checked In": {
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    dot: "bg-cyan-500",
-    text: "text-cyan-600 dark:text-cyan-400",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    dot: "bg-dash-primary",
+    text: "text-dash-primary dark:text-accent",
     label: "Checked In",
   },
   "In Consultation": {

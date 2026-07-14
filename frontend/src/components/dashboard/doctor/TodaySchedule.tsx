@@ -69,7 +69,7 @@ function ScheduleTimelineItem({
               ? "bg-emerald-100 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400"
               : item.status === "cancelled"
                 ? "bg-red-100 text-red-500 dark:bg-red-900/40 dark:text-red-400"
-                : "bg-cyan-100 text-cyan-600 dark:bg-cyan-900/40 dark:text-cyan-400",
+                : "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-accent",
           )}
         >
           <StatusIcon className="h-4 w-4" />
@@ -130,7 +130,7 @@ function ScheduleTimelineItem({
           </Link>
           {item.status === "upcoming" && (
             <>
-              <button className="inline-flex items-center gap-1 rounded-lg bg-cyan-500 px-2.5 py-1 text-[11px] font-medium text-white transition-colors hover:bg-cyan-600">
+              <button className="inline-flex items-center gap-1 rounded-lg bg-dash-primary px-2.5 py-1 text-[11px] font-medium text-white transition-colors hover:bg-dash-primary-dark">
                 <Play className="h-3 w-3" />
                 Start
               </button>

@@ -2,12 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import {
-  AlertTriangle,
-  Apple,
-  Wind,
-  Pill as PillIcon,
-} from "lucide-react";
+import { AlertTriangle, Apple, Pill as PillIcon, Wind } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
 
@@ -49,7 +44,8 @@ export function ProfileAllergyTab({ patient }: ProfileAllergyTabProps) {
       ) : (
         patient.allergies.map((allergy, idx) => {
           const Icon = typeIcon[allergy.type] || AlertTriangle;
-          const typeColor = typeColors[allergy.type] || typeColors.Environmental;
+          const typeColor =
+            typeColors[allergy.type] || typeColors.Environmental;
           return (
             <motion.div
               key={idx}
@@ -65,9 +61,7 @@ export function ProfileAllergyTab({ patient }: ProfileAllergyTabProps) {
                   typeColor.split(" ").slice(1).join(" "),
                 )}
               >
-                <Icon
-                  className={cn("h-4 w-4", typeColor.split(" ")[0])}
-                />
+                <Icon className={cn("h-4 w-4", typeColor.split(" ")[0])} />
               </div>
 
               <div className="min-w-0 flex-1">

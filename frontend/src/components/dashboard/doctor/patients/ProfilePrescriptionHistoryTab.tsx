@@ -70,7 +70,7 @@ export function ProfilePrescriptionHistoryTab({
 
           <PrescriptionStatusBadge status={rx.status} />
 
-          <button className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-cyan-500 dark:hover:bg-slate-800">
+          <button className="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-dash-primary dark:hover:bg-slate-800">
             <Download className="h-3.5 w-3.5" />
           </button>
         </motion.div>
@@ -85,9 +85,12 @@ function PrescriptionStatusBadge({
   status: "Active" | "Completed" | "Discontinued";
 }) {
   const colors: Record<string, string> = {
-    Active: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
-    Completed: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
-    Discontinued: "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
+    Active:
+      "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
+    Completed:
+      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    Discontinued:
+      "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
   };
   return (
     <span

@@ -72,7 +72,7 @@ function FilterSelect({
           "hover:border-slate-300 hover:shadow-sm",
           "dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600",
           open &&
-            "border-cyan-300 ring-1 ring-cyan-200 dark:border-cyan-700 dark:ring-cyan-800/40",
+            "border-dash-primary-light ring-1 ring-dash-primary-light dark:border-teal-700/60 dark:ring-teal-800/40",
         )}
       >
         {label}
@@ -102,7 +102,7 @@ function FilterSelect({
                 "w-full px-3 py-2 text-left text-xs transition-colors",
                 "hover:bg-slate-50 dark:hover:bg-slate-800",
                 value === opt
-                  ? "font-medium text-cyan-600 dark:text-cyan-400"
+                  ? "font-medium text-dash-primary dark:text-accent"
                   : "text-slate-600 dark:text-slate-400",
               )}
             >
@@ -166,8 +166,8 @@ export function AppointmentsToolbar({
             }
             className={cn(
               "h-9 w-full rounded-lg border border-slate-200 bg-white pl-8 pr-3 text-xs text-slate-900 placeholder:text-slate-400",
-              "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
-              "dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-cyan-700 dark:focus:ring-cyan-800/40",
+              "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
+              "dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-teal-700/60 dark:focus:ring-teal-800/40",
             )}
           />
           {filters.search && (
@@ -186,14 +186,14 @@ export function AppointmentsToolbar({
           className={cn(
             "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-all",
             showFilters || hasActiveFilters
-              ? "border-cyan-200 bg-cyan-50 text-cyan-700 dark:border-cyan-800 dark:bg-cyan-950/30 dark:text-cyan-300"
+              ? "border-dash-primary-light bg-dash-primary-light text-dash-primary-dark dark:border-teal-800/40 dark:bg-teal-950/30 dark:text-accent"
               : "border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800",
           )}
         >
           <SlidersHorizontal className="h-3.5 w-3.5" />
           Filters
           {hasActiveFilters && (
-            <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-cyan-500 px-1 text-[9px] font-bold text-white">
+            <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-dash-primary px-1 text-[9px] font-bold text-white">
               {
                 [
                   filters.search,
@@ -221,7 +221,7 @@ export function AppointmentsToolbar({
               className={cn(
                 "rounded-md px-2 py-1 text-xs font-medium transition-all",
                 viewMode === mode
-                  ? "bg-cyan-500 text-white shadow-sm"
+                  ? "bg-dash-primary text-white shadow-sm"
                   : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300",
               )}
               title={mode.charAt(0).toUpperCase() + mode.slice(1)}
@@ -246,7 +246,7 @@ export function AppointmentsToolbar({
           <Calendar className="h-3.5 w-3.5" />
           Calendar View
         </button>
-        <button className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-500 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all hover:bg-cyan-600 hover:shadow-md">
+        <button className="inline-flex items-center gap-1.5 rounded-lg bg-dash-primary px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all hover:bg-dash-primary-dark hover:shadow-md">
           Export
         </button>
       </div>

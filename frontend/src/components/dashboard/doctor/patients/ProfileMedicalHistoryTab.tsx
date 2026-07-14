@@ -9,8 +9,6 @@ import {
   Stethoscope,
   Syringe,
   Users,
-  AlertTriangle,
-  Calendar,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
@@ -166,16 +164,16 @@ export function ProfileMedicalHistoryTab({
           <SectionCard
             icon={Users}
             label="Family History"
-            color="text-cyan-500"
-            bg="bg-cyan-50 dark:bg-cyan-950/30"
+            color="text-dash-primary"
+            bg="bg-dash-primary-light dark:bg-teal-950/30"
           >
             <div className="space-y-1.5">
               {patient.familyHistory.map((f, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2 rounded-lg border border-cyan-100 bg-cyan-50/30 p-2 dark:border-cyan-950/30 dark:bg-cyan-950/10"
+                  className="flex items-start gap-2 rounded-lg border border-dash-primary-light/60 bg-dash-primary-light/30 p-2 dark:border-teal-950/30 dark:bg-teal-950/10"
                 >
-                  <Users className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-400" />
+                  <Users className="mt-0.5 h-3.5 w-3.5 shrink-0 text-dash-primary" />
                   <div>
                     <p className="text-xs font-medium text-slate-800 dark:text-slate-200">
                       {f.relation}
@@ -227,7 +225,12 @@ function SectionCard({
       )}
     >
       <div className="mb-2.5 flex items-center gap-2">
-        <div className={cn("flex h-7 w-7 items-center justify-center rounded-lg", bg)}>
+        <div
+          className={cn(
+            "flex h-7 w-7 items-center justify-center rounded-lg",
+            bg,
+          )}
+        >
           <Icon className={cn("h-4 w-4", color)} />
         </div>
         <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">

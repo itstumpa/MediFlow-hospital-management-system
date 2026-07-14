@@ -24,7 +24,7 @@ const priorityStyles = {
 };
 
 const initialsColors = [
-  "from-cyan-500 to-blue-500",
+  "from-dash-primary to-dash-primary-dark",
   "from-violet-500 to-purple-500",
   "from-emerald-500 to-teal-500",
   "from-rose-500 to-pink-500",
@@ -45,7 +45,7 @@ export function UpcomingAppointments() {
         </h2>
         <Link
           href="/doctor/appointments"
-          className="inline-flex items-center gap-0.5 text-xs font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+          className="inline-flex items-center gap-0.5 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary-dark dark:text-accent dark:hover:text-accent"
         >
           View all
           <ChevronRight className="h-3.5 w-3.5" />
@@ -129,7 +129,7 @@ export function UpcomingAppointments() {
                     </span>
                     <Link
                       href={`/doctor/appointments/${apt.id}`}
-                      className="text-[11px] font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+                      className="text-[11px] font-medium text-dash-primary transition-colors hover:text-dash-primary-dark dark:text-accent dark:hover:text-accent"
                     >
                       View Details
                     </Link>

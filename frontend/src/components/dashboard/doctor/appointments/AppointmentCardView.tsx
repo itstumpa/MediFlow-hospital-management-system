@@ -13,7 +13,7 @@ interface AppointmentCardProps {
 }
 
 const initialsColors = [
-  "from-cyan-500 to-blue-500",
+  "from-dash-primary to-dash-primary-dark",
   "from-violet-500 to-purple-500",
   "from-emerald-500 to-teal-500",
   "from-rose-500 to-pink-500",
@@ -74,7 +74,7 @@ export function AppointmentCardView({ appointments }: AppointmentCardProps) {
                   ? "bg-gradient-to-r from-red-500 to-rose-500"
                   : apt.priority === "Urgent"
                     ? "bg-gradient-to-r from-amber-500 to-orange-500"
-                    : "bg-gradient-to-r from-cyan-500 to-blue-500",
+                    : "bg-gradient-to-r from-dash-primary to-dash-primary-dark",
               )}
             />
 
@@ -92,7 +92,7 @@ export function AppointmentCardView({ appointments }: AppointmentCardProps) {
                 <div>
                   <Link
                     href={`/doctor/patients/${apt.patientId}`}
-                    className="text-sm font-semibold text-slate-900 transition-colors hover:text-cyan-600 dark:text-white dark:hover:text-cyan-400"
+                    className="text-sm font-semibold text-slate-900 transition-colors hover:text-dash-primary dark:text-white dark:hover:text-accent"
                   >
                     {apt.patientName}
                   </Link>
@@ -155,7 +155,7 @@ export function AppointmentCardView({ appointments }: AppointmentCardProps) {
                 Open
               </Link>
               {(apt.status === "Waiting" || apt.status === "Checked In") && (
-                <button className="flex-1 rounded-lg bg-cyan-500 px-3 py-1.5 text-[11px] font-medium text-white transition-colors hover:bg-cyan-600">
+                <button className="flex-1 rounded-lg bg-dash-primary px-3 py-1.5 text-[11px] font-medium text-white transition-colors hover:bg-dash-primary-dark">
                   Start
                 </button>
               )}

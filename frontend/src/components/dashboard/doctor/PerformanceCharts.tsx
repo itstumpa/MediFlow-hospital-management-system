@@ -77,9 +77,9 @@ export function PerformanceCharts() {
                 <Line
                   type="monotone"
                   dataKey="appointments"
-                  stroke="#06b6d4"
+                  stroke="#0e7c7b"
                   strokeWidth={2}
-                  dot={{ fill: "#06b6d4", r: 3 }}
+                  dot={{ fill: "#0e7c7b", r: 3 }}
                   activeDot={{ r: 5 }}
                   name="Appointments"
                 />
@@ -136,8 +136,8 @@ export function PerformanceCharts() {
                 />
                 <defs>
                   <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#06b6d4" />
-                    <stop offset="100%" stopColor="#3b82f6" />
+                    <stop offset="0%" stopColor="#0e7c7b" />
+                    <stop offset="100%" stopColor="#0a5f5e" />
                   </linearGradient>
                 </defs>
               </BarChart>

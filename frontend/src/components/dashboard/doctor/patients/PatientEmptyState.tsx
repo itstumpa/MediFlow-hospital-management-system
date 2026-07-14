@@ -27,7 +27,7 @@ export function PatientEmptyState({ onReset }: PatientEmptyStateProps) {
       </p>
       <button
         onClick={onReset}
-        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-cyan-500 px-4 py-2 text-xs font-medium text-white transition-all hover:bg-cyan-600"
+        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-dash-primary px-4 py-2 text-xs font-medium text-white transition-all hover:bg-dash-primary-dark"
       >
         <RotateCcw className="h-3.5 w-3.5" />
         Reset Filters

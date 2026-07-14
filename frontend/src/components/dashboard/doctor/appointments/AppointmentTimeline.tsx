@@ -30,7 +30,7 @@ export function AppointmentTimeline({
   }
 
   const initialsColors = [
-    "from-cyan-500 to-blue-500",
+    "from-dash-primary to-dash-primary-dark",
     "from-violet-500 to-purple-500",
     "from-emerald-500 to-teal-500",
     "from-rose-500 to-pink-500",
@@ -72,7 +72,7 @@ export function AppointmentTimeline({
                         ? "border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20"
                         : apt.status === "In Consultation"
                           ? "border-indigo-400 bg-indigo-50 dark:border-indigo-600 dark:bg-indigo-900/30"
-                          : "border-cyan-300 bg-cyan-50 dark:border-cyan-700 dark:bg-cyan-900/30",
+                          : "border-dash-primary-light bg-dash-primary-light dark:border-teal-700/60 dark:bg-teal-950/30",
                   )}
                 >
                   <span className="text-[10px] font-bold text-slate-600 dark:text-slate-300">
@@ -108,7 +108,7 @@ export function AppointmentTimeline({
                       <div>
                         <Link
                           href={`/doctor/patients/${apt.patientId}`}
-                          className="text-sm font-semibold text-slate-900 transition-colors hover:text-cyan-600 dark:text-white dark:hover:text-cyan-400"
+                          className="text-sm font-semibold text-slate-900 transition-colors hover:text-dash-primary dark:text-white dark:hover:text-accent"
                         >
                           {apt.patientName}
                         </Link>
@@ -177,7 +177,7 @@ export function AppointmentTimeline({
                     </Link>
                     {(apt.status === "Waiting" ||
                       apt.status === "Checked In") && (
-                      <button className="inline-flex items-center gap-1 rounded-lg bg-cyan-500 px-2.5 py-1 text-[11px] font-medium text-white transition-colors hover:bg-cyan-600">
+                      <button className="inline-flex items-center gap-1 rounded-lg bg-dash-primary px-2.5 py-1 text-[11px] font-medium text-white transition-colors hover:bg-dash-primary-dark">
                         <Play className="h-3 w-3" />
                         Start
                       </button>

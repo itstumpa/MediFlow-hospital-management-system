@@ -21,7 +21,7 @@ function Breadcrumb() {
   return (
     <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 dark:text-slate-500 mb-4">
       <Link
-        href="/patient/dashboard"
+        href="/patient"
         className="transition-colors hover:text-slate-600 dark:hover:text-slate-300"
       >
         Dashboard

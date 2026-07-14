@@ -8,7 +8,7 @@ import { recentPatients } from "./mock-data";
 import { staggerContainer, staggerItem } from "./MotionVariants";
 
 const initialsColors = [
-  "from-cyan-400 to-blue-500",
+  "from-dash-primary to-dash-primary-dark",
   "from-violet-400 to-purple-500",
   "from-emerald-400 to-teal-500",
   "from-rose-400 to-pink-500",
@@ -29,7 +29,7 @@ export function PatientOverview() {
         </h2>
         <Link
           href="/doctor/patients"
-          className="inline-flex items-center gap-0.5 text-xs font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+          className="inline-flex items-center gap-0.5 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary-dark dark:text-accent dark:hover:text-accent"
         >
           View all
           <ChevronRight className="h-3.5 w-3.5" />
@@ -90,7 +90,7 @@ export function PatientOverview() {
                   <td className="py-2.5 text-right">
                     <Link
                       href={`/doctor/patients/${patient.id}`}
-                      className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-medium text-cyan-600 transition-colors hover:bg-cyan-50 dark:text-cyan-400 dark:hover:bg-cyan-950/30"
+                      className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-medium text-dash-primary transition-colors hover:bg-dash-primary-light dark:text-accent dark:hover:bg-dash-primary-light/30"
                     >
                       <Eye className="h-3 w-3" />
                       Quick View

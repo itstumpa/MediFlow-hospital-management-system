@@ -33,9 +33,9 @@ const statusMap: Record<string, { bg: string; text: string; dot: string }> = {
     dot: "bg-amber-500",
   },
   Collected: {
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    text: "text-cyan-600 dark:text-cyan-400",
-    dot: "bg-cyan-500",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    text: "text-dash-primary dark:text-accent",
+    dot: "bg-dash-primary",
   },
   Processing: {
     bg: "bg-indigo-50 dark:bg-indigo-950/30",
@@ -125,14 +125,14 @@ export function LabRequestTab({ labRequests }: LabRequestTabProps) {
           placeholder="Enter custom test name..."
           className={cn(
             "flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-900 placeholder:text-slate-400",
-            "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
-            "dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-cyan-700 dark:focus:ring-cyan-800/40",
+            "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
+            "dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-teal-700/60 dark:focus:ring-teal-800/40",
           )}
         />
         <button
           onClick={addCustomTest}
           disabled={!customTest.trim()}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-500 px-3 py-2 text-xs font-medium text-white transition-all hover:bg-cyan-600 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-dash-primary px-3 py-2 text-xs font-medium text-white transition-all hover:bg-dash-primary-dark disabled:opacity-50"
         >
           <Plus className="h-3.5 w-3.5" />
           Add

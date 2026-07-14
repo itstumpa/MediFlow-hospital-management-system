@@ -9,15 +9,22 @@ interface LoadingSkeletonProps {
 
 /**
  * Pulse-animated skeleton placeholders for loading states.
- * Supports card, table, form, sidebar, header, text, and avatar variants.
+ * Supports card, table, chart, form, sidebar, header, text, and avatar variants.
  */
-function SkeletonPulse({ className }: { className?: string }) {
+function SkeletonPulse({
+  className,
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) {
   return (
     <div
       className={cn(
         "animate-pulse rounded-lg bg-slate-200 dark:bg-slate-700",
         className,
       )}
+      style={style}
       aria-hidden="true"
     />
   );
@@ -62,6 +69,35 @@ function TableSkeleton({ rows = 5 }: { rows?: number }) {
           <SkeletonPulse className="h-4 w-16 ml-auto" />
         </div>
       ))}
+    </div>
+  );
+}
+
+/** Chart skeleton — mimics bar/line chart area */
+function ChartSkeleton() {
+  return (
+    <div className="dash-card p-5">
+      {/* Chart title */}
+      <div className="flex items-center justify-between">
+        <SkeletonPulse className="h-4 w-32" />
+        <SkeletonPulse className="h-4 w-16 rounded-lg" />
+      </div>
+      {/* Chart bars */}
+      <div className="mt-5 flex items-end gap-3" style={{ height: 160 }}>
+        {[60, 85, 45, 70, 90, 50, 75, 65, 80, 55, 72, 88].map((h, i) => (
+          <SkeletonPulse
+            key={i}
+            className="flex-1 rounded-t-lg"
+            style={{ height: `${h * 1.6}px` }}
+          />
+        ))}
+      </div>
+      {/* X-axis labels */}
+      <div className="mt-3 flex gap-3">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <SkeletonPulse key={i} className="h-3 flex-1" />
+        ))}
+      </div>
     </div>
   );
 }
@@ -134,6 +170,10 @@ export function LoadingSkeleton({
 
   if (variant === "table") {
     return <TableSkeleton rows={count > 1 ? count : 5} />;
+  }
+
+  if (variant === "chart") {
+    return <ChartSkeleton />;
   }
 
   if (variant === "form") {

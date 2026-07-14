@@ -3,13 +3,12 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  AlertCircle,
-  FileText,
-  MessageSquareText,
-  Pill,
-  HeartPulse,
   Activity,
+  AlertCircle,
   ClipboardList,
+  FileText,
+  HeartPulse,
+  Pill,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
@@ -69,8 +68,8 @@ export function ProfileOverviewTab({ patient }: ProfileOverviewTabProps) {
         <SectionCard
           icon={FileText}
           label="Doctor Notes"
-          color="text-cyan-500"
-          bg="bg-cyan-50 dark:bg-cyan-950/30"
+          color="text-dash-primary"
+          bg="bg-dash-primary-light dark:bg-teal-950/30"
         >
           <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
             {patient.doctorNotes}
@@ -171,7 +170,12 @@ function SectionCard({
       )}
     >
       <div className="mb-2.5 flex items-center gap-2">
-        <div className={cn("flex h-7 w-7 items-center justify-center rounded-lg", bg)}>
+        <div
+          className={cn(
+            "flex h-7 w-7 items-center justify-center rounded-lg",
+            bg,
+          )}
+        >
           <Icon className={cn("h-4 w-4", color)} />
         </div>
         <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">

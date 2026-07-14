@@ -79,7 +79,7 @@ function RowActions({ apt }: { apt: AppointmentRecord }) {
 
 export function AppointmentsTable({ appointments }: AppointmentsTableProps) {
   const initialsColors = [
-    "from-cyan-500 to-blue-500",
+    "from-dash-primary to-dash-primary-dark",
     "from-violet-500 to-purple-500",
     "from-emerald-500 to-teal-500",
     "from-rose-500 to-pink-500",
@@ -175,7 +175,7 @@ export function AppointmentsTable({ appointments }: AppointmentsTableProps) {
                       <div>
                         <Link
                           href={`/doctor/patients/${apt.patientId}`}
-                          className="text-sm font-medium text-slate-900 transition-colors hover:text-cyan-600 dark:text-white dark:hover:text-cyan-400"
+                          className="text-sm font-medium text-slate-900 transition-colors hover:text-dash-primary dark:text-white dark:hover:text-accent"
                         >
                           {apt.patientName}
                         </Link>

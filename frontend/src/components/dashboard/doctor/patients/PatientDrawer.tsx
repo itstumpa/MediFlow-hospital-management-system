@@ -235,9 +235,9 @@ export function PatientDrawer({ patient, onClose }: PatientDrawerProps) {
                 <Calendar className="h-3.5 w-3.5" />
                 Upcoming Appointment
               </h3>
-              <div className="flex items-center gap-3 rounded-lg border border-cyan-100 bg-cyan-50/50 px-3 py-2.5 dark:border-cyan-900/30 dark:bg-cyan-950/20">
-                <Calendar className="h-5 w-5 text-cyan-500" />
-                <p className="text-xs font-medium text-cyan-700 dark:text-cyan-300">
+              <div className="flex items-center gap-3 rounded-lg border border-dash-primary-light/60 bg-dash-primary-light/50 px-3 py-2.5 dark:border-teal-800/30 dark:bg-teal-950/20">
+                <Calendar className="h-5 w-5 text-dash-primary" />
+                <p className="text-xs font-medium text-dash-primary-dark dark:text-accent">
                   {patient.upcomingAppointment}
                 </p>
               </div>
@@ -254,7 +254,7 @@ export function PatientDrawer({ patient, onClose }: PatientDrawerProps) {
               <DrawerButton
                 icon={CalendarPlus}
                 label="Schedule Follow-up"
-                color="text-cyan-500"
+                color="text-dash-primary"
               />
               <DrawerButton
                 icon={UserRound}
@@ -310,7 +310,8 @@ function SeverityBadge({ severity }: { severity: string }) {
     High: "bg-red-50 text-red-600 dark:bg-red-950/30 dark:text-red-400",
     Managed:
       "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
-    Stable: "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/30 dark:text-cyan-400",
+    Stable:
+      "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
   };
   return (
     <span

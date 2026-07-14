@@ -28,8 +28,8 @@ const iconMap: Record<string, LucideIcon> = {
 
 const colorMap: Record<AppointmentStatColor, { bg: string; text: string }> = {
   cyan: {
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    text: "text-cyan-600 dark:text-cyan-400",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    text: "text-dash-primary dark:text-accent",
   },
   amber: {
     bg: "bg-amber-50 dark:bg-amber-950/30",

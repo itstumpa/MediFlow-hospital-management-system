@@ -3,25 +3,21 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  Stethoscope,
-  UserCheck,
-  Activity,
+  CheckCircle2,
   FlaskConical,
   Pill,
-  CheckCircle2,
+  Stethoscope,
   Syringe,
+  UserCheck,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
-import type { PatientProfile, TimelineEntry } from "./patient-profile-mock-data";
+import type { PatientProfile } from "./patient-profile-mock-data";
 
 interface ProfileTimelineTabProps {
   patient: PatientProfile;
 }
 
-const iconMap: Record<
-  string,
-  React.ComponentType<{ className?: string }>
-> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   appointment: UserCheck,
   prescription: Pill,
   surgery: Syringe,
@@ -35,7 +31,8 @@ const iconColors: Record<string, string> = {
   prescription: "text-amber-500 border-amber-300 dark:border-amber-700",
   surgery: "text-rose-500 border-rose-300 dark:border-rose-700",
   lab: "text-purple-500 border-purple-300 dark:border-purple-700",
-  vaccination: "text-cyan-500 border-cyan-300 dark:border-cyan-700",
+  vaccination:
+    "text-dash-primary border-dash-primary-light dark:border-teal-700",
   registration: "text-blue-500 border-blue-300 dark:border-blue-700",
 };
 
@@ -44,13 +41,11 @@ const bgColors: Record<string, string> = {
   prescription: "bg-amber-50 dark:bg-amber-950/30",
   surgery: "bg-rose-50 dark:bg-rose-950/30",
   lab: "bg-purple-50 dark:bg-purple-950/30",
-  vaccination: "bg-cyan-50 dark:bg-cyan-950/30",
+  vaccination: "bg-dash-primary-light dark:bg-teal-950/30",
   registration: "bg-blue-50 dark:bg-blue-950/30",
 };
 
-export function ProfileTimelineTab({
-  patient,
-}: ProfileTimelineTabProps) {
+export function ProfileTimelineTab({ patient }: ProfileTimelineTabProps) {
   return (
     <motion.div
       variants={staggerContainer}

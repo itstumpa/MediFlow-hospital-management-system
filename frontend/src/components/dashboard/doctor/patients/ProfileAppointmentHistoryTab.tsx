@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Calendar, ChevronRight, Eye, Stethoscope } from "lucide-react";
+import { Calendar, Eye, Stethoscope } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
 
@@ -68,7 +68,7 @@ export function ProfileAppointmentHistoryTab({
           </div>
 
           {/* View button */}
-          <button className="flex shrink-0 items-center gap-1 rounded-lg px-2 py-1.5 text-[10px] font-medium text-cyan-600 transition-colors hover:bg-cyan-50 dark:text-cyan-400 dark:hover:bg-cyan-950/30">
+          <button className="flex shrink-0 items-center gap-1 rounded-lg px-2 py-1.5 text-[10px] font-medium text-dash-primary transition-colors hover:bg-dash-primary-light dark:text-accent dark:hover:bg-teal-950/30">
             <Eye className="h-3 w-3" />
             Details
           </button>
@@ -84,8 +84,10 @@ function StatusBadge({ status }: { status: string }) {
       "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400",
     Pending:
       "bg-amber-50 text-amber-600 dark:bg-amber-950/30 dark:text-amber-400",
-    Cancelled: "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
-    "No Show": "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    Cancelled:
+      "bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400",
+    "No Show":
+      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
   };
   return (
     <span

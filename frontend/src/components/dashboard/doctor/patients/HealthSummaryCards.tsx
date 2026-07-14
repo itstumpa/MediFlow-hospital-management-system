@@ -31,9 +31,9 @@ const cardConfig = [
     icon: Ruler,
     label: "Height",
     getValue: (v: HealthSummaryCardsProps["vitals"]) => v.height,
-    color: "text-cyan-500",
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    border: "border-cyan-200/40 dark:border-cyan-800/20",
+    color: "text-dash-primary",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    border: "border-dash-primary-light/40 dark:border-teal-800/20",
   },
   {
     icon: Weight,

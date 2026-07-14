@@ -41,7 +41,7 @@ export function PatientProfileSidebar({ patient }: PatientProfileSidebarProps) {
           <SidebarButton
             icon={Stethoscope}
             label="Start Consultation"
-            color="text-cyan-500"
+            color="text-dash-primary"
           />
           <SidebarButton
             icon={CalendarPlus}
@@ -159,18 +159,18 @@ export function PatientProfileSidebar({ patient }: PatientProfileSidebarProps) {
         <motion.div
           variants={staggerItem}
           className={cn(
-            "rounded-xl border border-cyan-200/60 bg-cyan-50/50 p-4",
-            "dark:border-cyan-800/30 dark:bg-cyan-950/20",
+            "rounded-xl border border-dash-primary-light/60 bg-dash-primary-light/50 p-4",
+            "dark:border-teal-800/30 dark:bg-teal-950/20",
           )}
         >
-          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+          <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dash-primary dark:text-accent">
             <Calendar className="h-3.5 w-3.5" />
             Upcoming Appointment
           </h3>
-          <p className="text-xs font-medium text-cyan-800 dark:text-cyan-200">
+          <p className="text-xs font-medium text-dash-primary-dark dark:text-accent">
             {patient.upcomingAppointment}
           </p>
-          <button className="mt-2 inline-flex items-center gap-1 rounded-lg bg-cyan-500 px-3 py-1.5 text-[10px] font-medium text-white transition-colors hover:bg-cyan-600">
+          <button className="mt-2 inline-flex items-center gap-1 rounded-lg bg-dash-primary px-3 py-1.5 text-[10px] font-medium text-white transition-colors hover:bg-dash-primary-dark">
             <CalendarPlus className="h-3 w-3" />
             Reschedule
           </button>

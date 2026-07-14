@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, LogOut, Settings, Stethoscope, User } from "lucide-react";
+import { ChevronLeft, HeartPulse, LogOut, Settings, User } from "lucide-react";
 import Link from "next/link";
 import { useDoctorContext } from "./DoctorProvider";
 import { logoTextVariants } from "./MotionVariants";
@@ -26,14 +26,14 @@ export function Sidebar() {
     >
       {/* ========== Logo ========== */}
       <Link
-        href="/doctor"
+        href="/"
         className={cn(
           "flex h-16 shrink-0 items-center",
           sidebarCollapsed ? "justify-center px-4" : "gap-3 px-5",
         )}
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 shadow-md shadow-cyan-200/50 dark:shadow-cyan-900/30">
-          <Stethoscope className="h-5 w-5 text-white" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-md shadow-dash-primary/20 dark:shadow-dash-primary/10">
+          <HeartPulse className="h-5 w-5 text-white" />
         </div>
 
         <AnimatePresence mode="wait">
@@ -49,7 +49,7 @@ export function Sidebar() {
               <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                 MediFlow
               </span>
-              <p className="text-[11px] font-medium text-cyan-600 dark:text-cyan-400">
+              <p className="text-[11px] font-medium text-dash-primary dark:text-accent">
                 Doctor Portal
               </p>
             </motion.div>
@@ -86,8 +86,9 @@ export function Sidebar() {
           </p>
           <div className="flex flex-col gap-1">
             {doctorQuickActions.map((action) => (
-              <button
+              <Link
                 key={action.label}
+                href={action.href}
                 className={cn(
                   "flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium",
                   "text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900",
@@ -103,7 +104,7 @@ export function Sidebar() {
                   />
                 </span>
                 <span>{action.label}</span>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -139,7 +140,7 @@ export function Sidebar() {
         {sidebarCollapsed ? (
           <div className="flex flex-col items-center gap-2">
             <button
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 text-white shadow-sm"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-white shadow-sm"
               aria-label="User menu"
             >
               <User className="h-4 w-4" />
@@ -162,7 +163,7 @@ export function Sidebar() {
           </div>
         ) : (
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 text-sm font-semibold text-white shadow-sm shadow-cyan-200/50 dark:shadow-cyan-900/30">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm shadow-dash-primary/20 dark:shadow-dash-primary/10">
               DR
             </div>
             <div className="flex-1 overflow-hidden">

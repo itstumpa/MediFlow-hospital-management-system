@@ -24,7 +24,7 @@ export function Sidebar() {
     >
       {/* ========== Logo ========== */}
       <Link
-        href="/patient/dashboard"
+        href="/patient"
         className={cn(
           "flex h-16 shrink-0 items-center",
           sidebarCollapsed ? "justify-center px-4" : "gap-3 px-5",

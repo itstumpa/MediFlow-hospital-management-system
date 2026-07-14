@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import {
   CheckCircle2,
   Circle,
-  PhoneCall,
   ClipboardList,
-  Pill,
   FileText,
+  PhoneCall,
+  Pill,
 } from "lucide-react";
+import type { PendingTask } from "./mock-data";
 import { pendingTasks } from "./mock-data";
 import { staggerContainer, staggerItem } from "./MotionVariants";
-import type { PendingTask } from "./mock-data";
 
 const categoryConfig: Record<
   PendingTask["category"],
@@ -52,7 +52,7 @@ export function PendingTasks() {
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className={cn(
-            "h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500",
+            "h-full rounded-full bg-gradient-to-r from-dash-primary to-dash-primary-dark",
           )}
         />
       </div>
@@ -98,12 +98,7 @@ export function PendingTasks() {
                   >
                     {task.label}
                   </span>
-                  <Icon
-                    className={cn(
-                      "h-3.5 w-3.5 shrink-0",
-                      config.color,
-                    )}
-                  />
+                  <Icon className={cn("h-3.5 w-3.5 shrink-0", config.color)} />
                 </div>
               </motion.div>
             );

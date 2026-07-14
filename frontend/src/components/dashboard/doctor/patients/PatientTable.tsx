@@ -96,7 +96,7 @@ export function PatientTable({
                   <td className="px-3 py-3">
                     <button
                       onClick={() => onSelectPatient(patient)}
-                      className="font-medium text-slate-900 transition-colors hover:text-cyan-500 dark:text-white dark:hover:text-cyan-400"
+                      className="font-medium text-slate-900 transition-colors hover:text-dash-primary dark:text-white dark:hover:text-accent"
                     >
                       {patient.name}
                     </button>

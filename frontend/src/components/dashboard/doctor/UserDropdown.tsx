@@ -45,7 +45,7 @@ export function UserDropdown() {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 text-sm font-semibold text-white shadow-sm transition-transform group-hover:scale-105">
+        <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm transition-transform group-hover:scale-105">
           SM
         </div>
         <div className="hidden text-left md:block">
@@ -91,7 +91,7 @@ export function UserDropdown() {
               {/* User info */}
               <div className="border-b border-slate-100 px-4 py-3 dark:border-slate-800/60">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 text-sm font-semibold text-white shadow-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm">
                     SM
                   </div>
                   <div>

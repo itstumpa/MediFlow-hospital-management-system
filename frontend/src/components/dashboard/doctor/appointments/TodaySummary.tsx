@@ -22,8 +22,8 @@ export function TodaySummary({ summary }: TodaySummaryProps) {
       icon: Calendar,
       label: "Total Appointments",
       value: summary.total,
-      color: "text-cyan-500",
-      bg: "bg-cyan-50 dark:bg-cyan-950/30",
+      color: "text-dash-primary",
+      bg: "bg-dash-primary-light dark:bg-teal-950/30",
     },
     {
       icon: CheckCircle2,
@@ -94,7 +94,7 @@ export function TodaySummary({ summary }: TodaySummaryProps) {
                   2 * Math.PI * 42 * (1 - summary.completionRate / 100),
               }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="text-cyan-500"
+              className="text-dash-primary"
             />
           </svg>
           <div className="absolute flex flex-col items-center">
@@ -142,19 +142,19 @@ export function TodaySummary({ summary }: TodaySummaryProps) {
           Next Appointment
         </p>
         {summary.nextAppointment ? (
-          <div className="flex items-center gap-2.5 rounded-lg bg-cyan-50 p-3 dark:bg-cyan-950/30">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-cyan-100 dark:bg-cyan-900/40">
-              <Clock className="h-3.5 w-3.5 text-cyan-600 dark:text-cyan-400" />
+          <div className="flex items-center gap-2.5 rounded-lg bg-dash-primary-light p-3 dark:bg-teal-950/30">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-dash-primary-light dark:bg-teal-950/40">
+              <Clock className="h-3.5 w-3.5 text-dash-primary dark:text-accent" />
             </div>
             <div>
               <p className="text-sm font-medium text-slate-900 dark:text-white">
                 {summary.nextAppointment.patient}
               </p>
-              <p className="text-xs text-cyan-600 dark:text-cyan-400">
+              <p className="text-xs text-dash-primary dark:text-accent">
                 {summary.nextAppointment.time}
               </p>
             </div>
-            <ChevronRight className="ml-auto h-4 w-4 text-cyan-400" />
+            <ChevronRight className="ml-auto h-4 w-4 text-dash-primary" />
           </div>
         ) : (
           <p className="text-xs text-slate-400 dark:text-slate-500">

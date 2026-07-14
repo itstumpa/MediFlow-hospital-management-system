@@ -48,7 +48,7 @@ export default function AppointmentDetailPage() {
           action={
             <Link
               href="/doctor/appointments"
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan-600"
+              className="inline-flex items-center gap-2 rounded-lg bg-dash-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-dash-primary-dark"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Appointments
@@ -102,7 +102,7 @@ export default function AppointmentDetailPage() {
                 className={cn(
                   "rounded-lg px-3 py-1.5 text-xs font-medium transition-all",
                   activeTab === tab.id
-                    ? "bg-cyan-50 text-cyan-700 shadow-sm dark:bg-cyan-950/30 dark:text-cyan-300"
+                    ? "bg-dash-primary-light text-dash-primary-dark shadow-sm dark:bg-teal-950/30 dark:text-accent"
                     : "text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-300",
                 )}
               >

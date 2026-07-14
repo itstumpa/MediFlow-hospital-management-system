@@ -55,7 +55,7 @@ export function PatientCard({
                 <div>
                   <button
                     onClick={() => onSelectPatient(patient)}
-                    className="text-sm font-semibold text-slate-900 transition-colors hover:text-cyan-500 dark:text-white dark:hover:text-cyan-400"
+                    className="text-sm font-semibold text-slate-900 transition-colors hover:text-dash-primary dark:text-white dark:hover:text-accent"
                   >
                     {patient.name}
                   </button>
@@ -117,7 +117,7 @@ export function PatientCard({
             <div className="mt-3 flex items-center gap-2 border-t border-slate-100 pt-3 dark:border-slate-800">
               <button
                 onClick={() => onSelectPatient(patient)}
-                className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-cyan-50 py-1.5 text-[11px] font-medium text-cyan-600 transition-colors hover:bg-cyan-100 dark:bg-cyan-950/30 dark:text-cyan-400 dark:hover:bg-cyan-950/50"
+                className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-dash-primary-light py-1.5 text-[11px] font-medium text-dash-primary transition-colors hover:bg-dash-primary-light/80 dark:bg-teal-950/30 dark:text-accent dark:hover:bg-teal-950/50"
               >
                 <Eye className="h-3.5 w-3.5" />
                 View Profile

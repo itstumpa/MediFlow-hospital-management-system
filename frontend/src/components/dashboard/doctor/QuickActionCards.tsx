@@ -27,10 +27,10 @@ const colorMap: Record<
   { bg: string; border: string; text: string; gradient: string }
 > = {
   cyan: {
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    border: "border-cyan-200/50 dark:border-cyan-800/40",
-    text: "text-cyan-600 dark:text-cyan-400",
-    gradient: "from-cyan-500 to-blue-500",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    border: "border-dash-primary-light/50 dark:border-teal-800/40",
+    text: "text-dash-primary dark:text-accent",
+    gradient: "from-dash-primary to-dash-primary-dark",
   },
   violet: {
     bg: "bg-violet-50 dark:bg-violet-950/30",

@@ -30,10 +30,10 @@ const colorMap: Record<
   { bg: string; dot: string; text: string; spark: string }
 > = {
   cyan: {
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    dot: "bg-cyan-500",
-    text: "text-cyan-600 dark:text-cyan-400",
-    spark: "#06b6d4",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    dot: "bg-dash-primary",
+    text: "text-dash-primary dark:text-accent",
+    spark: "#0e7c7b",
   },
   amber: {
     bg: "bg-amber-50 dark:bg-amber-950/30",

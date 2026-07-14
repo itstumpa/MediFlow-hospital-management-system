@@ -3,12 +3,12 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  FileText,
+  Download,
+  Eye,
   FileImage,
   FileScan,
   FileSpreadsheet,
-  Download,
-  Eye,
+  FileText,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
@@ -30,22 +30,20 @@ const docIconMap: Record<
 const docIconColors: Record<string, string> = {
   PDF: "text-rose-500 bg-rose-50 dark:bg-rose-950/30",
   Image: "text-blue-500 bg-blue-50 dark:bg-blue-950/30",
-  Scan: "text-cyan-500 bg-cyan-50 dark:bg-cyan-950/30",
+  Scan: "text-dash-primary bg-dash-primary-light dark:bg-teal-950/30",
   Invoice: "text-emerald-500 bg-emerald-50 dark:bg-emerald-950/30",
 };
 
 const categoryColors: Record<string, string> = {
   Medical:
-    "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/30 dark:text-cyan-400",
+    "bg-dash-primary-light text-dash-primary dark:bg-teal-950/30 dark:text-accent",
   Insurance:
     "bg-purple-50 text-purple-600 dark:bg-purple-950/30 dark:text-purple-400",
   Administrative:
     "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
 };
 
-export function ProfileDocumentsTab({
-  patient,
-}: ProfileDocumentsTabProps) {
+export function ProfileDocumentsTab({ patient }: ProfileDocumentsTabProps) {
   return (
     <motion.div
       variants={staggerContainer}
@@ -75,9 +73,7 @@ export function ProfileDocumentsTab({
                     iconStyle.split(" ").slice(1).join(" "),
                   )}
                 >
-                  <Icon
-                    className={cn("h-4 w-4", iconStyle.split(" ")[0])}
-                  />
+                  <Icon className={cn("h-4 w-4", iconStyle.split(" ")[0])} />
                 </div>
                 <div className="min-w-0">
                   <p className="truncate text-xs font-medium text-slate-900 dark:text-white">
@@ -89,8 +85,7 @@ export function ProfileDocumentsTab({
               <span
                 className={cn(
                   "shrink-0 rounded-full px-2 py-0.5 text-[9px] font-medium",
-                  categoryColors[doc.category] ||
-                    "bg-slate-100 text-slate-600",
+                  categoryColors[doc.category] || "bg-slate-100 text-slate-600",
                 )}
               >
                 {doc.category}
@@ -98,7 +93,7 @@ export function ProfileDocumentsTab({
             </div>
 
             <div className="mt-3 flex items-center gap-2 border-t border-slate-100 pt-2.5 dark:border-slate-800">
-              <button className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-cyan-50 py-1.5 text-[10px] font-medium text-cyan-600 transition-colors hover:bg-cyan-100 dark:bg-cyan-950/30 dark:text-cyan-400 dark:hover:bg-cyan-950/50">
+              <button className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-dash-primary-light py-1.5 text-[10px] font-medium text-dash-primary transition-colors hover:bg-dash-primary-light/80 dark:bg-teal-950/30 dark:text-accent dark:hover:bg-teal-950/50">
                 <Eye className="h-3 w-3" />
                 View
               </button>

@@ -98,6 +98,7 @@ export interface DoctorContextValue {
 export type SkeletonVariant =
   | "card"
   | "table"
+  | "chart"
   | "form"
   | "sidebar"
   | "header"

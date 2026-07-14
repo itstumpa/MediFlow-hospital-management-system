@@ -165,7 +165,7 @@ const patient1: PatientProfile = {
   patientId: "PAT-001",
   name: "Sarah Johnson",
   initials: "SJ",
-  avatarGradient: "from-blue-400 to-cyan-500",
+  avatarGradient: "from-dash-primary-light to-dash-primary",
   age: 34,
   gender: "Female",
   bloodGroup: "A+",

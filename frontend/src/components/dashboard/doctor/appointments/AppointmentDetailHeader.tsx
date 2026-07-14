@@ -25,7 +25,7 @@ const statusColors: Record<string, string> = {
   Waiting:
     "text-amber-600 bg-amber-50 dark:text-amber-400 dark:bg-amber-950/30",
   "Checked In":
-    "text-cyan-600 bg-cyan-50 dark:text-cyan-400 dark:bg-cyan-950/30",
+    "text-dash-primary bg-dash-primary-light dark:text-accent dark:bg-teal-950/30",
   "In Progress":
     "text-indigo-600 bg-indigo-50 dark:text-indigo-400 dark:bg-indigo-950/30",
   Completed:
@@ -54,7 +54,7 @@ export function AppointmentDetailHeader({
         <nav className="flex items-center gap-1.5 text-xs text-slate-400">
           <Link
             href="/doctor/appointments"
-            className="flex items-center gap-1 text-slate-500 transition-colors hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
+            className="flex items-center gap-1 text-slate-500 transition-colors hover:text-dash-primary dark:text-slate-400 dark:hover:text-accent"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             Appointments

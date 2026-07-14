@@ -49,8 +49,8 @@ export function PatientToolbar({
             onChange={(e) => onFilterChange("search", e.target.value)}
             className={cn(
               "w-full rounded-lg border border-slate-200 bg-white py-2 pl-9 pr-8 text-xs text-slate-900 placeholder:text-slate-400",
-              "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
-              "dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:focus:border-cyan-700 dark:focus:ring-cyan-800/40",
+              "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
+              "dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:focus:border-teal-700/60 dark:focus:ring-teal-800/40",
             )}
           />
           {filters.search && (
@@ -76,7 +76,7 @@ export function PatientToolbar({
               className={cn(
                 "rounded-md p-1.5 transition-all",
                 viewMode === "table"
-                  ? "bg-cyan-50 text-cyan-600 shadow-sm dark:bg-cyan-950/30 dark:text-cyan-400"
+                  ? "bg-dash-primary-light text-dash-primary shadow-sm dark:bg-teal-950/30 dark:text-accent"
                   : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-300",
               )}
               title="Table view"
@@ -88,7 +88,7 @@ export function PatientToolbar({
               className={cn(
                 "rounded-md p-1.5 transition-all",
                 viewMode === "cards"
-                  ? "bg-cyan-50 text-cyan-600 shadow-sm dark:bg-cyan-950/30 dark:text-cyan-400"
+                  ? "bg-dash-primary-light text-dash-primary shadow-sm dark:bg-teal-950/30 dark:text-accent"
                   : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-300",
               )}
               title="Card view"
@@ -155,7 +155,7 @@ export function PatientToolbar({
           onChange={(e) => onFilterChange("sort", e.target.value)}
           className={cn(
             "rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-medium text-slate-600",
-            "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
+            "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
             "dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300",
           )}
         >
@@ -201,9 +201,9 @@ function FilterChip({
         onChange={(e) => onChange(e.target.value)}
         className={cn(
           "w-28 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] text-slate-700 placeholder:text-slate-400",
-          "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
+          "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
           "dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:placeholder:text-slate-500",
-          value && "border-cyan-200 dark:border-cyan-800",
+          value && "border-dash-primary-light dark:border-teal-800",
         )}
       />
       {/* Label tooltip */}
@@ -232,9 +232,9 @@ function FilterSelect({
         onChange={(e) => onChange(e.target.value)}
         className={cn(
           "w-28 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-medium text-slate-700",
-          "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
+          "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
           "dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300",
-          value && "border-cyan-200 dark:border-cyan-800",
+          value && "border-dash-primary-light dark:border-teal-800",
         )}
       >
         {options.map((opt) => (

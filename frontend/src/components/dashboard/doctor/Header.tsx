@@ -1,9 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { Menu, Plus } from "lucide-react";
 import { Breadcrumb } from "./Breadcrumb";
 import { useDoctorContext } from "./DoctorProvider";
+import { iconRotate } from "./MotionVariants";
 import { NotificationDropdown } from "./NotificationDropdown";
 import { SearchBar } from "./SearchBar";
 import { ThemeToggle } from "./ThemeToggle";
@@ -44,7 +46,10 @@ export function Header() {
       {/* Right actions */}
       <div className="flex items-center gap-0.5">
         {/* Quick Add */}
-        <button
+        <motion.button
+          variants={iconRotate}
+          initial="idle"
+          whileHover="hover"
           className={cn(
             "relative flex h-9 w-9 items-center justify-center rounded-xl",
             "text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600",
@@ -54,7 +59,7 @@ export function Header() {
           aria-label="Quick add"
         >
           <Plus className="h-[18px] w-[18px]" strokeWidth={1.8} />
-        </button>
+        </motion.button>
 
         {/* Theme toggle */}
         <ThemeToggle />

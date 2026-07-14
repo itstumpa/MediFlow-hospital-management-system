@@ -108,8 +108,8 @@ export function OverviewTab({ appointment }: OverviewTabProps) {
           <SectionCard
             icon={FileText}
             label="Doctor's Notes"
-            color="text-cyan-500"
-            bg="bg-cyan-50 dark:bg-cyan-950/30"
+            color="text-dash-primary"
+            bg="bg-dash-primary-light dark:bg-teal-950/30"
           >
             <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
               {doctorNotes}

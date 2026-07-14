@@ -128,8 +128,8 @@ export function PrescriptionTab({
           className={cn(
             "flex w-full items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-200 py-3",
             "text-sm font-medium text-slate-500 transition-all",
-            "hover:border-cyan-300 hover:text-cyan-600 hover:bg-cyan-50/50",
-            "dark:border-slate-700 dark:text-slate-400 dark:hover:border-cyan-700 dark:hover:text-cyan-400 dark:hover:bg-cyan-950/20",
+            "hover:border-dash-primary hover:text-dash-primary hover:bg-dash-primary-light/50",
+            "dark:border-slate-700 dark:text-slate-400 dark:hover:border-dash-primary dark:hover:text-accent dark:hover:bg-dash-primary-light/20",
           )}
         >
           <Plus className="h-4 w-4" />
@@ -163,8 +163,8 @@ function InputField({
         placeholder={placeholder}
         className={cn(
           "w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-900 placeholder:text-slate-400",
-          "focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-200",
-          "dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-cyan-700 dark:focus:ring-cyan-800/40",
+          "focus:border-dash-primary focus:outline-none focus:ring-1 focus:ring-dash-primary-light",
+          "dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-teal-700/60 dark:focus:ring-teal-800/40",
         )}
       />
     </div>

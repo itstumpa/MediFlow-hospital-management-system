@@ -1,7 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import { searchGlow } from "./MotionVariants";
 
 interface SearchBarProps {
   onOpen?: () => void;
@@ -9,8 +11,11 @@ interface SearchBarProps {
 
 export function SearchBar({ onOpen }: SearchBarProps) {
   return (
-    <button
+    <motion.button
       onClick={onOpen}
+      variants={searchGlow}
+      initial="idle"
+      whileFocus="focus"
       className={cn(
         "group flex items-center gap-2.5 rounded-2xl border border-slate-200 bg-white/60 px-3.5 py-2",
         "text-sm text-slate-400 transition-all duration-200",
@@ -36,6 +41,6 @@ export function SearchBar({ onOpen }: SearchBarProps) {
       >
         <span className="text-[10px]">⌘</span>K
       </kbd>
-    </button>
+    </motion.button>
   );
 }

@@ -161,9 +161,9 @@ export const consultationStatusStyleMap: Record<
     label: "Waiting",
   },
   "Checked In": {
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    dot: "bg-cyan-500",
-    text: "text-cyan-600 dark:text-cyan-400",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
+    dot: "bg-dash-primary",
+    text: "text-dash-primary dark:text-accent",
     label: "Checked In",
   },
   "In Progress": {
@@ -196,7 +196,7 @@ export const mockAppointmentDetails: Record<string, AppointmentDetailData> = {
       patientId: "PAT-001",
       phone: "+1 (555) 123-4567",
       insurance: "Blue Cross Premium",
-      avatarGradient: "from-cyan-500 to-blue-500",
+      avatarGradient: "from-dash-primary to-dash-primary-dark",
     },
     date: "July 14, 2026",
     time: "08:00 AM — 08:30 AM",

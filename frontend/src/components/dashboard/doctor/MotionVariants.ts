@@ -250,3 +250,157 @@ export const logoTextVariants: Variants = {
     transition: { duration: 0.1 },
   },
 };
+
+/* ============================================
+   Micro‑interaction variants
+   ============================================ */
+
+/** Badge pulse — subtle attention‑getter */
+export const badgePulse: Variants = {
+  idle: { scale: 1 },
+  pulse: {
+    scale: [1, 1.12, 1],
+    transition: { duration: 0.6, repeat: Infinity, repeatDelay: 3 },
+  },
+};
+
+/** Icon rotate — e.g. refresh / settings cog */
+export const iconRotate: Variants = {
+  idle: { rotate: 0 },
+  hover: {
+    rotate: 90,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+};
+
+/** Notification bell pulse + shake */
+export const notificationPulse: Variants = {
+  idle: { scale: 1, rotate: 0 },
+  hover: {
+    scale: 1.1,
+    rotate: [0, -8, 8, -4, 4, 0],
+    transition: { duration: 0.4 },
+  },
+};
+
+/** Avatar ring pulse */
+export const avatarHover: Variants = {
+  idle: { boxShadow: "0 0 0 0 rgba(14,124,123,0)" },
+  hover: {
+    boxShadow: "0 0 0 4px rgba(14,124,123,0.25)",
+    transition: { duration: 0.25 },
+  },
+};
+
+/** Card hover lift — for dash‑card elements */
+export const cardLift = {
+  whileHover: {
+    y: -4,
+    boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
+    transition: { duration: 0.2, ease: "easeOut" },
+  },
+  whileTap: { y: 0, transition: { duration: 0.1 } },
+};
+
+/** Search bar glow on focus */
+export const searchGlow: Variants = {
+  idle: { boxShadow: "0 0 0 0 rgba(14,124,123,0)" },
+  focus: {
+    boxShadow: "0 0 0 3px rgba(14,124,123,0.15)",
+    transition: { duration: 0.2 },
+  },
+};
+
+/* ============================================
+   Tab & timeline variants
+   ============================================ */
+
+/** Tab content switch — fade + slide */
+export const tabContent: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: -6,
+    transition: { duration: 0.15 },
+  },
+};
+
+/** Draw timeline items — one by one */
+export const drawTimeline: Variants = {
+  hidden: { opacity: 0, x: -12, height: 0 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    height: "auto",
+    transition: {
+      delay: i * 0.06,
+      duration: 0.3,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  }),
+};
+
+/** Scale + fade dialog entrance */
+export const dialogScale: Variants = {
+  hidden: { opacity: 0, scale: 0.88, y: 20 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { type: "spring", damping: 28, stiffness: 300 },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.92,
+    y: 10,
+    transition: { duration: 0.15 },
+  },
+};
+
+/** Counter / number scale‑in */
+export const numberScale: Variants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", damping: 20, stiffness: 250 },
+  },
+};
+
+/* ============================================
+   Chart & stat variants
+   ============================================ */
+
+/** Stagger for stat cards */
+export const staggerStats: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06, delayChildren: 0.1 },
+  },
+};
+
+/** Individual stat card animation */
+export const statItem: Variants = {
+  hidden: { opacity: 0, y: 20, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
+  },
+};
+
+/** Skeleton shimmer variant */
+export const shimmerVariant: Variants = {
+  hidden: { backgroundPosition: "-200% 0" },
+  visible: {
+    backgroundPosition: "200% 0",
+    transition: { duration: 1.2, repeat: Infinity, ease: "linear" },
+  },
+};

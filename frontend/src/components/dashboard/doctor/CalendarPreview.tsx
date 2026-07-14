@@ -13,8 +13,8 @@ const typeStyles: Record<
   { bg: string; dot: string; label: string }
 > = {
   appointment: {
-    bg: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300",
-    dot: "bg-cyan-500",
+    bg: "bg-dash-primary-light text-dash-primary-dark dark:bg-teal-950/40 dark:text-accent",
+    dot: "bg-dash-primary",
     label: "Appointments",
   },
   available: {
@@ -69,7 +69,7 @@ export function CalendarPreview() {
         </h2>
         <Link
           href="/doctor/schedule"
-          className="inline-flex items-center gap-0.5 text-xs font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+          className="inline-flex items-center gap-0.5 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary-dark dark:text-accent dark:hover:text-accent"
         >
           Full schedule
           <ChevronRight className="h-3.5 w-3.5" />
@@ -123,7 +123,7 @@ export function CalendarPreview() {
               className={cn(
                 "relative mx-auto flex h-8 w-8 items-center justify-center rounded-full text-xs font-medium transition-colors",
                 isToday
-                  ? "bg-cyan-500 text-white shadow-sm shadow-cyan-200 dark:shadow-cyan-900/30"
+                  ? "bg-dash-primary text-white shadow-sm shadow-dash-primary-light dark:shadow-dash-primary-light/30"
                   : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800",
               )}
             >

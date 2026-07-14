@@ -29,7 +29,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 const iconColors: Record<string, string> = {
-  CalendarPlus: "text-cyan-500",
+  CalendarPlus: "text-dash-primary",
   UserCheck: "text-emerald-500",
   Stethoscope: "text-indigo-500",
   Activity: "text-rose-500",

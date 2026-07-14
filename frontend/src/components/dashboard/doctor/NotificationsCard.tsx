@@ -53,14 +53,14 @@ export function NotificationsCard() {
             Notifications
           </h2>
           {unreadCount > 0 && (
-            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-cyan-500 px-1.5 text-[10px] font-bold leading-none text-white">
+            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-dash-primary px-1.5 text-[10px] font-bold leading-none text-white">
               {unreadCount}
             </span>
           )}
         </div>
         <Link
           href="/doctor/notifications"
-          className="inline-flex items-center gap-0.5 text-xs font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+          className="inline-flex items-center gap-0.5 text-xs font-medium text-dash-primary transition-colors hover:text-dash-primary-dark dark:text-accent dark:hover:text-accent"
         >
           View all
           <ChevronRight className="h-3.5 w-3.5" />
@@ -116,7 +116,7 @@ export function NotificationsCard() {
                       {notif.title}
                     </p>
                     {!notif.read && (
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-dash-primary" />
                     )}
                   </div>
                   <p className="text-xs text-slate-500 dark:text-slate-400">

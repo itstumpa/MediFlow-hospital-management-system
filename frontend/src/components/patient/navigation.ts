@@ -22,7 +22,7 @@ export const patientNavigationGroups: PatientNavGroupDef[] = [
       {
         icon: LayoutDashboard as LucideIcon,
         label: "Dashboard",
-        href: "/patient/dashboard",
+        href: "/patient",
       },
     ],
   },
@@ -111,7 +111,7 @@ const autoLabels = Object.fromEntries(
 /** Map of href → label for breadcrumb resolution */
 export const patientBreadcrumbLabels: Record<string, string> = {
   ...autoLabels,
-  "/patient/dashboard": "Dashboard",
+  "/patient": "Dashboard",
   "/patient/appointments/book": "Book Appointment",
   "/patient/appointments": "My Appointments",
   "/patient/medical-records": "Medical Records",

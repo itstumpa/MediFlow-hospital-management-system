@@ -48,8 +48,8 @@ const vitalsConfig = [
     label: "Height",
     value: "height",
     unit: "",
-    color: "text-cyan-500",
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
+    color: "text-dash-primary",
+    bg: "bg-dash-primary-light dark:bg-teal-950/30",
   },
   {
     icon: Weight,

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Syringe, Calendar, Shield } from "lucide-react";
+import { Calendar, Shield, Syringe } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
 
@@ -10,9 +10,7 @@ interface ProfileVaccinationTabProps {
   patient: PatientProfile;
 }
 
-export function ProfileVaccinationTab({
-  patient,
-}: ProfileVaccinationTabProps) {
+export function ProfileVaccinationTab({ patient }: ProfileVaccinationTabProps) {
   return (
     <motion.div
       variants={staggerContainer}
