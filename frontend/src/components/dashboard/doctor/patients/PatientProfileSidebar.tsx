@@ -3,17 +3,13 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  Activity,
   AlertTriangle,
   Calendar,
   CalendarPlus,
-  FileText,
   FlaskConical,
   MessageSquareText,
   Phone,
-  Shield,
   Stethoscope,
-  UserPlus,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
@@ -42,10 +38,26 @@ export function PatientProfileSidebar({ patient }: PatientProfileSidebarProps) {
           Quick Actions
         </h3>
         <div className="space-y-1.5">
-          <SidebarButton icon={Stethoscope} label="Start Consultation" color="text-cyan-500" />
-          <SidebarButton icon={CalendarPlus} label="Book Follow-up" color="text-emerald-500" />
-          <SidebarButton icon={MessageSquareText} label="Add Note" color="text-indigo-500" />
-          <SidebarButton icon={FlaskConical} label="Request Lab Test" color="text-purple-500" />
+          <SidebarButton
+            icon={Stethoscope}
+            label="Start Consultation"
+            color="text-cyan-500"
+          />
+          <SidebarButton
+            icon={CalendarPlus}
+            label="Book Follow-up"
+            color="text-emerald-500"
+          />
+          <SidebarButton
+            icon={MessageSquareText}
+            label="Add Note"
+            color="text-indigo-500"
+          />
+          <SidebarButton
+            icon={FlaskConical}
+            label="Request Lab Test"
+            color="text-purple-500"
+          />
         </div>
       </motion.div>
 
@@ -63,7 +75,10 @@ export function PatientProfileSidebar({ patient }: PatientProfileSidebarProps) {
         <div className="flex items-center gap-3">
           <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
             {/* Circular progress ring */}
-            <svg className="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 56 56">
+            <svg
+              className="absolute inset-0 h-full w-full -rotate-90"
+              viewBox="0 0 56 56"
+            >
               <circle
                 cx="28"
                 cy="28"
@@ -182,7 +197,8 @@ export function PatientProfileSidebar({ patient }: PatientProfileSidebarProps) {
               {patient.emergencyContact.name}
             </p>
             <p className="text-[10px] text-slate-400">
-              {patient.emergencyContact.relation} — {patient.emergencyContact.phone}
+              {patient.emergencyContact.relation} —{" "}
+              {patient.emergencyContact.phone}
             </p>
           </div>
         </div>

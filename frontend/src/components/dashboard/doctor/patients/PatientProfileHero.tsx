@@ -3,15 +3,15 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  Phone,
-  Mail,
-  MapPin,
-  Shield,
   AlertTriangle,
-  HeartPulse,
-  User,
   Calendar,
   Droplets,
+  HeartPulse,
+  Mail,
+  MapPin,
+  Phone,
+  Shield,
+  User,
 } from "lucide-react";
 import { staggerItem } from "../MotionVariants";
 import type { PatientProfile } from "./patient-profile-mock-data";
@@ -91,9 +91,17 @@ export function PatientProfileHero({ patient }: PatientProfileHeroProps) {
 
           {/* Detail Grid */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3 lg:grid-cols-4">
-            <HeroDetail icon={Calendar} label="Age" value={`${patient.age} years`} />
+            <HeroDetail
+              icon={Calendar}
+              label="Age"
+              value={`${patient.age} years`}
+            />
             <HeroDetail icon={User} label="Gender" value={patient.gender} />
-            <HeroDetail icon={Droplets} label="Blood Group" value={patient.bloodGroup} />
+            <HeroDetail
+              icon={Droplets}
+              label="Blood Group"
+              value={patient.bloodGroup}
+            />
             <HeroDetail icon={Phone} label="Phone" value={patient.phone} />
             <HeroDetail
               icon={Mail}
@@ -102,7 +110,11 @@ export function PatientProfileHero({ patient }: PatientProfileHeroProps) {
               className="col-span-2"
             />
             <HeroDetail icon={MapPin} label="Address" value={patient.address} />
-            <HeroDetail icon={Shield} label="Insurance" value={patient.insurance} />
+            <HeroDetail
+              icon={Shield}
+              label="Insurance"
+              value={patient.insurance}
+            />
           </div>
         </div>
       </div>
@@ -114,8 +126,8 @@ export function PatientProfileHero({ patient }: PatientProfileHeroProps) {
           <span className="font-medium text-slate-800 dark:text-slate-200">
             Emergency Contact:
           </span>{" "}
-          {patient.emergencyContact.name} ({patient.emergencyContact.relation}) —{" "}
-          {patient.emergencyContact.phone}
+          {patient.emergencyContact.name} ({patient.emergencyContact.relation})
+          — {patient.emergencyContact.phone}
         </p>
       </div>
     </motion.div>

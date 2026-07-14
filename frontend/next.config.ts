@@ -141,8 +141,6 @@ const nextConfig: NextConfig = {
         destination: "/dashboard/admin/dashboard",
         permanent: true,
       },
-
-      
     ];
   },
 };

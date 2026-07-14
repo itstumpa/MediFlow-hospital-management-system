@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import {
   Activity,
   Droplets,
@@ -12,6 +11,7 @@ import {
   Weight,
   Wind,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { staggerContainer, staggerItem } from "../MotionVariants";
 
 interface HealthSummaryCardsProps {
