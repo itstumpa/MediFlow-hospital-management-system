@@ -1,11 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import {
+  cardHover,
   staggerContainer,
   staggerItem,
 } from "@/components/dashboard/staff/MotionVariants";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { appointmentStats, type AppointmentStat } from "../_mock-data";
 
 /* ─── Animated Counter ──────────────────────── */
@@ -45,9 +47,11 @@ function AnimatedCounter({
 /* ─── Stat Card ─────────────────────────────── */
 
 const colorMap: Record<string, string> = {
-  emerald: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
+  emerald:
+    "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
   blue: "bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400",
-  violet: "bg-violet-50 text-violet-600 dark:bg-violet-950/40 dark:text-violet-400",
+  violet:
+    "bg-violet-50 text-violet-600 dark:bg-violet-950/40 dark:text-violet-400",
   rose: "bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400",
   amber: "bg-amber-50 text-amber-600 dark:bg-amber-950/40 dark:text-amber-400",
   cyan: "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/40 dark:text-cyan-400",
@@ -59,7 +63,11 @@ function StatCard({ stat, index }: { stat: AppointmentStat; index: number }) {
   return (
     <motion.div
       variants={staggerItem}
-      className="dash-card dash-card-hover p-4 sm:p-5"
+      {...cardHover}
+      className={cn(
+        "dash-card dash-card-hover p-4 sm:p-5",
+        index === 0 && "card-glow gradient-primary",
+      )}
     >
       <div className="flex items-start justify-between">
         <div

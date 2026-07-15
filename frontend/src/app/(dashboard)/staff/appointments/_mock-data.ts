@@ -4,7 +4,6 @@ import {
   CalendarCheck,
   CalendarX,
   CheckCircle2,
-  Clock,
   type LucideIcon,
   RefreshCw,
   UserX,
@@ -576,7 +575,10 @@ export const visitTypes: { value: VisitType | "all"; label: string }[] = [
   { value: "telehealth", label: "Telehealth" },
 ];
 
-export const statusOptions: { value: AppointmentStatus | "all"; label: string }[] = [
+export const statusOptions: {
+  value: AppointmentStatus | "all";
+  label: string;
+}[] = [
   { value: "all", label: "All Status" },
   { value: "confirmed", label: "Confirmed" },
   { value: "checked-in", label: "Checked In" },
@@ -597,8 +599,7 @@ export const statusConfig: Record<
 > = {
   confirmed: {
     label: "Confirmed",
-    class:
-      "bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400",
+    class: "bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400",
     dot: "bg-blue-500",
   },
   "checked-in": {
@@ -615,20 +616,17 @@ export const statusConfig: Record<
   },
   completed: {
     label: "Completed",
-    class:
-      "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+    class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
     dot: "bg-slate-500",
   },
   cancelled: {
     label: "Cancelled",
-    class:
-      "bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-400",
+    class: "bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-400",
     dot: "bg-red-500",
   },
   "no-show": {
     label: "No Show",
-    class:
-      "bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400",
+    class: "bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400",
     dot: "bg-rose-500",
   },
   rescheduled: {
@@ -663,7 +661,7 @@ export const priorityConfig: Record<
 export function generateCalendarDays(
   month: number,
   year: number,
-  appointmentsList: Appointment[]
+  appointmentsList: Appointment[],
 ): CalendarDay[] {
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();

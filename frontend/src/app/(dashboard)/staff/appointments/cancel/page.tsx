@@ -1,3 +1,5 @@
+"use client";
+
 import { CalendarX } from "lucide-react";
 import { PlaceholderPage } from "../../_placeholder";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { PlaceholderPage } from "../_placeholder";
 
 export default function PatientRegistrationPage() {

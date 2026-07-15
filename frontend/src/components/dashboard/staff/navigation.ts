@@ -8,6 +8,7 @@ import {
   CreditCard,
   DollarSign,
   FileText,
+  Home,
   LayoutDashboard,
   LogOut,
   Receipt,
@@ -156,6 +157,11 @@ export const staffNavigationGroups: StaffNavGroupDef[] = [
         icon: Settings as LucideIcon,
         label: "Settings",
         href: "/staff/settings",
+      },
+      {
+        icon: Home as LucideIcon,
+        label: "Back to Homepage",
+        href: "/",
       },
       {
         icon: LogOut as LucideIcon,

@@ -1,3 +1,5 @@
+"use client";
+
 import { EmptyState } from "@/components/dashboard/staff/EmptyState";
 import { PageHeader } from "@/components/dashboard/staff/PageHeader";
 import type { ElementType } from "react";

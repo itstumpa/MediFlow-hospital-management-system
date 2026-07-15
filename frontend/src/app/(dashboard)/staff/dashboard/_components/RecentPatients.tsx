@@ -46,7 +46,7 @@ export function RecentPatients() {
       <div className="dash-card overflow-hidden">
         <div className="hidden md:block">
           <table className="w-full text-left text-sm">
-            <thead>
+            <thead className="table-sticky-header">
               <tr className="border-b border-slate-100 dark:border-slate-700/50">
                 <th className="px-5 py-3.5 font-semibold text-slate-700 dark:text-slate-300">
                   Patient

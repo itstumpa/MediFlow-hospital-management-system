@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  cardHover,
   staggerContainer,
   staggerItem,
 } from "@/components/dashboard/staff/MotionVariants";
@@ -66,6 +67,7 @@ export function AnnouncementsCard() {
             <motion.div
               key={ann.id}
               variants={staggerItem}
+              {...cardHover}
               className={cn(
                 "flex gap-4 rounded-2xl border p-4",
                 config.classes,

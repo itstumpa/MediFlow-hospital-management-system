@@ -66,7 +66,7 @@ export function DashboardHero() {
       <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
         {/* Greeting & info */}
         <div className="space-y-3">
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+          <h1 className="dash-gradient-text text-2xl font-bold tracking-tight sm:text-3xl">
             {greeting}, {staffMember.name.split(" ")[0]} 👋
           </h1>
 

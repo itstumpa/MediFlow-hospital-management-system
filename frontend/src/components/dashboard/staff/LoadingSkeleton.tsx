@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { staggerContainer, staggerItem } from "./MotionVariants";
 
 /* ============================================
    Skeleton primitives
@@ -98,11 +100,18 @@ export function CardSkeleton({ className }: SkeletonProps) {
 
 export function StatsGridSkeleton() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+    >
       {Array.from({ length: 4 }).map((_, i) => (
-        <CardSkeleton key={i} />
+        <motion.div key={i} variants={staggerItem}>
+          <CardSkeleton />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -112,7 +121,12 @@ export function StatsGridSkeleton() {
 
 export function TableSkeleton({ rows = 5 }: { rows?: number }) {
   return (
-    <div className="rounded-2xl border border-slate-200/50 bg-white p-5 dark:border-slate-700/30 dark:bg-slate-900">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="rounded-2xl border border-slate-200/50 bg-white p-5 dark:border-slate-700/30 dark:bg-slate-900"
+    >
       {/* Header */}
       <div className="flex items-center gap-4 border-b border-slate-100 pb-3 dark:border-slate-800/60">
         {Array.from({ length: 4 }).map((_, i) => (
@@ -122,15 +136,19 @@ export function TableSkeleton({ rows = 5 }: { rows?: number }) {
       {/* Rows */}
       <div className="mt-3 space-y-3">
         {Array.from({ length: rows }).map((_, i) => (
-          <div key={i} className="flex items-center gap-4">
+          <motion.div
+            key={i}
+            variants={staggerItem}
+            className="flex items-center gap-4"
+          >
             <Skeleton className="h-3 flex-1" />
             <Skeleton className="h-3 flex-1" />
             <Skeleton className="h-3 flex-1" />
             <Skeleton className="h-6 w-20 rounded-full" />
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -140,18 +158,23 @@ export function TableSkeleton({ rows = 5 }: { rows?: number }) {
 
 export function FormSkeleton() {
   return (
-    <div className="space-y-6 rounded-2xl border border-slate-200/50 bg-white p-6 dark:border-slate-700/30 dark:bg-slate-900">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="space-y-6 rounded-2xl border border-slate-200/50 bg-white p-6 dark:border-slate-700/30 dark:bg-slate-900"
+    >
       {Array.from({ length: 3 }).map((_, i) => (
-        <div key={i} className="space-y-2">
+        <motion.div key={i} variants={staggerItem} className="space-y-2">
           <Skeleton className="h-3 w-20" />
           <Skeleton className="h-10 w-full rounded-xl" />
-        </div>
+        </motion.div>
       ))}
-      <div className="flex gap-3">
+      <motion.div variants={staggerItem} className="flex gap-3">
         <Skeleton className="h-10 flex-1 rounded-xl" />
         <Skeleton className="h-10 w-24 rounded-xl" />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -161,7 +184,12 @@ export function FormSkeleton() {
 
 export function CalendarSkeleton() {
   return (
-    <div className="rounded-2xl border border-slate-200/50 bg-white p-5 dark:border-slate-700/30 dark:bg-slate-900">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="rounded-2xl border border-slate-200/50 bg-white p-5 dark:border-slate-700/30 dark:bg-slate-900"
+    >
       {/* Weekday headers */}
       <div className="grid grid-cols-7 gap-2">
         {Array.from({ length: 7 }).map((_, i) => (
@@ -171,10 +199,12 @@ export function CalendarSkeleton() {
       {/* Day cells */}
       <div className="mt-3 grid grid-cols-7 gap-2">
         {Array.from({ length: 35 }).map((_, i) => (
-          <Skeleton key={i} className="aspect-square rounded-xl" />
+          <motion.div key={i} variants={staggerItem}>
+            <Skeleton className="aspect-square rounded-xl" />
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

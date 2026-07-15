@@ -199,18 +199,96 @@ export const hoverLift = {
   whileTap: { y: 0, transition: { duration: 0.1 } },
 };
 
+/** Button press — subtle scale-down on click */
+export const buttonPress = {
+  whileHover: { scale: 1.02, transition: { duration: 0.15 } },
+  whileTap: { scale: 0.97, transition: { duration: 0.08 } },
+};
+
+/** Status badge pulse — for live/active indicators */
+export const statusPulse = {
+  animate: {
+    scale: [1, 1.08, 1],
+    opacity: [1, 0.8, 1],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+  },
+};
+
+/** Notification bell pulse — gentle ring attention */
+export const notificationPulse = {
+  animate: {
+    rotate: [0, -8, 8, -4, 4, 0],
+    transition: { duration: 0.6, ease: "easeInOut" },
+  },
+};
+
+/** Search bar glow — focus ring animation */
+export const searchGlow = {
+  whileFocus: {
+    boxShadow: "0 0 0 3px rgba(16, 185, 129, 0.15)",
+    transition: { duration: 0.2 },
+  },
+};
+
+/** Avatar hover — gentle ring expansion */
+export const avatarHover = {
+  whileHover: { scale: 1.05, transition: { duration: 0.15 } },
+};
+
+/** Card hover — lift + shadow for interactive cards */
+export const cardHover = {
+  whileHover: {
+    y: -4,
+    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.08)",
+    transition: { duration: 0.2, ease: "easeOut" as const },
+  },
+  whileTap: { y: 0, transition: { duration: 0.1 } },
+} as const;
+
+/** Queue number entrance — scale + fade for display board */
+export const queueNumberEnter = {
+  initial: { opacity: 0, scale: 0.6, y: 20 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { type: "spring", damping: 15, stiffness: 200 },
+  },
+  exit: { opacity: 0, scale: 0.8, y: -10, transition: { duration: 0.15 } },
+};
+
+/** Toggle switch — smooth thumb movement */
+export const toggleSpring = {
+  type: "spring" as const,
+  stiffness: 500,
+  damping: 30,
+};
+
+/* ============================================
+   Page-level transition
+   ============================================ */
+
+/** Page enter/exit — subtle fade + slide for route transitions */
+export const pageTransition: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: -4,
+    transition: { duration: 0.15 },
+  },
+};
+
 /** Hover glow — for cards */
 export const hoverGlow = {
   whileHover: {
     boxShadow: "0 8px 30px rgba(14, 124, 123, 0.12)",
     transition: { duration: 0.2 },
   },
-};
-
-/** Button press — for clickable buttons */
-export const buttonPress = {
-  whileHover: { scale: 1.02 },
-  whileTap: { scale: 0.97 },
 };
 
 /* ============================================
@@ -231,21 +309,6 @@ export const activeIndicatorVariants: Variants = {
 export const sidebarItemVariants = {
   whileHover: { x: 2, transition: { duration: 0.15 } },
   whileTap: { scale: 0.98 },
-};
-
-/** Page transition */
-export const pageTransition: Variants = {
-  hidden: { opacity: 0, y: 8 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-  },
-  exit: {
-    opacity: 0,
-    y: -4,
-    transition: { duration: 0.2 },
-  },
 };
 
 /* ============================================

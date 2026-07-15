@@ -1,6 +1,8 @@
 "use client";
 
+import { fadeDown } from "@/components/dashboard/staff/MotionVariants";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { Breadcrumb } from "./Breadcrumb";
 import { NotificationDropdown } from "./NotificationDropdown";
@@ -13,7 +15,10 @@ export function Header() {
   const { toggleMobileSidebar, setCommandPaletteOpen } = useStaffContext();
 
   return (
-    <header
+    <motion.header
+      variants={fadeDown}
+      initial="hidden"
+      animate="visible"
       className={cn(
         "sticky top-0 z-20 flex h-16 shrink-0 items-center gap-4 border-b border-slate-200/50 bg-white/70 backdrop-blur-xl px-4 lg:px-6",
         "dark:border-slate-700/30 dark:bg-slate-900/70",
@@ -22,7 +27,7 @@ export function Header() {
       {/* Mobile hamburger */}
       <button
         onClick={toggleMobileSidebar}
-        className="flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 lg:hidden dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+        className="focus-ring flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 lg:hidden dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
         aria-label="Open navigation menu"
       >
         <Menu className="h-[18px] w-[18px]" strokeWidth={1.8} />
@@ -52,6 +57,6 @@ export function Header() {
         {/* User dropdown */}
         <UserDropdown />
       </div>
-    </header>
+    </motion.header>
   );
 }

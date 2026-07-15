@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  cardHover,
   staggerContainer,
   staggerItem,
 } from "@/components/dashboard/staff/MotionVariants";
@@ -137,7 +138,7 @@ function Sparkline({
 
 /* ─── Stat Card ─────────────────────────────── */
 
-function StatCard({ stat }: { stat: StatData; index: number }) {
+function StatCard({ stat }: { stat: StatData }) {
   const colorMap: Record<string, string> = {
     emerald:
       "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
@@ -161,6 +162,7 @@ function StatCard({ stat }: { stat: StatData; index: number }) {
   return (
     <motion.div
       variants={staggerItem}
+      {...cardHover}
       className="dash-card dash-card-hover flex flex-col overflow-hidden"
     >
       <div className="flex items-start justify-between p-5 pb-0">
@@ -210,8 +212,8 @@ export function StatisticsCards() {
       animate="visible"
       className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
     >
-      {dashboardStats.map((stat, index) => (
-        <StatCard key={stat.id} stat={stat} index={index} />
+      {dashboardStats.map((stat) => (
+        <StatCard key={stat.id} stat={stat} />
       ))}
     </motion.div>
   );

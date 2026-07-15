@@ -1,5 +1,6 @@
 "use client";
 
+import { slideLeft } from "@/components/dashboard/staff/MotionVariants";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, HeartPulse, LogOut, Settings, User } from "lucide-react";
@@ -15,7 +16,10 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside
+    <motion.aside
+      variants={slideLeft}
+      initial="hidden"
+      animate="visible"
       className={cn(
         "relative z-30 flex h-screen flex-col",
         "dash-glass border-r border-white/20 dark:border-slate-700/40",
@@ -26,7 +30,7 @@ export function Sidebar() {
     >
       {/* ========== Logo ========== */}
       <Link
-        href="/staff"
+        href="/"
         className={cn(
           "flex h-16 shrink-0 items-center",
           sidebarCollapsed ? "justify-center px-4" : "gap-3 px-5",
@@ -205,6 +209,6 @@ export function Sidebar() {
           </div>
         )}
       </div>
-    </aside>
+    </motion.aside>
   );
 }

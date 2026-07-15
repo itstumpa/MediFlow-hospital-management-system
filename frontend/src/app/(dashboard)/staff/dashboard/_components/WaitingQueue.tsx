@@ -2,6 +2,7 @@
 
 import { Button } from "@/app/components/dashboard/Button";
 import {
+  cardHover,
   staggerContainer,
   staggerItem,
 } from "@/components/dashboard/staff/MotionVariants";
@@ -104,6 +105,7 @@ export function WaitingQueue() {
             <motion.div
               key={item.id}
               variants={staggerItem}
+              {...cardHover}
               className={cn(
                 "dash-card flex flex-col gap-3 p-4 transition-all duration-200 sm:flex-row sm:items-center",
                 item.priority === "emergency" &&

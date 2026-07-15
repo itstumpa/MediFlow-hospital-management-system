@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  cardHover,
   staggerContainer,
   staggerItem,
 } from "@/components/dashboard/staff/MotionVariants";
@@ -60,6 +61,7 @@ function DoctorCard({
   return (
     <motion.div
       variants={staggerItem}
+      {...cardHover}
       className="dash-card dash-card-hover flex items-start gap-4 p-4"
     >
       {/* Avatar */}

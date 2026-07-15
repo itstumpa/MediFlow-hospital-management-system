@@ -22,6 +22,7 @@ const DASHBOARD_PATTERNS = [
   /^\/admin(\/|$)/,
   /^\/patient(\/|$)/,
   /^\/doctor(\/|$)/,
+  /^\/staff(\/|$)/,
 ];
 
 function isDashboardRoute(pathname: string): boolean {

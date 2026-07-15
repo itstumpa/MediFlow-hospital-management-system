@@ -2,10 +2,18 @@
 
 import { Button } from "@/app/components/ui/Button";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import {
+  Heart,
+  LayoutDashboard,
+  Menu,
+  Shield,
+  Stethoscope,
+  Users,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface NavLink {
   label: string;
@@ -18,6 +26,35 @@ const navLinks: NavLink[] = [
   { label: "Departments", href: "/departments" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+];
+
+interface DashboardDropdownItem {
+  label: string;
+  href: string;
+  icon: React.ReactNode;
+}
+
+const dashboardItems: DashboardDropdownItem[] = [
+  {
+    label: "Admin",
+    href: "/admin",
+    icon: <Shield className="h-4 w-4" />,
+  },
+  {
+    label: "Doctor",
+    href: "/doctor",
+    icon: <Stethoscope className="h-4 w-4" />,
+  },
+  {
+    label: "Patient",
+    href: "/patient",
+    icon: <Heart className="h-4 w-4" />,
+  },
+  {
+    label: "Staff",
+    href: "/staff",
+    icon: <Users className="h-4 w-4" />,
+  },
 ];
 
 interface MobileNavProps {
@@ -68,6 +105,7 @@ const itemVariants = {
 export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const drawerRef = useRef<HTMLDivElement>(null);
+  const [isDashboardOpen, setIsDashboardOpen] = useState(false);
 
   // Close on Escape key
   useEffect(() => {
@@ -197,6 +235,76 @@ export function MobileNav({ isOpen, onToggle, onClose }: MobileNavProps) {
                     </motion.li>
                   ))}
                 </ul>
+
+                {/* Dashboard Dropdown */}
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setIsDashboardOpen(!isDashboardOpen)}
+                    className={`flex items-center justify-between w-full rounded-lg px-4 py-3.5 text-base font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+                      isDashboardOpen
+                        ? "bg-primary/5 text-primary"
+                        : "text-text-secondary hover:bg-background"
+                    }`}
+                    aria-expanded={isDashboardOpen}
+                    aria-controls="mobile-dashboard-dropdown"
+                  >
+                    <span className="flex items-center gap-3">
+                      <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
+                      <span>Dashboard</span>
+                    </span>
+                    <X
+                      className={`h-5 w-5 transition-transform duration-200 ${
+                        isDashboardOpen ? "rotate-45" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isDashboardOpen && (
+                      <motion.ul
+                        id="mobile-dashboard-dropdown"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="mt-1 ml-4 space-y-1 border-l-2 border-primary/20 pl-3"
+                        role="menu"
+                      >
+                        {dashboardItems.map((item) => (
+                          <motion.li
+                            key={item.href}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.15 }}
+                          >
+                            <Link
+                              href={item.href}
+                              onClick={() => {
+                                setIsDashboardOpen(false);
+                                onClose();
+                              }}
+                              className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-text-secondary hover:text-primary hover:bg-primary/5 rounded-lg transition-colors duration-150"
+                              role="menuitem"
+                            >
+                              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                {item.icon}
+                              </span>
+                              <span>{item.label}</span>
+                            </Link>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               </nav>
 
               {/* CTA buttons */}

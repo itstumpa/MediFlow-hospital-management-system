@@ -1,3 +1,5 @@
+"use client";
+
 import { Shield } from "lucide-react";
 import { PlaceholderPage } from "../../_placeholder";
 
