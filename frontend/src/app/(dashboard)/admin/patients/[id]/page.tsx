@@ -170,7 +170,7 @@ export default function PatientDetailPage() {
         className="flex items-center gap-1.5 text-sm"
       >
         <Link
-          href="/dashboard/admin/dashboard"
+          href="/admin/dashboard"
           className="inline-flex items-center gap-1 text-slate-500 transition-colors hover:text-dash-primary dark:text-slate-400"
         >
           <Home className="h-4 w-4" />
@@ -178,7 +178,7 @@ export default function PatientDetailPage() {
         </Link>
         <ChevronRight className="h-4 w-4 text-slate-300 dark:text-slate-600" />
         <Link
-          href="/dashboard/admin/patients"
+          href="/admin/patients"
           className="text-slate-500 transition-colors hover:text-dash-primary dark:text-slate-400"
         >
           <span>Patients</span>
@@ -196,7 +196,7 @@ export default function PatientDetailPage() {
         <div className="flex items-center gap-3">
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Link
-              href="/dashboard/admin/patients"
+              href="/admin/patients"
               className="flex h-9 w-9 items-center justify-center rounded-xl border border-dash-border bg-white text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
               aria-label="Back to patients"
             >

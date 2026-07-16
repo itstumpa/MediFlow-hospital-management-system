@@ -152,8 +152,14 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "Sarah Chen has booked a new cardiology consultation appointment. The appointment is scheduled for tomorrow (July 13, 2026) at 10:00 AM with Dr. Sarah Johnson in the Cardiology Department. Estimated duration is 45 minutes. Please ensure all prior medical records are prepared.",
       relatedLinks: [
-        { label: "View Appointment", href: "/dashboard/admin/appointments/APT-2026-001" },
-        { label: "View Patient Profile", href: "/dashboard/admin/patients/PAT-0042" },
+        {
+          label: "View Appointment",
+          href: "/admin/appointments/APT-2026-001",
+        },
+        {
+          label: "View Patient Profile",
+          href: "/admin/patients/PAT-0042",
+        },
       ],
       activity: [
         {
@@ -197,7 +203,10 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "The automated daily database backup has completed successfully. Backup size: 2.4 GB. Duration: 12 minutes. Location: s3://mediflow-backups/daily/2026-07-12/. No errors were reported during the process.",
       relatedLinks: [
-        { label: "View Backup Logs", href: "/dashboard/admin/settings?tab=backups" },
+        {
+          label: "View Backup Logs",
+          href: "/admin/settings?tab=backups",
+        },
       ],
       activity: [
         { action: "Backup initiated", timestamp: "2026-07-12T07:48:00" },
@@ -228,10 +237,10 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "Michael Brown has cancelled his follow-up appointment scheduled for July 14, 2026 at 2:00 PM with Dr. Williams. Cancellation reason: scheduling conflict. No reschedule request was submitted. The time slot is now available for other patients.",
       relatedLinks: [
-        { label: "View Appointment", href: "/dashboard/admin/appointments" },
+        { label: "View Appointment", href: "/admin/appointments" },
         {
           label: "Notify Available Slot",
-          href: "/dashboard/admin/appointments?slot=free",
+          href: "/admin/appointments?slot=free",
         },
       ],
       activity: [
@@ -266,10 +275,10 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "Dr. Emily Watson has successfully completed the onboarding process. She is now available for patient consultations in the Neurology Department. Specialties include movement disorders and neuromuscular medicine. Her initial schedule is set for Monday, Wednesday, and Friday.",
       relatedLinks: [
-        { label: "View Doctor Profile", href: "/dashboard/admin/doctors/DOC-004" },
+        { label: "View Doctor Profile", href: "/admin/doctors/DOC-004" },
         {
           label: "Configure Schedule",
-          href: "/dashboard/admin/doctors/DOC-004/schedule",
+          href: "/admin/doctors/DOC-004/schedule",
         },
       ],
       activity: [
@@ -304,8 +313,11 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "CRITICAL ALERT: Robert Kim's latest blood work shows elevated cardiac enzymes (Troponin I: 2.4 ng/mL, CK-MB: 25 ng/mL). These values are consistent with acute myocardial injury. Immediate cardiology consultation is recommended. Patient has been notified and advised to visit the ER.",
       relatedLinks: [
-        { label: "View Lab Results", href: "/dashboard/admin/patients/PAT-0089" },
-        { label: "Contact Patient", href: "/dashboard/admin/messages" },
+        {
+          label: "View Lab Results",
+          href: "/admin/patients/PAT-0089",
+        },
+        { label: "Contact Patient", href: "/admin/messages" },
       ],
       activity: [
         {
@@ -337,10 +349,13 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "The article 'Understanding Hypertension: Causes, Symptoms, and Management' has passed the review process and is now live on the patient portal. Author: Dr. Sarah Johnson. Estimated read time: 8 minutes.",
       relatedLinks: [
-        { label: "View Article", href: "/dashboard/admin/articles/hypertension-guide" },
+        {
+          label: "View Article",
+          href: "/admin/articles/hypertension-guide",
+        },
         {
           label: "View Analytics",
-          href: "/dashboard/admin/analytics?article=hypertension-guide",
+          href: "/admin/analytics?article=hypertension-guide",
         },
       ],
       activity: [
@@ -376,8 +391,14 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "Amanda Patel has sent a new message via the patient portal regarding her prescription for Metformin 500mg. She is requesting an early refill as she will be traveling abroad for 3 weeks. Current prescription expires in 10 days.",
       relatedLinks: [
-        { label: "View Message", href: "/dashboard/admin/messages?thread=msg-042" },
-        { label: "View Patient Profile", href: "/dashboard/admin/patients/PAT-0056" },
+        {
+          label: "View Message",
+          href: "/admin/messages?thread=msg-042",
+        },
+        {
+          label: "View Patient Profile",
+          href: "/admin/patients/PAT-0056",
+        },
       ],
       activity: [
         {
@@ -488,8 +509,8 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "The weekly analytics report for July 6–12 is now available. Key highlights: Patient volume increased by 12% compared to last week. Average wait time decreased by 4 minutes. Appointment no-show rate reduced to 3.2%. New patient registrations up by 8%.",
       relatedLinks: [
-        { label: "View Full Report", href: "/dashboard/admin/analytics" },
-        { label: "Export PDF", href: "/dashboard/admin/analytics/export" },
+        { label: "View Full Report", href: "/admin/analytics" },
+        { label: "Export PDF", href: "/admin/analytics/export" },
       ],
       activity: [
         {
@@ -532,7 +553,7 @@ export const mockNotifications: Notification[] = [
       relatedLinks: [
         {
           label: "Maintenance Details",
-          href: "/dashboard/admin/settings?tab=maintenance",
+          href: "/admin/settings?tab=maintenance",
         },
       ],
       activity: [
@@ -602,7 +623,10 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "The Q2 2026 compliance audit has been completed successfully. All regulatory standards have been met, including HIPAA, OSHA, and Joint Commission requirements. No critical findings were identified. Three minor recommendations were noted and have been assigned to the compliance team.",
       relatedLinks: [
-        { label: "View Audit Report", href: "/dashboard/admin/settings?tab=compliance" },
+        {
+          label: "View Audit Report",
+          href: "/admin/settings?tab=compliance",
+        },
       ],
       activity: [
         {
@@ -659,8 +683,14 @@ export const mockNotifications: Notification[] = [
       fullDescription:
         "The Electronic Medical Records (EMR) system has been successfully upgraded to version 4.2. New features include: improved search functionality, enhanced medication interaction warnings, and a redesigned patient summary view. All data has been migrated successfully.",
       relatedLinks: [
-        { label: "Release Notes", href: "/dashboard/admin/settings?tab=releases" },
-        { label: "Training Materials", href: "/dashboard/admin/settings?tab=training" },
+        {
+          label: "Release Notes",
+          href: "/admin/settings?tab=releases",
+        },
+        {
+          label: "Training Materials",
+          href: "/admin/settings?tab=training",
+        },
       ],
       activity: [
         { action: "Upgrade initiated", timestamp: "2026-06-15T01:00:00" },
@@ -791,4 +821,3 @@ export const defaultNotificationSettings: NotificationSettings = {
   emailNotifications: true,
   pushNotifications: false,
 };
-

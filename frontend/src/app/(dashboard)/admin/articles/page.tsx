@@ -240,7 +240,7 @@ export default function ArticlesPage() {
   }, [filteredArticles]);
 
   const handleCreateArticle = useCallback(() => {
-    window.location.href = "/dashboard/admin/articles/new";
+    window.location.href = "/admin/articles/new";
   }, []);
 
   const hasActiveFilters =
@@ -265,7 +265,7 @@ export default function ArticlesPage() {
         subtitle="Manage all published and draft health articles."
         actions={
           <div className="flex items-center gap-2">
-            <Link href="/dashboard/admin/articles/new">
+            <Link href="/admin/articles/new">
               <Button variant="primary" icon={Plus} size="sm">
                 Create Article
               </Button>

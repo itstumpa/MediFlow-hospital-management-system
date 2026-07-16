@@ -98,7 +98,7 @@ export function Sidebar() {
             </button>
             <div className="mt-2 flex flex-col items-center gap-1.5">
               <Link
-                href="/dashboard/admin/settings"
+                href="/admin/settings"
                 className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
                 aria-label="Settings"
               >
@@ -127,7 +127,7 @@ export function Sidebar() {
             </div>
             <div className="flex gap-0.5">
               <Link
-                href="/dashboard/admin/settings"
+                href="/admin/settings"
                 className="flex h-7 w-7 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
                 aria-label="Settings"
               >

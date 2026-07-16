@@ -25,7 +25,7 @@ export const navigationGroups: NavGroupDef[] = [
       {
         icon: LayoutDashboard as LucideIcon,
         label: "Dashboard",
-        href: "/dashboard/admin/dashboard",
+        href: "/admin/dashboard",
       },
     ],
   },
@@ -35,22 +35,22 @@ export const navigationGroups: NavGroupDef[] = [
       {
         icon: Stethoscope as LucideIcon,
         label: "Doctors",
-        href: "/dashboard/admin/doctors",
+        href: "/admin/doctors",
       },
       {
         icon: Users as LucideIcon,
         label: "Patients",
-        href: "/dashboard/admin/patients",
+        href: "/admin/patients",
       },
       {
         icon: Building2 as LucideIcon,
         label: "Departments",
-        href: "/dashboard/admin/departments",
+        href: "/admin/departments",
       },
       {
         icon: CalendarCheck as LucideIcon,
         label: "Appointments",
-        href: "/dashboard/admin/appointments",
+        href: "/admin/appointments",
       },
     ],
   },
@@ -60,12 +60,12 @@ export const navigationGroups: NavGroupDef[] = [
       {
         icon: FileText as LucideIcon,
         label: "Articles",
-        href: "/dashboard/admin/articles",
+        href: "/admin/articles",
       },
       {
         icon: FolderOpen as LucideIcon,
         label: "Categories",
-        href: "/dashboard/admin/articles/categories",
+        href: "/admin/articles/categories",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const navigationGroups: NavGroupDef[] = [
       {
         icon: BarChart3 as LucideIcon,
         label: "Analytics",
-        href: "/dashboard/admin/analytics",
+        href: "/admin/analytics",
       },
     ],
   },
@@ -85,12 +85,12 @@ export const navigationGroups: NavGroupDef[] = [
       {
         icon: MessageSquare as LucideIcon,
         label: "Messages",
-        href: "/dashboard/admin/messages",
+        href: "/admin/messages",
       },
       {
         icon: Bell as LucideIcon,
         label: "Notifications",
-        href: "/dashboard/admin/notifications",
+        href: "/admin/notifications",
       },
     ],
   },
@@ -100,17 +100,17 @@ export const navigationGroups: NavGroupDef[] = [
       {
         icon: Shield as LucideIcon,
         label: "Roles & Permissions",
-        href: "/dashboard/admin/roles",
+        href: "/admin/roles",
       },
       {
         icon: Settings as LucideIcon,
         label: "Settings",
-        href: "/dashboard/admin/settings",
+        href: "/admin/settings",
       },
       {
         icon: Activity as LucideIcon,
         label: "Activity Logs",
-        href: "/dashboard/admin/activity-logs",
+        href: "/admin/activity-logs",
       },
       {
         icon: Home as LucideIcon,
@@ -132,12 +132,12 @@ const autoLabels = Object.fromEntries(
 /** Map of href → label for breadcrumb resolution */
 export const breadcrumbLabels: Record<string, string> = {
   ...autoLabels,
-  "/dashboard/admin/roles": "Roles & Permissions",
-  "/dashboard/admin/doctors/new": "New Doctor",
-  "/dashboard/admin/doctors/[id]/edit": "Edit Doctor",
-  "/dashboard/admin/departments/new": "New Department",
-  "/dashboard/admin/departments/[id]/edit": "Edit Department",
-  "/dashboard/admin/articles/new": "New Article",
-  "/dashboard/admin/articles/[id]/edit": "Edit Article",
-  "/dashboard/admin/activity-logs": "Activity Logs",
+  "/admin/roles": "Roles & Permissions",
+  "/admin/doctors/new": "New Doctor",
+  "/admin/doctors/[id]/edit": "Edit Doctor",
+  "/admin/departments/new": "New Department",
+  "/admin/departments/[id]/edit": "Edit Department",
+  "/admin/articles/new": "New Article",
+  "/admin/articles/[id]/edit": "Edit Article",
+  "/admin/activity-logs": "Activity Logs",
 };

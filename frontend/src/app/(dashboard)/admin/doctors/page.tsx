@@ -231,7 +231,7 @@ export default function DoctorsPage() {
             >
               Export
             </Button>
-            <Link href="/dashboard/admin/doctors/new">
+            <Link href="/admin/doctors/new">
               <Button variant="primary" icon={Plus} size="sm">
                 Add Doctor
               </Button>

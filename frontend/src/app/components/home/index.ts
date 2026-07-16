@@ -8,4 +8,3 @@ export { HowItWorks } from "./how-it-works/HowItWorks";
 export { Navbar } from "./Navbar/Navbar";
 export { SpecialtyDoctors } from "./SpecialtyDoctors";
 export { StatsBar } from "./Statistics/Statistics";
-export { WhyChoose as Features } from "./why-choose/WhyChoose";

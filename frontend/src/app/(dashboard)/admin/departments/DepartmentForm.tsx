@@ -113,7 +113,7 @@ export function DepartmentForm({
       setShowSuccess(true);
       setTimeout(() => {
         setShowSuccess(false);
-        router.push("/dashboard/admin/departments");
+        router.push("/admin/departments");
       }, 2000);
     },
     [router],
@@ -132,13 +132,13 @@ export function DepartmentForm({
     if (isDirty) {
       setShowDiscardDialog(true);
     } else {
-      router.push("/dashboard/admin/departments");
+      router.push("/admin/departments");
     }
   }, [isDirty, router]);
 
   const confirmDiscard = useCallback(() => {
     setShowDiscardDialog(false);
-    router.push("/dashboard/admin/departments");
+    router.push("/admin/departments");
   }, [router]);
 
   return (
@@ -417,7 +417,7 @@ export function DepartmentForm({
           onClose={() => setShowDeleteDialog(false)}
           onConfirm={() => {
             setShowDeleteDialog(false);
-            router.push("/dashboard/admin/departments");
+            router.push("/admin/departments");
           }}
           variant="delete"
         />

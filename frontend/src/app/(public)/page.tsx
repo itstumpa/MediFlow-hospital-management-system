@@ -16,14 +16,6 @@ const LatestArticles = dynamic(
   { loading: () => <div className="h-[600px]" aria-hidden="true" /> },
 );
 
-const Features = dynamic(
-  () =>
-    import("@/app/components/home/why-choose/WhyChoose").then((m) => ({
-      default: m.WhyChoose,
-    })),
-  { loading: () => <div className="h-[500px]" aria-hidden="true" /> },
-);
-
 const Testimonials = dynamic(
   () =>
     import("@/app/components/home/testimonials/Testimonials").then((m) => ({
@@ -59,7 +51,6 @@ export default function Home() {
       <FeaturedDoctors />
       <HowItWorks />
       <LatestArticles />
-      <Features />
       <Testimonials />
       <AppointmentPreview />
       <CTA />

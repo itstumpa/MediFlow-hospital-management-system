@@ -129,7 +129,7 @@ export function ArticleForm({
       setShowSuccess(true);
       setTimeout(() => {
         setShowSuccess(false);
-        router.push("/dashboard/admin/articles");
+        router.push("/admin/articles");
       }, 2000);
     },
     [router],
@@ -149,13 +149,13 @@ export function ArticleForm({
     if (isDirty) {
       setShowDiscardDialog(true);
     } else {
-      router.push("/dashboard/admin/articles");
+      router.push("/admin/articles");
     }
   }, [isDirty, router]);
 
   const confirmDiscard = useCallback(() => {
     setShowDiscardDialog(false);
-    router.push("/dashboard/admin/articles");
+    router.push("/admin/articles");
   }, [router]);
 
   // Helper to update a single field

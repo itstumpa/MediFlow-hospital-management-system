@@ -142,14 +142,14 @@ export default function DoctorDetailPage({
         className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400"
       >
         <Link
-          href="/dashboard/admin/dashboard"
+          href="/admin/dashboard"
           className="transition-colors hover:text-slate-700 dark:hover:text-slate-300"
         >
           Dashboard
         </Link>
         <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
         <Link
-          href="/dashboard/admin/doctors"
+          href="/admin/doctors"
           className="transition-colors hover:text-slate-700 dark:hover:text-slate-300"
         >
           Doctors

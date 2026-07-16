@@ -59,9 +59,7 @@ export default function DashboardError({
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() =>
-              (window.location.href = "/dashboard/admin/dashboard")
-            }
+            onClick={() => (window.location.href = "/admin/dashboard")}
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
           >
             <LifeBuoy className="h-4 w-4" />

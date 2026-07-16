@@ -118,7 +118,7 @@ export function DoctorForm({
       setShowSuccess(true);
       setTimeout(() => {
         setShowSuccess(false);
-        router.push("/dashboard/admin/doctors");
+        router.push("/admin/doctors");
       }, 2000);
     },
     [router],
@@ -138,13 +138,13 @@ export function DoctorForm({
     if (isDirty) {
       setShowDiscardDialog(true);
     } else {
-      router.push("/dashboard/admin/doctors");
+      router.push("/admin/doctors");
     }
   }, [isDirty, router]);
 
   const confirmDiscard = useCallback(() => {
     setShowDiscardDialog(false);
-    router.push("/dashboard/admin/doctors");
+    router.push("/admin/doctors");
   }, [router]);
 
   return (
@@ -431,7 +431,7 @@ export function DoctorForm({
           onClose={() => setShowDeleteDialog(false)}
           onConfirm={() => {
             setShowDeleteDialog(false);
-            router.push("/dashboard/admin/doctors");
+            router.push("/admin/doctors");
           }}
           variant="delete"
         />
