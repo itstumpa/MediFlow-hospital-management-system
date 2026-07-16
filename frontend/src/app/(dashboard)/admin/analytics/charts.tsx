@@ -83,8 +83,8 @@ export function RevenueChart() {
               boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
               fontSize: "13px",
             }}
-            formatter={(value: number) => [
-              `$${value.toLocaleString()}`,
+            formatter={(value) => [
+              `$${(value ?? 0).toLocaleString()}`,
               "Revenue",
             ]}
           />
@@ -140,10 +140,13 @@ export function DemographicsChart() {
               boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
               fontSize: "13px",
             }}
-            formatter={(value: number, name: string) => [
-              `${value.toLocaleString()} (${((value / totalPatients) * 100).toFixed(1)}%)`,
-              name,
-            ]}
+            formatter={(value, name) => {
+              const numValue = typeof value === "number" ? value : 0;
+              return [
+                `${numValue.toLocaleString()} (${((numValue / totalPatients) * 100).toFixed(1)}%)`,
+                name,
+              ];
+            }}
           />
           <Legend
             verticalAlign="bottom"

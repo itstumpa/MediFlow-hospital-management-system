@@ -20,10 +20,15 @@ function AnimatedCounter({
   suffix?: string;
 }) {
   const [count, setCount] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (hasAnimated.current) {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted || hasAnimated.current) {
       setCount(value);
       return;
     }
@@ -40,7 +45,7 @@ function AnimatedCounter({
       if (progress < 1) requestAnimationFrame(animate);
     }
     requestAnimationFrame(animate);
-  }, [value]);
+  }, [value, isMounted]);
 
   return (
     <>

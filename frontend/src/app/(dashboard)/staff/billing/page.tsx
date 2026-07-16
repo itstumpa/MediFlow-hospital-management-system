@@ -1,25 +1,28 @@
 "use client";
 
 import { Button } from "@/app/components/dashboard/Button";
-import { staggerContainer, staggerItem } from "@/components/dashboard/staff/MotionVariants";
+import {
+  staggerContainer,
+  staggerItem,
+} from "@/components/dashboard/staff/MotionVariants";
 import { motion } from "framer-motion";
 import { Download, Filter, Plus, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
-    BillingStats,
-    defaultFilterValues,
-    FilterBar,
-    InvoiceForm,
-    InvoiceTable,
-    PaymentDialog,
-    ReceiptPreview,
-    RefundDialog,
-    RevenueSidebar,
+  BillingStats,
+  defaultFilterValues,
+  FilterBar,
+  InvoiceForm,
+  InvoiceTable,
+  PaymentDialog,
+  ReceiptPreview,
+  RefundDialog,
+  RevenueSidebar,
 } from "./_components";
 import {
-    invoices as allInvoices,
-    formatCurrency,
-    type Invoice,
+  invoices as allInvoices,
+  formatCurrency,
+  type Invoice,
 } from "./_mock-data";
 
 /* ══════════════════════════════════════════════
@@ -193,49 +196,58 @@ export default function BillingPage() {
         {/* Header */}
         <motion.div variants={staggerItem} initial="hidden" animate="visible">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Billing &amp; Payments
-            </h1>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-              Manage invoices and patient payments.
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                variant="primary"
-                size="md"
-                onClick={() => setInvoiceFormOpen(true)}
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                Billing &amp; Payments
+              </h1>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                Manage invoices and patient payments.
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Plus className="mr-1.5 h-4 w-4" />
-                New Invoice
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                variant="secondary"
-                size="md"
-                onClick={() => handleCollectPayment()}
+                <Button
+                  variant="primary"
+                  size="md"
+                  onClick={() => setInvoiceFormOpen(true)}
+                >
+                  <Plus className="mr-1.5 h-4 w-4" />
+                  New Invoice
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Plus className="mr-1.5 h-4 w-4" />
-                Collect Payment
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="outline" size="md">
-                <Download className="mr-1.5 h-4 w-4" />
-                Export
-              </Button>
-            </motion.div>
-            {/* Sidebar toggle - mobile */}
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="rounded-lg border border-slate-200 p-2 text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden"
-            >
-              <Filter className="h-4 w-4" />
-            </button>
-          </div>
+                <Button
+                  variant="secondary"
+                  size="md"
+                  onClick={() => handleCollectPayment()}
+                >
+                  <Plus className="mr-1.5 h-4 w-4" />
+                  Collect Payment
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button variant="outline" size="md">
+                  <Download className="mr-1.5 h-4 w-4" />
+                  Export
+                </Button>
+              </motion.div>
+              {/* Sidebar toggle - mobile */}
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="rounded-lg border border-slate-200 p-2 text-slate-500 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden"
+              >
+                <Filter className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </motion.div>
 
@@ -291,7 +303,12 @@ export default function BillingPage() {
         </motion.div>
 
         {/* Results info */}
-        <motion.div variants={staggerItem} initial="hidden" animate="visible" className="flex items-center justify-between text-sm">
+        <motion.div
+          variants={staggerItem}
+          initial="hidden"
+          animate="visible"
+          className="flex items-center justify-between text-sm"
+        >
           <p className="text-slate-500 dark:text-slate-400">
             Showing{" "}
             <span className="font-semibold text-slate-700 dark:text-slate-300">
@@ -312,11 +329,7 @@ export default function BillingPage() {
         </motion.div>
 
         {/* Table */}
-        <motion.div
-          variants={staggerItem}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div variants={staggerItem} initial="hidden" animate="visible">
           <InvoiceTable
             invoices={invoices}
             onViewInvoice={handleViewInvoice}

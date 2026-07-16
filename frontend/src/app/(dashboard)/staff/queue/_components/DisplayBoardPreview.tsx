@@ -25,24 +25,38 @@ interface DisplayBoardPreviewProps {
 /* ─── Current time display ──────────────────── */
 
 function CurrentTime() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState<Date | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setTime(new Date());
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
+  if (!mounted) {
+    return (
+      <div className="text-right">
+        <p className="text-3xl font-light tracking-wider text-white">
+          --:--:--
+        </p>
+        <p className="text-sm text-white/60">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="text-right">
       <p className="text-3xl font-light tracking-wider text-white">
-        {time.toLocaleTimeString("en-US", {
+        {time?.toLocaleTimeString("en-US", {
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
         })}
       </p>
       <p className="text-sm text-white/60">
-        {time.toLocaleDateString("en-US", {
+        {time?.toLocaleDateString("en-US", {
           weekday: "long",
           month: "long",
           day: "numeric",
