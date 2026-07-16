@@ -2,10 +2,10 @@
 
 import { Button } from "@/app/components/dashboard/Button";
 import { DashboardContainer } from "@/components/dashboard/staff/DashboardContainer";
+import { fadeUp } from "@/components/dashboard/staff/MotionVariants";
 import { PageHeader } from "@/components/dashboard/staff/PageHeader";
-import { fadeUp, staggerContainer, staggerItem } from "@/components/dashboard/staff/MotionVariants";
 import { AnimatePresence, motion } from "framer-motion";
-import { AlertTriangle, Building2, Calendar, CalendarCheck, Clock, Hash, MessageSquare, Search, Shield, User, UserCheck, UserPlus, Users, X } from "lucide-react";
+import { AlertTriangle, Search, UserPlus } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import {
   CheckInPanel,
@@ -39,17 +39,39 @@ const stepValidations: Record<number, ValidationRule[]> = {
     { field: "firstName", required: true, message: "First name is required" },
     { field: "lastName", required: true, message: "Last name is required" },
     { field: "gender", required: true, message: "Gender is required" },
-    { field: "dateOfBirth", required: true, message: "Date of birth is required" },
+    {
+      field: "dateOfBirth",
+      required: true,
+      message: "Date of birth is required",
+    },
     { field: "bloodGroup", required: true, message: "Blood group is required" },
-    { field: "phone", required: true, minLength: 7, message: "Valid phone number is required" },
-    { field: "emergencyContactName", required: true, message: "Emergency contact name is required" },
-    { field: "emergencyContactPhone", required: true, minLength: 7, message: "Emergency contact phone is required" },
+    {
+      field: "phone",
+      required: true,
+      minLength: 7,
+      message: "Valid phone number is required",
+    },
+    {
+      field: "emergencyContactName",
+      required: true,
+      message: "Emergency contact name is required",
+    },
+    {
+      field: "emergencyContactPhone",
+      required: true,
+      minLength: 7,
+      message: "Emergency contact phone is required",
+    },
   ],
   4: [
     { field: "doctor", required: true, message: "Doctor is required" },
     { field: "department", required: true, message: "Department is required" },
     { field: "visitType", required: true, message: "Visit type is required" },
-    { field: "visitReason", required: true, message: "Visit reason is required" },
+    {
+      field: "visitReason",
+      required: true,
+      message: "Visit reason is required",
+    },
   ],
 };
 
@@ -81,8 +103,11 @@ export default function CheckInPage() {
 
   const [step, setStep] = useState(1);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [formData, setFormData] = useState<RegistrationFormData>(defaultFormData);
-  const [errors, setErrors] = useState<Partial<Record<keyof RegistrationFormData, string>>>({});
+  const [formData, setFormData] =
+    useState<RegistrationFormData>(defaultFormData);
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof RegistrationFormData, string>>
+  >({});
   const [patientType, setPatientType] = useState<PatientType>("walk-in");
   const [foundPatient, setFoundPatient] = useState<Patient | null>(null);
 
@@ -231,15 +256,38 @@ export default function CheckInPage() {
             title="Patient Check-in"
             subtitle="Check in arriving patients for their appointments"
           >
-            <Button variant="primary" onClick={handleRegisterNew} disabled={showSuccess}>
+            <Button
+              variant="primary"
+              onClick={handleRegisterNew}
+              disabled={showSuccess}
+            >
               <UserPlus className="h-4 w-4" />
               Register New Patient
             </Button>
-            <Button variant="outline" onClick={() => { setStep(1); setFoundPatient(null); setFormData(defaultFormData); }} disabled={showSuccess}>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setStep(1);
+                setFoundPatient(null);
+                setFormData(defaultFormData);
+              }}
+              disabled={showSuccess}
+            >
               <Search className="h-4 w-4" />
               Find Existing Patient
             </Button>
-            <Button variant="danger" onClick={() => { setPatientType("emergency"); updateField("queueNumber", "ER-" + Math.floor(Math.random() * 900 + 100)); setStep(2); }} disabled={showSuccess}>
+            <Button
+              variant="danger"
+              onClick={() => {
+                setPatientType("emergency");
+                updateField(
+                  "queueNumber",
+                  "ER-" + Math.floor(Math.random() * 900 + 100),
+                );
+                setStep(2);
+              }}
+              disabled={showSuccess}
+            >
               <AlertTriangle className="h-4 w-4" />
               Emergency Registration
             </Button>
@@ -356,6 +404,6 @@ export default function CheckInPage() {
    Import PersonalInformationForm and MedicalInformationForm
    ══════════════════════════════════════════════ */
 
-import { PersonalInformationForm } from "../register/_components/PersonalInformationForm";
-import { MedicalInformationForm } from "../register/_components/MedicalInformationForm";
 import { AppointmentInformationForm } from "../register/_components/AppointmentInformationForm";
+import { MedicalInformationForm } from "../register/_components/MedicalInformationForm";
+import { PersonalInformationForm } from "../register/_components/PersonalInformationForm";

@@ -1,12 +1,15 @@
 "use client";
 
-import { DashboardContainer } from "@/components/dashboard/staff/DashboardContainer";
-import { PageHeader } from "@/components/dashboard/staff/PageHeader";
-import { fadeUp, staggerContainer, staggerItem } from "@/components/dashboard/staff/MotionVariants";
-import { motion } from "framer-motion";
-import { Calendar, ChevronLeft, ChevronRight, Plus, Search } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
 import { Button } from "@/app/components/dashboard/Button";
+import { DashboardContainer } from "@/components/dashboard/staff/DashboardContainer";
+import {
+  staggerContainer,
+  staggerItem,
+} from "@/components/dashboard/staff/MotionVariants";
+import { PageHeader } from "@/components/dashboard/staff/PageHeader";
+import { motion } from "framer-motion";
+import { Plus, Search } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 import { AppointmentCalendar } from "../_components/AppointmentCalendar";
 import { appointments, type Appointment } from "../_mock-data";
 
@@ -15,9 +18,12 @@ import { appointments, type Appointment } from "../_mock-data";
    ══════════════════════════════════════════════ */
 
 export default function AppointmentsCalendarPage() {
-  const [view, setView] = useState<"month" | "week" | "day" | "agenda">("month");
+  const [view, setView] = useState<"month" | "week" | "day" | "agenda">(
+    "month",
+  );
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(null);
+  const [selectedAppointment, setSelectedAppointment] =
+    useState<Appointment | null>(null);
 
   const filteredAppointments = useMemo(() => {
     if (!searchQuery) return appointments;
@@ -54,7 +60,12 @@ export default function AppointmentsCalendarPage() {
                   className="h-10 w-64 rounded-lg border border-slate-200 bg-white pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
                 />
               </div>
-              <Button variant="primary" onClick={() => { /* navigate to create */ }}>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  /* navigate to create */
+                }}
+              >
                 <Plus className="h-4 w-4" />
                 New Appointment
               </Button>
@@ -69,10 +80,7 @@ export default function AppointmentsCalendarPage() {
           >
             {/* Calendar View */}
             <motion.div variants={staggerItem}>
-              <AppointmentCalendar
-                view={view}
-                onViewChange={setView}
-              />
+              <AppointmentCalendar view={view} onViewChange={setView} />
             </motion.div>
 
             {/* Appointment Detail Modal */}
@@ -94,15 +102,26 @@ export default function AppointmentsCalendarPage() {
                         {selectedAppointment.patientName}
                       </h3>
                       <p className="text-sm text-slate-500 dark:text-slate-400">
-                        {selectedAppointment.doctorName} • {selectedAppointment.department}
+                        {selectedAppointment.doctorName} •{" "}
+                        {selectedAppointment.department}
                       </p>
                     </div>
                     <button
                       onClick={() => setSelectedAppointment(null)}
                       className="rounded-lg p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
                     >
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <svg
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -110,9 +129,13 @@ export default function AppointmentsCalendarPage() {
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Date</p>
+                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Date
+                        </p>
                         <p className="text-sm text-slate-900 dark:text-white">
-                          {new Date(selectedAppointment.date + "T00:00:00").toLocaleDateString("en-US", {
+                          {new Date(
+                            selectedAppointment.date + "T00:00:00",
+                          ).toLocaleDateString("en-US", {
                             weekday: "long",
                             month: "long",
                             day: "numeric",
@@ -121,19 +144,26 @@ export default function AppointmentsCalendarPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Time</p>
+                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Time
+                        </p>
                         <p className="text-sm text-slate-900 dark:text-white">
-                          {selectedAppointment.startTime} - {selectedAppointment.endTime}
+                          {selectedAppointment.startTime} -{" "}
+                          {selectedAppointment.endTime}
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Type</p>
+                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Type
+                        </p>
                         <p className="text-sm text-slate-900 dark:text-white capitalize">
                           {selectedAppointment.type.replace("-", " ")}
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Status</p>
+                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Status
+                        </p>
                         <span
                           className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
                             selectedAppointment.status === "confirmed"
@@ -158,23 +188,39 @@ export default function AppointmentsCalendarPage() {
 
                     {selectedAppointment.visitReason && (
                       <div>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Visit Reason</p>
-                        <p className="text-sm text-slate-900 dark:text-white">{selectedAppointment.visitReason}</p>
+                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Visit Reason
+                        </p>
+                        <p className="text-sm text-slate-900 dark:text-white">
+                          {selectedAppointment.visitReason}
+                        </p>
                       </div>
                     )}
 
                     {selectedAppointment.notes && (
                       <div>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Notes</p>
-                        <p className="text-sm text-slate-900 dark:text-white">{selectedAppointment.notes}</p>
+                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Notes
+                        </p>
+                        <p className="text-sm text-slate-900 dark:text-white">
+                          {selectedAppointment.notes}
+                        </p>
                       </div>
                     )}
 
                     <div className="flex justify-end gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
-                      <Button variant="ghost" onClick={() => setSelectedAppointment(null)}>
+                      <Button
+                        variant="ghost"
+                        onClick={() => setSelectedAppointment(null)}
+                      >
                         Close
                       </Button>
-                      <Button variant="primary" onClick={() => { /* reschedule */ setSelectedAppointment(null); }}>
+                      <Button
+                        variant="primary"
+                        onClick={() => {
+                          /* reschedule */ setSelectedAppointment(null);
+                        }}
+                      >
                         Reschedule
                       </Button>
                     </div>

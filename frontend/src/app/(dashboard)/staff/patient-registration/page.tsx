@@ -3,9 +3,9 @@
 import { Button } from "@/app/components/dashboard/Button";
 import { DashboardContainer } from "@/components/dashboard/staff/DashboardContainer";
 import { PageHeader } from "@/components/dashboard/staff/PageHeader";
-import { UserPlus, UserCheck, User, Shield, Search, Plus } from "lucide-react";
-import { useState } from "react";
+import { Search, Shield, User, UserCheck, UserPlus } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 /* ─── Types ─────────────────────────────────── */
 
@@ -27,7 +27,8 @@ export default function PatientRegistrationPage() {
     {
       icon: UserPlus,
       title: "Register New Patient",
-      description: "Create a complete patient record with personal, medical, and insurance information",
+      description:
+        "Create a complete patient record with personal, medical, and insurance information",
       href: "/staff/patient-registration/register",
       color: "blue",
       shortcut: "R",
@@ -35,7 +36,8 @@ export default function PatientRegistrationPage() {
     {
       icon: UserCheck,
       title: "Patient Check-in",
-      description: "Check in arriving patients for their scheduled appointments",
+      description:
+        "Check in arriving patients for their scheduled appointments",
       href: "/staff/patient-registration/check-in",
       color: "emerald",
       shortcut: "C",
@@ -51,7 +53,8 @@ export default function PatientRegistrationPage() {
     {
       icon: Shield,
       title: "Emergency Registration",
-      description: "Fast-track registration for emergency patients requiring immediate attention",
+      description:
+        "Fast-track registration for emergency patients requiring immediate attention",
       href: "/staff/patient-registration/emergency",
       color: "red",
       shortcut: "E",
@@ -60,15 +63,19 @@ export default function PatientRegistrationPage() {
 
   const colorStyles: Record<string, string> = {
     blue: "bg-blue-50 border-blue-200 hover:border-blue-300 dark:bg-blue-950/20 dark:border-blue-800",
-    emerald: "bg-emerald-50 border-emerald-200 hover:border-emerald-300 dark:bg-emerald-950/20 dark:border-emerald-800",
-    amber: "bg-amber-50 border-amber-200 hover:border-amber-300 dark:bg-amber-950/20 dark:border-amber-800",
+    emerald:
+      "bg-emerald-50 border-emerald-200 hover:border-emerald-300 dark:bg-emerald-950/20 dark:border-emerald-800",
+    amber:
+      "bg-amber-50 border-amber-200 hover:border-amber-300 dark:bg-amber-950/20 dark:border-amber-800",
     red: "bg-red-50 border-red-200 hover:border-red-300 dark:bg-red-950/20 dark:border-red-800",
   };
 
   const iconColorStyles: Record<string, string> = {
     blue: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30",
-    emerald: "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
-    amber: "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
+    emerald:
+      "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
+    amber:
+      "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
     red: "text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30",
   };
 
@@ -212,8 +219,8 @@ export default function PatientRegistrationPage() {
                       reg.type === "emergency"
                         ? "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400"
                         : reg.type === "walk-in"
-                        ? "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400"
-                        : "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
+                          ? "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400"
+                          : "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
                     }`}
                   >
                     {reg.type === "emergency" ? (
@@ -229,7 +236,8 @@ export default function PatientRegistrationPage() {
                       {reg.patientName}
                     </p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {reg.id} • {reg.type.charAt(0).toUpperCase() + reg.type.slice(1)}
+                      {reg.id} •{" "}
+                      {reg.type.charAt(0).toUpperCase() + reg.type.slice(1)}
                     </p>
                   </div>
                 </div>
@@ -269,8 +277,10 @@ function StatCard({
 }) {
   const colorStyles: Record<string, string> = {
     blue: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30",
-    emerald: "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
-    amber: "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
+    emerald:
+      "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
+    amber:
+      "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
     red: "text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30",
   };
 
@@ -285,7 +295,9 @@ function StatCard({
             {value}
           </p>
         </div>
-        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${colorStyles[color]}`}>
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-xl ${colorStyles[color]}`}
+        >
           <Icon className="h-5 w-5" />
         </div>
       </div>
@@ -299,7 +311,9 @@ function StatCard({
         >
           {trend === "up" ? "↑" : "↓"} {change}
         </span>
-        <span className="text-xs text-slate-500 dark:text-slate-400">vs yesterday</span>
+        <span className="text-xs text-slate-500 dark:text-slate-400">
+          vs yesterday
+        </span>
       </div>
     </div>
   );

@@ -1,31 +1,10 @@
 import {
   AlertTriangle,
-  Building2,
   Calendar,
   CalendarCheck,
-  CalendarPlus,
-  CalendarX,
-  CheckCircle2,
   Clock,
-  CreditCard,
-  FileText,
-  Heart,
-  Home,
-  LayoutDashboard,
-  LogOut,
-  MessageSquare,
-  Plus,
-  Receipt,
-  RotateCcw,
-  Search,
-  Settings,
-  Shield,
-  Stethoscope,
-  User,
   UserCheck,
   UserPlus,
-  Users,
-  type LucideIcon,
 } from "lucide-react";
 import type { ElementType } from "react";
 
@@ -731,12 +710,14 @@ export const roomStatusConfig: Record<
 > = {
   available: {
     label: "Available",
-    class: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
+    class:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
     dot: "bg-emerald-500",
   },
   occupied: {
     label: "Occupied",
-    class: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
     dot: "bg-amber-500",
   },
   cleaning: {
@@ -869,7 +850,8 @@ export const priorityConfig: Record<
   },
   high: {
     label: "High",
-    class: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    class:
+      "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
     icon: CalendarCheck,
   },
   urgent: {
@@ -894,7 +876,8 @@ export const statusConfig: Record<
   },
   "in-consultation": {
     label: "In Consultation",
-    class: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
+    class:
+      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
     dot: "bg-emerald-500",
   },
   completed: {
