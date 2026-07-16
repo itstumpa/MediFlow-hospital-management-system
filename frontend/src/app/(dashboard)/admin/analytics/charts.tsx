@@ -83,10 +83,10 @@ export function RevenueChart() {
               boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
               fontSize: "13px",
             }}
-            formatter={(value) => [
-              `$${(value ?? 0).toLocaleString()}`,
-              "Revenue",
-            ]}
+            formatter={(value: unknown) => {
+              const num = typeof value === "number" ? value : 0;
+              return [`$${num.toLocaleString()}`, "Revenue"];
+            }}
           />
           <Area
             type="monotone"
