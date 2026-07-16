@@ -7,7 +7,6 @@ import { useCallback, useState } from "react";
 
 import { DashboardContainer } from "@/components/dashboard/staff/DashboardContainer";
 import { DashboardContent } from "@/components/dashboard/staff/DashboardContent";
-import { PageHeader } from "@/components/dashboard/staff/PageHeader";
 
 type PageState = "confirm" | "logging-out" | "done";
 
@@ -33,7 +32,11 @@ export default function LogoutPage() {
             >
               <motion.div
                 animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10"
               >
                 <LogOut className="h-9 w-9 text-primary" aria-hidden="true" />
