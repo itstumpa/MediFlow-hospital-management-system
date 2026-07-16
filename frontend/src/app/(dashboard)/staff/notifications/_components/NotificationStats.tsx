@@ -5,7 +5,6 @@ import {
   staggerContainer,
   staggerItem,
 } from "@/components/dashboard/staff/MotionVariants";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -56,17 +55,14 @@ function AnimatedCounter({
 
 /* ─── Stat Card ─────────────────────────────── */
 
-function StatCard({ stat, index }: { stat: NotificationStat; index: number }) {
+function StatCard({ stat }: { stat: NotificationStat }) {
   const Icon = stat.icon;
 
   return (
     <motion.div
       variants={staggerItem}
       {...cardHover}
-      className={cn(
-        "dash-card dash-card-hover p-4 sm:p-5",
-        index === 0 && "card-glow gradient-primary",
-      )}
+      className="dash-card dash-card-hover p-4 sm:p-5"
     >
       <div className="flex items-start justify-between">
         <div
@@ -119,8 +115,8 @@ export function NotificationStats({
       animate="visible"
       className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-6"
     >
-      {stats.map((stat, index) => (
-        <StatCard key={stat.id} stat={stat} index={index} />
+      {stats.map((stat) => (
+        <StatCard key={stat.id} stat={stat} />
       ))}
     </motion.div>
   );
