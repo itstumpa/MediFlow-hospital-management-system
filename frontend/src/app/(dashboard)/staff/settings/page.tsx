@@ -1,14 +1,7 @@
 "use client";
 
-import { Settings } from "lucide-react";
-import { PlaceholderPage } from "../_placeholder";
+import { SettingsPageContent } from "./_components/SettingsPageContent";
 
 export default function SettingsPage() {
-  return (
-    <PlaceholderPage
-      title="Settings"
-      subtitle="Configure your account and application settings"
-      icon={Settings}
-    />
-  );
+  return <SettingsPageContent />;
 }

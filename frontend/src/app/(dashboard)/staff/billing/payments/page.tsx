@@ -176,7 +176,7 @@ export default function PaymentsPage() {
   );
 
   /* ── Payment method icons ── */
-  const methodIcons: Record<string, typeof CreditCard> = {
+  const methodIcons: Record<string, React.ElementType> = {
     cash: Banknote,
     card: CreditCard,
     "bank-transfer": Building2,
