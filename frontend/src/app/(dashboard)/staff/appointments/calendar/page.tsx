@@ -186,13 +186,13 @@ export default function AppointmentsCalendarPage() {
                       </div>
                     </div>
 
-                    {selectedAppointment.visitReason && (
+                    {selectedAppointment.reason && (
                       <div>
                         <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
                           Visit Reason
                         </p>
                         <p className="text-sm text-slate-900 dark:text-white">
-                          {selectedAppointment.visitReason}
+                          {selectedAppointment.reason}
                         </p>
                       </div>
                     )}

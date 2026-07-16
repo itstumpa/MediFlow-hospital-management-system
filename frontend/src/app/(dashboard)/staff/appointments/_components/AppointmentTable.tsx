@@ -39,7 +39,17 @@ function getInitialsColor(name: string) {
 
 /* ─── Desktop Row ───────────────────────────── */
 
-function DesktopRow({ appointment }: { appointment: Appointment }) {
+function DesktopRow({
+  appointment,
+  onReschedule,
+  onView,
+  onCancel,
+}: {
+  appointment: Appointment;
+  onReschedule?: (appt: Appointment) => void;
+  onView?: (appt: Appointment) => void;
+  onCancel?: (appt: Appointment) => void;
+}) {
   const status = statusConfig[appointment.status];
   const type = typeConfig[appointment.type];
 
@@ -89,9 +99,38 @@ function DesktopRow({ appointment }: { appointment: Appointment }) {
         </span>
       </td>
       <td className="py-3 pl-3 pr-4">
-        <Button variant="ghost" size="xs" icon={Eye}>
-          View
-        </Button>
+        <div className="flex items-center gap-1">
+          {onView && (
+            <Button
+              variant="ghost"
+              size="xs"
+              icon={Eye}
+              onClick={() => onView(appointment)}
+            >
+              View
+            </Button>
+          )}
+          {onReschedule && (
+            <Button
+              variant="ghost"
+              size="xs"
+              icon={ChevronRight}
+              onClick={() => onReschedule(appointment)}
+            >
+              Reschedule
+            </Button>
+          )}
+          {onCancel && (
+            <Button
+              variant="ghost"
+              size="xs"
+              icon={ChevronRight}
+              onClick={() => onCancel(appointment)}
+            >
+              Cancel
+            </Button>
+          )}
+        </div>
       </td>
     </motion.tr>
   );
@@ -99,7 +138,17 @@ function DesktopRow({ appointment }: { appointment: Appointment }) {
 
 /* ─── Mobile Card ───────────────────────────── */
 
-function MobileCard({ appointment }: { appointment: Appointment }) {
+function MobileCard({
+  appointment,
+  onReschedule,
+  onView,
+  onCancel,
+}: {
+  appointment: Appointment;
+  onReschedule?: (appt: Appointment) => void;
+  onView?: (appt: Appointment) => void;
+  onCancel?: (appt: Appointment) => void;
+}) {
   const status = statusConfig[appointment.status];
   const type = typeConfig[appointment.type];
 
@@ -127,7 +176,39 @@ function MobileCard({ appointment }: { appointment: Appointment }) {
       >
         {status.label}
       </span>
-      <ChevronRight className="h-4 w-4 shrink-0 text-slate-300 dark:text-slate-600" />
+      <div className="flex items-center gap-1">
+        {onView && (
+          <Button
+            variant="ghost"
+            size="xs"
+            icon={Eye}
+            onClick={() => onView(appointment)}
+          >
+            View
+          </Button>
+        )}
+        {onReschedule && (
+          <Button
+            variant="ghost"
+            size="xs"
+            icon={ChevronRight}
+            onClick={() => onReschedule(appointment)}
+          >
+            Reschedule
+          </Button>
+        )}
+        {onCancel && (
+          <Button
+            variant="ghost"
+            size="xs"
+            icon={ChevronRight}
+            onClick={() => onCancel(appointment)}
+          >
+            Cancel
+          </Button>
+        )}
+        <ChevronRight className="h-4 w-4 shrink-0 text-slate-300 dark:text-slate-600" />
+      </div>
     </motion.div>
   );
 }
@@ -154,10 +235,21 @@ function EmptyState() {
 
 interface AppointmentTableProps {
   searchQuery?: string;
+  appointments?: Appointment[];
+  onReschedule?: (appt: Appointment) => void;
+  onView?: (appt: Appointment) => void;
+  onCancel?: (appt: Appointment) => void;
 }
 
-export function AppointmentTable({ searchQuery }: AppointmentTableProps) {
-  let filtered = appointments;
+export function AppointmentTable({
+  searchQuery,
+  appointments: externalAppointments,
+  onReschedule,
+  onView,
+  onCancel,
+}: AppointmentTableProps) {
+  const appointmentsToUse = externalAppointments ?? appointments;
+  let filtered = appointmentsToUse;
 
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
@@ -209,7 +301,13 @@ export function AppointmentTable({ searchQuery }: AppointmentTableProps) {
               animate="visible"
             >
               {filtered.map((appt) => (
-                <DesktopRow key={appt.id} appointment={appt} />
+                <DesktopRow
+                  key={appt.id}
+                  appointment={appt}
+                  onReschedule={onReschedule}
+                  onView={onView}
+                  onCancel={onCancel}
+                />
               ))}
             </motion.tbody>
           </table>
@@ -225,7 +323,13 @@ export function AppointmentTable({ searchQuery }: AppointmentTableProps) {
           className="space-y-2"
         >
           {filtered.map((appt) => (
-            <MobileCard key={appt.id} appointment={appt} />
+            <MobileCard
+              key={appt.id}
+              appointment={appt}
+              onReschedule={onReschedule}
+              onView={onView}
+              onCancel={onCancel}
+            />
           ))}
         </motion.div>
       </div>
