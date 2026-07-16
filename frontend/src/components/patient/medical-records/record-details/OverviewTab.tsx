@@ -91,7 +91,7 @@ export function OverviewTab({ data, className }: OverviewTabProps) {
 
       {/* Doctor Notes */}
       <SectionCard
-        icon={<FileText className="h-4 w-4 text-emerald-500" />}
+        icon={<FileText className="h-4 w-4 text-[var(--color-primary)]" />}
         title="Doctor's Notes"
       >
         <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">

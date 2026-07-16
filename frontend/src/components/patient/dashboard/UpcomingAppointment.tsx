@@ -42,7 +42,7 @@ export function UpcomingAppointment() {
       className="relative overflow-hidden rounded-2xl border border-slate-200/60 bg-white p-6 shadow-sm dark:border-slate-700/40 dark:bg-slate-800/60"
     >
       {/* Decorative gradient blob */}
-      <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-emerald-100/60 to-teal-100/40 blur-2xl dark:from-emerald-900/20 dark:to-teal-900/10" />
+      <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-dash-primary/10 to-dash-primary-dark/5 blur-2xl dark:from-teal-900/20 dark:to-teal-900/10" />
 
       <div className="relative">
         <div className="flex items-center justify-between">
@@ -59,7 +59,7 @@ export function UpcomingAppointment() {
 
         {/* Doctor info */}
         <div className="mt-5 flex items-center gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 text-lg font-bold text-white shadow-md shadow-emerald-200/50 dark:shadow-emerald-900/30">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-lg font-bold text-white shadow-md shadow-dash-primary/20 dark:shadow-dash-primary/10">
             SC
           </div>
           <div>

@@ -52,7 +52,7 @@ export const riskLevelConfig: Record<
   low: {
     label: "Low",
     className:
-      "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400",
+      "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]",
     icon: CheckCircle2,
   },
   moderate: {
@@ -128,7 +128,7 @@ export const labStatusConfig: Record<
   completed: {
     label: "Completed",
     className:
-      "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400",
+      "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]",
   },
   pending: {
     label: "Pending",
@@ -185,7 +185,7 @@ export const attachmentCategoryConfig: Record<
   image: {
     label: "Medical Image",
     icon: Image,
-    color: "text-emerald-500",
+    color: "text-[var(--color-primary)]",
   },
   invoice: {
     label: "Invoice",
@@ -292,14 +292,14 @@ export const timelineEventConfig: Record<
   "check-in": {
     label: "Checked In",
     icon: UserCheck,
-    color: "text-teal-500",
-    dotColor: "bg-teal-500",
+    color: "text-[var(--color-primary)]",
+    dotColor: "bg-[var(--color-primary)]",
   },
   completed: {
     label: "Completed",
     icon: CheckCircle2,
-    color: "text-emerald-500",
-    dotColor: "bg-emerald-500",
+    color: "text-[var(--color-primary)]",
+    dotColor: "bg-[var(--color-primary)]",
   },
 };
 

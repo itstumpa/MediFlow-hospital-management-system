@@ -8,6 +8,7 @@ import { BillingSettings } from "@/app/components/dashboard/settings/BillingSett
 import { DangerZone } from "@/app/components/dashboard/settings/DangerZone";
 import { GeneralSettings } from "@/app/components/dashboard/settings/GeneralSettings";
 import { IntegrationsSettings } from "@/app/components/dashboard/settings/IntegrationSettings";
+import { LocalizationSettings } from "@/app/components/dashboard/settings/LocalizationSettings";
 import { NotificationsSettings } from "@/app/components/dashboard/settings/NotificationsSettings";
 import { SecuritySettings } from "@/app/components/dashboard/settings/SecuritySettings";
 import { SettingsSidebar } from "@/app/components/dashboard/settings/SettingsSidebar";
@@ -31,8 +32,6 @@ import {
   Terminal,
 } from "lucide-react";
 import { useState } from "react";
-import { DashboardShell } from "../dashboard-shell";
-
 const SECTIONS: {
   id: SettingsSection;
   label: string;
@@ -54,7 +53,7 @@ const SECTIONS: {
   {
     id: "localization",
     label: "Localization",
-    component: NotificationsSettings,
+    component: LocalizationSettings,
     icon: Globe,
   },
   {
@@ -117,31 +116,29 @@ export default function SettingsPage() {
     SECTIONS.find((s) => s.id === activeSection)?.component || GeneralSettings;
 
   return (
-    <DashboardShell>
-      <div className="flex h-full">
-        <SettingsSidebar
-          items={SETTINGS_NAV}
-          activeSection={activeSection}
-          onSelect={handleSectionSelect}
-        />
+    <div className="flex h-full">
+      <SettingsSidebar
+        items={SETTINGS_NAV}
+        activeSection={activeSection}
+        onSelect={handleSectionSelect}
+      />
 
-        <div className="flex-1 overflow-y-auto p-6 lg:p-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="max-w-6xl mx-auto"
-          >
-            <AnimatePresence mode="wait">
-              <ActiveComponent
-                key={activeSection}
-                initialData={settings[activeSection] as any}
-                onChange={(data) => handleSettingsChange(activeSection, data)}
-              />
-            </AnimatePresence>
-          </motion.div>
-        </div>
+      <div className="flex-1 overflow-y-auto p-6 lg:p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="max-w-6xl mx-auto"
+        >
+          <AnimatePresence mode="wait">
+            <ActiveComponent
+              key={activeSection}
+              initialData={settings[activeSection] as any}
+              onChange={(data) => handleSettingsChange(activeSection, data)}
+            />
+          </AnimatePresence>
+        </motion.div>
       </div>
-    </DashboardShell>
+    </div>
   );
 }

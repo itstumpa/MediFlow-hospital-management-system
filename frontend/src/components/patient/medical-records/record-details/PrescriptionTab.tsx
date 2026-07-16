@@ -39,7 +39,7 @@ function PrescriptionCard({
             </p>
           </div>
         </div>
-        <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
+        <span className="shrink-0 rounded-full bg-dash-primary-light px-2.5 py-1 text-[10px] font-semibold text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]">
           {rx.duration}
         </span>
       </div>

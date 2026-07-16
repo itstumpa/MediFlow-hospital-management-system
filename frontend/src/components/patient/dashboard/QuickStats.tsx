@@ -26,7 +26,7 @@ const stats: Stat[] = [
     value: 1,
     icon: CalendarCheck,
     color:
-      "text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 dark:text-emerald-400",
+      "text-dash-primary bg-dash-primary-light dark:bg-teal-950/40 dark:text-[var(--color-accent)]",
   },
   {
     label: "Completed Appointments",

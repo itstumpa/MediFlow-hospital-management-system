@@ -24,13 +24,13 @@ export function Sidebar() {
     >
       {/* ========== Logo ========== */}
       <Link
-        href="/patient"
+        href="/"
         className={cn(
           "flex h-16 shrink-0 items-center",
           sidebarCollapsed ? "justify-center px-4" : "gap-3 px-5",
         )}
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 shadow-md shadow-emerald-200/50 dark:shadow-emerald-900/30">
+        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark shadow-md shadow-dash-primary/20 dark:shadow-dash-primary/10">
           <HeartPulse className="h-5 w-5 text-white" />
         </div>
 
@@ -47,7 +47,7 @@ export function Sidebar() {
               <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                 MediFlow
               </span>
-              <p className="text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
+              <p className="text-[11px] font-medium text-dash-primary dark:text-[var(--color-accent)]">
                 Patient Portal
               </p>
             </motion.div>
@@ -106,7 +106,7 @@ export function Sidebar() {
         {sidebarCollapsed ? (
           <>
             <button
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-sm"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-white shadow-sm"
               aria-label="User menu"
             >
               <User className="h-4 w-4" />
@@ -129,7 +129,7 @@ export function Sidebar() {
           </>
         ) : (
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 text-sm font-semibold text-white shadow-sm shadow-emerald-200/50 dark:shadow-emerald-900/30">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm shadow-dash-primary/20 dark:shadow-dash-primary/10">
               JD
             </div>
             <div className="flex-1 overflow-hidden">
@@ -137,7 +137,7 @@ export function Sidebar() {
                 John Doe
               </p>
               <div className="flex items-center gap-1.5">
-                <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400">
+                <span className="inline-flex items-center rounded-full bg-dash-primary-light px-2 py-0.5 text-[10px] font-semibold text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]">
                   Gold Member
                 </span>
               </div>

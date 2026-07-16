@@ -89,7 +89,7 @@ export function PrescriptionTable({
                   </Td>
                   <Td>
                     <span className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-[8px] font-bold text-white">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-dash-primary to-dash-primary-dark text-[8px] font-bold text-white">
                         {rx.doctor.initials}
                       </div>
                       <span className="truncate max-w-[110px]">
@@ -155,7 +155,7 @@ export function PrescriptionTable({
                           <button
                             type="button"
                             onClick={() => onRequestRefill(rx)}
-                            className="rounded-lg p-1.5 text-emerald-500 transition-all hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
+                            className="rounded-lg p-1.5 text-dash-primary transition-all hover:bg-dash-primary-light dark:hover:bg-teal-950/30"
                             aria-label="Request refill"
                           >
                             <RefreshCw className="h-3.5 w-3.5" />

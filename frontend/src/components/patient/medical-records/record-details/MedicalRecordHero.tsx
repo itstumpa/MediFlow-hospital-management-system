@@ -74,8 +74,8 @@ export function MedicalRecordHero({ data, className }: MedicalRecordHeroProps) {
           "bg-gradient-to-br",
           colors.text === "text-blue-700"
             ? "from-blue-400 to-blue-600"
-            : colors.text === "text-emerald-700"
-              ? "from-emerald-400 to-emerald-600"
+            : colors.text === "text-dash-primary"
+              ? "from-dash-primary to-dash-primary-dark"
               : colors.text === "text-violet-700"
                 ? "from-violet-400 to-violet-600"
                 : colors.text === "text-rose-700"
@@ -124,7 +124,7 @@ export function MedicalRecordHero({ data, className }: MedicalRecordHeroProps) {
               stiffness: 200,
               delay: 0.1,
             }}
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-lg font-bold text-white shadow-md"
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-lg font-bold text-white shadow-md"
           >
             {record.doctor.initials}
           </motion.div>

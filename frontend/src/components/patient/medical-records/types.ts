@@ -57,11 +57,11 @@ export const recordTypeColors: Record<
     darkText: "dark:text-blue-400",
   },
   treatment: {
-    dot: "bg-emerald-500",
-    bg: "bg-emerald-50",
-    text: "text-emerald-700",
-    darkBg: "dark:bg-emerald-950/40",
-    darkText: "dark:text-emerald-400",
+    dot: "bg-[var(--color-primary)]",
+    bg: "bg-dash-primary-light",
+    text: "text-dash-primary",
+    darkBg: "dark:bg-teal-950/40",
+    darkText: "dark:text-[var(--color-accent)]",
   },
   procedure: {
     dot: "bg-violet-500",

@@ -37,7 +37,7 @@ function Toast({ message, onClose }: { message: string; onClose: () => void }) {
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-xl bg-slate-800 px-5 py-3 text-sm font-medium text-white shadow-xl dark:bg-slate-700"
     >
-      <AlertCircle className="h-4 w-4 text-emerald-400" />
+      <AlertCircle className="h-4 w-4 text-[var(--color-accent)]" />
       <span>{message}</span>
       <button
         type="button"

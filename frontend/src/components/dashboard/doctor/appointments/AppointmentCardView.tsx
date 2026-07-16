@@ -105,6 +105,7 @@ export function AppointmentCardView({ appointments }: AppointmentCardProps) {
                 className={cn(
                   "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium",
                   sStyle.bg,
+                  sStyle.text,
                 )}
               >
                 <span className={cn("h-1.5 w-1.5 rounded-full", sStyle.dot)} />

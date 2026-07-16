@@ -117,7 +117,7 @@ export function MedicationSchedule({
                       className={cn(
                         "flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors",
                         dose.taken
-                          ? "border-emerald-400 bg-emerald-50 dark:border-emerald-500 dark:bg-emerald-950/40"
+                          ? "border-[var(--color-primary)] bg-dash-primary-light dark:border-[var(--color-accent)] dark:bg-teal-950/40"
                           : "border-slate-300 dark:border-slate-600",
                       )}
                     >
@@ -125,7 +125,7 @@ export function MedicationSchedule({
                         <motion.span
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="h-2.5 w-2.5 rounded-full bg-emerald-400 dark:bg-emerald-500"
+                          className="h-2.5 w-2.5 rounded-full bg-[var(--color-primary)] dark:bg-[var(--color-accent)]"
                         />
                       )}
                     </span>

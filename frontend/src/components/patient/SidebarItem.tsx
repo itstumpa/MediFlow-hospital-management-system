@@ -17,7 +17,10 @@ export function SidebarItem({
   collapsed,
 }: PatientSidebarItemProps) {
   const pathname = usePathname();
-  const isActive = pathname === href || pathname.startsWith(href + "/");
+  const hrefSegments = href.split("/").filter(Boolean);
+  const isActive =
+    pathname === href ||
+    (hrefSegments.length > 1 && pathname.startsWith(href + "/"));
 
   return (
     <Link

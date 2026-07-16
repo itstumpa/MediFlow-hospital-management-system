@@ -24,7 +24,7 @@ export function DoctorGrid({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3"
       role="list"
       aria-label="Favorite doctors"
     >

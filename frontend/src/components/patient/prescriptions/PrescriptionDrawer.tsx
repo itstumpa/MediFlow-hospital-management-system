@@ -116,7 +116,7 @@ export function PrescriptionDrawer({
 
             {/* Doctor & Department */}
             <div className="dash-card flex items-center gap-3 p-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-xs font-bold text-white">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-dash-primary to-dash-primary-dark text-xs font-bold text-white">
                 {prescription.doctor.initials}
               </div>
               <div className="min-w-0 flex-1">

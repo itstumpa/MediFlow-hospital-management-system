@@ -1,53 +1,52 @@
 ﻿"use client";
 
-import { useMemo, useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpDown,
-  Check,
-  ChevronDown,
-  Eye,
-  Edit3,
-  Trash2,
-  Star,
-  StarOff,
   CalendarDays,
+  ChevronDown,
+  Edit3,
+  Eye,
+  FolderOpen,
   ImageIcon,
   MoreHorizontal,
-  FolderOpen,
+  Star,
+  StarOff,
+  Trash2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import type { ArticleCategory, ViewMode } from "./types";
+import { useEffect, useRef, useState } from "react";
 import { staggerItem } from "../../MotionVariants";
+import type { ArticleCategory } from "./types";
 
 /* â”€â”€â”€ Icon resolver â”€â”€â”€ */
+import type { LucideIcon } from "lucide-react";
 import {
-  Heart,
-  Brain,
+  Activity,
   Apple,
   Baby,
-  Activity,
-  Wind,
-  Droplets,
-  Shield,
-  Eye as EyeIcon,
-  Smile,
-  Bone,
-  Stethoscope,
-  Pill,
-  Microscope,
-  HeartPulse,
-  Syringe,
-  Weight,
   Bath,
+  Bone,
+  Brain,
+  Droplets,
   Ear,
+  Eye as EyeIcon,
   Fingerprint,
-  Venus,
-  Sparkles,
-  Sun,
+  Heart,
+  HeartPulse,
+  Microscope,
   Moon,
+  Pill,
+  Shield,
+  Smile,
+  Sparkles,
+  Stethoscope,
+  Sun,
+  Syringe,
+  Venus,
+  Weight,
+  Wind,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart,
@@ -246,7 +245,7 @@ function CategoryRow({
           type="checkbox"
           checked={selected}
           onChange={() => onSelect(category.id)}
-          className="h-4 w-4 rounded border-slate-300 text-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-800"
+          className="h-4 w-4 rounded border-slate-300 text-dash-primary accent-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-800"
         />
       </td>
 
@@ -317,7 +316,9 @@ function CategoryRow({
             Featured
           </span>
         ) : (
-          <span className="text-xs text-slate-400 dark:text-slate-500">â€”</span>
+          <span className="text-xs text-slate-400 dark:text-slate-500">
+            â€”
+          </span>
         )}
       </td>
 
@@ -419,7 +420,7 @@ export function CategoryTable({
                     if (el) el.indeterminate = someSelected;
                   }}
                   onChange={handleSelectAll}
-                  className="h-4 w-4 rounded border-slate-300 text-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-800"
+                  className="h-4 w-4 rounded border-slate-300 text-dash-primary accent-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-600 dark:bg-slate-800"
                 />
               </th>
               {COLUMNS.map((col) => (

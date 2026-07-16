@@ -82,7 +82,7 @@ export function MedicalTable({ records, className }: MedicalTableProps) {
                 </Td>
                 <Td>
                   <span className="flex items-center gap-2">
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-[9px] font-bold text-white">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-dash-primary to-dash-primary-dark text-[9px] font-bold text-white">
                       {record.doctor.initials}
                     </div>
                     <span className="text-xs font-medium text-slate-700 dark:text-slate-300 truncate max-w-[120px]">

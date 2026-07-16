@@ -153,7 +153,7 @@ export function GeneralSettings({
                     handleChange("website", `https://${e.target.value}`)
                   }
                   className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-slate-900 placeholder-slate-400 transition-all focus:border-dash-primary focus:ring-2 focus:ring-dash-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
-                  placeholder="mediflow.example.com"
+                  placeholder=""
                 />
               </div>
             </div>

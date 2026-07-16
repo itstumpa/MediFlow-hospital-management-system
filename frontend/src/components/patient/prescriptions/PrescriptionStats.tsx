@@ -77,9 +77,9 @@ export function PrescriptionStats({
       label: "Active Prescriptions",
       value: stats.active,
       icon: CheckCircle2,
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50",
-      darkBg: "dark:bg-emerald-950/40",
+      color: "text-dash-primary",
+      bgColor: "bg-dash-primary-light",
+      darkBg: "dark:bg-teal-950/40",
     },
     {
       label: "Completed",

@@ -77,7 +77,7 @@ export function RecentPrescriptions() {
             animate="visible"
             className="flex items-center gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/40"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]">
               <Pill className="h-4 w-4" strokeWidth={1.8} />
             </span>
             <div className="min-w-0 flex-1">

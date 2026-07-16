@@ -28,7 +28,7 @@ function LabResultRow({ lab, index }: { lab: LabResultData; index: number }) {
         "rounded-xl border bg-white p-4 transition-all hover:border-slate-200 hover:shadow-sm dark:border-slate-700/40 dark:bg-slate-800/60 dark:hover:border-slate-600/50",
         lab.flagged
           ? "border-l-4 border-l-amber-400 dark:border-l-amber-500"
-          : "border-l-4 border-l-emerald-400 dark:border-l-emerald-500",
+          : "border-l-4 border-l-[var(--color-primary)] dark:border-l-[var(--color-accent)]",
       )}
     >
       <div className="flex items-start justify-between gap-3">

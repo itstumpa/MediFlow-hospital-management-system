@@ -65,19 +65,9 @@ export const doctorNavigationGroups: DoctorNavGroupDef[] = [
         href: "/doctor/profile",
       },
       {
-        icon: Settings as LucideIcon,
-        label: "Settings",
-        href: "/doctor/settings",
-      },
-      {
         icon: Shield as LucideIcon,
         label: "Security & Privacy",
         href: "/doctor/settings/security",
-      },
-      {
-        icon: ExternalLink as LucideIcon,
-        label: "Go to Homepage",
-        href: "/",
       },
     ],
   },
@@ -110,6 +100,12 @@ export const doctorQuickActions: DoctorQuickActionItem[] = [
     label: "Search Patient",
     actionLabel: "Find patient",
     href: "/doctor/patients",
+  },
+  {
+    icon: ExternalLink as LucideIcon,
+    label: "Go to Homepage",
+    actionLabel: "Visit homepage",
+    href: "/",
   },
 ];
 

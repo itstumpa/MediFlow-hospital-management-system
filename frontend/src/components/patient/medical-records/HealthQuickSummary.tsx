@@ -111,7 +111,7 @@ export function HealthQuickSummary({ health, className }: MedicalSummaryProps) {
           icon={Weight}
           label="Weight"
           value={health.weight}
-          color="text-emerald-400"
+          color="text-[var(--color-accent)]"
         />
         <HealthRow
           icon={Calculator}

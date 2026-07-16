@@ -43,7 +43,7 @@ export function UserDropdown() {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 text-sm font-semibold text-white shadow-sm transition-transform group-hover:scale-105">
+        <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-semibold text-white shadow-sm transition-transform group-hover:scale-105">
           JD
         </div>
         <div className="hidden text-left md:block">
@@ -92,7 +92,7 @@ export function UserDropdown() {
                 <p className="text-xs text-slate-500 dark:text-slate-400">
                   john.doe@example.com
                 </p>
-                <span className="mt-1.5 inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400">
+                <span className="mt-1.5 inline-flex items-center rounded-full bg-dash-primary-light px-2 py-0.5 text-[10px] font-semibold text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]">
                   Gold Member
                 </span>
               </div>

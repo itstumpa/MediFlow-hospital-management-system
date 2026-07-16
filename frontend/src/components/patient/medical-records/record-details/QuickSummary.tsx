@@ -86,7 +86,7 @@ export function QuickSummary({ data, className }: QuickSummaryProps) {
         color={cn(
           "bg-orange-50 text-orange-600 dark:bg-orange-950/40 dark:text-orange-400",
           diagnosis.riskLevel === "low" &&
-            "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
+            "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]",
           diagnosis.riskLevel === "high" &&
             "bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-400",
           diagnosis.riskLevel === "critical" &&

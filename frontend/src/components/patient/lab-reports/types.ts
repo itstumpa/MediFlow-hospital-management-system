@@ -36,8 +36,8 @@ export const reportStatusConfig: Record<
   completed: {
     label: "Completed",
     className:
-      "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400",
-    dotColor: "bg-emerald-500",
+      "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]",
+    dotColor: "bg-[var(--color-primary)]",
   },
   abnormal: {
     label: "Abnormal",
@@ -56,7 +56,7 @@ export const resultFlagConfig: Record<
 > = {
   normal: {
     label: "Normal",
-    className: "text-emerald-600 dark:text-emerald-400",
+    className: "text-dash-primary dark:text-[var(--color-accent)]",
   },
   high: {
     label: "High",

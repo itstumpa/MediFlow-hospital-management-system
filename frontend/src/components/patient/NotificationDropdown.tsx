@@ -62,7 +62,7 @@ const typeIcons = {
 const typeStyles = {
   info: "bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400",
   success:
-    "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400",
+    "bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]",
   warning:
     "bg-amber-50 text-amber-600 dark:bg-amber-950/40 dark:text-amber-400",
   error: "bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-400",

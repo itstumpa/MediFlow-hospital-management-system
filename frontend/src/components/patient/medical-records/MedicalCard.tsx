@@ -117,7 +117,7 @@ export function MedicalCard({ records, className }: MedicalCardProps) {
 
             {/* Doctor */}
             <div className="flex items-center gap-2 mb-1.5">
-              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-[8px] font-bold text-white">
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-dash-primary to-dash-primary-dark text-[8px] font-bold text-white">
                 {record.doctor.initials}
               </div>
               <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">

@@ -277,7 +277,7 @@ export function LocalizationSettings({
                     : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
                 )}
               >
-                <span className="text-2xl font-bold">
+                <span className="text-2xl font-bold text-slate-900 dark:text-white">
                   {unit === "metric" ? "kg/cm" : "lb/in"}
                 </span>
                 <span className="font-medium text-slate-900 dark:text-white capitalize">

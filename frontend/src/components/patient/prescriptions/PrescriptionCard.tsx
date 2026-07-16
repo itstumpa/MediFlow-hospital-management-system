@@ -93,7 +93,7 @@ export function PrescriptionCard({
 
             {/* Doctor & Department */}
             <div className="flex items-center gap-2 mb-2">
-              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-[8px] font-bold text-white">
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-dash-primary to-dash-primary-dark text-[8px] font-bold text-white">
                 {rx.doctor.initials}
               </div>
               <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">
@@ -142,7 +142,7 @@ export function PrescriptionCard({
                   <button
                     type="button"
                     onClick={() => onRequestRefill(rx)}
-                    className="inline-flex items-center gap-1 rounded-lg border border-emerald-200 px-2.5 py-1.5 text-[10px] font-medium text-emerald-600 transition-all hover:bg-emerald-50 active:scale-[0.95] dark:border-emerald-900/30 dark:text-emerald-400 dark:hover:bg-emerald-950/30"
+                    className="inline-flex items-center gap-1 rounded-lg border border-dash-primary/30 px-2.5 py-1.5 text-[10px] font-medium text-dash-primary transition-all hover:bg-dash-primary-light active:scale-[0.95] dark:border-teal-900/30 dark:text-[var(--color-accent)] dark:hover:bg-teal-950/30"
                     aria-label="Request refill"
                   >
                     <RefreshCw className="h-3 w-3" />

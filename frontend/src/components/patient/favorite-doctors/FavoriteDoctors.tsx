@@ -158,7 +158,7 @@ export function FavoriteDoctors() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="border-b border-slate-200 bg-white/80 px-6 py-5 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-slate-800 dark:bg-slate-900/80"
+        className="border-b border-slate-200 bg-white/80 px-4 sm:px-6 py-4 sm:py-5 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-slate-800 dark:bg-slate-900/80"
       >
         <div className="mx-auto max-w-[var(--container-page)] flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -182,7 +182,7 @@ export function FavoriteDoctors() {
       </motion.div>
 
       {/* Main Content */}
-      <main className="mx-auto max-w-[var(--container-page)] px-6 py-6">
+      <main className="mx-auto max-w-[var(--container-page)] px-4 sm:px-6 py-4 sm:py-6">
         {/* Stats */}
         <motion.div
           variants={staggerContainer}

@@ -89,7 +89,7 @@ export function DiagnosisTab({ data, className }: DiagnosisTabProps) {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <InfoRow
-          icon={<Code className="h-4 w-4 text-emerald-500" />}
+          icon={<Code className="h-4 w-4 text-[var(--color-primary)]" />}
           label="ICD-10 Code"
           value={
             <span className="font-mono tracking-wider">
@@ -104,7 +104,7 @@ export function DiagnosisTab({ data, className }: DiagnosisTabProps) {
                 "h-4 w-4",
                 riskLevelConfig[diagnosis.riskLevel].icon === AlertTriangle
                   ? "text-red-500"
-                  : "text-emerald-500",
+                  : "text-[var(--color-primary)]",
               )}
             />
           }

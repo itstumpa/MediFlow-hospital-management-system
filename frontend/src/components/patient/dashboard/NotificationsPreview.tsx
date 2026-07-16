@@ -50,9 +50,9 @@ const notifications = [
 
 const typeConfig = {
   success: {
-    bg: "bg-emerald-50 dark:bg-emerald-950/40",
+    bg: "bg-dash-primary-light dark:bg-teal-950/40",
     icon: CalendarCheck,
-    color: "text-emerald-600 dark:text-emerald-400",
+    color: "text-dash-primary dark:text-[var(--color-accent)]",
   },
   info: {
     bg: "bg-blue-50 dark:bg-blue-950/40",

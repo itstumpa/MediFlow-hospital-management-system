@@ -9,7 +9,6 @@ import {
   Home,
   LayoutDashboard,
   MessageSquare,
-  Settings,
   Shield,
   Stethoscope,
   Users,
@@ -101,11 +100,6 @@ export const navigationGroups: NavGroupDef[] = [
         icon: Shield as LucideIcon,
         label: "Roles & Permissions",
         href: "/admin/roles",
-      },
-      {
-        icon: Settings as LucideIcon,
-        label: "Settings",
-        href: "/admin/settings",
       },
       {
         icon: Activity as LucideIcon,

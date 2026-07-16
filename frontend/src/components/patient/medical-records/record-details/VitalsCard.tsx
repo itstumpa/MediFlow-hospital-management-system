@@ -115,7 +115,7 @@ export function VitalsCard({ vitals, className }: VitalsCardProps) {
           icon={Weight}
           label="Weight"
           value={vitals.weight}
-          color="bg-emerald-50 text-emerald-500 dark:bg-emerald-950/40 dark:text-emerald-400"
+          color="bg-dash-primary-light text-dash-primary dark:bg-teal-950/40 dark:text-[var(--color-accent)]"
         />
         <VitalItem
           icon={Activity}

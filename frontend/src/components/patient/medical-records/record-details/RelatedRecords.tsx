@@ -23,7 +23,11 @@ function RelatedRecordRow({ related }: { related: RelatedRecord }) {
       label: "Previous Visit",
       color: "text-blue-500",
     },
-    next: { icon: ArrowRight, label: "Next Visit", color: "text-emerald-500" },
+    next: {
+      icon: ArrowRight,
+      label: "Next Visit",
+      color: "text-[var(--color-primary)]",
+    },
     similar: { icon: User, label: "Similar Case", color: "text-violet-500" },
   };
 
@@ -36,7 +40,7 @@ function RelatedRecordRow({ related }: { related: RelatedRecord }) {
       className="group flex items-center gap-4 rounded-xl border border-slate-100 bg-white p-4 transition-all hover:border-slate-200 hover:shadow-sm dark:border-slate-700/40 dark:bg-slate-800/60 dark:hover:border-slate-600/50"
     >
       {/* Avatar */}
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-emerald-500 text-sm font-bold text-white">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-dash-primary to-dash-primary-dark text-sm font-bold text-white">
         {related.doctor.initials}
       </div>
 

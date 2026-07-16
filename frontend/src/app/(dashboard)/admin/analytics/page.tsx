@@ -8,8 +8,9 @@ import {
 } from "@/app/components/dashboard/MotionVariants";
 import { PageHeader } from "@/app/components/dashboard/PageHeader";
 import { motion } from "framer-motion";
-import { BarChart3, Download, RefreshCw } from "lucide-react";
+import { Download, RefreshCw } from "lucide-react";
 import { useState } from "react";
+import { DemographicsChart, demographicsData, RevenueChart } from "./charts";
 
 const statCards = [
   { label: "Total Patients", value: "12,847", change: "+12.5%", color: "blue" },
@@ -87,34 +88,43 @@ export default function AnalyticsPage() {
         ))}
       </motion.div>
 
-      {/* Charts placeholder with glass design */}
+      {/* Charts */}
       <div className="grid gap-6 lg:grid-cols-2">
         <motion.div variants={fadeUp} className="dash-card overflow-hidden">
-          <div className="border-b border-slate-100 px-6 py-4 dark:border-slate-800">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-              Revenue Overview
-            </h3>
-          </div>
-          <div className="flex h-[300px] items-center justify-center bg-gradient-to-b from-slate-50/50 to-transparent dark:from-slate-800/30">
-            <div className="flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500">
-              <BarChart3 className="h-10 w-10" />
-              <p className="text-sm">Chart visualization coming soon</p>
+          <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 dark:border-slate-800">
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                Revenue Overview
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Monthly revenue trends
+              </p>
             </div>
+            <span className="rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400">
+              +18.3% vs last year
+            </span>
           </div>
+          <RevenueChart />
         </motion.div>
 
         <motion.div variants={fadeUp} className="dash-card overflow-hidden">
-          <div className="border-b border-slate-100 px-6 py-4 dark:border-slate-800">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-              Patient Demographics
-            </h3>
-          </div>
-          <div className="flex h-[300px] items-center justify-center bg-gradient-to-b from-slate-50/50 to-transparent dark:from-slate-800/30">
-            <div className="flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500">
-              <BarChart3 className="h-10 w-10" />
-              <p className="text-sm">Chart visualization coming soon</p>
+          <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 dark:border-slate-800">
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                Patient Demographics
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Age distribution
+              </p>
             </div>
+            <span className="rounded-lg bg-dash-primary-light/50 px-2.5 py-1 text-xs font-semibold text-dash-primary dark:bg-teal-950/30 dark:text-accent">
+              {new Intl.NumberFormat().format(
+                demographicsData.reduce((s, d) => s + d.value, 0),
+              )}{" "}
+              total
+            </span>
           </div>
+          <DemographicsChart />
         </motion.div>
       </div>
 
